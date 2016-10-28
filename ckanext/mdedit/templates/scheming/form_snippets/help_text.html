@@ -1,0 +1,53 @@
+{% import 'macros/form.html' as form %}
+
+{# Not Needed!
+{% resource 'mdedit/ccca_popover.js' %}
+#}
+
+{% macro standard_info(text='', inline=false, classes=[]) %}
+  {%- if text -%}
+  {# Anja 20.10.16: old
+    <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
+      <i class="badge">S</i>
+      {{ text }}
+    </div>
+    #}
+    <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
+    <a data-module="ccca-popover" data-target="popover" data-content="{{ text }}" data-html="true"  href="#">
+      <i class="badge badge-success">Standard-Information</i>
+  </a>
+</div>
+  {%- endif -%}
+{% endmacro %}
+
+{% macro my_help(text='', url='', inline=false, classes=[]) %}
+  {%- if text -%}
+  <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
+      <i class="icon-info-sign"></i>
+      {{ text }}
+    {%- if url -%}
+      <a target = "_blank" href="{{url}}">  {{url}}</a>
+  {%- endif -%}
+    </div>
+  {%- endif -%}
+{% endmacro %}
+
+{% if field.help_text and field.help_url %}
+    {{ my_help(
+        text=h.scheming_language_text(field.help_text),
+        url=h.scheming_language_text(field.help_url),
+        inline=true,
+    ) }}
+{% elif field.help_text %}
+    {{ form.info(
+        text=h.scheming_language_text(field.help_text),
+      inline=field.get('help_inline', true),
+    ) }}
+{%- endif -%}
+{% if field.help_text_norm %}
+    {{ standard_info(
+        text=h.scheming_language_text(field.help_text_norm),
+        inline=field.get('help_inline', false),
+        classes=['label_info'],
+        ) }}
+{%- endif -%}

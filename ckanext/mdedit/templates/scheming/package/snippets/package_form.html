@@ -1,0 +1,85 @@
+{# Anja 27.10.2016: Changed and adapted from scheming #}
+
+{% ckan_extends %}
+
+{% block errors %}
+  {%- if errors -%}
+    {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+    {%- snippet 'scheming/snippets/errors.html',
+      errors=errors, fields=schema.dataset_fields,
+      entity_type='dataset', object_type=dataset_type -%}
+  {%- endif -%}
+{% endblock %}
+
+{% block basic_fields %}
+
+  {# Anja 20.10. Bug for Tabs/pills hash in url #}
+  {% resource 'mdedit/ccca_navpills.js' %}
+
+  {%- if not dataset_type -%}
+    <p>
+    dataset_type not passed to template. your version of CKAN
+    might not be compatible with ckanext-scheming
+    </p>
+  {%- endif -%}
+
+  {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+
+  {# find delimters and headers for Tabs #}
+  <header class="module-content page-header mdedit_ph_small">
+  {%- for field in schema.dataset_fields -%}
+     {%- if loop.first and field.field_name == "tab_delimiter" -%}
+        {%- if field.necessary -%}
+         <ul class="nav nav-pills" id="myPills">
+            <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"  data-html="true"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
+        {%- else -%}
+      <ul class="nav nav-pills" id="myPills">
+         <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"   data-html="true">{{field.tab_delimiter}}</a></li>
+        {%- endif -%}
+    {%- endif -%}
+
+    {%- if not loop.first and field.field_name == "tab_delimiter" -%}
+       {%- if field.necessary -%}
+        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
+       {%- else  -%}
+        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}">{{field.tab_delimiter}}</a></li>
+       {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {# Now manage the fields #}
+  {%- for field in schema.dataset_fields -%}
+    {%- if field.field_name == "tab_delimiter" and loop.first -%}
+        </ul>
+        </header>
+       <div class="pill-content">
+        <div id="{{field.tab_delimiter}}" class="pill-pane fade in active">
+          <br>
+         <h3>{{field.title}}</h3>
+          <br>  <br>
+    {%- elif  field.field_name == "tab_delimiter" and not loop.first -%}
+        </div>
+        <div id="{{field.tab_delimiter}}" class="pill-pane fade">
+            <br>
+              <h3>{{field.title}}</h3>
+          <br>  <br>
+    {%- elif field.form_snippet is not none -%}
+      {%- snippet 'scheming/snippets/form_field.html',
+        field=field, data=data, errors=errors, licenses=c.licenses,
+        entity_type='dataset', object_type=dataset_type -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- if schema.dataset_fields[0].field_name == "tab_delimiter" -%}
+        </div>
+      </div>
+  {%- endif -%}
+
+  {%- if 'resource_fields' not in schema -%}
+      <!-- force controller to skip resource-editing step for this type -->
+      <input type="hidden" name="_ckan_phase" value="" />
+  {%- endif -%}
+{% endblock %}
+
+{% block metadata_fields %}
+{% endblock %}

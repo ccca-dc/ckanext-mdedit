@@ -32,17 +32,16 @@
 ckanext-mdedit
 =============
 
-.. Put a description of your extension here:
-   What does it do? What features does it have?
-   Consider including some screenshots or embedding a video!
+.. A Metadata Editor Extension which uses ckanext-scheming and changes the appearance of the dataset and resource form
+.. Includes Tabs to groups the json fields
+.. Beta State ... still under developement!!!
 
 
 ------------
 Requirements
 ------------
 
-For example, you might want to mention here which versions of CKAN this
-extension works with.
+Tested with ckan 2.5.2
 
 
 ------------
@@ -52,6 +51,8 @@ Installation
 .. Add any additional install steps to the list below.
    For example installing any non-Python dependencies or adding any required
    config settings.
+
+.. Requires ckanext-scheming!
 
 To install ckanext-mdedit:
 

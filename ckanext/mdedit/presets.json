@@ -1,0 +1,34 @@
+{
+  "scheming_presets_version": 1,
+  "about": "these are the default scheming field presets",
+  "about_url": "http://github.com/ckan/ckanext-scheming#preset",
+  "presets": [
+    {
+      "preset_name": "mdedit_today",
+      "values": {
+        "form_snippet": "today.html",
+        "display_snippet": "today.html",
+        "validators": "scheming_required isodate convert_to_json_if_datetime",
+        "form_attrs": {
+          "readonly": "readonly"
+        }
+      }
+    },
+    {
+      "preset_name": "mdedit_individual",
+      "values": {
+        "form_snippet": "individual.html",
+        "display_snippet": "text.html"
+      }
+    },
+    {
+      "preset_name": "mdedit_organization",
+      "mdedit_note":" copied from sceheming, just additional display_form (as well from scheming) ",
+      "values": {
+        "validators": "owner_org_validator unicode",
+        "form_snippet": "organization.html",
+        "display_snippet": "mdedit_organization.html"
+      }
+    }
+  ]
+}

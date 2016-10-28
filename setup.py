@@ -17,7 +17,7 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''A Metadata Extension which uses ckanext-scheming and changes the appearance of the datasat and resource form''',
+    description='''A Metadata Editor Extension which uses ckanext-scheming and changes the appearance of the dataset and resource form''',
     long_description=long_description,
 
     # The project's main homepage.

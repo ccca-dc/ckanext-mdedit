@@ -1,0 +1,57 @@
+{% ckan_extends %}
+
+{# Anja 27.10.2016: Change Comments #}
+
+  {% block info_module %}
+    <section class="module module-narrow module-shallow">
+      <h2 class="module-heading"><i class="icon-info-sign"></i> {{ _('What are datasets?') }}</h2>
+      <div class="module-content">
+        <p>
+          {% trans %}
+          A Dataset is a collection of data resources (such as files),
+          together with a description and other information ("Metadata"), at a fixed URL.
+          Datasets are what users see when searching for data.
+          {% endtrans %}
+        </p>
+      </div>
+    </section>
+    <section class="module module-narrow module-shallow">
+    <h2 class="module-heading"><i class="icon-info-sign"></i> {{ _('What are Metadata?') }}</h2>
+    <div class="module-content">
+      <p>
+        {% trans %}
+        For automated searchability and exchange ("Harvesting") various formats of Metadata have been defined,
+        the most important ones of which are the international <a href="https://www.iso.org/obp/ui/#iso:std:iso:19115:-1:ed-1:v1:en" target="_blank">
+        ISO19115</a> format and the European <a href"http://inspire-geoportal.ec.europa.eu" target="_blank">Inspire</a> format.
+        {% endtrans %}
+      </p>
+    </div>
+  </section>
+  <section class="module module-narrow module-shallow">
+  <h2 class="module-heading"><i class="icon-info-sign"></i> {{ _('Which standards does the CCCA support?') }}</h2>
+  <div class="module-content">
+    <p>
+      {% trans %}
+      For your convenience the CCCA supports both important Metadata Standards, ISO19115 and Inspire.
+      Below every Metadata field on the right you will find information about the corresponding ISO and Inspire fields
+      including obligation information (<i>m</i>andatory, <i>o</i>ptional, <i>c</i>onditional).
+      <br>
+      Right to each field on the right you find an <b>i</b>nformal explanation of its meaning and scope.
+      {% endtrans %}
+    </p>
+  </div>
+</section>
+<section class="module module-narrow module-shallow">
+<h2 class="module-heading"><i class="icon-info-sign"></i> {{ _('Do I have to provide all information?') }}</h2>
+<div class="module-content">
+  <p>
+    {% trans %}
+    For your convenience the CCCA supports as well a minmal amount of information about your resources
+    in order to upload and store them on the CCCA server (corresponding fields are marked <font color="red">*</font>).
+    However, we like to point out that the standard conformity of the information you provide regarding your data ensures worldwide
+    detectability and linkage.
+    {% endtrans %}
+  </p>
+</div>
+</section>
+{% endblock %}
