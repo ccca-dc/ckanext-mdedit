@@ -66,7 +66,8 @@ To install ckanext-mdedit:
 
 3. Add ``mdedit`` to the ``ckan.plugins`` setting in your CKAN
    config file (by default the config file is located at
-   ``/etc/ckan/default/production.ini``).
+   ``/etc/ckan/default/production.ini``). 
+   IMPORTANT: Insert 'mdedit' before 'scheming_datasets'
 
 4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
