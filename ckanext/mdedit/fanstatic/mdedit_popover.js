@@ -3,10 +3,13 @@
 // being taken, and disables some confusing and bad JavaScript features.
 "use strict";
 
-ckan.module('ccca_tooltip', function ($, _) {
+ckan.module('mdedit_popover', function ($, _) {
   return {
     initialize: function () {
-      console.log("Tooltip: I've been initialized for element: ", this.el);
+      console.log("Popover: I've been initialized for element: ", this.el);
+
+    //  $.proxyAll(this, /_on/);
     },
-    };
-  });
+  };
+
+});

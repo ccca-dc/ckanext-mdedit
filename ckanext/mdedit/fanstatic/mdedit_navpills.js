@@ -1,7 +1,7 @@
 /* Extensions necessary because tab #tags do not show up in the url
    reload always jumps to first tab
 
-   Aus dem Internet - Anja 20.10.
+   ergoogelt - Anja 20.10.
 */
 
 
@@ -31,11 +31,12 @@ window.location.hash = this.hash;
 $('html,body').scrollTop(scrollmem);
 */
 // Javascript to enable link to tab
+
 var url = document.location.toString();
 console.log(url)
 if (url.match('#')) {
     $('.nav-pills a[href="#' + url.split('#')[1] + '"]').tab('show');
-    window.scrollTo(0, 0);
+     window.scrollTo(0, 0);
 }
 
 // Change hash for page-reload
@@ -48,4 +49,5 @@ $('.nav-pills a').on('shown.bs.tab', function (e) {
 /*
 var scrollmem = $('body').scrollTop() || $('html').scrollTop();
    window.location.hash = this.hash;
-   $('html,body').scrollTop(scrollmem);*/
+   $('html,body').scrollTop(scrollmem);
+   */

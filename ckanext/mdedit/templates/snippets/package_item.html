@@ -6,19 +6,25 @@
   {# Use Fanstatic to include our custom JavaScript module.
      A <script> tag for the module will be inserted in the right place at the
      bottom of the page. #}
-  {% resource 'mdedit/ccca_popover.js' %}
+
+
+  {% resource 'mdedit/mdedit_popover.js' %}
+  {% resource 'mdedit/mdedit_tooltip.js' %}
+
 
   {# Apply our JavaScript module to an HTML element. The data-module attribute,
      which can be applied to any HTML element, tells CKAN to initialize an
      instance of the named JavaScript module for the element.
      The initialize() method of our module will be called with this HTML
      element as its this.el object. #}
-  <button data-module="ccca_popover" data-target="popover" data-content="Ich bin ein Popover :-)" data-html="true"
-          class="btn"
-          href="#">
+
+  <button data-module="mdedit_popover" data-target="popover" data-content="Ich bin ein <br> Popover :-)" data-html="true"
+          class="btn">
     <i class="badge badge-success">Popover</i>
     </button>
-    <i data-module="ccca_tooltip"  data-toggle="tooltip" title="Ich bin ein Tooltip :-)" data-html="true"
-            href="#" class="badge badge-success">
-    Tooltip</i>
+    <p data-module="mdedit_tooltip"  data-toggle="tooltip" title="Ich bin ein <br> Tooltip :-)" data-html="true"
+          class="btn"
+          href="#">
+    <i class="badge badge-info">Tooltip</i>
+    </p>
 {% endblock %}

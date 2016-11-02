@@ -49,7 +49,7 @@
 
     {
       "field_name": "idStatus",
-      "label": "Status",
+      "label": "Status of the resource(s)",
       "preset": "select",
       "select_size": "1",
       "help_text": "Status of the resource(s) within this dataset.",
@@ -112,7 +112,17 @@
       "help_text": "Date of creation or last modification of this Dataset (automatically inserted)",
       "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m)."
     },
-  {
+    {
+      "field_name": "state",
+      "label": "Server State of the Dataset",
+      "notes": "Field required by CKAN",
+      "help_text": "Server internal state (automatically filled)",
+      "form_attrs": {
+        "readonly": "readonly",
+        "hidden": "true"
+      }
+    },
+   {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Constraints",
       "title": "Constraints on Usage and Access with respect to the Resources",
@@ -616,10 +626,11 @@
     {
     "field_name": "owner_org",
     "label": "Organization",
-    "preset": "mdedit_organization",
+    "preset": "dataset_organization",
     "help_text": "Metadata Point of Contact: Name of responsible Organization",
-    "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m)."
-
+    "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
+    "inspire": "Part B.3.2",
+    "iso":"376"
     },
 
     {
@@ -627,7 +638,7 @@
       "label": "Webpage",
       "display_snippet": "link.html",
       "help_text": "Webpage of the responsible Organization.",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m)."
+      "help_text_norm": "ISO ?, <br> INSPIRE ?."
     },
     {
       "field_name": "rpIndName",
