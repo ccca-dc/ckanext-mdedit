@@ -23,11 +23,10 @@
     },
     {
       "preset_name": "mdedit_organization",
-      "mdedit_note":" copied from sceheming, just additional display_form (as well from scheming) ",
+      "mdedit_note":" copied from sceheming, just different order of public - private - public is default here) ",
       "values": {
         "validators": "owner_org_validator unicode",
-        "form_snippet": "organization.html",
-        "display_snippet": "mdedit_organization.html"
+        "form_snippet": "mdedit_organization.html"
       }
     }
   ]

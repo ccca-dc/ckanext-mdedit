@@ -1,6 +1,10 @@
 {# This is specific to datasets' owner_org field and won't work #}
 {# if used with other fields #}
 
+{# Anja 3.11.2016 #}
+{# Copied from  scheming; changed order of Public and Private in order to get Public as default #}
+{# Anja 3.11.2016 #}
+
 
 {% macro organization_option_tag(organization, selected_org) %}
   {% block organization_option scoped %}
@@ -11,7 +15,7 @@
 {% endmacro %}
 
   <div data-module="dataset-visibility">
-  {% snippet "scheming/form_snippets/_mdedit_organization_select.html",
+  {% snippet "scheming/form_snippets/_organization_select.html",
     field=field,
     data=data,
     errors=errors,

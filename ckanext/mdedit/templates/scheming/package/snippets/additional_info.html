@@ -10,42 +10,90 @@
     'notes',
     ] -%}
 
+{% set mdedit_tags = pkg_dict.tags %}
+{% set mdedit_num_tags = pkg_dict.num_tags %}
 
 {% block package_additional_info %}
   {%- for field in schema.dataset_fields -%}
 
     {%- if field.field_name == "tab_delimiter" -%}
 
-    </tbody>
-    </table>
-    <table class="table table-striped table-bordered table-condensed">
-      <thead>
-        <tr>
-          <th scope="col"><i>{{ field.tab_delimiter}}</i></th>
-        </tr>
-      </thead>
-      <tbody>
+          </tbody>
+          </table>
+          <table class="table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th scope="col"><i>{{ field.tab_delimiter}}</i></th>
+              </tr>
+            </thead>
+            <tbody>
 
     {%- elif field.field_name not in exclude_fields
-        and field.display_snippet is not none -%}
-      <tr>
-        <th scope="row" class="dataset-label">{{
-          h.scheming_language_text(field.label) }}</th>
-        <td class="dataset-details"{%
-          if field.display_property %} property="{{ field.display_property
-          }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
-          field=field, data=pkg_dict, schema=schema -%}</td>
-      </tr>
+        and field.display_snippet is not none
+        and field.field_name != "owner_org"
+        and field.field_name != "tag_string"
+    -%}
+          <tr>
+            <th scope="row" class="dataset-label">
+              {{ h.scheming_language_text(field.label) }}</th>
+            <td class="dataset-details"{%
+              if field.display_property %} property="{{ field.display_property
+              }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
+              field=field, data=pkg_dict, schema=schema -%}</td>
+          </tr>
     {%- endif -%}
     {%- if field.field_name == "owner_org" -%}
-    <tr>
-      <th scope="row" class="dataset-label">{{
-        h.scheming_language_text(field.label) }}</th>
-      <td class="dataset-details">
-      {%- snippet 'scheming/snippets/display_field.html',
-        field=field, data=pkg_dict, schema=schema -%}
-      </td>
-    </tr>
+          <tr>
+            <th scope="row" class="dataset-label">
+            {{ h.scheming_language_text(field.label) }}</th>
+            <td class="dataset-details">
+            {%- if pkg_dict.organization -%}
+                 {{c.pkg_dict.organization.title}}
+            {%- else %}
+                None assigned
+           {%- endif -%}
+            </td>
+        </tr>
+        <tr>
+          <th scope="row" class="dataset-label">Visibility</th>
+          <td class="dataset-details">
+        {%- if pkg_dict.private -%}
+              Private
+           {%- else %}
+              Public
+          {%- endif -%}
+           </td>
+       </tr>
+    {%- endif -%}
+    {%- if field.field_name == "private" -%}
+          <tr>
+            <th scope="row" class="dataset-label">
+            Visibility
+           </th>
+            <td class="dataset-details">
+            {%- if field.field_value == "True" -%}
+                Private
+            {%- else %}
+                Public
+           {%- endif -%}
+            </td>
+        </tr>
+    {%- endif -%}
+    {%- if field.field_name == "tag_string" -%}
+          <tr>
+            <th scope="row" class="dataset-label">
+            {{  h.scheming_language_text(field.label) }}
+           </th>
+            <td class="dataset-details">
+            {%- for mytag  in mdedit_tags -%}
+               {%- if loop.index < mdedit_num_tags -%}
+                    {{ mdedit_tags[loop.index0].name }},
+                {%- else %}
+                    {{ mdedit_tags[loop.index0].name }}
+                {%- endif -%}
+              {%- endfor -%}
+            </td>
+        </tr>
     {%- endif -%}
 
   {%- endfor -%}
