@@ -293,11 +293,11 @@
       "field_name": "tpCat",
       "label": "Topic Category/ies",
       "preset": "multiple_select",
-      "iso":"",
-      "inspire":"",
+      "iso":"41",
+      "inspire":"Part B 2.1",
       "help_text": "Main theme(s) of the dataset. See ",
       "help_url": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory ",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
+      "help_text_norm": "ISO_tpCat (c), <br> INSPIRE_TopicCategory (m).",
       "choices": [
         {
           "value": "001",
@@ -392,7 +392,6 @@
       "label": "Keyword Type",
       "form_snippet": "select.html",
       "display_snippet": "select.html",
-      "form_blanks": "3",
       "help_text": "Subject matter used to group smimlar keywords",
       "help_text_norm": "ISO_keyTyp (o), <br> INSPIRE -",
       "iso":"54",
@@ -440,10 +439,11 @@
       },
       {
         "field_name": "thesaRefDate",
-        "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
+        "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfPublication (o).",
+        "mdedit_notes":" TODO!!!! For further implementation....",
         "form_snippet": "mdedit_small_text.html",
-        "iso": "",
-        "inspire": "",
+        "iso": "392",
+        "inspire": "Part B 5.2",
         "label": "Reference Date",
         "f_snippet": "date.html",
         "help_text": "Reference date for the cited Thesaurus.",
@@ -455,9 +455,10 @@
       },
       {
         "field_name": "thesRrefDateType",
-        "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-        "iso": "",
-        "inspire": "",
+        "help_text_norm": "ISO_refdateType (o), <br> INSPIRE_DateOfPublication (o).",
+        "mdedit_notes":" TODO!!!! For further implementation....",
+        "iso": "394",
+        "inspire": "Part B 5.2",
         "form_snippet": "mdedit_small_text.html",
         "label": "Date Type",
         "f_snippet": "select.html",
@@ -526,26 +527,6 @@
       ]
     },
     {
-      "field_name": "equScale",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
-      "label": "Equivalent Scale",
-      "form_snippet": "text.html",
-      "display_snippet": "text.html",
-      "help_text": "Level of detail expressed as the scale of a comparable hardcopy map or chart."
-    },
-    {
-      "field_name": "scaleDist",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
-      "label": "Distance",
-      "form_snippet": "text.html",
-      "display_snippet": "text.html",
-      "help_text": "Ground sample distance."
-    },
-    {
       "field_name": "westBL",
       "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
       "iso": "",
@@ -591,7 +572,7 @@
     },
     {
       "field_name": "sDate",
-      "help_text_norm": "ISO ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
+      "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
       "label": "Starting Date",
       "inspire": "B 5.1",
       "iso":"351",
@@ -601,7 +582,7 @@
     {
       "field_name": "eDate",
       "label": "Ending Date",
-      "help_text_norm": "ISO ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
+      "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
       "inspire": "B 5.1",
       "iso":"351",
       "preset": "mdedit_datepicker",
@@ -609,30 +590,29 @@
     },
     {
       "field_name": "creaDate",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "inspire": "",
-      "iso":"",
+      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfCreation (o).",
+      "inspire": "Part B 5.4",
+      "iso":"392",
       "label": "Date of creation",
       "preset": "mdedit_datepicker",
-      "help_text": "Date of creation for the dataset."
+      "help_text": "Date of creation of the resources within this dataset."
     },
     {
       "field_name": "pubDate",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "inspire": "",
-      "iso":"",
+      "help_text_norm": "ISO mdDateSt (o), <br> INSPIRE_MetadataDate (o).",
+      "inspire": "Part B 5.2",
+      "iso":"392",
       "label": "Date of publication",
       "preset": "mdedit_datepicker",
-      "help_text": "Date of publication for the dataset."
+      "help_text": "Date of publication of the resources within this  dataset."
     },
     {
       "field_name": "revDate",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "inspire": "",
-      "iso":"",
+      "help_text_norm": "ISO mdDateSt (o), <br> INSPIRE_MetadataDate (o).",
+      "inspire": "Part B 5.3",
+      "iso":"392",
       "label": "Date of revision",
-      "preset": "mdedit_datepicker",
-      "help_text": "Date of revision for the dataset."
+      "help_text": "Date of revision of the resources within this  dataset"
     },
     {
       "field_name":"tab_delimiter",
@@ -643,19 +623,28 @@
       }
     },
     {
-      "field_name": "refSystem",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "label": "Reference System",
-      "iso": "",
-      "inspire": "",
+      "field_name": "equivScale",
+      "help_text_norm": "ISO equivalentScale (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Equivalent Scale",
+      "iso": "60",
+      "inspire": "Part B 6.2",
       "form_snippet": "text.html",
-      "help_text": "Information about the reference system. Please use one of the EPSG codes listed at http://spatialreference.org/."
+      "help_text": "Equivalent scale:level of detail expressed as the scale denominator of a comparable hardcopy map or chart; dictance:ground sample distance"
+    },
+    {
+      "field_name": "scaleDist",
+      "help_text_norm": "ISO distance (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Scale Distance",
+      "iso": "61",
+      "inspire": "Part B 6.2",
+      "form_snippet": "text.html",
+      "help_text": "Ground sample distance. (positive integer(equivalent scale); number expressing the distance value and a unit of measure of the distance value(distance)"
     },
     {
       "field_name": "lineage",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "inspire": "",
-      "iso":"",
+      "help_text_norm": "ISO_statement (o), <br> INSPIRE_Lineage (o).",
+      "inspire": "Part B 6.1",
+      "iso":"83",
       "label": "Lineage",
       "form_snippet": "markdown.html",
       "help_text": "General explanation of the data producer's knowledge abount the lineage of a dataset."
@@ -667,6 +656,15 @@
       "form_attrs": {
         "readonly": "readonly"
       }
+    },
+    {
+      "field_name": "Specification",
+      "help_text_norm": "ISO_conSpec (m), <br> INSPIRE_Specification (m).",
+      "inspire": "Part B 7.1",
+      "iso":"130",
+      "label": "Specification",
+      "form_snippet": "markdown.html",
+      "help_text": "General explanation of the data producer's knowledge abount the lineage of a dataset."
     },
     {
       "field_name": "tab_delimiter",
@@ -683,7 +681,8 @@
       "preset": "mdedit_organization",
       "help_text": "Metadata Point of Contact: Name of responsible Organization",
       "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
-      "inspire": "Part B 3.2",
+      "mdedit_note":"ISO_idPOC - Hierachie",
+      "inspire": "Part B 9.1",
       "iso":"376"
     },
     {
@@ -691,9 +690,8 @@
       "label": "Webpage",
       "display_snippet": "link.html",
       "help_text": "Webpage of the responsible Organization.",
-      "help_text_norm": "ISO ?, <br> INSPIRE ?.",
-      "inspire": "",
-      "iso":""
+      "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
+      "iso":"390"
     },
     {
       "field_name": "rpIndName",
