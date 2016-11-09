@@ -1,18 +1,14 @@
 {% import 'macros/form.html' as form %}
 
-{# Not Needed!
+{# Anja: 8.11.2015 Copied from scheming with modifications #}
 
-{% resource 'mdedit/mdedit_popover.js' %}
-{% resource 'mdedit/mdedit_tooltip.js' %}
-
-#}
 {% macro standard_info(text='', inline=false, classes=[]) %}
   {%- if text -%}
       <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
           <p data-module="mdedit_popover" data-target="popover" data-content="{{ text }}" data-html="true"  class="btn">
-              <i class="badge badge-success">Standards</i>
+              <i class="badge badge-success">Profile-Info</i>
           </p>
-     </div>   
+     </div>
   {%- endif -%}
 {% endmacro %}
 

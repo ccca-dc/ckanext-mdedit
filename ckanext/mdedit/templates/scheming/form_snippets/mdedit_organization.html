@@ -3,6 +3,7 @@
 
 {# Anja 3.11.2016 #}
 {# Copied from  scheming; changed order of Public and Private in order to get Public as default #}
+{# 9.11: Added help_text for visibility #}
 {# Anja 3.11.2016 #}
 
 
@@ -34,6 +35,12 @@
           {% endfor %}
         </select>
       </div>
+      {# Help Text for Visibility  # Anja, 9.11.2016 #}
+      <div class="info-block info-inline">
+          <i class="icon-info-sign"></i>
+          Server operation variable: Shall your dataset be visible to others? (default: yes! - public)
+     </div>
     </div>
+
   {% endblock %}
   </div>

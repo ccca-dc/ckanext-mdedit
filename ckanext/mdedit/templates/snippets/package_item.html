@@ -8,8 +8,6 @@
      bottom of the page. #}
 
 
-  {% resource 'mdedit/mdedit_popover.js' %}
-  {% resource 'mdedit/mdedit_tooltip.js' %}
 
 
   {# Apply our JavaScript module to an HTML element. The data-module attribute,
@@ -18,13 +16,15 @@
      The initialize() method of our module will be called with this HTML
      element as its this.el object. #}
 
-  <button data-module="mdedit_popover" data-target="popover" data-content="Ich bin ein <br> Popover :-)" data-html="true"
+  <button  data-target="popover" data-content="Ich bin ein <br> Popover :-)" data-html="true"
           class="btn">
     <i class="badge badge-success">Popover</i>
     </button>
-    <p data-module="mdedit_tooltip"  data-toggle="tooltip" title="Ich bin ein <br> Tooltip :-)" data-html="true"
+    <p   data-toggle="tooltip" title="Ich bin ein <br> Tooltip :-)" data-html="true"
           class="btn"
           href="#">
     <i class="badge badge-info">Tooltip</i>
     </p>
+
+    <input data-provide="datepicker">
 {% endblock %}

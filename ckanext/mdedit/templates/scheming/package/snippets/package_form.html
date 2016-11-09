@@ -25,10 +25,13 @@
 
   {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
 
+  <noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
+
   {# find delimters and headers for Tabs #}
   <header class="module-content page-header mdedit_ph_small">
   {%- for field in schema.dataset_fields -%}
      {%- if loop.first and field.field_name == "tab_delimiter" -%}
+
         {%- if field.necessary -%}
          <ul class="nav nav-pills" id="myPills">
             <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"  data-html="true"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
@@ -36,6 +39,7 @@
       <ul class="nav nav-pills" id="myPills">
          <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"   data-html="true">{{field.tab_delimiter}}</a></li>
         {%- endif -%}
+
     {%- endif -%}
 
     {%- if not loop.first and field.field_name == "tab_delimiter" -%}

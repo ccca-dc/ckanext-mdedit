@@ -2,12 +2,13 @@
   "scheming_presets_version": 1,
   "about": "these are the default scheming field presets",
   "about_url": "http://github.com/ckan/ckanext-scheming#preset",
+  "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
   "presets": [
     {
       "preset_name": "mdedit_today",
       "values": {
-        "form_snippet": "today.html",
-        "display_snippet": "today.html",
+        "form_snippet": "mdedit_today.html",
+        "display_snippet": "text.html",
         "validators": "scheming_required isodate convert_to_json_if_datetime",
         "form_attrs": {
           "readonly": "readonly"
@@ -15,9 +16,22 @@
       }
     },
     {
+      "preset_name": "mdedit_datepicker",
+      "values": {
+        "form_snippet": "mdedit_datepicker.html",
+        "display_snippet": "mdedit_datetime.html",
+        "validators": "scheming_required isodate convert_to_json_if_datetime",
+        "mdedit_note": "Comment Anja 9.11: for some reasons or other set scheming_required: ohterwise crash on empty ...",
+        "form_attrs": {
+          "data-module": "mdedit_datepicker"
+        }
+      }
+    },
+
+    {
       "preset_name": "mdedit_individual",
       "values": {
-        "form_snippet": "individual.html",
+        "form_snippet": "mdedit_individual.html",
         "display_snippet": "text.html"
       }
     },

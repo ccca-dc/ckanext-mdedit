@@ -1,11 +1,12 @@
 {% import 'macros/form.html' as form %}
 
+{# Anja 7.11.2016 Set Date to "today" _ read only field. Important: do not add type=date #}
+
 {% call form.input(
     field.field_name,
     id='field-' + field.field_name,
     label=h.scheming_language_text(field.label),
     placeholder= h.scheming_language_text(h.mdedit_get_date()),
-    type='date',
     value= h.scheming_language_text(h.mdedit_get_date()),
     error=errors[field.field_name],
     classes=['control-medium'],

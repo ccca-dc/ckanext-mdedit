@@ -1,0 +1,23 @@
+{% import 'macros/form.html' as form %}
+
+{# Anja 8.11.2016: External because html5 date not with Firefox #}
+{# Call datepicker via Attribute data-module - see presets.json #}
+{% resource 'mdedit/jquery.datetimepicker.full.js' %}
+{% resource 'mdedit/mdedit_datepicker.js' %}
+
+
+{#   value=data.get(field.field_name, '').split()[0] #}
+{% call form.input(
+    field.field_name,
+    id='field-' + field.field_name,
+    label=h.scheming_language_text(field.label),
+    value=h.mdedit_parse_date(data.get(field.field_name, '')),
+    type='text',
+    error=errors[field.field_name],
+    classes=['control-medium'],
+    attrs=field.form_attrs if 'form_attrs' in field else {},
+    is_required=h.scheming_field_required(field)
+    )
+%}
+    {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+{% endcall %}

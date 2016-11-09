@@ -42,3 +42,9 @@ def mdedit_get_date():
     now = datetime.datetime.today()
     # now =now.strftime('%d %B %Y')
     return now
+
+def mdedit_parse_date(mdedit_date):
+    log.debug("Helpers mdedit_parse_date; date: " + mdedit_date)
+    log.debug("Helpers mdedit_parse_date; type:")
+    log.debug(type(mdedit_date))
+    return mdedit_date

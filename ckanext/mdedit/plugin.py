@@ -3,6 +3,8 @@ import ckan.plugins.toolkit as toolkit
 
 from ckanext.mdedit import helpers
 
+from ckantoolkit import h
+
 class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
@@ -24,7 +26,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
         return {
             'mdedit_get_name': helpers.mdedit_get_name,
             'mdedit_get_mail': helpers.mdedit_get_mail,
-            'mdedit_get_date': helpers.mdedit_get_date
+            'mdedit_get_date': helpers.mdedit_get_date,
+            'mdedit_parse_date': helpers.mdedit_parse_date
             }
 
      # Package Form
