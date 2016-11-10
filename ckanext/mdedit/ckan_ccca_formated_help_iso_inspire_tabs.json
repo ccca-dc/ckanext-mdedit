@@ -490,75 +490,37 @@
       }
     },
     {
-      "field_name": "spatRpType",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
-      "label": "Spatial Representation Type",
-      "preset": "select",
-      "select_size": 3,
-      "form_snippet": "multiple_select.html",
-      "display_snippet": "multiple_choice.html",
-      "help_text": "Main theme(s) of the dataset.",
-      "choices": [
-        {
-          "value": "001",
-          "label": "vector"
-        },
-        {
-          "value": "002",
-          "label": "grid"
-        },
-        {
-          "value": "003",
-          "label": "text table"
-        },
-        {
-          "value": "004",
-          "label": "tin"
-        },
-        {
-          "value": "005",
-          "label": "stereo model"
-        },
-        {
-          "value": "006",
-          "label": "video"
-        }
-      ]
-    },
-    {
       "field_name": "westBL",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
+      "help_text_norm": "ISO_westBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "344",
+      "inspire": "Part B 4.1",
       "label": "West Bound Longitude",
       "form_snippet": "text.html",
       "help_text": "Western-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
     },
     {
       "field_name": "eastBL",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
+      "help_text_norm": "ISO ISO_eastBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "345",
+      "inspire": "Part B 4.1",
       "label": "East Bound Longitude",
       "form_snippet": "text.html",
       "help_text": "Eastern-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
     },
     {
       "field_name": "southBL",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
+      "help_text_norm": "ISO_southBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "346",
+      "inspire": "Part B 4.1",
       "label": "South Bound Latitude",
       "form_snippet": "text.html",
       "help_text": "Southern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north)."
     },
     {
       "field_name": "northBL",
-      "help_text_norm": "ISO mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
-      "iso": "",
-      "inspire": "",
+      "help_text_norm": "ISO_northBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "347",
+      "inspire": "Part B 4.1",
       "label": "North Bound Latitude",
       "form_snippet": "text.html",
       "help_text": "Northern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north)."
@@ -664,8 +626,8 @@
       "inspire": "Part B 7.1",
       "iso":"130",
       "label": "Specification",
-      "form_snippet": "select.html",
-      "display_snippet": "select.html",
+      "form_snippet": "multiple_select.html",
+      "display_snippet": "multiple_choice.html",
       "help_text": "Citation of the product specification or user requirement against which data is beeing evaluated.",
       "choices": [
         {
@@ -858,7 +820,8 @@
       "label": "Format Name",
       "preset": "resource_format_autocomplete",
       "form_snippet": "text.html",
-      "help_text": "Name of the data transfer format(s) of the resource."
+      "help_text": "Name of the data transfer format(s) of the resource.",
+      "help_text_norm": "Matches ISO_SpatialRepresentationType (156)(o) or ISO_DistributionFormat (o)"
     },
     {
       "field_name": "formatVer",
