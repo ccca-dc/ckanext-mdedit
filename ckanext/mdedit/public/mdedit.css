@@ -1,3 +1,7 @@
+.hero{
+  background: grey;
+}
+
 .account-masthead {
     background-color: rgb(40, 40, 40);
 }
@@ -18,5 +22,17 @@
 }
 .mdedit_ph_small {
   font-size: 13.4px;
+}
+.popover {
+  word-break:keep-all;
+  width:auto;
+}
+.popover-content {
+  word-break:keep-all;
+  width:auto;
+}
+.popover.fade.right.in {
+  width:auto;
+  max-width:100%;
 }
 /* für green.css! */

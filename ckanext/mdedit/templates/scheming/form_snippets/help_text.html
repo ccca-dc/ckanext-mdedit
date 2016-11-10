@@ -14,7 +14,7 @@
 
 {% macro my_help(text='', url='', inline=false, classes=[]) %}
   {%- if text -%}
-  <div class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
+  <div style="z-index:120;" class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
       <i class="icon-info-sign"></i>
       {{ text }}
     {%- if url -%}

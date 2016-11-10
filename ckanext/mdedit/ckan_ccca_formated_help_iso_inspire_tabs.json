@@ -128,6 +128,7 @@
       "label": "License",
       "required": "true",
       "form_snippet": "license.html",
+      "form_include_blank_choice": "true",
       "iso":"70",
       "inspire":"Part B 8.2",
       "help_text": "License definitions and additional information can be found at ",
@@ -169,7 +170,7 @@
       "inspire":"Part B 8.2",
       "select_size": 1,
       "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
-      "help_text_norm": "ISO ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessAccessConstraints (c).",
+      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
       "choices": [
         {
           "value": "001",
@@ -213,7 +214,7 @@
       "iso":"72",
       "inspire":"Part B 8.2",
       "help_text": "Constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata.",
-      "help_text_norm": "ISO_otherConstraints (c). INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
+      "help_text_norm": "ISO_otherConstraints (c), <br> INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
       "choices": [
         {
           "value": "001",
@@ -257,7 +258,7 @@
       "iso":"74",
       "inspire":"PArt B 8.2",
       "help_text": "Handling restrictions on the resource or metadata: unclassified, restricted, confidential, top secret, ...",
-      "help_text_norm": "ISO_class (c). INSPIRE_LimitationsOnPublicAccessClassification (c). ",
+      "help_text_norm": "ISO_class (c). <br> INSPIRE_LimitationsOnPublicAccessClassification (c). ",
       "choices": [
         {
           "value": "001",
@@ -658,13 +659,71 @@
       }
     },
     {
-      "field_name": "Specification",
+      "field_name": "Specifications",
       "help_text_norm": "ISO_conSpec (m), <br> INSPIRE_Specification (m).",
       "inspire": "Part B 7.1",
       "iso":"130",
       "label": "Specification",
-      "form_snippet": "markdown.html",
-      "help_text": "General explanation of the data producer's knowledge abount the lineage of a dataset."
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "help_text": "Citation of the product specification or user requirement against which data is beeing evaluated.",
+      "choices": [
+        {
+          "value": "001",
+          "label": "COMMISSION REGULATION (EC) No 1205/2008 of 3 December 2008 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards metadata;2008-12-04"
+        },
+        {
+          "value": "002",
+          "label": "Corrigendum to INSPIRE Metadata Regulation published in the Official Journal of the European Union, L 328, page 83;2009-12-15"
+        },
+        {
+          "value": "003",
+          "label": "Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services;2010-12-08"
+        },
+        {
+          "value": "004",
+          "label": "COMMISSION REGULATION (EU) No 1088/2010 of 23 November 2010 amending Regulation (EC) No 976/2009 as regards download services and transformation services;2010-12-08"
+        },
+        {
+          "value": "005",
+          "label": "COMMISSION REGULATION (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services;2009-10-20"
+        },
+        {
+          "value": "006",
+          "label": "COMMISSION REGULATION (EU) No 268/2010 of 29 March 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the access to spatial data sets and services of the Member States by Community institutions and bodies under harmonised conditions;2010-03-30"
+        },
+        {
+          "value": "007",
+          "label": "Commission Decision of 5 June 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards monitoring and reporting (notified under document number C(2009) 4199) (2009/442/EC);2009-06-11"        }
+      ]
+    },
+    {
+      "field_name": "degree",
+      "help_text_norm": "ISO_conPass (m), <br> INSPIRE_Degree (m).",
+      "inspire": "Part B 7.2",
+      "iso":"132",
+      "label": "Degree",
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "help_text": "Indication of the conformance result.",
+      "choices": [
+        {
+          "value": "001",
+          "label": " "
+        },
+        {
+          "value": "002",
+          "label": "not evaluated"
+        },
+        {
+          "value": "003",
+          "label": "conformant"
+        },
+        {
+          "value": "004",
+          "label": "not conformant"
+        }
+      ]
     },
     {
       "field_name": "tab_delimiter",
