@@ -43,6 +43,7 @@ if (url.match('#')) {
 $('.nav-pills a').on('shown.bs.tab', function (e) {
     window.location.hash = e.target.hash;
     window.scrollTo(0, 0);
+    window.refresh();
 })
 
 // Note last position

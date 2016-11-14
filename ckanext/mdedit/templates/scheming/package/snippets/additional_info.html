@@ -7,7 +7,6 @@
     'id',
     'title',
     'name',
-    'notes',
     ] -%}
 
 {% set mdedit_tags = pkg_dict.tags %}
@@ -32,6 +31,7 @@
         and field.display_snippet is not none
         and field.field_name != "owner_org"
         and field.field_name != "tag_string"
+        and field.field_name != "notes"
     -%}
           <tr>
             <th scope="row" class="dataset-label">
@@ -42,6 +42,19 @@
               field=field, data=pkg_dict, schema=schema -%}</td>
           </tr>
     {%- endif -%}
+    {%- if field.field_name == "license_id" -%}
+        <tr>
+          <th scope="row" class="dataset-label">Visibility</th>
+          <td class="dataset-details">
+        {%- if pkg_dict.private -%}
+              private
+           {%- else %}
+              public
+          {%- endif -%}
+           </td>
+       </tr>
+    {%- endif -%}
+
     {%- if field.field_name == "owner_org" -%}
           <tr>
             <th scope="row" class="dataset-label">
@@ -54,31 +67,20 @@
            {%- endif -%}
             </td>
         </tr>
-        <tr>
-          <th scope="row" class="dataset-label">Visibility</th>
-          <td class="dataset-details">
-        {%- if pkg_dict.private -%}
-              Private
-           {%- else %}
-              Public
-          {%- endif -%}
-           </td>
-       </tr>
     {%- endif -%}
-    {%- if field.field_name == "private" -%}
+    {%- if field.field_name == "notes" -%}
           <tr>
             <th scope="row" class="dataset-label">
-            Visibility
+              {{ h.scheming_language_text(field.label) }}
            </th>
             <td class="dataset-details">
-            {%- if field.field_value == "True" -%}
-                Private
-            {%- else %}
-                Public
-           {%- endif -%}
+            {%- if field.field_value is not none -%}
+                see above
+            {%- endif -%}
             </td>
         </tr>
     {%- endif -%}
+
     {%- if field.field_name == "tag_string" -%}
           <tr>
             <th scope="row" class="dataset-label">

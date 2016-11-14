@@ -43,7 +43,7 @@
       "form_placeholder": "eg. my-dataset"
     },
     {
-      "field_name": "idAbs",
+      "field_name": "notes",
       "label": "Abstract",
       "required": "true",
       "form_snippet": "markdown.html",
@@ -575,6 +575,7 @@
       "inspire": "Part B 5.3",
       "iso":"392",
       "label": "Date of revision",
+      "preset": "mdedit_datepicker",
       "help_text": "Date of revision of the resources within this  dataset"
     },
     {
@@ -716,25 +717,27 @@
       "iso":"390"
     },
     {
-      "field_name": "rpIndName",
+      "field_name": "maintainer",
       "label": "Responsible Individual",
       "required": "true",
       "preset": "mdedit_individual",
       "help_text": "Metadata Point of Contact: Name of responsible Individual",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE -",
-      "iso":"375"
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "iso":"375",
+      "inspire": "Part B 9.1"
     },
     {
-      "field_name": "electronicMailAddress",
-      "label": "E-Mail",
+      "field_name": "maintainer_email",
+      "label": " Responsible Individual E-Mail",
       "required": "true",
       "form_snippet": "text.html",
       "form_placeholder": "joe@example.com",
       "form_snippet": "mdedit_mail.html",
-      "display_snippet": "mdedit_mail.html",
+      "display_snippet": "email.html",
       "help_text": "Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE - .",
-      "iso":"386"
+      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty .",
+      "iso":"386",
+      "inspire": "Part B 9.1"
     },
     {
       "field_name": "role",
@@ -752,6 +755,85 @@
           "mdedit_note": "This field is added to have a default empty value and force the user to actively select a role and therby review the contact page"
         },
         {
+          "value": "author",
+          "label": "Author"
+        },
+        {
+          "value": "custodian",
+          "label": "Custodian"
+        },
+        {
+          "value": "distributor",
+          "label": "Distributor"
+        },
+        {
+          "value": "originator",
+          "label": "Originator"
+        },
+        {
+          "value": "owner",
+          "label": "Owner"
+        },
+        {
+          "value": "pointOfContact",
+          "label": "Point of Contact"
+        },
+        {
+          "value": "principalInvestigator",
+          "label": "Principal Investigator"
+        },
+        {
+          "value": "processor",
+          "label": "Processor"
+        },
+        {
+          "value": "publisher",
+          "label": "Publisher"
+        },
+        {
+          "value": "resourceProvider",
+          "label": "Resource Provider"
+        },
+        {
+          "value": "user",
+          "label": "User"
+        }
+      ]
+    },
+    {
+      "field_name": "author",
+      "label": "Dataset Creator",
+      "required": "true",
+      "preset": "mdedit_individual",
+      "help_text": "Creator of this Dataset",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "iso":"375",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Dataset Creator E-Mail",
+      "required": "true",
+      "form_snippet": "text.html",
+      "form_placeholder": "joe@example.com",
+          "form_snippet": "mdedit_mail.html",
+      "display_snippet": "email.html",
+      "help_text": "Mailadress of Dataset Creator",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "iso":"375",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "author_role",
+      "label": "Role",
+      "required": "true",
+      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "iso":"379",
+      "inspire": "Part B 9.2",
+      "choices": [
+      {
           "value": "author",
           "label": "Author"
         },

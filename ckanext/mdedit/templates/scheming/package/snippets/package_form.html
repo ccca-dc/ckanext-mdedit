@@ -31,7 +31,6 @@
   <header class="module-content page-header mdedit_ph_small">
   {%- for field in schema.dataset_fields -%}
      {%- if loop.first and field.field_name == "tab_delimiter" -%}
-
         {%- if field.necessary -%}
          <ul class="nav nav-pills" id="myPills">
             <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"  data-html="true"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
