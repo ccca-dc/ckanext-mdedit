@@ -7,7 +7,7 @@
 ckan.module('mdedit_datepicker', function (jQuery, _) {
   return {
     initialize: function () {
-      console.log("date: I've been initialized for element: ", this.el);
+      console.log("Date initialized for element: ", this.el);
     //  (this.el).datepicker({ 'date-format': 'yy/mm/dd'}); //datepicker
       (this.el).datetimepicker(); //datepicker
 

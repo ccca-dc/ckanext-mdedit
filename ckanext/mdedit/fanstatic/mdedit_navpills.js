@@ -43,8 +43,14 @@ if (url.match('#')) {
 $('.nav-pills a').on('shown.bs.tab', function (e) {
     window.location.hash = e.target.hash;
     window.scrollTo(0, 0);
-    window.refresh();
 })
+
+// Anja: 15.11.2016: fix for invalid map:
+
+$("body").on('shown','#otto', function() {
+  L.Util.requestAnimFrame(map.invalidateSize,map,!1,map._container);
+  // map.invalidateSize(false) // said to work as well
+});
 
 // Note last position
 /*

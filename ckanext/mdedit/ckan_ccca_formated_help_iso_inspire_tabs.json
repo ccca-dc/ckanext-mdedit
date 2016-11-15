@@ -490,6 +490,13 @@
       }
     },
     {
+     "field_name": "spatial",
+     "label": "Polygon",
+     "form_snippet": "spatial.html",
+     "display_snippet": "spatial.html",
+     "help_text": "Select area describing the dataset spatial extend"
+   },
+    {
       "field_name": "westBL",
       "help_text_norm": "ISO_westBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
       "iso": "344",

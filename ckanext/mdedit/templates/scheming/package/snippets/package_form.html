@@ -42,10 +42,11 @@
     {%- endif -%}
 
     {%- if not loop.first and field.field_name == "tab_delimiter" -%}
+
        {%- if field.necessary -%}
-        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
+        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}" id="otto"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
        {%- else  -%}
-        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}">{{field.tab_delimiter}}</a></li>
+        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}" id="otto">{{field.tab_delimiter}}</a></li>
        {%- endif -%}
     {%- endif -%}
   {%- endfor -%}
