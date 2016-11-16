@@ -79,6 +79,46 @@
       </div>
   {%- endif -%}
 
+  {# Anja 16.11.16  #}
+
+  {# Attention: Only non-scheming fields can be seen here in extras! #}
+  {# Therforehere have harvested data #}
+  {# Provide Possibility to save them  #}
+  {#{{ key }} :    {{ value }} <br> #}
+  {% set extras = c.pkg_dict.extras %}
+  {% if extras %}
+  <p class="badge badge-important">!!! This dataset contains extra fields! !!!
+    <br> Probably the dataset was harvested. This is great :-)
+    <br> However, some field-names did apparently not match standardised field-names
+    <br> and thus an automatic import to our server was not possible.
+    <br> for your convenience you see you the unimported fieds below.
+    <br> Please save the values of these extra fields (marked red)  to above fields!
+    <br> Values will otherwise be lost if you update this dataset !!!
+    <br>
+    <br> If you are uncertain about this message and further procedure
+    <br> feel free to contact us: Mail  oder Telefon
+    <br> and do not choose "Update Dataset" below
+  </p>
+    {% import 'macros/form.html' as form %}
+
+    {% for extra in h.sorted_extras(extras) %}
+      {% set key, value = extra %}
+      {% call form.input(
+          key,
+          id='field-' + key,
+          label=h.scheming_language_text(key),
+          placeholder=value,
+          value=value,
+          error=errors[jkey],
+          classes=['control-medium ccca-alarm'],
+          attrs={}
+          )
+      %}
+      {% endcall %}
+    {% endfor %}
+
+  {%- endif -%}
+
   {%- if 'resource_fields' not in schema -%}
       <!-- force controller to skip resource-editing step for this type -->
       <input type="hidden" name="_ckan_phase" value="" />

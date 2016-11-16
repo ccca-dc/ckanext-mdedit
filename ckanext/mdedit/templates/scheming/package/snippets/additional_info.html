@@ -1,4 +1,5 @@
 {# Anja: 2.11.2016 modified from scheming to include tabs #}
+{# Anja: 16.11.2016 modified to include package extras #}
 
 
 {% extends "package/snippets/additional_info.html" %}
@@ -11,10 +12,10 @@
 
 {% set mdedit_tags = pkg_dict.tags %}
 {% set mdedit_num_tags = pkg_dict.num_tags %}
+{% set extras = pkg_dict.extras %}
 
 {% block package_additional_info %}
   {%- for field in schema.dataset_fields -%}
-
     {%- if field.field_name == "tab_delimiter" -%}
 
           </tbody>
@@ -100,12 +101,15 @@
 
   {%- endfor -%}
 
-  {# Anja 2.11.2016 IMPORTANT: Needs to be generalized later (i.e. check if already in field)
-  {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
-    <tr>
-      <th scope="row" class="dataset-label">{{ _("State") }}</th>
-      <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
-    </tr>
-  {% endif %}
-  #}
+  {% block extras scoped %}
+    {% for extra in h.sorted_extras(pkg_dict.extras) %}
+      {% set key, value = extra %}
+      <tr rel="dc:relation" resource="_:extra{{ i }}">
+        <th scope="row" class="dataset-label ccca-alarm" property="rdfs:label">{{ _(key) }}</th>
+        <td class="dataset-details" property="rdf:value">{{ value }}</td>
+      </tr>
+    {% endfor %}
+  {% endblock %}
+
+
 {% endblock %}
