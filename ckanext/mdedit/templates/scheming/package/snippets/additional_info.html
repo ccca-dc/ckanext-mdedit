@@ -102,6 +102,14 @@
   {%- endfor -%}
 
   {% block extras scoped %}
+    {%- if extras -%}
+      <tr>
+        <th scope="row" class="dataset-label ccca-alarm" property="rdfs:label">ATTENTION</th>
+        <td class="dataset-details" property="rdf:value">Extra non-standard metadata fields found in your dataset.
+          Please use <b>Manage</b> to copy the values in the corresponding fields</td>
+      </tr>
+    {%- endif -%}
+
     {% for extra in h.sorted_extras(pkg_dict.extras) %}
       {% set key, value = extra %}
       <tr rel="dc:relation" resource="_:extra{{ i }}">

@@ -490,7 +490,7 @@
       }
     },
     {
-     "field_name": "polygon",
+     "field_name": "spatial",
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",

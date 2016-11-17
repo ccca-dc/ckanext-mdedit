@@ -33,7 +33,7 @@ ckanext-mdedit
 =============
 
 .. A Metadata Editor Extension which uses ckanext-scheming and changes the appearance of the dataset and resource form
-.. Includes Tabs to groups the json fields
+.. Includes Tabs to group the json fields
 .. Beta State ... still under developement!!!
 
 
@@ -42,7 +42,8 @@ Requirements
 ------------
 
 Tested with ckan 2.5.2
-
+Using ckanext-scheming
+Integrates as well ckanext-spatial
 
 ------------
 Installation
@@ -69,6 +70,7 @@ To install ckanext-mdedit:
    ``/etc/ckan/default/production.ini``). 
    IMPORTANT: Insert 'mdedit' before 'scheming_datasets'
 
+
 4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
      sudo service apache2 reload
@@ -78,13 +80,19 @@ To install ckanext-mdedit:
 Config Settings
 ---------------
 
-Document any optional config settings here. For example::
+   Add presets and json config file in your production.ini:
 
-    # The minimum number of hours to wait before re-checking a resource
-    # (optional, default: 24).
-    ckanext.mdedit.some_setting = some_default_value
+	scheming.dataset_schemas = ckanext.mdedit:ckan_ccca_formated_help_iso_inspire_tabs.json
+
+	scheming.presets = ckanext.scheming:presets.json
+                    ckanext.mdedit:presets.json
+   
+    The tabs are recognized by the field_name 'tab_delimiter'
+    Change and reorder them as you like
+    IMPORTANT: If you intend to use the tabs the first field MUST be a tab_delimiter field
 
 
+    
 ------------------------
 Development Installation
 ------------------------
