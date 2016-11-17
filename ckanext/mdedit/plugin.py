@@ -3,7 +3,6 @@ import ckan.plugins.toolkit as toolkit
 
 from ckanext.mdedit import helpers
 
-from ckantoolkit import h
 
 class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)

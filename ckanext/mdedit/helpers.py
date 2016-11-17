@@ -9,7 +9,6 @@ import ckan.logic as logic
 get_action = logic.get_action
 
 
-from ckanapi import LocalCKAN, NotFound, NotAuthorized
 """ Anja 29.9.2016 """
 import  ckan.plugins.toolkit as tk
 context = tk.c
