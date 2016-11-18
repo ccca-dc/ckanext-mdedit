@@ -49,7 +49,7 @@ $('.nav-pills a').on('shown.bs.tab', function (e) {
 // http://stackoverflow.com/questions/10762984/leaflet-map-not-displayed-properly-inside-tabbed-panel
 $("body").on('shown','#mdedit_tab_fix', function() {
   L.Util.requestAnimFrame(map.invalidateSize,map,!1,map._container);
-  // map.invalidateSize(false) // said to work as well
+  //map.invalidateSize(false) // said to work as well
 });
 
 // Note last position
