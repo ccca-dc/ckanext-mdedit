@@ -86,18 +86,18 @@
   {# Provide Possibility to save them  #}
   {#{{ key }} :    {{ value }} <br> #}
   {% set extras = c.pkg_dict.extras %}
+  {%  set mdedit_pkg_url = h.full_current_url() %}
   {% if extras %}
   <p class="badge badge-important">!!! This dataset contains extra fields! !!!
     <br> Probably the dataset was harvested. This is great :-)
     <br> However, some field-names apparently did not match standardised field-names
     <br> and thus an automatic import to our server was impossible.
     <br> For your convenience you see the unimported fields below.
-    <br> Please save the values of these extra fields (marked red) to above fields!
-    <br> Values will otherwise be lost if you update this dataset !!!
     <br>
     <br> If you are uncertain about this message and further procedure
-    <br> feel free to contact us: {{h.mail_to(_('datenzentrum@ccca.ac.at'), class='mdedit_dz_mail_to')}}
-    <br> and do not choose "Update Dataset" below.
+    <br> feel free to contact us:
+    {{h.mail_to(_('datenzentrum@ccca.ac.at'),_('datenzentrum@ccca.ac.at'), None,None, _('(harvested) Dataset contains non-standardised fields'), mdedit_pkg_url, class='mdedit_dz_mail_to')}}.
+
   </p>
     {% import 'macros/form.html' as form %}
 

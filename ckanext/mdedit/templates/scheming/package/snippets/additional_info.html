@@ -103,12 +103,19 @@
 
   {% block extras scoped %}
     {%- if extras -%}
+    {%  set mdedit_pkg_url = h.full_current_url() %}
       <tr>
         <th scope="row" class="dataset-label ccca-alarm" property="rdfs:label">ATTENTION</th>
-        <td class="dataset-details" property="rdf:value">Extra non-standard metadata fields found in your dataset.
-          Please select
-  {% link_for _('Manage'), controller='package', action='edit', id=pkg_dict.name, class_='btn', icon='wrench' %}
-        to copy the values in the corresponding fields
+        <td class="dataset-details" property="rdf:value">This dataset contains extra fields! !!!
+          <br>
+          <br> Probably the dataset was harvested. This is great :-)
+          <br> However, some field-names apparently did not match standardised field-names
+          <br> and thus an automatic import to our server was impossible.
+          <br> For your convenience you see the unimported fields below.
+          <br>
+          <br> If you are uncertain about this message and further procedure
+               feel free to contact us: {{h.mail_to(_('datenzentrum@ccca.ac.at'),_('datenzentrum@ccca.ac.at'), None,None, _('(harvested) Dataset contains non-standardised fields'), mdedit_pkg_url)}}.
+        </p>
         </td>
       </tr>
     {%- endif -%}
