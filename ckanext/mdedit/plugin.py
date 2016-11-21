@@ -26,7 +26,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_name': helpers.mdedit_get_name,
             'mdedit_get_mail': helpers.mdedit_get_mail,
             'mdedit_get_date': helpers.mdedit_get_date,
-            'mdedit_parse_date': helpers.mdedit_parse_date
+            'mdedit_parse_date': helpers.mdedit_parse_date,
+            'mdedit_count_resources': helpers.mdedit_count_resources
             }
 
      # Package Form
