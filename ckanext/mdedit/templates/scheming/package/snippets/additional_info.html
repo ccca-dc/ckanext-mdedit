@@ -32,7 +32,6 @@
         and field.display_snippet is not none
         and field.field_name != "owner_org"
         and field.field_name != "tag_string"
-        and field.field_name != "notes"
     -%}
           <tr>
             <th scope="row" class="dataset-label">
@@ -69,18 +68,7 @@
             </td>
         </tr>
     {%- endif -%}
-    {%- if field.field_name == "notes" -%}
-          <tr>
-            <th scope="row" class="dataset-label">
-              {{ h.scheming_language_text(field.label) }}
-           </th>
-            <td class="dataset-details">
-            {%- if field.field_value is not none -%}
-                see above
-            {%- endif -%}
-            </td>
-        </tr>
-    {%- endif -%}
+
 
     {%- if field.field_name == "tag_string" -%}
           <tr>
