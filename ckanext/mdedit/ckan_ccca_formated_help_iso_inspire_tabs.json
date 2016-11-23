@@ -156,7 +156,7 @@
     {
       "field_name": "useLimit",
       "label": "Use Limitation",
-      "form_snippet": "text.html",
+      "preset": "select",
       "iso":"68",
       "inspire":"Part B 8.1",
       "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
@@ -812,7 +812,7 @@
       "label": "Dataset Creator",
       "required": "true",
       "preset": "mdedit_individual",
-      "help_text": "Creator of this Dataset",
+      "help_text": "Creator of this Dataset including the resources",
       "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
       "iso":"375",
       "inspire": "Part B 9.1"
