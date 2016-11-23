@@ -24,11 +24,11 @@ import random
 
 def mdedit_get_name():
      # Get the user name of the logged-in user.
-    log.debug("Helpers mdedit_get_name")
+    # log.debug("Helpers mdedit_get_name")
 
     user = c.userobj
-    log.debug(c)
-    log.debug(user)
+    # log.debug(c)
+    # log.debug(user)
     if user:
         return user.fullname
     else:
@@ -48,9 +48,9 @@ def mdedit_get_date():
     return now
 
 def mdedit_parse_date(mdedit_date):
-    log.debug("Helpers mdedit_parse_date; date: " + mdedit_date)
-    log.debug("Helpers mdedit_parse_date; type:")
-    log.debug(type(mdedit_date))
+    # log.debug("Helpers mdedit_parse_date; date: " + mdedit_date)
+    # log.debug("Helpers mdedit_parse_date; type:")
+    # log.debug(type(mdedit_date))
     return mdedit_date
 
 def mdedit_count_resources():
@@ -75,13 +75,13 @@ def mdedit_count_resources():
     return all_resource_count
 
 def mdedit_get_number_organizations():
-    log.debug("mdedit_get_number_organization ******************")
+    # log.debug("mdedit_get_number_organization ******************")
     '''
     Code adapted from ckan: get_featured_organizations(count=1):
     '''
     config_orgs = config.get('ckan.featured_orgs', '').split()
     count = len(config_orgs)
-    log.debug(count)
+    # log.debug(count)
     '''
     orgs = h.featured_group_org(get_action='organization_show',
                               list_action='organization_list',
@@ -92,7 +92,7 @@ def mdedit_get_number_organizations():
     return count
 
 def mdedit_get_random_organization():
-    log.debug("mdedit_random_organization ******************")
+    # log.debug("mdedit_random_organization ******************")
     '''
     Code adapted from ckan: get_featured_organizations(count=1):
     '''
@@ -100,13 +100,13 @@ def mdedit_get_random_organization():
 
     if not config_orgs:
         return ""
-    log.debug(config_orgs)
+    # log.debug(config_orgs)
 
     count = len(config_orgs)
     rand_org = random.choice(config_orgs)
 
-    log.debug(count)
-    log.debug(rand_org)
+    # log.debug(count)
+    # log.debug(rand_org)
 
     '''
     orgs = h.featured_group_org(get_action='organization_show',
@@ -118,29 +118,29 @@ def mdedit_get_random_organization():
     return rand_org
 
 def mdedit_get_number_groups():
-    log.debug("mdedit_get_number_groups ******************")
+    # log.debug("mdedit_get_number_groups ******************")
 
     '''
     Code adapted from ckan: get_featured_goups(count=1):
     '''
     config_groups = config.get('ckan.featured_groups', '').split()
     count = len(config_groups)
-    log.debug(count)
+    # log.debug(count)
 
     return count
 
 def mdedit_get_random_group():
-    log.debug("mdedit_random_group ******************")
+    # log.debug("mdedit_random_group ******************")
     '''
     Code adapted from ckan: get_featured_groups(count=1):
 
     '''
     config_groups = config.get('ckan.featured_groups', '').split()
-    log.debug(config_groups)
+    # log.debug(config_groups)
 
     if not config_groups:
         return ""
     rand_group = random.choice(config_groups)
-    log.debug(rand_group)
+    # log.debug(rand_group)
 
     return rand_group
