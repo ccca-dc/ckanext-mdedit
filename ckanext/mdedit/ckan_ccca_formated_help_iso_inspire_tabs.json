@@ -156,7 +156,7 @@
     {
       "field_name": "useLimit",
       "label": "Use Limitation",
-      "preset": "select",
+      "form_snippet": "text.html",
       "iso":"68",
       "inspire":"Part B 8.1",
       "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
