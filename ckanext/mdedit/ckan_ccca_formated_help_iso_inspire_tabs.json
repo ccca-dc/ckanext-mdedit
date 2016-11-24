@@ -15,7 +15,7 @@
       }
     },
     {
-      "field_name": "datasetLocator",
+      "field_name": "datasetURI",
       "label": "Dataset Locator",
       "form_snippet": "text.html",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
@@ -609,7 +609,7 @@
       "iso": "61",
       "inspire": "Part B 6.2",
       "form_snippet": "text.html",
-      "help_text": "Ground sample distance. (positive integer(equivalent scale); number expressing the distance value and a unit of measure of the distance value(distance)"
+      "help_text": "Ground sample distance. Positive integer(equivalent scale); number expressing the distance value and a unit of measure of the distance value(distance)"
     },
     {
       "field_name": "lineage",
@@ -618,7 +618,7 @@
       "iso":"83",
       "label": "Lineage",
       "form_snippet": "markdown.html",
-      "help_text": "General explanation of the data producer's knowledge abount the lineage of a dataset."
+      "help_text": "General explanation of the data producer's knowledge about the lineage of a dataset."
     },
     {
       "field_name": "tab_delimiter",
@@ -722,6 +722,14 @@
       "help_text": "Webpage of the responsible Organization.",
       "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
       "iso":"390"
+    },
+    {
+      "field_name": "author_citation",
+      "label": "Citation Info",
+      "form_snippet": "mdedit_cite.html",
+      "display_snippet": "text.html",
+      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources. Default: Dataset Creator (see field below)",
+      "placeholder": "Smith et al"
     },
     {
       "field_name": "maintainer",

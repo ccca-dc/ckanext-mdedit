@@ -34,6 +34,27 @@ def mdedit_get_name():
     else:
         return None
 
+def mdedit_get_name_citation():
+     # Get the user name of the logged-in user.
+    # log.debug("Helpers mdedit_get_name")
+
+    user = c.userobj
+    # log.debug(c)
+    # log.debug(user)
+
+
+    if user:
+        cite_name = user.fullname
+        if cite_name != "":
+            cite_name = cite_name.split()
+        #    log.debug("citation: **************************")
+        #    log.debug(cite_name)
+            cite_name = cite_name[len(cite_name)-1]
+            cite_name += " et al"
+            return cite_name
+    else:
+        return "Smith et al"
+
 def mdedit_get_mail():
      # Get the user mailaddress of the logged-in user.
     user = c.userobj
@@ -144,3 +165,9 @@ def mdedit_get_random_group():
     # log.debug(rand_group)
 
     return rand_group
+
+def mdedit_my_log():
+
+    #log.debug("mdedit_my_log ******************")
+
+    return None
