@@ -50,6 +50,7 @@ $('.nav-pills a').on('shown.bs.tab', function (e) {
 
 $("body").on('shown.bs.tab','#mdedit_tab_fix', function(e) {
    L.Util.requestAnimFrame(map.invalidateSize,map,!1,map._container);
+   map.setZoom(6);
 //  map.invalidateSize(false) // said to work as well
 });
 
