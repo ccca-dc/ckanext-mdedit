@@ -4,6 +4,7 @@
 }
 .hero { background: white; }
 */
+
 .mdedit_dz_mail_to{
   color: white;
   font-style: italic;
@@ -12,9 +13,7 @@
 .account-masthead {
     background-color: rgb(40, 40, 40);
 }
-.icon_norm_info{
 
-}
 .mdedit_control-small input,
 .mdedit_control-small .control-label {
   font-size:  12.5px;

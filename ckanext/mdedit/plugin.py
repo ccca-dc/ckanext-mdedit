@@ -27,15 +27,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_mail': helpers.mdedit_get_mail,
             'mdedit_get_date': helpers.mdedit_get_date,
             'mdedit_parse_date': helpers.mdedit_parse_date,
-            'mdedit_count_resources': helpers.mdedit_count_resources,
-            'mdedit_get_number_organizations': helpers.mdedit_get_number_organizations,
-            'mdedit_get_random_organization': helpers.mdedit_get_random_organization,
-            'mdedit_get_number_groups': helpers.mdedit_get_number_groups,
-            'mdedit_get_random_group': helpers.mdedit_get_random_group,
             'mdedit_my_log': helpers.mdedit_my_log,
             'mdedit_get_name_citation': helpers.mdedit_get_name_citation,
-
-
             }
 
      # Package Form
