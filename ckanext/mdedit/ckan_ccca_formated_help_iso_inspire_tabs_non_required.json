@@ -33,7 +33,6 @@
     {
       "field_name": "notes",
       "label": "Abstract",
-      "required": "true",
       "form_snippet": "markdown.html",
       "help_text": "Brief narrative summary of the content of the dataset.",
       "help_text_norm": "ISO_idAbs (m), <br> INSPIRE_ResourceAbstract (m).",
@@ -85,7 +84,6 @@
       "field_name": "mdLang",
       "label": "Metadata Language",
       "preset": "select",
-      "required": "true",
       "help_text": "Language used for the metadata (default english)",
       "help_text_norm": "ISO mdLang (o), <br> INSPIRE_MetadataLanguage (m).",
       "iso":"3",
@@ -105,7 +103,6 @@
       "field_name": "mdDate",
       "label": "Metadata Date",
       "preset": "mdedit_today",
-      "required": "true",
       "help_text": "Date of creation or last modification of this Dataset (automatically inserted)",
       "help_text_norm": "ISO_mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
       "iso":"9",
@@ -114,7 +111,6 @@
     {
       "field_name": "license_id",
       "label": "License",
-      "required": "true",
       "form_snippet": "license.html",
       "form_include_blank_choice": "true",
       "iso":"70",
@@ -429,7 +425,7 @@
       {
         "field_name": "thesaRefDate",
         "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfPublication (o).",
-        "mdedit_note":" TODO!!!! For further implementation....",
+        "mdedit_notes":" TODO!!!! For further implementation....",
         "form_snippet": "mdedit_small_text.html",
         "iso": "392",
         "inspire": "Part B 5.2",
@@ -445,7 +441,7 @@
       {
         "field_name": "thesRrefDateType",
         "help_text_norm": "ISO_refdateType (o), <br> INSPIRE_DateOfPublication (o).",
-        "mdedit_note":" TODO!!!! For further implementation....",
+        "mdedit_notes":" TODO!!!! For further implementation....",
         "iso": "394",
         "inspire": "Part B 5.2",
         "form_snippet": "mdedit_small_text.html",
@@ -479,7 +475,7 @@
     },
     {
      "field_name": "polygon",
-     "mdedit_note": "Do not name this field 'spatial' leads to import errors with harvester! Anja 7.12.16",
+      "mdedit_note": "Do not name this field 'spatial' leads to import errors with harvester! Anja 7.12.16",
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
@@ -697,7 +693,6 @@
     {
       "field_name": "owner_org",
       "label": "Organization",
-      "mdedit_note": "Important: erst org leer, damit nicht flascher default eingestellt wird (sonst AAU!) Anja 7.12.16 ",
       "preset": "mdedit_organization",
       "help_text": "Metadata Point of Contact: Name of responsible Organization",
       "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
@@ -724,7 +719,6 @@
     {
       "field_name": "maintainer",
       "label": "Responsible Individual",
-      "required": "true",
       "preset": "mdedit_individual",
       "help_text": "Metadata Point of Contact: Name of responsible Individual",
       "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
@@ -734,7 +728,6 @@
     {
       "field_name": "maintainer_email",
       "label": " Responsible Individual E-Mail",
-      "required": "true",
       "form_snippet": "text.html",
       "form_placeholder": "joe@example.com",
       "form_snippet": "mdedit_mail.html",
@@ -747,8 +740,6 @@
     {
       "field_name": "role",
       "label": "Role",
-      "required": "true",
-      "mdedit_note": "Important that this field is required to let the user see this page with default values. This field is empty by default. Anja 7.12.16",
       "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
       "form_snippet": "select.html",
       "display_snippet": "select.html",
@@ -809,7 +800,6 @@
     {
       "field_name": "author",
       "label": "Dataset Creator",
-      "required": "true",
       "preset": "mdedit_individual",
       "help_text": "Creator of this Dataset including the resources",
       "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
@@ -819,7 +809,6 @@
     {
       "field_name": "author_email",
       "label": "Dataset Creator E-Mail",
-      "required": "true",
       "form_snippet": "text.html",
       "form_placeholder": "joe@example.com",
           "form_snippet": "mdedit_mail.html",
@@ -832,7 +821,6 @@
     {
       "field_name": "author_role",
       "label": "Role",
-      "required": "true",
       "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
       "form_snippet": "select.html",
       "display_snippet": "select.html",

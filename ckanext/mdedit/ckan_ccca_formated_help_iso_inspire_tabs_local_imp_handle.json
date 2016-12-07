@@ -697,7 +697,7 @@
     {
       "field_name": "owner_org",
       "label": "Organization",
-      "mdedit_note": "Important: erst org leer, damit nicht flascher default eingestellt wird (sonst AAU!) Anja 7.12.16 ",
+      "mdedit_note": "Important: erst org leer, damit nicht falscher default eingestellt wird (sonst AAU!) Anja 7.12.16 ",
       "preset": "mdedit_organization",
       "help_text": "Metadata Point of Contact: Name of responsible Organization",
       "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
@@ -890,7 +890,7 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload"
+      "preset": "resource_url_upload_localimp"
     },
     {
       "field_name": "name",
@@ -921,14 +921,11 @@
     {
       "field_name": "ResourceURI",
       "label": "Resource URI",
-      "form_snippet": "text.html",
-      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
+      "preset": "handle_pid",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
-      "inspire":"Part B 1.4",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
+      "inspire":"Part B 1.4"
     }
   ]
   }
