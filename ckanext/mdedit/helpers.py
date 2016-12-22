@@ -45,7 +45,7 @@ def mdedit_get_name_citation():
 
     if user:
         cite_name = user.fullname
-        if cite_name != "":
+        if cite_name != "" and cite_name != None:
             cite_name = cite_name.split()
         #    log.debug("citation: **************************")
         #    log.debug(cite_name)
