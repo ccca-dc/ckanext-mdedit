@@ -301,11 +301,9 @@
       Profile Info: ISO_eMailAdd (o),  INSPIRE_ResponsibleParty .
       Field: role
       Label: Role
-      mdedit_note: Important that this field is required to let the user see this page with default Values. This field is empty by default. Anja 7.12.16
       Profile Info: ISO_role (m),  INSPIRE_ResponsiblePartyRole (m).
           Value: 
           Label: 
-          mdedit_note: This field is added to have a default empty Value and force the user to actively select a role and therby review the contact page
           Value: author
           Label: Author
           Value: custodian
