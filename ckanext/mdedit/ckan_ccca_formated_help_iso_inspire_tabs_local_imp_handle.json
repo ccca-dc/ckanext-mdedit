@@ -2,7 +2,7 @@
   "scheming_version": "1",
   "dataset_type": "dataset",
   "about": "A reimplementation of the default CKAN dataset schema - CCCA Metadata Editor",
-  "about_url": "https://github.com/ccca-dc/ckanext-ccca",
+  "about_url": "https://github.com/ccca-dc/ckanext-mdedit",
   "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
   "dataset_fields": [
     {
