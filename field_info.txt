@@ -1,5 +1,6 @@
       
       Group: Basics
+      ---------------
       Field: title
       Label: Title
       Info: A title for your dataset.
@@ -49,6 +50,7 @@
       Info: Server internal state (automatically filled)
       
       Group: Constraints
+      ---------------
       Field: useLimit
       Label: Use Limitation
       Info: Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'
@@ -109,6 +111,7 @@
           Label: top secret
       
       Group: Keywords
+      ---------------
       Field: tpCat
       Label: Topic Category/ies
       Info: Main theme(s) of the dataset. See 
@@ -189,6 +192,7 @@
              Label: revision}
     
     Group: Spatial
+      ---------------
      Field: polygon
      Label: Polygon
      Info: Select area describing the dataset spatial extend
@@ -211,6 +215,7 @@
       
       
       Group: Time
+      ---------------
       Field: sDate
       Profile Info: ISO_exTemp (m),  INSPIRE_TemporalExtent (m).
       Label: Starting Date
@@ -231,7 +236,9 @@
       Profile Info: ISO mdDateSt (o),  INSPIRE_MetadataDate (o).
       Label: Date of revision
       Info: Date of revision of the resources within this  dataset
+      
       Group: Quality
+      ---------------
       Field: equivScale
       Profile Info: ISO equivalentScale (o),  INSPIRE_SpatialResolution (o).
       Label: Equivalent Scale
@@ -248,6 +255,7 @@
       
       
       Group: Conformity
+      ---------------
       Field: Specifications
       Profile Info: ISO_conSpec (m),  INSPIRE_Specification (m).
       Label: Specification
@@ -280,6 +288,7 @@
           Label: not conformant
       
       Group: Contact
+      ---------------
       Field: owner_org
       Label: Organization
       Info: Metadata Point of Contact: Name of responsible Organization
