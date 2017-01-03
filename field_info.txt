@@ -1,3 +1,4 @@
+      
       Group: Basics
       Field: title
       Label: Title
@@ -46,6 +47,7 @@
       Field: state
       Label: Server State of the Dataset
       Info: Server internal state (automatically filled)
+      
       Group: Constraints
       Field: useLimit
       Label: Use Limitation
@@ -105,6 +107,7 @@
           Label: secret
           Value: 005
           Label: top secret
+      
       Group: Keywords
       Field: tpCat
       Label: Topic Category/ies
@@ -184,7 +187,8 @@
              Label: publication}
             {Value: 003
              Label: revision}
-      Group: Spatial
+    
+    Group: Spatial
      Field: polygon
      Label: Polygon
      Info: Select area describing the dataset spatial extend
@@ -204,6 +208,8 @@
       Profile Info: ISO_northBL (m),  INSPIRE_GeographicBoundingBox (m).
       Label: North Bound Latitude
       Info: Northern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north).
+      
+      
       Group: Time
       Field: sDate
       Profile Info: ISO_exTemp (m),  INSPIRE_TemporalExtent (m).
@@ -239,6 +245,8 @@
       Profile Info: ISO_statement (o),  INSPIRE_Lineage (o).
       Label: Lineage
       Info: General explanation of the data producer's knowledge about the lineage of a dataset.
+      
+      
       Group: Conformity
       Field: Specifications
       Profile Info: ISO_conSpec (m),  INSPIRE_Specification (m).
@@ -270,6 +278,7 @@
           Label: conformant
           Value: 004
           Label: not conformant
+      
       Group: Contact
       Field: owner_org
       Label: Organization

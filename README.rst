@@ -98,6 +98,7 @@ Fields
 AND: vi)
 
       Group: Basics
+      -------------
 
 
       Field: title
@@ -242,6 +243,7 @@ AND: vi)
 
 
       Group: Constraints
+      -------------
 
 
       Field: useLimit
@@ -419,6 +421,7 @@ AND: vi)
 
 
       Group: Keywords
+      -------------
 
 
       Field: tpCat
@@ -656,6 +659,7 @@ AND: vi)
 
 
       Group: Spatial
+      -------------
 
 
      Field: polygon
@@ -716,6 +720,7 @@ AND: vi)
 
 
       Group: Time
+      -------------
 
 
       Field: sDate
@@ -779,6 +784,7 @@ AND: vi)
 
 
       Group: Quality
+      -------------
 
 
       Field: equivScale
@@ -821,6 +827,7 @@ AND: vi)
 
 
       Group: Conformity
+      -------------
 
 
       Field: Specifications
@@ -914,6 +921,7 @@ AND: vi)
 
 
       Group: Contact
+      -------------
 
 
       Field: owner_org
