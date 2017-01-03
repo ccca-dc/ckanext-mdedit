@@ -91,6 +91,22 @@ Config Settings
     Change and reorder them as you like
     IMPORTANT: If you intend to use the tabs the first field MUST be a tab_delimiter field
 
+---------------
+Fields
+---------------
+(generated with: awk '/field_name/{print $0}/tab_delimiter/{print $0}/label/{print $0}/value/{print $0}/help_text/{print $0}' ckan_ccca_formated_help_iso_inspire_tabs.json  
+AND: vi)
+
+    
+    
+---------------
+Config File Options
+---------------
+
+ckan_ccca_formated_help_iso_inspire_tabs.json                            
+ckan_ccca_formated_help_iso_inspire_tabs_non_required.json     # No fields required - for import or harvest
+ckan_ccca_formated_help_iso_inspire_tabs_local_imp_handle.json  # Include handle and local_imp ckan-extentions            
+ckan_ccca_formated_help_iso_inspire_tabs_local_imp_handle_non_required.json 
 
     
 ------------------------
