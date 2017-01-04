@@ -1,9 +1,12 @@
+
 =============
 ckanext-mdedit
 =============
 
 .. A Metadata Editor Extension which uses ckanext-scheming and changes the appearance of the dataset and resource form
 .. Includes Tabs to group the json fields
+.. Beta State ... still under developement!!!
+
 
 ------------
 Requirements
