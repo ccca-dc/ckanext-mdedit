@@ -1,32 +1,3 @@
-.. You should enable this project on travis-ci.org and coveralls.io to make
-   these badges work. The necessary Travis and Coverage config files have been
-   generated for you.
-
-.. image:: https://travis-ci.org/ccca-dc/ckanext-mdedit.svg?branch=master
-    :target: https://travis-ci.org/ccca-dc/ckanext-mdedit
-
-.. image:: https://coveralls.io/repos/ccca-dc/ckanext-mdedit/badge.svg
-  :target: https://coveralls.io/r/ccca-dc/ckanext-mdedit
-
-.. image:: https://pypip.in/download/ckanext-mdedit/badge.svg
-    :target: https://pypi.python.org/pypi//ckanext-mdedit/
-    :alt: Downloads
-
-.. image:: https://pypip.in/version/ckanext-mdedit/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-mdedit/
-    :alt: Latest Version
-
-.. image:: https://pypip.in/py_versions/ckanext-mdedit/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-mdedit/
-    :alt: Supported Python versions
-
-.. image:: https://pypip.in/status/ckanext-mdedit/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-mdedit/
-    :alt: Development Status
-
-.. image:: https://pypip.in/license/ckanext-mdedit/badge.svg
-    :target: https://pypi.python.org/pypi/ckanext-mdedit/
-    :alt: License
 
 =============
 ckanext-mdedit
@@ -70,7 +41,6 @@ To install ckanext-mdedit:
    ``/etc/ckan/default/production.ini``).
    IMPORTANT: Insert 'mdedit' before 'scheming_datasets'
 
-
 4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
      sudo service apache2 reload
@@ -87,9 +57,9 @@ Config Settings
 	scheming.presets = ckanext.scheming:presets.json
                     ckanext.mdedit:presets.json
 
-    The tabs are recognized by the field_name 'tab_delimiter'
-    Change and reorder them as you like
-    IMPORTANT: If you intend to use the tabs the first field MUST be a tab_delimiter field
+  The tabs are recognized by the field_name 'tab_delimiter'.  Change and reorder them as you like.  IMPORTANT: If you intend to use the tabs (i.e. grouping of fields) the first field MUST be a tab_delimiter field
+
+  tab_delimiter fields have an option: "necessary". If this option is used a red marker is inserted before the tab/group name to identify groups which contain required fields.
 
 ---------------
 Fields
