@@ -722,7 +722,7 @@
       "label": "Responsible Individual",
       "preset": "mdedit_individual",
       "help_text": "Metadata Point of Contact: Name of responsible Individual",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
@@ -734,7 +734,7 @@
       "form_snippet": "mdedit_mail.html",
       "display_snippet": "email.html",
       "help_text": "Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty .",
+      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m) .",
       "iso":"386",
       "inspire": "Part B 9.1"
     },
@@ -804,7 +804,7 @@
       "label": "Dataset Creator",
       "preset": "mdedit_individual",
       "help_text": "Creator of this Dataset including the resources",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
@@ -816,7 +816,7 @@
           "form_snippet": "mdedit_mail.html",
       "display_snippet": "email.html",
       "help_text": "Mailadress of Dataset Creator",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
