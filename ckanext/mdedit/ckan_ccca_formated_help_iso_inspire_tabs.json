@@ -7,6 +7,196 @@
   "dataset_fields": [
     {
       "field_name": "tab_delimiter",
+      "tab_delimiter": "Contact",
+      "title": "Contact and Owner Information regarding your dataset ",
+      "necessary": "true",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "mdedit_note": "public zuerst; leere Org als default",
+      "preset": "mdedit_organization",
+      "help_text": "Metadata Point of Contact: Name of responsible Organization",
+      "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
+      "mdedit_note":"ISO_idPOC - Hierachie",
+      "inspire": "Part B 9.1",
+      "iso":"376"
+    },
+    {
+      "field_name": "cntOnlineRes",
+      "label": "Webpage",
+      "display_snippet": "link.html",
+      "help_text": "Webpage of the responsible Organization.",
+      "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
+      "iso":"390"
+    },
+    {
+      "field_name": "maintainer",
+      "label": "Responsible Individual",
+      "preset": "mdedit_individual",
+      "help_text": "Metadata Point of Contact: Name of responsible Individual",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+      "iso":"375",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "maintainer_email",
+      "label": " Responsible Individual E-Mail",
+      "form_snippet": "text.html",
+      "form_placeholder": "joe@example.com",
+      "form_snippet": "mdedit_mail.html",
+      "display_snippet": "email.html",
+      "help_text": "Mail Address of Responsible Individual",
+      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
+      "iso":"386",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "role",
+      "label": "Role",
+      "help_text": "Role of the Dataset Creator (default: custodian (i.e. maintainer))",
+      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
+      "form_snippet": "mdedit_select.html",
+      "display_snippet": "select.html",
+      "iso":"379",
+      "inspire": "Part B 9.2",
+      "choices": [
+        {
+          "value": "custodian",
+          "label": "Custodian"
+        },
+        {
+          "value": "author",
+          "label": "Author"
+        },
+        {
+          "value": "distributor",
+          "label": "Distributor"
+        },
+        {
+          "value": "originator",
+          "label": "Originator"
+        },
+        {
+          "value": "owner",
+          "label": "Owner"
+        },
+        {
+          "value": "pointOfContact",
+          "label": "Point of Contact"
+        },
+        {
+          "value": "principalInvestigator",
+          "label": "Principal Investigator"
+        },
+        {
+          "value": "processor",
+          "label": "Processor"
+        },
+        {
+          "value": "publisher",
+          "label": "Publisher"
+        },
+        {
+          "value": "resourceProvider",
+          "label": "Resource Provider"
+        },
+        {
+          "value": "user",
+          "label": "User"
+        }
+      ]
+    },
+    {
+      "field_name": "author",
+      "label": "Dataset Creator",
+      "preset": "mdedit_individual",
+      "help_text": "Creator of this Dataset including the resources",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+      "iso":"375",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Dataset Creator E-Mail",
+      "form_snippet": "text.html",
+      "form_placeholder": "joe@example.com",
+          "form_snippet": "mdedit_mail.html",
+      "display_snippet": "email.html",
+      "help_text": "Mailadress of Dataset Creator",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+      "iso":"375",
+      "inspire": "Part B 9.1"
+    },
+    {
+      "field_name": "author_role",
+      "label": "Role",
+      "help_text": "Role of the Dataset Creator (default: Author)",
+      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
+      "form_snippet": "mdedit_select.html",
+      "display_snippet": "select.html",
+      "iso":"379",
+      "inspire": "Part B 9.2",
+      "choices": [
+      {
+          "value": "author",
+          "label": "Author"
+        },
+        {
+          "value": "custodian",
+          "label": "Custodian"
+        },
+        {
+          "value": "distributor",
+          "label": "Distributor"
+        },
+        {
+          "value": "originator",
+          "label": "Originator"
+        },
+        {
+          "value": "owner",
+          "label": "Owner"
+        },
+        {
+          "value": "pointOfContact",
+          "label": "Point of Contact"
+        },
+        {
+          "value": "principalInvestigator",
+          "label": "Principal Investigator"
+        },
+        {
+          "value": "processor",
+          "label": "Processor"
+        },
+        {
+          "value": "publisher",
+          "label": "Publisher"
+        },
+        {
+          "value": "resourceProvider",
+          "label": "Resource Provider"
+        },
+        {
+          "value": "user",
+          "label": "User"
+        }
+      ]
+    },
+    {
+      "field_name": "author_citation",
+      "label": "Citation Info",
+      "form_snippet": "mdedit_cite.html",
+      "display_snippet": "text.html",
+      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources. Default: Dataset Creator (see field below)",
+      "placeholder": "Smith et al"
+    },
+    {
+      "field_name": "tab_delimiter",
       "tab_delimiter": "Basics",
       "title": "Basic Information about your dataset ",
       "necessary": "true",
@@ -84,8 +274,7 @@
     {
       "field_name": "mdLang",
       "label": "Metadata Language",
-      "preset": "select",
-      "required": "true",
+      "preset": "mdedit_select",
       "help_text": "Language used for the metadata (default english)",
       "help_text_norm": "ISO mdLang (o), <br> INSPIRE_MetadataLanguage (m).",
       "iso":"3",
@@ -105,7 +294,6 @@
       "field_name": "mdDate",
       "label": "Metadata Date",
       "preset": "mdedit_today",
-      "required": "true",
       "help_text": "Date of creation or last modification of this Dataset (automatically inserted)",
       "help_text_norm": "ISO_mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
       "iso":"9",
@@ -478,8 +666,8 @@
       }
     },
     {
-     "field_name": "polygon",
-     "mdedit_note": "Do not name this field 'spatial' leads to import errors with harvester! Anja 7.12.16",
+     "field_name": "spatial",
+     "mdedit_note": " 'spatial' field name leads to import errors with harvester! needs to be fixed - Anja 5.1.17",
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
@@ -684,206 +872,6 @@
           "label": "not conformant"
         }
       ]
-    },
-    {
-      "field_name": "tab_delimiter",
-      "tab_delimiter": "Contact",
-      "title": "Contact and Owner Information regarding your dataset ",
-      "necessary": "true",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
-    },
-    {
-      "field_name": "owner_org",
-      "label": "Organization",
-      "mdedit_note": "Important: erst org leer, damit nicht flascher default eingestellt wird (sonst AAU!) Anja 7.12.16 ",
-      "preset": "mdedit_organization",
-      "help_text": "Metadata Point of Contact: Name of responsible Organization",
-      "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
-      "mdedit_note":"ISO_idPOC - Hierachie",
-      "inspire": "Part B 9.1",
-      "iso":"376"
-    },
-    {
-      "field_name": "cntOnlineRes",
-      "label": "Webpage",
-      "display_snippet": "link.html",
-      "help_text": "Webpage of the responsible Organization.",
-      "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
-      "iso":"390"
-    },
-    {
-      "field_name": "author_citation",
-      "label": "Citation Info",
-      "form_snippet": "mdedit_cite.html",
-      "display_snippet": "text.html",
-      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources. Default: Dataset Creator (see field below)",
-      "placeholder": "Smith et al"
-    },
-    {
-      "field_name": "maintainer",
-      "label": "Responsible Individual",
-      "required": "true",
-      "preset": "mdedit_individual",
-      "help_text": "Metadata Point of Contact: Name of responsible Individual",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
-      "inspire": "Part B 9.1"
-    },
-    {
-      "field_name": "maintainer_email",
-      "label": " Responsible Individual E-Mail",
-      "required": "true",
-      "form_snippet": "text.html",
-      "form_placeholder": "joe@example.com",
-      "form_snippet": "mdedit_mail.html",
-      "display_snippet": "email.html",
-      "help_text": "Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
-      "iso":"386",
-      "inspire": "Part B 9.1"
-    },
-    {
-      "field_name": "role",
-      "label": "Role",
-      "required": "true",
-      "mdedit_note": "Important that this field is required to let the user see this page with default values. This field is empty by default. Anja 7.12.16",
-      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
-      "form_snippet": "select.html",
-      "display_snippet": "select.html",
-      "iso":"379",
-      "inspire": "Part B 9.2",
-      "choices": [
-        {
-          "value": "",
-          "label": "",
-          "mdedit_note": "This field is added to have a default empty value and force the user to actively select a role and therby review the contact page"
-        },
-        {
-          "value": "author",
-          "label": "Author"
-        },
-        {
-          "value": "custodian",
-          "label": "Custodian"
-        },
-        {
-          "value": "distributor",
-          "label": "Distributor"
-        },
-        {
-          "value": "originator",
-          "label": "Originator"
-        },
-        {
-          "value": "owner",
-          "label": "Owner"
-        },
-        {
-          "value": "pointOfContact",
-          "label": "Point of Contact"
-        },
-        {
-          "value": "principalInvestigator",
-          "label": "Principal Investigator"
-        },
-        {
-          "value": "processor",
-          "label": "Processor"
-        },
-        {
-          "value": "publisher",
-          "label": "Publisher"
-        },
-        {
-          "value": "resourceProvider",
-          "label": "Resource Provider"
-        },
-        {
-          "value": "user",
-          "label": "User"
-        }
-      ]
-    },
-    {
-      "field_name": "author",
-      "label": "Dataset Creator",
-      "required": "true",
-      "preset": "mdedit_individual",
-      "help_text": "Creator of this Dataset including the resources",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
-      "inspire": "Part B 9.1"
-    },
-    {
-      "field_name": "author_email",
-      "label": "Dataset Creator E-Mail",
-      "required": "true",
-      "form_snippet": "text.html",
-      "form_placeholder": "joe@example.com",
-          "form_snippet": "mdedit_mail.html",
-      "display_snippet": "email.html",
-      "help_text": "Mailadress of Dataset Creator",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
-      "inspire": "Part B 9.1"
-    },
-    {
-      "field_name": "author_role",
-      "label": "Role",
-      "required": "true",
-      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
-      "form_snippet": "select.html",
-      "display_snippet": "select.html",
-      "iso":"379",
-      "inspire": "Part B 9.2",
-      "choices": [
-      {
-          "value": "author",
-          "label": "Author"
-        },
-        {
-          "value": "custodian",
-          "label": "Custodian"
-        },
-        {
-          "value": "distributor",
-          "label": "Distributor"
-        },
-        {
-          "value": "originator",
-          "label": "Originator"
-        },
-        {
-          "value": "owner",
-          "label": "Owner"
-        },
-        {
-          "value": "pointOfContact",
-          "label": "Point of Contact"
-        },
-        {
-          "value": "principalInvestigator",
-          "label": "Principal Investigator"
-        },
-        {
-          "value": "processor",
-          "label": "Processor"
-        },
-        {
-          "value": "publisher",
-          "label": "Publisher"
-        },
-        {
-          "value": "resourceProvider",
-          "label": "Resource Provider"
-        },
-        {
-          "value": "user",
-          "label": "User"
-        }
-      ]
     }
   ],
   "resource_fields": [
@@ -899,7 +887,7 @@
       "help_text": "Name by which the resource is known."
     },
     {
-      "field_name": "decription",
+      "field_name": "description",
       "label": "Description",
       "form_snippet": "markdown.html",
       "help_text": "Brief narrative summary of the content of the resource."
@@ -929,6 +917,23 @@
       "form_attrs": {
         "readonly": "readonly"
       }
-    }
+    },
+    {
+       "field_name": "anonDownload",
+       "label": "Anonymous Download",
+       "form_snippet": "mdedit_select.html",
+       "display_snippet": "select.html",
+       "help_text": "Allow anonymous (not logged in) users to download resource",
+       "choices": [
+         {
+           "value": "true",
+           "label": "yes"
+         },
+         {
+           "value": "false",
+           "label": "no"
+         }
+       ]
+}
   ]
   }
