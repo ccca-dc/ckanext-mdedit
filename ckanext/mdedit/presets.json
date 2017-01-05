@@ -42,6 +42,14 @@
         "validators": "owner_org_validator unicode",
         "form_snippet": "mdedit_organization.html"
       }
+    },
+    {
+      "preset_name": "mdedit_select",
+      "values": {
+        "form_snippet": "mdedit_select.html",
+        "display_snippet": "select.html",
+        "validators": "scheming_required scheming_choices"
+      }
     }
   ]
 }

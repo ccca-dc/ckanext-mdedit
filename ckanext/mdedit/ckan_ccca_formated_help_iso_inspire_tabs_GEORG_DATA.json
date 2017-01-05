@@ -2,7 +2,7 @@
   "scheming_version": "1",
   "dataset_type": "dataset",
   "about": "A reimplementation of the default CKAN dataset schema - CCCA Metadata Editor",
-  "about_url": "https://github.com/ccca-dc/ckanext-mdedit",
+  "about_url": "https://github.com/ccca-dc/ckanext-ccca",
   "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
   "dataset_fields": [
     {
@@ -10,6 +10,18 @@
       "tab_delimiter": "Basics",
       "title": "Basic Information about your dataset ",
       "necessary": "true",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "datasetURI",
+      "label": "Dataset Locator",
+      "form_snippet": "text.html",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
+      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "iso":"397",
+      "inspire":"Part B 1.4",
       "form_attrs": {
         "readonly": "readonly"
       }
@@ -33,6 +45,7 @@
     {
       "field_name": "notes",
       "label": "Abstract",
+      "required": "true",
       "form_snippet": "markdown.html",
       "help_text": "Brief narrative summary of the content of the dataset.",
       "help_text_norm": "ISO_idAbs (m), <br> INSPIRE_ResourceAbstract (m).",
@@ -474,8 +487,7 @@
       }
     },
     {
-     "field_name": "polygon",
-      "mdedit_note": "Do not name this field 'spatial' leads to import errors with harvester! Anja 7.12.16",
+     "field_name": "spatial",
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
@@ -721,7 +733,7 @@
       "label": "Responsible Individual",
       "preset": "mdedit_individual",
       "help_text": "Metadata Point of Contact: Name of responsible Individual",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
@@ -733,7 +745,7 @@
       "form_snippet": "mdedit_mail.html",
       "display_snippet": "email.html",
       "help_text": "Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m) .",
+      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty .",
       "iso":"386",
       "inspire": "Part B 9.1"
     },
@@ -802,7 +814,7 @@
       "label": "Dataset Creator",
       "preset": "mdedit_individual",
       "help_text": "Creator of this Dataset including the resources",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
@@ -814,7 +826,7 @@
           "form_snippet": "mdedit_mail.html",
       "display_snippet": "email.html",
       "help_text": "Mailadress of Dataset Creator",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty(m)",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
       "iso":"375",
       "inspire": "Part B 9.1"
     },
@@ -878,7 +890,7 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload"
+      "preset": "resource_url_upload_localimp"
     },
     {
       "field_name": "name",
@@ -887,7 +899,7 @@
       "help_text": "Name by which the resource is known."
     },
     {
-      "field_name": "decription",
+      "field_name": "description",
       "label": "Description",
       "form_snippet": "markdown.html",
       "help_text": "Brief narrative summary of the content of the resource."
@@ -909,14 +921,11 @@
     {
       "field_name": "ResourceURI",
       "label": "Resource URI",
-      "form_snippet": "text.html",
-      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
+      "preset": "handle_pid",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
-      "inspire":"Part B 1.4",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
+      "inspire":"Part B 1.4"
     }
   ]
   }
