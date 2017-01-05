@@ -205,6 +205,18 @@
       }
     },
     {
+      "field_name": "datasetURI",
+      "label": "Dataset Locator",
+      "form_snippet": "text.html",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
+      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "iso":"397",
+      "inspire":"Part B 1.4",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
       "field_name": "title",
       "label": "Title",
       "required": "true",
@@ -931,6 +943,6 @@
            "label": "no"
          }
        ]
-     } 
+     }
   ]
   }
