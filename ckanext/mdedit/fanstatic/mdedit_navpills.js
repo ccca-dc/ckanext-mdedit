@@ -33,7 +33,7 @@ $('html,body').scrollTop(scrollmem);
 // Javascript to enable link to tab
 
 var url = document.location.toString();
-console.log(url)
+//console.log(url)
 if (url.match('#')) {
     $('.nav-pills a[href="#' + url.split('#')[1] + '"]').tab('show');
      window.scrollTo(0, 0);

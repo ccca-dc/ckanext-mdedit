@@ -29,8 +29,12 @@ def mdedit_get_name():
     user = c.userobj
     # log.debug(c)
     # log.debug(user)
+
     if user:
-        return user.fullname
+        u = gettext(user)
+        if isinstance(u, str):
+            return u.decode('utf-8')
+        return  user.fullname
     else:
         return None
 
@@ -79,3 +83,44 @@ def mdedit_my_log():
     #log.debug("mdedit_my_log ******************")
 
     return None
+def mdedit_get_contains(field_name, start_index, num_elements):
+    # Turn String into list again
+    # and extract the required fields (index)
+
+    log.debug("mdedit_get_contains *********** Anja ******************")
+    log.debug(start_index)
+    log.debug(field_name)
+
+
+    if field_name == None or start_index < 0:
+        return ""
+
+    if num_elements < start_index:
+        return ""
+
+    otto = c.pkg_dict
+
+    if otto:
+        clist = c.pkg_dict.get(field_name)
+    else:
+        return ""
+
+    print (type(clist))
+    print clist
+
+    if clist:
+        clist = clist.split(',')
+    else:
+        return ""
+
+    print (type(clist))
+    print clist
+
+    values =[]
+
+    for i in range(start_index,len(clist),int(num_elements)):
+        print i
+        print clist[i]
+        values.append(clist[i])
+
+    return values

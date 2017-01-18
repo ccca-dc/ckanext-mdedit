@@ -16,6 +16,7 @@
 
 {% block package_additional_info %}
   {%- for field in schema.dataset_fields -%}
+
     {%- if field.field_name == "tab_delimiter" -%}
 
           </tbody>
@@ -33,6 +34,16 @@
         and field.field_name != "owner_org"
         and field.field_name != "tag_string"
     -%}
+          {% if field.group_small_start -%}
+              <tr>
+                <th scope="col"><i>{{ field.group_small_start + _(':')}}</i></th>
+              </tr>
+          {%- endif -%}
+          {% if field.contains -%}
+              <tr>
+                <th scope="col"><i>{{ field.label + _(':')}}</i></th>
+              </tr>
+          {%- endif -%}
           <tr>
             <th scope="row" class="dataset-label">
               {{ h.scheming_language_text(field.label) }}</th>
@@ -95,8 +106,8 @@
         <th scope="row" class="dataset-label ccca-alarm" property="rdfs:label">ATTENTION</th>
         <td class="dataset-details" property="rdf:value">This dataset contains extra fields! !!!
           <br>
-          <br> Probably the dataset was harvested. This is great :-)
-          <br> However, some field-names apparently did not match standardised field-names
+          <br> Probably the dataset was harvested and some
+          <br> field-names did not match standardised field-names
           <br> and thus an automatic import to our server was impossible.
           <br> For your convenience you see the unimported fields below.
           <br>

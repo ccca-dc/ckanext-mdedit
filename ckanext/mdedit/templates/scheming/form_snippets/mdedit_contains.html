@@ -1,0 +1,54 @@
+{% resource 'mdedit/mdedit_create_input.js' %}
+
+{#
+{{_('Hallo')}}
+{{field.field_name}}
+<br>
+{{names}}
+<br>
+{{mails}}
+<br>
+{{deps}}
+<br>
+{{roles}}
+
+#}
+
+
+
+{% set names = h.mdedit_get_contains(field.field_name,0, field.contains) %}
+
+{% set deps = h.mdedit_get_contains(field.field_name,1, field.contains) %}
+
+{% set mails = h.mdedit_get_contains(field.field_name,2, field.contains) %}
+
+{% set roles = h.mdedit_get_contains(field.field_name,3, field.contains) %}
+
+
+{%if field.required %}
+<div  class="well well-small"> <p><h5><i style="color:red;">* </i> {{field.label}}</h5></p>
+{% else %}
+<div  class="well well-small"> <p><h5>{{field.label}}</h5>
+{% endif %}
+<!--  when clicking the add button, it calls the create_input.js and creates additional inputs-->
+
+<p><button id="md_addbtn" data-module="mdedit_create_input" data-module-field="button" class="btn btn-success" type="button">+</button></p>
+
+<div id="field_contains" class="input-append">
+</div>
+<br><br>
+
+{% for name in names %}
+		<input type="text" disabled="disabled" style="display: none;"
+    data-module="mdedit_create_input"
+    data-module-field1="{{ names[loop.index-1] }}"
+		data-module-field2="{{ deps[loop.index-1] }}"
+    data-module-field3="{{ mails[loop.index-1] }}"
+    data-module-field4="{{ roles[loop.index-1] }}">
+  </input>
+
+{% endfor %}
+
+{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+
+  </div>

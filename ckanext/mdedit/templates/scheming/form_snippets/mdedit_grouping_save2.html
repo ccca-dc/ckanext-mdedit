@@ -1,0 +1,70 @@
+{% resource 'mdedit/mdedit_create_input.js' %}
+
+{{_('Hallo')}}
+
+{% set names = h.mdedit_get_contact_info('names') %}
+
+{% set mails = h.mdedit_get_contact_info('mails') %}
+
+{% set roles = h.mdedit_get_contact_info('roles') %}
+<br>
+{{names}}
+<br>
+{{mails}}
+<br>
+{{roles}}
+
+{%if field.required %}
+<div id="contact_group" class="well well-small"> <p><h4><i style="color:red;">* </i> {{field.label}}</h4></p>
+{% else %}
+<div id="contact_group" class="well well-small"> <p><h4>{{field.label}}</h4>
+{% endif %}
+<p><button id="md_addbtn" data-module="mdedit_create_input" data-module-field="button" class="btn btn-success" type="button">+</button></p>
+
+
+<div id="field_group" class="input-append">
+
+
+	<!-- creating the first input with the add button here and checking whether there is already a url stored
+	 and when clicking the add button, it calls the create_input.js and creates additional inputs-->
+	{% set name = '' %}
+	{% set mail = '' %}
+  {% set role = '' %}
+
+	{% if names|length > 0 %}
+		{% set name = names[0] %}
+		{% set mail = mails[0] %}
+    {% set role = roles[0] %}
+	{% endif %}
+
+  {% if name == '' %}
+  	{% set name =  h.mdedit_get_name() %}
+  {% endif %}
+  {% if mail == '' %}
+   	{% set mail =  h.mdedit_get_mail() %}
+ {% endif %}
+
+ {%- set options=[] -%}
+ {%- for c in field.choices -%}
+    {%- do options.append({
+        'value': c.value,
+        'text': h.scheming_language_text(c.label)}) -%}
+{%- endfor -%}
+
+ 
+</div>
+<br><br>
+{% for name in names %}
+	{% if loop.index != 1 %}
+  {{loop.index}}
+		<input type="text" disabled="disabled" style="display: none;"
+    data-module="mdedit_create_input"
+    data-module-field1="{{ name }}"
+    data-module-field2="{{ mails[loop.index-1] }}"
+    data-module-field3="{{ roles[loop.index-1] }}">
+  </input>
+	{% endif %}
+{% endfor %}
+  </div>
+
+{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}

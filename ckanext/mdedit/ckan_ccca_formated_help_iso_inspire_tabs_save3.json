@@ -35,10 +35,10 @@
     },
     {
        "field_name": "maintainer",
-       "label": "Name",
+       "label": "Responsible Individual",
        "required": "true",
-       "group_start": "Contact Information",
-       "group_small_start": "Metadata Point of Contact (Maintainer)",
+       "group_start": "Contact Info",
+       "group_small_start": "Metadata Point of Contact",
        "preset": "mdedit_individual",
        "help_text_old": "Metadata Point of Contact: Name of responsible Individual (Maintainer)",
        "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m).",
@@ -55,76 +55,80 @@
      },
      {
        "field_name": "maintainer_email",
-       "label": " Mail",
+       "label": " Responsible Individual E-Mail",
        "group_small_end": "Metadata Point of Contact",
        "required": "true",
        "form_snippet": "text.html",
        "form_placeholder": "joe@example.com",
        "form_snippet": "mdedit_mail.html",
        "display_snippet": "email.html",
-       "help_text": "Name, Department /- Address and Mail Address of Responsible Individual",
+       "help_text": "Mail Address of Responsible Individual",
        "help_text_norm": "ISO_mdContact (m), <br> INSPIRE_MetadataPointOfContact (m) .",
-       "iso_group":"8",
+       "iso":"8",
        "inspire": "Part B 10.1",
        "help_text_old": "Mail Address of Responsible Individual",
        "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m) .",
-       "iso":"386"
+       "iso_old":"386"
      },
-
     {
        "field_name": "author",
-       "label": "Name",
-       "group_small_start": "Responsible Party (Author)",
+       "label": "Dataset Creator",
+       "group_small_start": "Dataset Creator (Author)",
        "required": "true",
        "preset": "mdedit_individual",
-       "help_text_old": "Creator of this Dataset including the resources (Author)",
-       "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+       "help_text": "Creator of this Dataset including the resources (Author)",
+       "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
        "iso":"375",
        "inspire": "Part B 9.1"
      },
     {
       "field_name": "author_address",
       "label": "Department",
-      "help_text_old": "Department/-address of Dataset Creator",
-      "help_text_norm_old": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
+      "help_text": "Department/-address of Dataset Creator",
+      "help_text_norm": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
       "iso":"389",
-      "inspire": "Part B 9.1"
+      "inspire": "Part B 10.1"
     },
     {
       "field_name": "author_email",
-      "label": "Mail",
-      "group_small_end": "Responsible Party (Author)",
+      "label": "Dataset Creator E-Mail",
+      "group_small_end": "Dataset Creator (Author)",
+      "group_end":"Contact Info",
       "required": "true",
       "form_snippet": "text.html",
       "form_placeholder": "joe@example.com",
           "form_snippet": "mdedit_mail.html",
       "display_snippet": "email.html",
-      "help_text": "Name, Department /- Address and Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_idPoC (o), <br> INSPIRE_ResponsibleParty (m).",
-      "iso":"29",
-      "inspire": "Part B 9.1",
-      "help_text_old": "Mailadress of Dataset Creator",
-      "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
-      "iso_old":"375"
+      "help_text": "Mailadress of Dataset Creator",
+      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+      "iso":"375",
+      "inspire": "Part B 9.1"
     },
     {
       "field_name": "contact_info",
       "mdedit_note": "Special Field. Best last item within a tab",
-      "contains": "4",
-      "label": "Further Contacts",
-      "preset": "mdedit_contains",
+      "grouping": "3",
+      "label": "Further Contacts:",
+      "preset": "mdedit_grouping",
       "one": "Name",
-      "two": "Department",
-      "three": "Mail",
-      "four": "Role",
-      "help_text": "Name, Mail Department/-Adress and Role of Contact Individual(s)",
-      "help_text_norm": "ISO_CI_Contact (o), ISO_CI_Role (o), <br> INSPIRE_ResponsibleParty (o), INSPIRE_ResponsiblePartyRole (c)",
-      "iso":"387,387,387,379",
-      "inspire": "Part B 9.1, Part B 9.1, Part B 9.1, Part B 9.2 ",
+      "two": "Mail",
+      "three": "Role",
+      "help_text": "Name, Mail and Role of Contact Individual(s)",
+      "help_text_norm": "ISO_CI_Contact (o), <br> INSPIRE_ResponsibleParty (o)",
+      "iso":"387",
+      "inspire": "Part B 9.1, Part B 9.1, Part B 9.2 ",
       "choices": [
+        {
+          "value": "metadataPointofContact",
+          "label": "Metadata Point of Contact"
+        },
         {
           "value": "custodian",
           "label": "Custodian"
+        },
+        {
+          "value": "author",
+          "label": "Author"
         },
         {
           "value": "distributor",
@@ -161,17 +165,8 @@
         {
           "value": "user",
           "label": "User"
-        },
-        {
-          "value": "author",
-          "label": "Author"
         }
       ]
-    },
-    {
-      "field_name": "close_group",
-      "group_end":"Contact Info",
-      "hide_field": "true"
     },
     {
       "field_name": "tab_delimiter",

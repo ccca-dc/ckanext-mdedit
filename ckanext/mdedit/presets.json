@@ -37,7 +37,7 @@
     },
     {
       "preset_name": "mdedit_organization",
-      "mdedit_note":" copied from sceheming, just different order of public - private - public is default here) ",
+      "mdedit_note":" copied from scheming, just different order of public - private - public is default here) ",
       "values": {
         "validators": "owner_org_validator unicode",
         "form_snippet": "mdedit_organization.html"
@@ -49,6 +49,14 @@
         "form_snippet": "mdedit_select.html",
         "display_snippet": "select.html",
         "validators": "scheming_required scheming_choices"
+      }
+    },
+    {
+      "preset_name": "mdedit_contains",
+      "values": {
+        "form_snippet": "mdedit_contains.html",
+        "display_snippet": "mdedit_contains.html",
+        "validators": "scheming_required mdedit_contains"
       }
     }
   ]
