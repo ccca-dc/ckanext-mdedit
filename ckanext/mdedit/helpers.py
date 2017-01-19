@@ -22,6 +22,8 @@ log = logging.getLogger(__name__)
 import random
 """ Anja 23.11.2016 """
 
+global_contains_field = []
+
 def mdedit_get_name():
      # Get the user name of the logged-in user.
     # log.debug("Helpers mdedit_get_name")
@@ -83,25 +85,53 @@ def mdedit_my_log():
     #log.debug("mdedit_my_log ******************")
 
     return None
-def mdedit_get_contains(field_name, start_index, num_elements):
+
+def mdedit_get_contain_labels(field):
+
+    log.debug("mdedit_get_contain_labels *********** Anja ******************")
+
+    num = int(field['contains'])
+    print num
+
+    labels = []
+
+    for i in range (1,num+1):
+        print i
+        id = 'l'+ str(i)
+        labels.append (field[id])
+
+    print labels
+    return labels
+
+def mdedit_get_contain_pholders(field):
+
+    log.debug("mdedit_get_contain_pholders *********** Anja ******************")
+
+    num = int(field['contains'])
+    print num
+
+    pholders = []
+
+    for i in range (1,num+1):
+        print i
+        id = 'p'+ str(i)
+        pholders.append (field[id])
+
+    print pholders
+    return pholders
+
+def mdedit_get_contain_values(field):
     # Turn String into list again
     # and extract the required fields (index)
 
-    log.debug("mdedit_get_contains *********** Anja ******************")
-    log.debug(start_index)
-    log.debug(field_name)
+    log.debug("mdedit_get_contain_values *********** Anja ******************")
 
-
-    if field_name == None or start_index < 0:
-        return ""
-
-    if num_elements < start_index:
-        return ""
+    print field
 
     otto = c.pkg_dict
 
     if otto:
-        clist = c.pkg_dict.get(field_name)
+        clist = c.pkg_dict.get(field['field_name'])
     else:
         return ""
 
@@ -109,18 +139,25 @@ def mdedit_get_contains(field_name, start_index, num_elements):
     print clist
 
     if clist:
-        clist = clist.split(',')
+        clist = clist.split(field['str_sep'])
     else:
         return ""
 
     print (type(clist))
     print clist
 
-    values =[]
+    values =[[] for x in range(int(field['contains']))]
 
-    for i in range(start_index,len(clist),int(num_elements)):
+    for j in range(int(field['contains'])):
+        for i in range(j,len(clist),int(field['contains'])):
+            print i
+            print clist[i]
+            values[j].append(clist[i])
+    print values
+    return values
+"""
+    for i in range(start_index,len(clist),int(field['contains'])):
         print i
         print clist[i]
         values.append(clist[i])
-
-    return values
+"""

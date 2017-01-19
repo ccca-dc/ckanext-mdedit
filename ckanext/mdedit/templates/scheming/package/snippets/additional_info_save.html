@@ -28,46 +28,11 @@
               </tr>
             </thead>
             <tbody>
-    {%- elif field.field_name == "tag_string" -%}
-          <tr>
-            <th scope="row" class="dataset-label">
-            {{  h.scheming_language_text(field.label) }}
-           </th>
-            <td class="dataset-details">
-            {%- for mytag  in mdedit_tags -%}
-               {%- if loop.index < mdedit_num_tags -%}
-                    {{ mdedit_tags[loop.index0].name }},
-                {%- else %}
-                    {{ mdedit_tags[loop.index0].name }}
-                {%- endif -%}
-              {%- endfor -%}
-            </td>
-        </tr>
-    {%- elif field.field_name == "license_id" -%}
-        <tr>
-          <th scope="row" class="dataset-label">Visibility</th>
-          <td class="dataset-details">
-        {%- if pkg_dict.private -%}
-              private
-           {%- else %}
-              public
-          {%- endif -%}
-           </td>
-       </tr>
-   {%- elif field.field_name == "owner_org" -%}
-         <tr>
-           <th scope="row" class="dataset-label">
-           {{ h.scheming_language_text(field.label) }}</th>
-           <td class="dataset-details">
-           {%- if pkg_dict.organization -%}
-                {{c.pkg_dict.organization.title}}
-           {%- else %}
-               None assigned
-          {%- endif -%}
-           </td>
-       </tr>
+
     {%- elif field.field_name not in exclude_fields
         and field.display_snippet is not none
+        and field.field_name != "owner_org"
+        and field.field_name != "tag_string"
     -%}
           {% if field.group_small_start -%}
               <tr>
@@ -88,7 +53,50 @@
               field=field, data=pkg_dict, schema=schema -%}</td>
           </tr>
     {%- endif -%}
-    
+    {%- if field.field_name == "license_id" -%}
+        <tr>
+          <th scope="row" class="dataset-label">Visibility</th>
+          <td class="dataset-details">
+        {%- if pkg_dict.private -%}
+              private
+           {%- else %}
+              public
+          {%- endif -%}
+           </td>
+       </tr>
+    {%- endif -%}
+
+    {%- if field.field_name == "owner_org" -%}
+          <tr>
+            <th scope="row" class="dataset-label">
+            {{ h.scheming_language_text(field.label) }}</th>
+            <td class="dataset-details">
+            {%- if pkg_dict.organization -%}
+                 {{c.pkg_dict.organization.title}}
+            {%- else %}
+                None assigned
+           {%- endif -%}
+            </td>
+        </tr>
+    {%- endif -%}
+
+    {%- if field.field_name == "tag_string" -%}
+          <tr>
+            <th scope="row" class="dataset-label">
+            {{  h.scheming_language_text(field.label) }}
+           </th>
+            <td class="dataset-details">
+            {%- for mytag  in mdedit_tags -%}
+               {%- if loop.index < mdedit_num_tags -%}
+                    {{ mdedit_tags[loop.index0].name }},
+                {%- else %}
+                    {{ mdedit_tags[loop.index0].name }}
+                {%- endif -%}
+              {%- endfor -%}
+            </td>
+        </tr>
+    {%- endif -%}
+
   {%- endfor -%}
 
   {% block extras scoped %}

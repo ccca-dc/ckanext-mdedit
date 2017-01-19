@@ -29,7 +29,9 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_parse_date': helpers.mdedit_parse_date,
             'mdedit_my_log': helpers.mdedit_my_log,
             'mdedit_get_name_citation': helpers.mdedit_get_name_citation,
-            'mdedit_get_contains': helpers.mdedit_get_contains
+            'mdedit_get_contain_values': helpers.mdedit_get_contain_values,
+            'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
+            'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders
             }
 
     # IValidators

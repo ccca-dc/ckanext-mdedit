@@ -3,113 +3,137 @@
 ckan.module('mdedit_create_input', function ($, _) {
     var next = 0;
     var origin;
-    var ci_field1;
-    var ci_field2;
-    var ci_field3;
-    var ci_field4;
-
+    var count;
+    var max = 5;
+    var values=["", "", "","","",""];
+    var labels=["", "", "","","",""];
+    var pholder=["", "", "","","",""];
+    var field_name;
 
   return {
     initialize: function () {
          console.log("Data initialized for element: ", this.el);
         $.proxyAll(this, /_on/);
         this.el.on('click', this._onClick);
-        origin = this.options.field;
+        origin = this.options.origin;
+        field_name = this.options.field_name;
+        var strcount = this.options.count;
+        count = parseInt (strcount);
 
-        ci_field1 = this.options.field1;
-        ci_field2 = this.options.field2;
-        ci_field3 = this.options.field3;
-        ci_field4 = this.options.field4;
+        console.log("Count:");
+        console.log(count);
+        console.log("label1:");
+        console.log(this.options.label1);
 
-        if(origin !== "button"){
+        switch (count)
+        {
+          case 5:
+                values[5] = this.options.field5;
+                labels[5] = this.options.label5;
+                pholder[5] = this.options.pholder5;
+          case 4:
+                values[4] = this.options.field4;
+                labels[4] = this.options.label4;
+                pholder[4] = this.options.pholder4;
+          case 3:
+                values[3] = this.options.field3;
+                labels[3] = this.options.label3;
+                pholder[3] = this.options.pholder3;
+          case 2:
+                values[2] = this.options.field2;
+                labels[2] = this.options.label2;
+                pholder[2] = this.options.pholder2;
+
+          case 1:
+                values[1] = this.options.field1;
+                labels[1] = this.options.label1;
+                pholder[1] = this.options.pholder1;
+        }
+
+        if (origin != "button"){
           // Wird schon durch click initiiert
             this.createInput();
         }
     },
 
     _onClick: function(event) {
-        ci_field1 = "";
-        ci_field2 = "";
-        ci_field3 = "";
-        ci_field3 = "";
+
+        for (var i = 1; i<=count; i++)
+        {
+          values[i] = "";
+        }
+
         this.createInput();
     },
 
     createInput: function () {
         next = next + 1;
-
+        console.log ("CreateInpput");
         // when field or imagename was not filled out last time, it gets filled out with 'true' and therefore it is here set to '' again
-        if(ci_field1 == true){
-            ci_field1 = "";
-        }
-        if(ci_field2 == true){
-            ci_field2 = "";
-        }
-        if(ci_field3 == true){
-            ci_field3 = "";
-        }
-        if(ci_field4 == true){
-            ci_field4 = "";
+
+        for (var i = 1; i<=count; i++)
+        {
+          if (values[i]==true)
+            values[i] = "";
+          if (labels[i]==true)
+            labels[i] = "";
+          if (pholder[i]==true)
+            pholder[i] = "";
         }
 
-        console.log("createInput");
+      /***************************** new ****************************************/
 
-        //this adds two input fields with the given text (when pictures previously saved) and one remove button
-
-        var select_options =$('<option value="custodian">Custodian</option><option value="distributor">Distributor</option><option value="originator">Originator</option><option value="owner">Owner</option><option value="pointOfContact">Point of Contact</option><option value="principalInvestigator">Principal Investigator</option><option value="processor">Processor</option><option value="publisher">Publisher</option><option value="resourceProvider">Resource Provider</option><option value="user">User</option><option value="metadataPointofContact">Metadata Point of Contact</option><option value="author">Author</option>');
-
-        var newInputField1 = $('<br id="brn' + next + '" ><label id="label-field1'+ next + '" class="control-label" for="field1' + next + '">Name</label><input autocomplete="on" class="input form-control" id="field1' + next + '" name="contact_info" type="text" placeholder="e.g. Joe Example"  value="' + ci_field1 + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
-        var newInputField2 =  $('<br id="brd' + next + '" ><label id="label-field3'+ next + '" class="control-label" for="field3' + next + '">Department</label><input autocomplete="on" class="input form-control" id="field3' + next + '" name="contact_info" type="text" placeholder="e.g. Department for Geophysics"  value="' + ci_field3 + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
-        var newInputField3 =  $('<br id="brm' + next + '" ><label id="label-field2'+ next + '" class="control-label" for="field2' + next + '">Mail</label><input autocomplete="on" class="input form-control" id="field2' + next + '" name="contact_info" type="text" placeholder="e.g. joe@example.com"  value="' + ci_field2 + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
-        var newSelectRole1= $('<br id="brs' + next + '" ><label id="label-field4'+ next + '" class="control-label" for="field4' + next + '">Role</label><select id="field4' + next + '" name="contact_info" type="selct"  value="' + ci_field4 + '" style ="margin-left:2%;margin-bottom:5%"/>');
-        var newSelectRole2= $('</select>');
+        var newInput = [$(),$(),$(),$(),$(),$()];
 
         var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
 
-        $("#field_contains").append(removeButton);
-        $("#field_contains").append(newInputField1);
-        $("#field_contains").append(newInputField2);
-        $("#field_contains").append(newInputField3);
-        $("#field_contains").append(newSelectRole1);
-        $("#field4"+ next).append(select_options);
-        $("#field_contains").append(newSelectRole2);
+        if (count > 0)
+            $("#field_contains").append(removeButton);
 
+        for (var i = 1; i< count; i++)
+        {
+          newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
+          console.log(newInput[i]);
+          $("#field_contains").append(newInput[i]);
+        }
 
-        //when pressing the remove button it deletes both input fields and the button
+        var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  value="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
+        var newSelect2= $('</select>');
+        var select_options =$('<option value="custodian">Custodian</option><option value="distributor">Distributor</option><option value="originator">Originator</option><option value="owner">Owner</option><option value="pointOfContact">Point of Contact</option><option value="principalInvestigator">Principal Investigator</option><option value="processor">Processor</option><option value="publisher">Publisher</option><option value="resourceProvider">Resource Provider</option><option value="user">User</option><option value="metadataPointofContact">Metadata Point of Contact</option><option value="author">Author</option>');
+
+        if (count > 0) {
+          $("#field_contains").append(newSelect1);
+          $("#field" + count + next).append(select_options);
+          $("#field_contains").append(newSelect2);
+        }
         $('.remove-me').click(function(e){
             e.preventDefault();
+
             var fieldNum = this.id.substr(this.id.indexOf("-") + 1);
-            var f1ID = "#field1" + fieldNum;
-            var f2ID = "#field2" + fieldNum;
-            var f3ID = "#field3" + fieldNum;
-            var f4ID = "#field4" + fieldNum;
 
-            var lf1ID = "#label-field1" + fieldNum;
-            var lf2ID = "#label-field2" + fieldNum;
-            var lf3ID = "#label-field3" + fieldNum;
-            var lf4ID = "#label-field4" + fieldNum;
-
-            var brn = "#brn" + fieldNum;
-            var brm = "#brm" + fieldNum;
-            var brs = "#brs" + fieldNum;
-            var brd = "#brd" + fieldNum;
+            var fieldId, labelId, brId;
             var brb = "#brb" + fieldNum;
 
             $(this).remove();
-            $(f1ID).remove();
-            $(f2ID).remove();
-            $(f3ID).remove();
-            $(f4ID).remove();
-            $(lf1ID).remove();
-            $(lf2ID).remove();
-            $(lf3ID).remove();
-            $(lf4ID).remove();
-            $(brn).remove();
-            $(brd).remove();
-            $(brm).remove();
-            $(brs).remove();
             $(brb).remove();
+
+            for (var i = 1; i<= count; i++){
+
+              fieldId = "#field" +i+ fieldNum;
+              labelId = "#label-field" +i+ fieldNum;
+              brId = "#br" +i+ fieldNum;
+              $(fieldId).remove();
+              $(labelId).remove();
+              $(brId).remove();
+
+            }
+
           });
-  }
-};
-});
+
+          /***************************** new end ****************************************/
+
+    } // create_input
+
+
+  }; // return
+}); // module
