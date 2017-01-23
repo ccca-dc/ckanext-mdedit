@@ -86,6 +86,23 @@ def mdedit_my_log():
 
     return None
 
+def mdedit_get_contain_selected (field):
+
+    log.debug("mdedit_get_contain_selected *********** Anja ******************")
+
+    num = int(field['contains'])
+    print num
+
+    labels = []
+
+    for i in range (1,num+1):
+        print i
+        id = 'l'+ str(i)
+        labels.append (field[id])
+
+    print labels
+    return labels
+
 def mdedit_get_contain_labels(field):
 
     log.debug("mdedit_get_contain_labels *********** Anja ******************")
@@ -148,16 +165,12 @@ def mdedit_get_contain_values(field):
 
     values =[[] for x in range(int(field['contains']))]
 
-    for j in range(int(field['contains'])):
-        for i in range(j,len(clist),int(field['contains'])):
+    num_contains = int (field['contains'])
+
+    for j in range(num_contains):
+        for i in range(j,len(clist),num_contains):
             print i
             print clist[i]
             values[j].append(clist[i])
     print values
     return values
-"""
-    for i in range(start_index,len(clist),int(field['contains'])):
-        print i
-        print clist[i]
-        values.append(clist[i])
-"""

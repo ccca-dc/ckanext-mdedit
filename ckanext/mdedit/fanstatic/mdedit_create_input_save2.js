@@ -9,6 +9,7 @@ ckan.module('mdedit_create_input', function ($, _) {
     var labels=["", "", "","","",""];
     var pholder=["", "", "","","",""];
     var field_name;
+    var selectoptions="";
 
   return {
     initialize: function () {
@@ -24,6 +25,9 @@ ckan.module('mdedit_create_input', function ($, _) {
         console.log(count);
         console.log("label1:");
         console.log(this.options.label1);
+
+        selectoptions = this.options.stroptions;
+        console.log (selectoptions);
 
         switch (count)
         {
@@ -49,6 +53,7 @@ ckan.module('mdedit_create_input', function ($, _) {
                 labels[1] = this.options.label1;
                 pholder[1] = this.options.pholder1;
         }
+
 
         if (origin != "button"){
           // Wird schon durch click initiiert
@@ -81,31 +86,83 @@ ckan.module('mdedit_create_input', function ($, _) {
             pholder[i] = "";
         }
 
-      /***************************** new ****************************************/
+      /***************************** new Input and ggf select  ****************************************/
 
         var newInput = [$(),$(),$(),$(),$(),$()];
 
         var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
 
-        if (count > 0)
+
+        /**************************************************************/
+        //check whether we have a select and convert optionsstring
+        var checkselect = selectoptions.toString();
+        // Insert whitespaces again
+        console.log("Anja")
+        console.log(checkselect.indexOf('#'));
+
+        var selectinput = false;
+
+        var corrected_count = count;
+
+        if (checkselect.indexOf('#') > 0) {
+
+            selectinput = true;
+
+            // Whitespaces from template string turn into cr here - replaced by ~;
+            // reinsert whitespaces here
+            var so = selectoptions.replace(/~/g, " ");
+
+            // Separated options via # see mdedit_contains.html!
+            so = so.split(/#/);
+
+            // Build options string
+            var sostring ="";
+            for (var i=0; i< so.length; i+=2){
+
+                sostring+='<option value="';
+                sostring+= so[i];
+
+                if (so[i] === values[count])
+                    sostring+='" selected>';
+                else
+                    sostring+='">';
+                sostring+= so[i+1];
+                sostring+='</option>';
+                console.log(so[i]);
+                console.log(values[count]);
+            }
+
+            console.log(sostring);
+            selectoptions = sostring;
+        }
+        else { // No select field: One more input field
+          corrected_count +=1;
+        }
+
+        /**************************************************************/
+
+        if (corrected_count > 0)
             $("#field_contains").append(removeButton);
 
-        for (var i = 1; i< count; i++)
+        for (var i = 1; i< corrected_count; i++)
         {
           newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
           console.log(newInput[i]);
           $("#field_contains").append(newInput[i]);
         }
 
-        var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  value="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
-        var newSelect2= $('</select>');
-        var select_options =$('<option value="custodian">Custodian</option><option value="distributor">Distributor</option><option value="originator">Originator</option><option value="owner">Owner</option><option value="pointOfContact">Point of Contact</option><option value="principalInvestigator">Principal Investigator</option><option value="processor">Processor</option><option value="publisher">Publisher</option><option value="resourceProvider">Resource Provider</option><option value="user">User</option><option value="metadataPointofContact">Metadata Point of Contact</option><option value="author">Author</option>');
+        if (selectinput) {
+          var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
+          var newSelect2= $('</select>');
+          var select_options =$(selectoptions);
 
-        if (count > 0) {
-          $("#field_contains").append(newSelect1);
-          $("#field" + count + next).append(select_options);
-          $("#field_contains").append(newSelect2);
-        }
+            if (count > 0) {
+              $("#field_contains").append(newSelect1);
+              $("#field" + count + next).append(select_options);
+              $("#field_contains").append(newSelect2);
+            }
+         }
+
         $('.remove-me').click(function(e){
             e.preventDefault();
 
@@ -117,7 +174,7 @@ ckan.module('mdedit_create_input', function ($, _) {
             $(this).remove();
             $(brb).remove();
 
-            for (var i = 1; i<= count; i++){
+            for (var i = 1; i<= corrected_count; i++){
 
               fieldId = "#field" +i+ fieldNum;
               labelId = "#label-field" +i+ fieldNum;

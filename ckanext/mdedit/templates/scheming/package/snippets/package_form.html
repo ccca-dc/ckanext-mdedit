@@ -71,10 +71,11 @@
           <br>  <br>
     {%- elif  field.field_name == "close_group" -%}
 
-      {# Sometimes we need to explicitely close a group .ie. if a special contains-field is within a group #}
+      {# Sometimes we need to explicitely close a group
+        .ie. if a special contains-field is within a group #}
 
         </div>
-        
+
     {%- elif field.form_snippet is not none -%}
 
         {# check grouping of fields #}

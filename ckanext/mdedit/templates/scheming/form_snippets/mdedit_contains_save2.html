@@ -1,5 +1,75 @@
 {% resource 'mdedit/mdedit_create_input.js' %}
 
+{###########################################################################################
+{{_('Hallo')}}
+{{field.field_name}}
+<br>
+{{names}}
+<br>
+{{mails}}
+<br>
+{{deps}}
+<br>
+{{roles}}
+
+
+{% for i in range(field.contains|int) %}
+		{% set ovalues = h.mdedit_get_contains(field.field_name,i, field.contains,str_sep) %}
+		{{i}}
+		{{str_sep}}
+		{{ovalues}}
+{% endfor  %}
+
+{% set names = h.mdedit_get_contains(field.field_name,0, field.contains,str_sep) %}
+
+{% set deps = h.mdedit_get_contains(field.field_name,1, field.contains,str_sep) %}
+
+{% set mails = h.mdedit_get_contains(field.field_name,2, field.contains,str_sep) %}
+
+{% set roles = h.mdedit_get_contains(field.field_name,3, field.contains,str_sep) %}
+
+{% for name in names %}
+		<input type="text" disabled="disabled" style="display: none;"
+    data-module="mdedit_create_input"
+    data-module-field1="{{ names[loop.index-1] }}"
+		data-module-field2="{{ deps[loop.index-1] }}"
+    data-module-field3="{{ mails[loop.index-1] }}"
+    data-module-field4="{{ roles[loop.index-1] }}">
+  </input>
+
+{% endfor %}
+
+{% for name in values[0] %}
+<input type="text" disabled="disabled" style="display: none;"
+data-module="mdedit_create_input"
+data-module-field1="{{ values[0][loop.index-1] }}"
+data-module-field2="{{ values[1][loop.index-1] }}"
+data-module-field3="{{ values[2][loop.index-1] }}"
+data-module-field4="{{ values[3][loop.index-1] }}">
+</input>
+{% endfor %}
+
+
+{% for i in range(1,field.contains|int+1) %}
+		data-module-label{{loop.index}}="{{ labels[loop.index0] }}"
+		data-module-pholder{{loop.index}}="{{ pholders[loop.index0] }}"
+{% endfor %}
+{{values}}
+{% for name in values[0] %}
+		{{loop.index}}
+		{% set nameloop = loop %}
+		{% for i in range(field.contains|int) %}
+        {{ values[loop.index0][nameloop.index0] }}
+ 	  {% endfor %}
+{% endfor %}
+{{loop.index}}
+{% for i in range(field.contains|int) %}
+		{{ values[loop.index0][nameloop.index0] }}
+{% endfor %}
+{% set listlen = 0 %}
+###########################################################################################}
+
+
 {% set str_sep = field.str_sep %}
 
 {% set values = h.mdedit_get_contain_values(field) %}
@@ -16,7 +86,7 @@
 {%- if options|length > 0 -%}
 
 	{%- set stroptions = options|join('#') -%}
-	{# for some reasons or other javascript does not like whitespaces: replace with ~ #}
+	{# for some reasons or other javascript does not like whitespaces #}
 	{%- set stroptions = stroptions|replace(' ','~') -%}
 
 {%- else -%}
@@ -49,9 +119,9 @@
 					data-module-stroptions="{{stroptions}}"
 				{% endif %}
 		{% endfor %}
+
 	>+</button></p>
 <br><br>
-<!-- Check for existing inputs -->
 
 {% for name in values[0] %}
 		<div type="text" disabled="disabled" style="display: none;"
@@ -70,7 +140,7 @@
 		{% endfor %}
 	>
 </div>
-
+	
 {% endfor %}
 
 {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}

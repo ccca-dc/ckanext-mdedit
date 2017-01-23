@@ -66,17 +66,24 @@
           {%- endif -%}
            </td>
        </tr>
+    {%- elif field.contains -%}
+        <tr>
+          <th scope="col"><i>{{ field.label + _(':')}}</i></th>
+        </tr>
+        <tr>
+          <th scope="row" class="dataset-label">
+                       </th>
+          <td class="dataset-details"{%
+            if field.display_property %} property="{{ field.display_property
+            }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
+            field=field, data=pkg_dict, schema=schema -%}</td>
+        </tr>
     {%- elif field.field_name not in exclude_fields
         and field.display_snippet is not none
     -%}
           {% if field.group_small_start -%}
               <tr>
                 <th scope="col"><i>{{ field.group_small_start + _(':')}}</i></th>
-              </tr>
-          {%- endif -%}
-          {% if field.contains -%}
-              <tr>
-                <th scope="col"><i>{{ field.label + _(':')}}</i></th>
               </tr>
           {%- endif -%}
           <tr>
@@ -88,7 +95,7 @@
               field=field, data=pkg_dict, schema=schema -%}</td>
           </tr>
     {%- endif -%}
-    
+
   {%- endfor -%}
 
   {% block extras scoped %}

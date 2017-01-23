@@ -119,7 +119,7 @@
       "contains": "4",
       "str_sep": "#",
       "l1": "Name",
-      "l2": "Department   /- Address",
+      "l2": "Department",
       "l3": "Mail",
       "l4": "Role",
       "p1": "e.g. Joe Example" ,
