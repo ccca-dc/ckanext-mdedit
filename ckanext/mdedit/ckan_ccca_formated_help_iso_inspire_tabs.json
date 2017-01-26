@@ -8,7 +8,7 @@
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Contact",
-      "title": "Owner and Contact Information regarding your dataset ",
+      "title": "Owner and Contact Information regarding this dataset ",
       "necessary": "true",
       "form_attrs": {
         "readonly": "readonly"
@@ -113,10 +113,13 @@
       "field_name": "contact_info",
       "label": "Further Contacts",
       "preset": "mdedit_contains",
+      "group_end":"Contact Info",
       "mdedit_note1": "Special multiple Field. Best last item within a tab or group; last item in field might be select ",
       "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into a string separated by str_sep",
       "mdedit_note3": "Max Contains: 5 (otherwise change in java module!)",
+      "mdedit_note4": "attribute contact_info bound to other special display! Do not change!",
       "contains": "4",
+      "contact_info": "true",
       "str_sep": "#",
       "l1": "Name",
       "l2": "Department",
@@ -178,14 +181,9 @@
       ]
     },
     {
-      "field_name": "close_group",
-      "group_end":"Contact Info",
-      "hide_field": "true"
-    },
-    {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Basics",
-      "title": "Basic Information about your dataset ",
+      "title": "Basic Information about this dataset ",
       "necessary": "true",
       "form_attrs": {
         "readonly": "readonly"

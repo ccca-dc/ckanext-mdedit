@@ -1,6 +1,7 @@
 {% resource 'mdedit/mdedit_create_input.js' %}
 
 {% set str_sep = field.str_sep %}
+{% set white_space = '~' %}
 
 {% set values = h.mdedit_get_contain_values(field) %}
 {% set labels = h.mdedit_get_contain_labels(field) %}
@@ -15,9 +16,10 @@
 
 {%- if options|length > 0 -%}
 
-	{%- set stroptions = options|join('#') -%}
-	{# for some reasons or other javascript does not like whitespaces: replace with ~ #}
-	{%- set stroptions = stroptions|replace(' ','~') -%}
+	{%- set stroptions = options|join(str_sep) -%}
+	{# for some reasons or other javascript does not like whitespaces: replace with 'white_space' #}
+	{# will be removed in mdedit_create_input again #}
+	{%- set stroptions = stroptions|replace(' ', white_space) -%}
 
 {%- else -%}
 	{%- set stroptions = ' ' -%}
@@ -41,6 +43,8 @@
 		data-module-field_name={{field.field_name}}
 		data-module-origin="button"
 		data-module-count={{field.contains}}
+		data-module-strsep={{str_sep}}
+		data-module-whitespace = {{white_space}}
 		{% for i in range(1,num_contains) %}
 				data-module-field{{loop.index}}=""
 				data-module-label{{loop.index}}="{{ labels[loop.index0] }}"
@@ -59,6 +63,8 @@
 		data-module="mdedit_create_input"
 		data-module-count={{field.contains}}
 		data-module-field_name={{field.field_name}}
+		data-module-strsep={{str_sep}}
+		data-module-whitespace = {{white_space}}
 		{% set nameloop = loop %}
 		{% for i in range(1,num_contains) %}
     		data-module-field{{loop.index}}="{{ values[loop.index0][nameloop.index0] }}"

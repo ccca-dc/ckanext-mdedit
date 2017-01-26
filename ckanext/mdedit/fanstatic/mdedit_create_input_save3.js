@@ -1,9 +1,10 @@
 "use strict";
 
 ckan.module('mdedit_create_input', function ($, _) {
-    // Parameter from template
+    var next = 0;
     var origin;
     var count;
+    var max = 5;
     var values=["", "", "","","",""];
     var labels=["", "", "","","",""];
     var pholder=["", "", "","","",""];
@@ -11,11 +12,6 @@ ckan.module('mdedit_create_input', function ($, _) {
     var selectoptions="";
     var str_sep = '';
     var white_space = '';
-   // global vars
-    var max = 5;
-    var next = 0;
-
-
 
   return {
     initialize: function () {
@@ -28,6 +24,7 @@ ckan.module('mdedit_create_input', function ($, _) {
         count = parseInt (strcount);
         str_sep = this.options.strsep;
         white_space = this.options.whitespace;
+
         selectoptions = this.options.stroptions;
 
         switch (count)
@@ -55,6 +52,7 @@ ckan.module('mdedit_create_input', function ($, _) {
                 pholder[1] = this.options.pholder1;
         }
 
+
         if (origin != "button"){
           // Wird schon durch click initiiert
             this.createInput();
@@ -73,7 +71,7 @@ ckan.module('mdedit_create_input', function ($, _) {
 
     createInput: function () {
         next = next + 1;
-        console.log ("CreateInpput: next = " + next);
+        console.log ("CreateInpput");
         // when field or imagename was not filled out last time, it gets filled out with 'true' and therefore it is here set to '' again
 
         for (var i = 1; i<=count; i++)
@@ -88,7 +86,8 @@ ckan.module('mdedit_create_input', function ($, _) {
 
       /***************************** new Input and ggf select  ****************************************/
 
-        var newInput = [$(),$(),$(),$(),$(),$()]; //max + 1
+        var newInput = [$(),$(),$(),$(),$(),$()];
+
         var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
 
 
@@ -106,7 +105,7 @@ ckan.module('mdedit_create_input', function ($, _) {
 
           // NOPE: otpions already transformed
           selectinput = true;
-           console.log ("NOPE");
+          console.log ("NOPE");
 
         }
         else if (checkselect.indexOf(str_sep) > -1) {
@@ -151,19 +150,17 @@ ckan.module('mdedit_create_input', function ($, _) {
 
         for (var i = 1; i< corrected_count; i++)
         {
-          // Set the values only the first time we are here
-            newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
-            console.log("NewInput: " + i);
-            console.log(newInput[i]);
+          newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
+          console.log(newInput[i]);
           $("#field_contains").append(newInput[i]);
         }
 
         if (selectinput) {
-             var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
-             var newSelect2= $('</select>');
-             var select_options =$(selectoptions);
+          var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
+          var newSelect2= $('</select>');
+          var select_options =$(selectoptions);
 
-            if (corrected_count > 0) {
+            if (count > 0) {
               $("#field_contains").append(newSelect1);
               $("#field" + count + next).append(select_options);
               $("#field_contains").append(newSelect2);

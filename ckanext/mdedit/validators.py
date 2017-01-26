@@ -15,21 +15,24 @@ not_empty = get_validator('not_empty')
 def mdedit_contains(key, data, errors, context):
     """
     Turn list into string; for special field "contains"
-    (lists run per default into tag_string_validator and get manipulated - we need to omit this)
+    (otherwise we wont get the individual items properly!
     """
-    print "***************** Anja********** validate"
+    #print "***************** Anja********** validate"
 
 
-    print  key
-    print data
-    print context
+    #print  key
+    #print data
+    #print context
 
-    pkg = context.get('package_extra')
-    print "****package:"
-    print pkg
-    print context.get ('contact_info')
-    print data[key]
-    print type(data[key])
+    #pkg = context.get('package_extra')
+    #print "****package:"
+    #print pkg
+    #print context.get ('contact_info')
+    #print "************** Before *************"
+    #print data[key]
+    #print type(data[key])
+    #print key
+    #print data[u'str_sep']
 
     cf = data[key]
 
@@ -37,13 +40,17 @@ def mdedit_contains(key, data, errors, context):
         return
 
     cs = ""
-
+    # Attention: do not change!
+    # or change to same value in json-schema-file
+    str_sep = "#"
     for x in cf:
-        cs += str(x)
-        cs += "#"
+        #cs += str(x)
+        cs +=  x
+        cs += str_sep
 
-    # remove last comma
-    data[key] = cs.strip('#')
+    #remove last comma
+    data[key] = cs.strip(str_sep)
 
-    print data[key]
-    print type(data[key])
+    #print "************** after (cs) *************"
+    #print data[key]
+    #print type(data[key])

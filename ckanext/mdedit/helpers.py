@@ -42,19 +42,12 @@ def mdedit_get_name():
 
 def mdedit_get_name_citation():
      # Get the user name of the logged-in user.
-    # log.debug("Helpers mdedit_get_name")
 
     user = c.userobj
-    # log.debug(c)
-    # log.debug(user)
-
-
     if user:
         cite_name = user.fullname
         if cite_name != "" and cite_name != None:
             cite_name = cite_name.split()
-        #    log.debug("citation: **************************")
-        #    log.debug(cite_name)
             cite_name = cite_name[len(cite_name)-1]
             cite_name += " et al"
             return cite_name
@@ -80,97 +73,71 @@ def mdedit_parse_date(mdedit_date):
     # log.debug(type(mdedit_date))
     return mdedit_date
 
-def mdedit_my_log():
-
-    #log.debug("mdedit_my_log ******************")
-
-    return None
-
-def mdedit_get_contain_selected (field):
-
-    log.debug("mdedit_get_contain_selected *********** Anja ******************")
-
-    num = int(field['contains'])
-    print num
-
-    labels = []
-
-    for i in range (1,num+1):
-        print i
-        id = 'l'+ str(i)
-        labels.append (field[id])
-
-    print labels
-    return labels
-
 def mdedit_get_contain_labels(field):
 
-    log.debug("mdedit_get_contain_labels *********** Anja ******************")
+    #log.debug("mdedit_get_contain_labels *********** Anja ******************")
 
     num = int(field['contains'])
-    print num
+    #print num
 
     labels = []
 
     for i in range (1,num+1):
-        print i
+        #print i
         id = 'l'+ str(i)
         labels.append (field[id])
 
-    print labels
+    #print labels
     return labels
 
 def mdedit_get_contain_pholders(field):
 
-    log.debug("mdedit_get_contain_pholders *********** Anja ******************")
+    #log.debug("mdedit_get_contain_pholders *********** Anja ******************")
 
     num = int(field['contains'])
-    print num
+    #print num
 
     pholders = []
 
     for i in range (1,num+1):
-        print i
+        #print i
         id = 'p'+ str(i)
         pholders.append (field[id])
 
-    print pholders
+    #print pholders
     return pholders
 
 def mdedit_get_contain_values(field):
     # Turn String into list again
     # and extract the required fields (index)
 
-    log.debug("mdedit_get_contain_values *********** Anja ******************")
-
-    print field
+    #log.debug("mdedit_get_contain_values *********** Anja ******************")
+    #print field['field_name']
+    #print field
 
     otto = c.pkg_dict
-
     if otto:
         clist = c.pkg_dict.get(field['field_name'])
     else:
         return ""
-
-    print (type(clist))
-    print clist
-
+    #print (type(clist))
+    #print clist
     if clist:
         clist = clist.split(field['str_sep'])
     else:
         return ""
 
-    print (type(clist))
-    print clist
-
-    values =[[] for x in range(int(field['contains']))]
-
+    #print (type(clist))
+    #print clist
+    #print len(clist)
     num_contains = int (field['contains'])
-
+    #print num_contains
+    values =[[] for x in range(num_contains)]
     for j in range(num_contains):
         for i in range(j,len(clist),num_contains):
-            print i
-            print clist[i]
+            #print i
+            #print clist[i]
             values[j].append(clist[i])
-    print values
+    #print values
     return values
+    

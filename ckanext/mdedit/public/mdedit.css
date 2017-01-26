@@ -4,7 +4,14 @@
 }
 .hero { background: white; }
 */
-
+th.mdedit_normal {
+/*  font-size: 13.4px; */
+  font-weight:normal;
+}
+.dataset-label {
+/*  font-size: 13.4px; */
+  font-weight:normal;
+}
 .mdedit_dz_mail_to{
   color: white;
   font-style: italic;

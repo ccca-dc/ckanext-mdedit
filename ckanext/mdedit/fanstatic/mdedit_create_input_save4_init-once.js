@@ -14,7 +14,11 @@ ckan.module('mdedit_create_input', function ($, _) {
    // global vars
     var max = 5;
     var next = 0;
-
+    var newInput = [$(),$(),$(),$(),$(),$()];
+    var removeButton = $();
+    var newSelect1= $();
+    var newSelect2= $();
+    var select_options= $();
 
 
   return {
@@ -55,6 +59,9 @@ ckan.module('mdedit_create_input', function ($, _) {
                 pholder[1] = this.options.pholder1;
         }
 
+        console.log("*************newinput:" + newInput[0]);
+
+
         if (origin != "button"){
           // Wird schon durch click initiiert
             this.createInput();
@@ -88,8 +95,9 @@ ckan.module('mdedit_create_input', function ($, _) {
 
       /***************************** new Input and ggf select  ****************************************/
 
-        var newInput = [$(),$(),$(),$(),$(),$()]; //max + 1
-        var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
+        // Set the values only the first time we are here
+        if (next == 1)
+          removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
 
 
         /**************************************************************/
@@ -152,6 +160,7 @@ ckan.module('mdedit_create_input', function ($, _) {
         for (var i = 1; i< corrected_count; i++)
         {
           // Set the values only the first time we are here
+          if (next == 1)
             newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
             console.log("NewInput: " + i);
             console.log(newInput[i]);
@@ -159,10 +168,13 @@ ckan.module('mdedit_create_input', function ($, _) {
         }
 
         if (selectinput) {
-             var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
-             var newSelect2= $('</select>');
-             var select_options =$(selectoptions);
-
+          // Set the values only the first time we are here
+            if (next == 1)
+            {
+               newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
+               newSelect2= $('</select>');
+               select_options =$(selectoptions);
+            }
             if (corrected_count > 0) {
               $("#field_contains").append(newSelect1);
               $("#field" + count + next).append(select_options);
