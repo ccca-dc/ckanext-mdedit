@@ -5,6 +5,7 @@ import pytz
 from pylons import config
 from pylons.i18n import gettext
 
+import ast
 import ckan.logic as logic
 get_action = logic.get_action
 
@@ -111,7 +112,7 @@ def mdedit_get_contain_values(field):
     # Turn String into list again
     # and extract the required fields (index)
 
-    #log.debug("mdedit_get_contain_values *********** Anja ******************")
+    #print "mdedit_get_contain_values *********** Anja ******************"
     #print field['field_name']
     #print field
 
@@ -140,4 +141,3 @@ def mdedit_get_contain_values(field):
             values[j].append(clist[i])
     #print values
     return values
-    

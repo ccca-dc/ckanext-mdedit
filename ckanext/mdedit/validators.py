@@ -3,8 +3,7 @@ import datetime
 import re
 import ckan.lib.helpers as h
 from itertools import count
-from ckanext.scheming import helpers as hs
-
+import ast
 from ckan.plugins.toolkit import get_validator, UnknownValidator, missing, Invalid, _
 
 
@@ -20,37 +19,25 @@ def mdedit_contains(key, data, errors, context):
     #print "***************** Anja********** validate"
 
 
-    #print  key
-    #print data
-    #print context
-
-    #pkg = context.get('package_extra')
-    #print "****package:"
-    #print pkg
-    #print context.get ('contact_info')
-    #print "************** Before *************"
-    #print data[key]
-    #print type(data[key])
-    #print key
-    #print data[u'str_sep']
-
     cf = data[key]
 
     if not cf:
         return
 
     cs = ""
+
     # Attention: do not change!
     # or change to same value in json-schema-file
     str_sep = "#"
-    for x in cf:
+
+    for  x in  cf:
         #cs += str(x)
         cs +=  x
         cs += str_sep
 
+    #print cs
+
     #remove last comma
     data[key] = cs.strip(str_sep)
 
-    #print "************** after (cs) *************"
-    #print data[key]
-    #print type(data[key])
+  
