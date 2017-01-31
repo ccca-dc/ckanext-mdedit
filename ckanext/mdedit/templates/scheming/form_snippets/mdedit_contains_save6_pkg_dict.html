@@ -7,7 +7,7 @@
 {% set test = pkg_dict %}
 
 {%- if not values -%}
-  {% set values = h.mdedit_get_contain_values(data, field) %}
+  {% set values = h.mdedit_get_contain_values(field) %}
 {%- endif -%}
 
 {% set labels = h.mdedit_get_contain_labels(field) %}

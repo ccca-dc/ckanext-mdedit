@@ -108,25 +108,21 @@ def mdedit_get_contain_pholders(field):
     #print pholders
     return pholders
 
-def mdedit_get_contain_values(data, field):
+def mdedit_get_contain_values(data, field_name):
     # Turn String into list again
     # and extract the required fields (index)
 
     print "mdedit_get_contain_values *********** Anja ******************"
-    print field['field_name']
+    print field_name
     #print field
 
     otto = c.pkg_dict
 
-    print "********** Anja: DATA"
-#    print data.get(field['field_name'])
-
-    if data:
-        cu = data.get(field['field_name'])
-        print "******** Anja 1 data"
-    else:
+    if otto:
         cu = c.pkg_dict.get(field['field_name'])
-        print "******** Anja 2 pkg_dict"
+        print "******** Anja 1"
+    else:
+        return ""
 
     if not cu:
       return ""

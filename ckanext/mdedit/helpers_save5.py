@@ -5,7 +5,7 @@ import pytz
 from pylons import config
 from pylons.i18n import gettext
 
-import json
+import ast
 import ckan.logic as logic
 get_action = logic.get_action
 
@@ -108,46 +108,36 @@ def mdedit_get_contain_pholders(field):
     #print pholders
     return pholders
 
-def mdedit_get_contain_values(data, field):
+def mdedit_get_contain_values(field):
     # Turn String into list again
     # and extract the required fields (index)
 
-    print "mdedit_get_contain_values *********** Anja ******************"
-    print field['field_name']
+    #print "mdedit_get_contain_values *********** Anja ******************"
+    #print field['field_name']
     #print field
 
     otto = c.pkg_dict
-
-    print "********** Anja: DATA"
-#    print data.get(field['field_name'])
-
-    if data:
-        cu = data.get(field['field_name'])
-        print "******** Anja 1 data"
+    if otto:
+        clist = c.pkg_dict.get(field['field_name'])
     else:
-        cu = c.pkg_dict.get(field['field_name'])
-        print "******** Anja 2 pkg_dict"
-
-    if not cu:
-      return ""
-
-    if not isinstance(cu, list):
-        try:
-            clist = json.loads(cu)
-        except:
-            return ""
+        return ""
+    #print (type(clist))
+    #print clist
+    if clist:
+        clist = clist.split(field['str_sep'])
     else:
-        clist = cu
+        return ""
 
-    print clist
-    print (type(clist))
-
+    #print (type(clist))
+    #print clist
+    #print len(clist)
     num_contains = int (field['contains'])
-
-    # Sort values according to num items in field
+    #print num_contains
     values =[[] for x in range(num_contains)]
     for j in range(num_contains):
         for i in range(j,len(clist),num_contains):
+            #print i
+            #print clist[i]
             values[j].append(clist[i])
-
+    #print values
     return values

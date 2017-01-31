@@ -1,5 +1,7 @@
 {% import 'macros/form.html' as form %}
 
+{# modified from scheming: no addtional empty field if not required  #}
+
 {%- set options=[] -%}
 
 {%- for c in field.choices -%}

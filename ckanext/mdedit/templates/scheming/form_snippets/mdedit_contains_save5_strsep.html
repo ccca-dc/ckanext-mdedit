@@ -1,15 +1,10 @@
 {% resource 'mdedit/mdedit_create_input.js' %}
 
-{# do not change str_sep: in mdedit_create_input again #}
-
-{% set str_sep = '#' %}
+{% set str_sep = field.str_sep %}
 {% set white_space = '~' %}
 {% set test = pkg_dict %}
 
-{%- if not values -%}
-  {% set values = h.mdedit_get_contain_values(data, field) %}
-{%- endif -%}
-
+{% set values = h.mdedit_get_contain_values(field) %}
 {% set labels = h.mdedit_get_contain_labels(field) %}
 {% set pholders = h.mdedit_get_contain_pholders(field) %}
 
@@ -28,9 +23,7 @@
 	{%- set stroptions = stroptions|replace(' ', white_space) -%}
 
 {%- else -%}
-
 	{%- set stroptions = ' ' -%}
-
 {%- endif -%}
 
 {%if field.required %}
@@ -38,7 +31,7 @@
 {% else %}
 <div  class="well well-small"> <p><h5>{{field.label}}</h5>
 {% endif %}
-{# --  when clicking the add button, it calls the create_input.js and creates additional inputs--#}
+<!--  when clicking the add button, it calls the create_input.js and creates additional inputs-->
 
 
 <div id="field_contains" class="input-append">
@@ -63,7 +56,7 @@
 		{% endfor %}
 	>+</button></p>
 <br><br>
-{# -- Check for existing inputs --#}
+<!-- Check for existing inputs -->
 
 {% for name in values[0] %}
 		<div type="text" disabled="disabled" style="display: none;"
@@ -75,7 +68,7 @@
 		data-module-whitespace = {{white_space}}
 		{% set nameloop = loop %}
 		{% for i in range(1,num_contains) %}
-    		data-module-field{{loop.index}}="{{ values[loop.index0][nameloop.index0] |empty_and_escape}}"
+    		data-module-field{{loop.index}}="{{ values[loop.index0][nameloop.index0] }}"
 				data-module-label{{loop.index}}="{{ labels[loop.index0] }}"
 				data-module-pholder{{loop.index}}="{{ pholders[loop.index0]}}"
 				{% if i == num_contains - 1 %}

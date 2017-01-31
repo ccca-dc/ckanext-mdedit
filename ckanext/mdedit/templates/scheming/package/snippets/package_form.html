@@ -69,7 +69,7 @@
             <br>
               <h3>{{field.title}}</h3>
           <br>  <br>
-  
+
     {%- elif field.form_snippet is not none -%}
 
         {# check grouping of fields #}
@@ -94,7 +94,6 @@
         entity_type='dataset', object_type=dataset_type -%}
 
         {#   Close groups #}
-
         {%if field.group_end %}
            </div>
         {% endif %}

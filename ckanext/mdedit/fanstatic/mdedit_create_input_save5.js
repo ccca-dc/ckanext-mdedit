@@ -20,10 +20,8 @@ ckan.module('mdedit_create_input', function ($, _) {
   return {
     initialize: function () {
          console.log("Data initialized for element: ", this.el);
-
         $.proxyAll(this, /_on/);
         this.el.on('click', this._onClick);
-
         origin = this.options.origin;
         field_name = this.options.field_name;
         var strcount = this.options.count;
@@ -129,7 +127,7 @@ ckan.module('mdedit_create_input', function ($, _) {
                 sostring+='<option value="';
                 sostring+= so[i];
 
-                if (so[i] === values[count]) // select field is Number 'count' field
+                if (so[i] === values[count])
                     sostring+='" selected>';
                 else
                     sostring+='">';

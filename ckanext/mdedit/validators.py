@@ -3,41 +3,44 @@ import datetime
 import re
 import ckan.lib.helpers as h
 from itertools import count
-import ast
 from ckan.plugins.toolkit import get_validator, UnknownValidator, missing, Invalid, _
 
 
-OneOf = get_validator('OneOf')
-ignore_missing = get_validator('ignore_missing')
-not_empty = get_validator('not_empty')
-
 def mdedit_contains(key, data, errors, context):
+
     """
-    Turn list into string; for special field "contains"
-    (otherwise we wont get the individual items properly!
+    Accept  values as a list of contact info
+    convert to a json list for storage:
+
+    1. a list of strings, eg.:
+
+       ["Vorname Nachname", "Institut Blabal", ...]
+
+    2. a single string for  a single:
+
+       "Name"
+
+     (Addpated from scheming multiple choice)
     """
-    #print "***************** Anja********** validate"
+    #if errors[key]:
+    #    return
 
+    print "***************** Anja********** mdedit_contains validator"
+    print data[key]
 
-    cf = data[key]
+    value = data[key]
 
-    if not cf:
-        return
+    if value is not missing:
+        if isinstance(value, basestring):
+            value = [value]
+        elif not isinstance(value, list):
+            errors[key].append(_('expecting contact info list'))
+            return
+    else:
+        value = []
 
-    cs = ""
+    if not errors[key]:
+        data[key] = json.dumps(value)
 
-    # Attention: do not change!
-    # or change to same value in json-schema-file
-    str_sep = "#"
-
-    for  x in  cf:
-        #cs += str(x)
-        cs +=  x
-        cs += str_sep
-
-    #print cs
-
-    #remove last comma
-    data[key] = cs.strip(str_sep)
-
-  
+    print errors[key]
+    print data[key]

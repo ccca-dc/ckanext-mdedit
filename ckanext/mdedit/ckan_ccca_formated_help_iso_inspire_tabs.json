@@ -120,7 +120,6 @@
       "mdedit_note4": "attribute contact_info bound to other special display! Do not change!",
       "contains": "4",
       "contact_info": "true",
-      "str_sep": "#",
       "l1": "Name",
       "l2": "Department",
       "l3": "Mail",
@@ -555,7 +554,7 @@
         {
           "value": "019",
           "label": "utilities communication"
-        }
+        }        
       ]
     },
     {
