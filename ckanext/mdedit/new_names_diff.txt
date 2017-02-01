@@ -1,0 +1,120 @@
+29c29
+<       "field_name": "cntOnlineRes",
+---
+>       "field_name": "owner_webpage",
+192c192
+<       "field_name": "datasetURI",
+---
+>       "field_name": "dataset_uri",
+230c230
+<       "field_name": "idStatus",
+---
+>       "field_name": "res_status",
+270c270
+<       "field_name": "mdLang",
+---
+>       "field_name": "md_lang",
+289c289
+<       "field_name": "mdDate",
+---
+>       "field_name": "md_date",
+336c336
+<       "field_name": "useLimit",
+---
+>       "field_name": "use_limit",
+345c345
+<       "field_name": "accessConsts",
+---
+>       "field_name": "access_consts",
+389c389
+<       "field_name": "useConsts",
+---
+>       "field_name": "use_consts",
+433c433
+<       "field_name": "class",
+---
+>       "field_name": "hand_rest",
+473c473
+<       "field_name": "tpCat",
+---
+>       "field_name": "topic_cat",
+571c571
+<       "field_name": "keyTyp",
+---
+>       "field_name": "key_type",
+602c602
+<         "field_name": "thesaurusName",
+---
+>         "field_name": "thesaurus_name",
+621c621
+<         "field_name": "thesaRefDate",
+---
+>         "field_name": "thesa_refdate",
+637c637
+<         "field_name": "thesRrefDateType",
+---
+>         "field_name": "thes_refdatetype",
+680c680
+<       "field_name": "westBL",
+---
+>       "field_name": "west_bl",
+689c689
+<       "field_name": "eastBL",
+---
+>       "field_name": "east_bl",
+698c698
+<       "field_name": "southBL",
+---
+>       "field_name": "south_bl",
+707c707
+<       "field_name": "northBL",
+---
+>       "field_name": "north_bl",
+724c724
+<       "field_name": "sDate",
+---
+>       "field_name": "start_date",
+733c733
+<       "field_name": "eDate",
+---
+>       "field_name": "end_date",
+742c742
+<       "field_name": "creaDate",
+---
+>       "field_name": "crea_date",
+751c751
+<       "field_name": "pubDate",
+---
+>       "field_name": "pub_date",
+760c760
+<       "field_name": "revDate",
+---
+>       "field_name": "rev_date",
+777c777
+<       "field_name": "equivScale",
+---
+>       "field_name": "equiv_scale",
+786c786
+<       "field_name": "scaleDist",
+---
+>       "field_name": "scale_dist",
+812c812
+<       "field_name": "Specifications",
+---
+>       "field_name": "specifications",
+907c907
+<       "field_name": "formatVer",
+---
+>       "field_name": "format_ver",
+913c913
+<       "field_name": "ResourceURI",
+---
+>       "field_name": "resource_uri",
+925c925
+<        "field_name": "anonDownload",
+---
+>        "field_name": "anon_download",
+940c940
+< }
+---
+>      }

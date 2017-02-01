@@ -22,19 +22,17 @@ def mdedit_contains(key, data, errors, context):
 
      (Addpated from scheming multiple choice)
     """
-    #if errors[key]:
-    #    return
 
-    print "***************** Anja********** mdedit_contains validator"
-    print data[key]
+    #print "***************** Anja********** mdedit_contains validator"
 
     value = data[key]
 
+    #print value
+    #print type(value)
+
     if value is not missing:
-        if isinstance(value, basestring):
-            value = [value]
-        elif not isinstance(value, list):
-            errors[key].append(_('expecting contact info list'))
+        if not isinstance(value, list):
+            #errors[key].append(_('expecting contact info list'))
             return
     else:
         value = []
@@ -42,5 +40,6 @@ def mdedit_contains(key, data, errors, context):
     if not errors[key]:
         data[key] = json.dumps(value)
 
-    print errors[key]
-    print data[key]
+#    print errors[key]
+#    print data[key]
+#    print type(data[key])

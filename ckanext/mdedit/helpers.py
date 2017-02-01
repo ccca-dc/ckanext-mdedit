@@ -112,21 +112,22 @@ def mdedit_get_contain_values(data, field):
     # Turn String into list again
     # and extract the required fields (index)
 
-    print "mdedit_get_contain_values *********** Anja ******************"
-    print field['field_name']
+    #print "mdedit_get_contain_values *********** Anja ******************"
+    #print field['field_name']
     #print field
 
     otto = c.pkg_dict
 
-    print "********** Anja: DATA"
+#    print "********** Anja: DATA"
 #    print data.get(field['field_name'])
 
     if data:
         cu = data.get(field['field_name'])
-        print "******** Anja 1 data"
+        #print "******** Anja 1 data"
     else:
-        cu = c.pkg_dict.get(field['field_name'])
-        print "******** Anja 2 pkg_dict"
+        if otto:
+            cu = c.pkg_dict.get(field['field_name'])
+            #print "******** Anja 2 pkg_dict"
 
     if not cu:
       return ""
@@ -139,8 +140,8 @@ def mdedit_get_contain_values(data, field):
     else:
         clist = cu
 
-    print clist
-    print (type(clist))
+    #print clist
+    #print (type(clist))
 
     num_contains = int (field['contains'])
 

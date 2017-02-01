@@ -26,7 +26,7 @@
       "iso":"376"
     },
       {
-      "field_name": "cntOnlineRes",
+      "field_name": "owner_webpage",
       "label": "Webpage",
       "display_snippet": "link.html",
       "help_text": "Webpage of the responsible Organization.",
@@ -189,7 +189,7 @@
       }
     },
     {
-      "field_name": "datasetURI",
+      "field_name": "dataset_uri",
       "label": "Dataset Locator",
       "form_snippet": "text.html",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
@@ -227,7 +227,7 @@
       "inspire":"Part B 1.2"
     },
     {
-      "field_name": "idStatus",
+      "field_name": "res_status",
       "label": "Status of the resource(s)",
       "preset": "select",
       "select_size": "1",
@@ -267,7 +267,7 @@
     },
 
     {
-      "field_name": "mdLang",
+      "field_name": "md_lang",
       "label": "Metadata Language",
       "preset": "mdedit_select",
       "help_text": "Language used for the metadata (default english)",
@@ -286,7 +286,7 @@
       ]
     },
     {
-      "field_name": "mdDate",
+      "field_name": "md_date",
       "label": "Metadata Date",
       "preset": "mdedit_today",
       "help_text": "Date of creation or last modification of this Dataset (automatically inserted)",
@@ -333,7 +333,7 @@
       }
     },
     {
-      "field_name": "useLimit",
+      "field_name": "use_limit",
       "label": "Use Limitation",
       "form_snippet": "text.html",
       "iso":"68",
@@ -342,7 +342,7 @@
       "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m)."
     },
     {
-      "field_name": "accessConsts",
+      "field_name": "access_consts",
       "label": "Access Constraints",
       "preset": "select",
       "iso":"70",
@@ -386,7 +386,7 @@
       ]
     },
     {
-      "field_name": "useConsts",
+      "field_name": "use_consts",
       "label": "Use Constraints",
       "preset": "select",
       "select_size": 1,
@@ -430,7 +430,7 @@
       ]
     },
     {
-      "field_name": "class",
+      "field_name": "hand_rest",
       "label": "Handling Restrictions",
       "preset": "select",
       "select_size": "1",
@@ -470,7 +470,7 @@
       }
     },
     {
-      "field_name": "tpCat",
+      "field_name": "topic_cat",
       "label": "Topic Category/ies",
       "preset": "multiple_select",
       "iso":"41",
@@ -568,7 +568,7 @@
       "iso":"53"
     },
     {
-      "field_name": "keyTyp",
+      "field_name": "key_type",
       "label": "Keyword Type",
       "form_snippet": "select.html",
       "display_snippet": "select.html",
@@ -599,7 +599,7 @@
       ]
     },
       {
-        "field_name": "thesaurusName",
+        "field_name": "thesaurus_name",
         "label": "Thesaurus Name",
         "form_snippet": "mdedit_small_text.html",
         "help_text": "Official title of the used Thesaurus, or other vocabulary or dictionary used.",
@@ -618,7 +618,7 @@
 
       },
       {
-        "field_name": "thesaRefDate",
+        "field_name": "thesa_refdate",
         "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfPublication (o).",
         "mdedit_note":" TODO!!!! For further implementation....",
         "form_snippet": "mdedit_small_text.html",
@@ -634,7 +634,7 @@
         }
       },
       {
-        "field_name": "thesRrefDateType",
+        "field_name": "thes_refdatetype",
         "help_text_norm": "ISO_refdateType (o), <br> INSPIRE_DateOfPublication (o).",
         "mdedit_note":" TODO!!!! For further implementation....",
         "iso": "394",
@@ -677,7 +677,7 @@
      "help_text": "Select area describing the dataset spatial extend"
    },
     {
-      "field_name": "westBL",
+      "field_name": "west_bl",
       "help_text_norm": "ISO_westBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
       "iso": "344",
       "inspire": "Part B 4.1",
@@ -686,7 +686,7 @@
       "help_text": "Western-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
     },
     {
-      "field_name": "eastBL",
+      "field_name": "east_bl",
       "help_text_norm": "ISO ISO_eastBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
       "iso": "345",
       "inspire": "Part B 4.1",
@@ -695,7 +695,7 @@
       "help_text": "Eastern-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
     },
     {
-      "field_name": "southBL",
+      "field_name": "south_bl",
       "help_text_norm": "ISO_southBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
       "iso": "346",
       "inspire": "Part B 4.1",
@@ -704,7 +704,7 @@
       "help_text": "Southern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north)."
     },
     {
-      "field_name": "northBL",
+      "field_name": "north_bl",
       "help_text_norm": "ISO_northBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
       "iso": "347",
       "inspire": "Part B 4.1",
@@ -721,7 +721,7 @@
       }
     },
     {
-      "field_name": "sDate",
+      "field_name": "start_date",
       "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
       "label": "Starting Date",
       "inspire": "B 5.1",
@@ -730,7 +730,7 @@
       "help_text": "Starting date for the datasets temporal extent."
     },
     {
-      "field_name": "eDate",
+      "field_name": "end_date",
       "label": "Ending Date",
       "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
       "inspire": "B 5.1",
@@ -739,7 +739,7 @@
       "help_text": "Ending date for the datasets temporal extent."
     },
     {
-      "field_name": "creaDate",
+      "field_name": "crea_date",
       "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfCreation (o).",
       "inspire": "Part B 5.4",
       "iso":"392",
@@ -748,7 +748,7 @@
       "help_text": "Date of creation of the resources within this dataset."
     },
     {
-      "field_name": "pubDate",
+      "field_name": "pub_date",
       "help_text_norm": "ISO mdDateSt (o), <br> INSPIRE_MetadataDate (o).",
       "inspire": "Part B 5.2",
       "iso":"392",
@@ -757,7 +757,7 @@
       "help_text": "Date of publication of the resources within this  dataset."
     },
     {
-      "field_name": "revDate",
+      "field_name": "rev_date",
       "help_text_norm": "ISO mdDateSt (o), <br> INSPIRE_MetadataDate (o).",
       "inspire": "Part B 5.3",
       "iso":"392",
@@ -774,7 +774,7 @@
       }
     },
     {
-      "field_name": "equivScale",
+      "field_name": "equiv_scale",
       "help_text_norm": "ISO equivalentScale (o), <br> INSPIRE_SpatialResolution (o).",
       "label": "Equivalent Scale",
       "iso": "60",
@@ -783,7 +783,7 @@
       "help_text": "Equivalent scale:level of detail expressed as the scale denominator of a comparable hardcopy map or chart; dictance:ground sample distance"
     },
     {
-      "field_name": "scaleDist",
+      "field_name": "scale_dist",
       "help_text_norm": "ISO distance (o), <br> INSPIRE_SpatialResolution (o).",
       "label": "Scale Distance",
       "iso": "61",
@@ -809,7 +809,7 @@
       }
     },
     {
-      "field_name": "Specifications",
+      "field_name": "specifications",
       "help_text_norm": "ISO_conSpec (m), <br> INSPIRE_Specification (m).",
       "inspire": "Part B 7.1",
       "iso":"130",
@@ -904,13 +904,13 @@
       "help_text_norm": "Matches ISO_SpatialRepresentationType (156) (o) and ISO_DistributionFormat (o)"
     },
     {
-      "field_name": "formatVer",
+      "field_name": "format_ver",
       "label": "Format Version",
       "form_snippet": "text.html",
       "help_text": "Version of the format(date, number, etc.)."
     },
     {
-      "field_name": "ResourceURI",
+      "field_name": "resource_uri",
       "label": "Resource URI",
       "form_snippet": "text.html",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
@@ -922,7 +922,7 @@
       }
     },
     {
-       "field_name": "anonDownload",
+       "field_name": "anon_download",
        "label": "Anonymous Download",
        "form_snippet": "mdedit_select.html",
        "display_snippet": "select.html",
@@ -937,6 +937,6 @@
            "label": "no"
          }
        ]
-}
+     }
   ]
   }

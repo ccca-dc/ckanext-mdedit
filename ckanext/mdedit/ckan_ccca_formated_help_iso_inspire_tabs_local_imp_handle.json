@@ -8,7 +8,7 @@
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Contact",
-      "title": "Contact and Owner Information regarding your dataset ",
+      "title": "Owner and Contact Information regarding this dataset ",
       "necessary": "true",
       "form_attrs": {
         "readonly": "readonly"
@@ -19,13 +19,13 @@
       "label": "Organization",
       "mdedit_note": "public zuerst; leere Org als default",
       "preset": "mdedit_organization",
-      "help_text": "Metadata Point of Contact: Name of responsible Organization",
+      "help_text": "Metatdata Point of Contact: Name of responsible Organization (Dataset Owner)",
       "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
       "mdedit_note":"ISO_idPOC - Hierachie",
       "inspire": "Part B 9.1",
       "iso":"376"
     },
-    {
+      {
       "field_name": "cntOnlineRes",
       "label": "Webpage",
       "display_snippet": "link.html",
@@ -34,117 +34,105 @@
       "iso":"390"
     },
     {
-      "field_name": "maintainer",
-      "label": "Responsible Individual",
-      "preset": "mdedit_individual",
-      "help_text": "Metadata Point of Contact: Name of responsible Individual",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
-      "inspire": "Part B 9.1"
-    },
+       "field_name": "maintainer",
+       "label": "Name",
+       "required": "true",
+       "group_start": "Contact Information",
+       "group_small_start": "Metadata Point of Contact (Maintainer)",
+       "preset": "mdedit_individual",
+       "help_text_old": "Metadata Point of Contact: Name of responsible Individual (Maintainer)",
+       "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m).",
+       "iso":"375",
+       "inspire": "Part B 10.1"
+     },
+     {
+       "field_name": "maintainer_department",
+       "label": "Department",
+       "form_placeholder": "e.g. Department for Geology",
+       "help_text_old": "Department/-address of responsible Individual",
+       "help_text_norm_old": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
+       "iso":"389",
+       "inspire": "Part B 10.1"
+     },
+     {
+       "field_name": "maintainer_email",
+       "label": " Mail",
+       "group_small_end": "Metadata Point of Contact",
+       "required": "true",
+       "form_snippet": "text.html",
+       "form_placeholder": "joe@example.com",
+       "form_snippet": "mdedit_mail.html",
+       "display_snippet": "mdedit_mail.html",
+       "help_text": "Name, Department and Mail Address of Responsible Individual",
+       "help_text_norm": "ISO_mdContact (m), <br> INSPIRE_MetadataPointOfContact (m) .",
+       "iso_group":"8",
+       "inspire": "Part B 10.1",
+       "help_text_old": "Mail Address of Responsible Individual",
+       "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m) .",
+       "iso":"386"
+     },
+
     {
-      "field_name": "maintainer_email",
-      "label": " Responsible Individual E-Mail",
-      "form_snippet": "text.html",
-      "form_placeholder": "joe@example.com",
-      "form_snippet": "mdedit_mail.html",
-      "display_snippet": "email.html",
-      "help_text": "Mail Address of Responsible Individual",
-      "help_text_norm": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
-      "iso":"386",
-      "inspire": "Part B 9.1"
-    },
+       "field_name": "author",
+       "label": "Name",
+       "group_small_start": "Responsible Party (Author)",
+       "required": "true",
+       "preset": "mdedit_individual",
+       "help_text_old": "Creator of this Dataset including the resources (Author)",
+       "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty",
+       "iso":"375",
+       "inspire": "Part B 9.1"
+     },
     {
-      "field_name": "role",
-      "label": "Role",
-      "help_text": "Role of the Dataset Creator (default: custodian (i.e. maintainer))",
-      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
-      "form_snippet": "mdedit_select.html",
-      "display_snippet": "select.html",
-      "iso":"379",
-      "inspire": "Part B 9.2",
-      "choices": [
-        {
-          "value": "custodian",
-          "label": "Custodian"
-        },
-        {
-          "value": "author",
-          "label": "Author"
-        },
-        {
-          "value": "distributor",
-          "label": "Distributor"
-        },
-        {
-          "value": "originator",
-          "label": "Originator"
-        },
-        {
-          "value": "owner",
-          "label": "Owner"
-        },
-        {
-          "value": "pointOfContact",
-          "label": "Point of Contact"
-        },
-        {
-          "value": "principalInvestigator",
-          "label": "Principal Investigator"
-        },
-        {
-          "value": "processor",
-          "label": "Processor"
-        },
-        {
-          "value": "publisher",
-          "label": "Publisher"
-        },
-        {
-          "value": "resourceProvider",
-          "label": "Resource Provider"
-        },
-        {
-          "value": "user",
-          "label": "User"
-        }
-      ]
-    },
-    {
-      "field_name": "author",
-      "label": "Dataset Creator",
-      "preset": "mdedit_individual",
-      "help_text": "Creator of this Dataset including the resources",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
+      "field_name": "author_department",
+      "label": "Department",
+      "form_placeholder": "e.g. Department for Metereology",
+      "help_text_old": "Department/-address of Dataset Creator",
+      "help_text_norm_old": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
+      "iso":"389",
       "inspire": "Part B 9.1"
     },
     {
       "field_name": "author_email",
-      "label": "Dataset Creator E-Mail",
+      "label": "Mail",
+      "group_small_end": "Responsible Party (Author)",
+      "required": "true",
       "form_snippet": "text.html",
       "form_placeholder": "joe@example.com",
           "form_snippet": "mdedit_mail.html",
-      "display_snippet": "email.html",
-      "help_text": "Mailadress of Dataset Creator",
-      "help_text_norm": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
-      "iso":"375",
-      "inspire": "Part B 9.1"
+      "display_snippet": "mdedit_mail.html",
+      "help_text": "Name, Department and Mail Address of Responsible Individual",
+      "help_text_norm": "ISO_idPoC (o), <br> INSPIRE_ResponsibleParty (m).",
+      "iso":"29",
+      "inspire": "Part B 9.1",
+      "help_text_old": "Mailadress of Dataset Creator",
+      "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
+      "iso_old":"375"
     },
     {
-      "field_name": "author_role",
-      "label": "Role",
-      "help_text": "Role of the Dataset Creator (default: Author)",
-      "help_text_norm": "ISO_role (m), <br> INSPIRE_ResponsiblePartyRole (m).",
-      "form_snippet": "mdedit_select.html",
-      "display_snippet": "select.html",
-      "iso":"379",
-      "inspire": "Part B 9.2",
+      "field_name": "contact_info",
+      "label": "Further Contacts",
+      "preset": "mdedit_contains",
+      "group_end":"Contact Info",
+      "mdedit_note1": "Special multiple Field. Best last item within a tab or group; last item in field might be select ",
+      "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into a string separated by str_sep",
+      "mdedit_note3": "Max Contains: 5 (otherwise change in java module!)",
+      "mdedit_note4": "attribute contact_info bound to  special display (and role choice at the end)",
+      "contains": "4",
+      "contact_info": "true",
+      "l1": "Name",
+      "l2": "Department",
+      "l3": "Mail",
+      "l4": "Role",
+      "p1": "e.g. Joe Example" ,
+      "p2": "e.g. Department for Geophysics",
+      "p3": "e.g. joe@example.com",
+      "p4": "",
+      "help_text": "Name, Mail Department and Role of Contact Individual(s)",
+      "help_text_norm": "ISO_CI_Contact (o), ISO_CI_Role (o), <br> INSPIRE_ResponsibleParty (o), INSPIRE_ResponsiblePartyRole (c)",
+      "iso":"387,387,387,379",
+      "inspire": "Part B 9.1, Part B 9.1, Part B 9.1, Part B 9.2 ",
       "choices": [
-      {
-          "value": "author",
-          "label": "Author"
-        },
         {
           "value": "custodian",
           "label": "Custodian"
@@ -184,21 +172,17 @@
         {
           "value": "user",
           "label": "User"
+        },
+        {
+          "value": "author",
+          "label": "Author"
         }
       ]
     },
     {
-      "field_name": "author_citation",
-      "label": "Citation Info",
-      "form_snippet": "mdedit_cite.html",
-      "display_snippet": "text.html",
-      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources. Default: Dataset Creator (see field below)",
-      "placeholder": "Smith et al"
-    },
-    {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Basics",
-      "title": "Basic Information about your dataset ",
+      "title": "Basic Information about this dataset ",
       "necessary": "true",
       "form_attrs": {
         "readonly": "readonly"
@@ -242,7 +226,6 @@
       "iso":"25",
       "inspire":"Part B 1.2"
     },
-
     {
       "field_name": "idStatus",
       "label": "Status of the resource(s)",
@@ -332,6 +315,14 @@
         "readonly": "readonly",
         "hidden": "true"
       }
+    },
+    {
+      "field_name": "citation_info",
+      "label": "Citation Info",
+      "form_snippet": "mdedit_cite.html",
+      "display_snippet": "text.html",
+      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources.",
+      "placeholder": "Smith et al"
     },
    {
       "field_name": "tab_delimiter",
@@ -925,8 +916,8 @@
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
-      "inspire":"Part B 1.4"
-    } ,
+      "inspire":"Part B 1.4"  
+    },
     {
        "field_name": "anonDownload",
        "label": "Anonymous Download",
@@ -943,6 +934,6 @@
            "label": "no"
          }
        ]
-     }
+}
   ]
   }
