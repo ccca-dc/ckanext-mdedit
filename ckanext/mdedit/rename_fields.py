@@ -3,7 +3,7 @@ import json
 ############################# General Commands #############################
 demo = RemoteCKAN('http://127.0.0.1:5000',apikey='73970e04-3acf-4333-acb9-b1b15b44e5c7')
 data = RemoteCKAN('https://data.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
-sandbox = RemoteCKAN('https://sandbox.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
+sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
 
 ############################# General Commands END #############################
 ## Change keywords in list/dict

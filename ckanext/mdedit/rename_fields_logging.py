@@ -3,7 +3,7 @@ import json
 ############################# General Commands #############################
 demo = RemoteCKAN('http://127.0.0.1:5000',apikey='73970e04-3acf-4333-acb9-b1b15b44e5c7')
 data = RemoteCKAN('https://data.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
-sandbox = RemoteCKAN('https://sandbox.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
+sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3b-d42b836b6355')
 
 ############################# General Commands END #############################
 ## Change keywords in list/dict
@@ -13,6 +13,8 @@ sandbox = RemoteCKAN('https://sandbox.ccca.ac.at',apikey='431109b7-c9f9-47f1-ab3
 #rst_pkgdict = demo.call_action('package_update', pkg )
 ######### Check for changes ##############################
 
+#Change hostname for renameing fields here
+update_host = demo
 
 print "######## Analyzing JSON Schema files ################################"
 
@@ -29,13 +31,11 @@ log_f.write("\n")
 
 with open(old_f) as json_data:
     old_names = json.load(json_data)
-    print(old_names)
+    #print(old_names)
 
 with open(new_f) as json_data:
     new_names = json.load(json_data)
-    print(new_names)
-
-
+    #print(new_names)
 
 ### Dataset
 
@@ -47,6 +47,7 @@ new_list = []
 
 
 for i, cont in enumerate(old_fields):
+    """
     print "************"
     log_f.write("************")
     log_f.write("\n")
@@ -59,10 +60,12 @@ for i, cont in enumerate(old_fields):
     print cont['field_name']
     log_f.write(str( cont['field_name']))
     log_f.write("\n")
+    """
     old_list.append(cont['field_name'])
 
 
 for i, cont in enumerate(new_fields):
+    """
     print "************"
     log_f.write("************")
     log_f.write("\n")
@@ -75,6 +78,7 @@ for i, cont in enumerate(new_fields):
     print cont['field_name']
     log_f.write(str( cont['field_name']))
     log_f.write("\n")
+    """
     new_list.append(cont['field_name'])
 
 
@@ -104,6 +108,7 @@ new_rlist = []
 
 
 for i, cont in enumerate(old_rfields):
+    """
     print "************"
     log_f.write("************")
     log_f.write("\n")
@@ -116,10 +121,12 @@ for i, cont in enumerate(old_rfields):
     print cont['field_name']
     log_f.write(str( cont['field_name']))
     log_f.write("\n")
+    """
     old_rlist.append(cont['field_name'])
 
 
 for i, cont in enumerate(new_rfields):
+    """
     print "************"
     log_f.write("************")
     log_f.write("\n")
@@ -132,6 +139,7 @@ for i, cont in enumerate(new_rfields):
     print cont['field_name']
     log_f.write (str(cont['field_name']))
     log_f.write("\n")
+    """
     new_rlist.append(cont['field_name'])
 
 
@@ -220,9 +228,9 @@ dataset = 'test-rename-fields'
 dataset = 'g2222'
 dataset = 'g1111'
 
-pkg_list = demo.call_action('package_list')
+pkg_list = update_host.call_action('package_list')
 
-print pgk_list
+print pkg_list
 go_on = raw_input ('press enter to continue')
 
 for dataset in pkg_list:
@@ -234,7 +242,7 @@ for dataset in pkg_list:
     log_f.write("\n")
 
     ################# Change Package Attributes ########################
-    pkg = demo.call_action('package_show', {'id':dataset})
+    pkg = update_host.call_action('package_show', {'id':dataset})
 
 
     count_changes = 0
@@ -333,7 +341,7 @@ for dataset in pkg_list:
 
 
     try:
-       rst_pkgdict = demo.call_action('package_update', pkg )
+       rst_pkgdict = update_host.call_action('package_update', pkg )
 
     except:
         print "''''''''''''''''''''Error updating dataset: " + dataset + "''''''''' Skipping '''''"

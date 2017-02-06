@@ -1,0 +1,2891 @@
+######## Analyzing JSON Schema files ################################
+********** Number of fields identical (52)
+********** Number of fields identical (7)
+NOT Changing: tab_delimiter to: tab_delimiter
+NOT Changing: owner_org to: owner_org
+Changing: cntOnlineRes to: iso_cntOnlineRes
+NOT Changing: maintainer to: maintainer
+NOT Changing: maintainer_department to: maintainer_department
+NOT Changing: maintainer_email to: maintainer_email
+NOT Changing: author to: author
+NOT Changing: author_department to: author_department
+NOT Changing: author_email to: author_email
+NOT Changing: contact_info to: contact_info
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: datasetURI to: iso_datasetURI
+NOT Changing: title to: title
+NOT Changing: name to: name
+NOT Changing: notes to: notes
+Changing: idStatus to: iso_idStatus
+Changing: mdLang to: iso_mdLang
+Changing: mdDate to: iso_mdDate
+NOT Changing: license_id to: license_id
+NOT Changing: state to: state
+NOT Changing: citation_info to: citation_info
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: useLimit to: iso_useLimit
+Changing: accessConsts to: iso_accessConsts
+Changing: useConsts to: iso_othConsts
+Changing: class to: iso_class
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: tpCat to: iso_tpCat
+NOT Changing: tag_string to: tag_string
+Changing: keyTyp to: iso_keyTyp
+Changing: thesaurusName to: iso_thesaName
+Changing: thesaRefDate to: iso_thesaRefDate
+Changing: thesRrefDateType to: iso_thesRefDateType
+NOT Changing: tab_delimiter to: tab_delimiter
+NOT Changing: spatial to: spatial
+Changing: westBL to: iso_westBL
+Changing: eastBL to: iso_eastBL
+Changing: southBL to: iso_southBL
+Changing: northBL to: iso_northBL
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: sDate to: iso_exTempStart
+Changing: eDate to: iso_exTempEnd
+Changing: creaDate to: iso_creaDate
+Changing: pubDate to: iso_pubDate
+Changing: revDate to: iso_revDate
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: equivScale to: iso_equScale
+Changing: scaleDist to: iso_scaleDist
+Changing: lineage to: iso_lineage
+NOT Changing: tab_delimiter to: tab_delimiter
+Changing: Specifications to: iso_conSpec
+Changing: degree to: iso_conPass
+************ Changing 28 field_names in total; NOT changing 24 field_names
+NOT Changing: url to: url
+NOT Changing: name to: name
+NOT Changing: description to: description
+NOT Changing: format to: format
+NOT Changing: formatVer to: formatVer
+Changing: ResourceURI to: iso_resourceURI
+Changing: anonDownload to: anonnymous_download
+************ Changing 2 field_names (resources) in total; NOT changing 5 field_names
+######## Finished Analyzing JSON Format files ################################
+######## Changing Dataset Fields ################################
+Dataset: another-test-spatial
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: metadata_modifiedold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset another-test-spatial; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich''''''''' Skipping '''''
+Dataset: csv
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset csv; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: csw-suchdienst-der-zamg
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset csw-suchdienst-der-zamg; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: csw-suchdienst-der-zamg''''''''' Skipping '''''
+Dataset: excel
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset excel; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g10
+old: contact_infoold: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: citation_infoold: metadata_modifiedold: titleold: stateold: versionold: spatialold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: license_idold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: license_urlold: organizationold: revision_id0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g10; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g10''''''''' Skipping '''''
+Dataset: g100
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g100; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g1000
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g1000; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g11
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g11; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g11''''''''' Skipping '''''
+Dataset: g111
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g111; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g1111
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: iso_revDateold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_exTempEndold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_exTempStartold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_pubDateold: iso_classold: iso_useLimitold: nameold: isopenold: iso_creaDateold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g1111; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g12
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g12; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g12''''''''' Skipping '''''
+Dataset: g13
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g13; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g13''''''''' Skipping '''''
+Dataset: g14
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g14; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g14''''''''' Skipping '''''
+Dataset: g15
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g15; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g15''''''''' Skipping '''''
+Dataset: g16
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g16; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g16''''''''' Skipping '''''
+Dataset: g17
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g17; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g17''''''''' Skipping '''''
+Dataset: g22
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g22; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g222
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g222; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g2222
+old: license_titleold: maintainerold: contact_infoold: relationships_as_objectold: privateold: maintainer_emailold: num_tagsold: idold: metadata_createdold: citation_infoold: metadata_modifiedold: authorold: author_emailold: author_departmentold: stateold: versionold: spatialold: license_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_tpCatold: groupsold: creator_user_idold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: titleold: license_urlold: organizationold: revision_idold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g2222; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g33
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g33; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g333
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g333; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g3333
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g3333; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g44
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g44; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g444
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g444; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g4444
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g4444; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g55
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g55; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g555
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g555; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g5555
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g5555; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g77
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g77; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g777
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g777; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g8
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g8; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g8''''''''' Skipping '''''
+Dataset: g88
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g88; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g888
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tagsold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: author_departmentold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: maintainer_departmentold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g888; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g888''''''''' Skipping '''''
+Dataset: g9
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g9; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: g9''''''''' Skipping '''''
+Dataset: g99
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g99; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: g999
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset g999; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: gg
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset gg; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: grouping
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset grouping; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: grouping''''''''' Skipping '''''
+Dataset: grouping2
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset grouping2; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: grouping2''''''''' Skipping '''''
+Dataset: inspire-downloaddienst-der-zamg
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset inspire-downloaddienst-der-zamg; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: inspire-downloaddienst-der-zamg''''''''' Skipping '''''
+Dataset: luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich''''''''' Skipping '''''
+Dataset: luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich''''''''' Skipping '''''
+Dataset: lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre''''''''' Skipping '''''
+Dataset: neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990''''''''' Skipping '''''
+Dataset: niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte''''''''' Skipping '''''
+Dataset: pangaea-test-bahr
+old: usernameold: setold: relationships_as_objectold: metadataPrefixold: privateold: frequencyold: idold: metadata_createdold: metadata_modifiedold: titleold: stateold: creator_user_idold: typeold: resourcesold: statusold: tagsold: source_typeold: verbold: groupsold: passwordold: relationships_as_subjectold: nameold: urlold: configold: notesold: owner_orgold: organizationold: revision_id0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset pangaea-test-bahr; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich''''''''' Skipping '''''
+Dataset: sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich''''''''' Skipping '''''
+Dataset: test
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-another-browser
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: citation_infoold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-another-browser; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-gallery
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-gallery; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-gallery-2
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-gallery-2; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-handle-and-citation
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-handle-and-citation; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-keyword
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: iso_datasetURIold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: metadata_modifiedold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-keyword; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-new-md
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: metadata_modifiedold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: stateold: versionold: roleold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_eastBLold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: useConsts---y: useConstsChange to: iso_othConstsold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: iso_cntOnlineResold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: accessConsts---y: accessConstsChange to: iso_accessConstsold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScaleold: extras22 field_names replaced in dataset
+***************** Success  *********** But  6 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-new-md; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: test-new-md''''''''' Skipping '''''
+Dataset: test-no-degree
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: metadata_createdold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: iso_thesRefDateTypeold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-no-degree; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-no-maintainer-2
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT -4 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-no-maintainer-2; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: test-no-maintainer-2''''''''' Skipping '''''
+Dataset: test-no-maintainer5
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: polygonold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: iso_cntOnlineResold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale22 field_names replaced in dataset
+***************** Success  *********** But  6 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 1 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-no-maintainer5; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: test-no-maintainer5''''''''' Skipping '''''
+Dataset: test-no-maintainer6
+old: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: polygonold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: iso_cntOnlineResold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale22 field_names replaced in dataset
+***************** Success  *********** But  6 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 1 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-no-maintainer6; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: test-no-maintainer6''''''''' Skipping '''''
+Dataset: test-relationship
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: extrasold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-relationship; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-rename-fields
+old: metadata_modifiedold: iso_southBLold: iso_lineageold: contact_infoold: iso_equScaleold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: iso_revDateold: organizationold: iso_northBLold: maintainerold: iso_westBLold: idold: iso_thesRefDateTypeold: citation_infoold: iso_exTempEndold: iso_datasetURIold: authorold: author_emailold: author_departmentold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: iso_scaleDistold: resourcesold: iso_othConstsold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_exTempStartold: iso_tpCatold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_pubDateold: iso_classold: iso_useLimitold: nameold: isopenold: iso_creaDateold: urlold: typeold: notesold: license_titleold: iso_mdLangold: license_urlold: spatialold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: maintainer_department0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-rename-fields; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: test-spatial
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: metadata_modifiedold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: stateold: versionold: roleold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_eastBLold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: useConsts---y: useConstsChange to: iso_othConstsold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: accessConsts---y: accessConstsChange to: iso_accessConstsold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScaleold: extras23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset test-spatial; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: test-spatial''''''''' Skipping '''''
+Dataset: wien-info-wms
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: metadata_createdold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: polygonold: metadata_modifiedold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: stateold: versionold: roleold: keyTyp---y: keyTypChange to: iso_keyTypold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_eastBLold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: useConsts---y: useConstsChange to: iso_othConstsold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: iso_cntOnlineResold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: accessConsts---y: accessConstsChange to: iso_accessConstsold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale22 field_names replaced in dataset
+***************** Success  *********** But  6 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 1 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset wien-info-wms; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: wien-info-wms''''''''' Skipping '''''
+Dataset: wms
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset wms; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: wms-darstellungsdienst-der-zamg
+old: relationships_as_objectold: privateold: num_tagsold: idold: metadata_createdold: metadata_modifiedold: titleold: tpCat---y: tpCatChange to: iso_tpCatold: stateold: versionold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: groupsold: relationships_as_subjectold: nameold: isopenold: urlold: notesold: license_titleold: extrasold: organizationold: revision_id1 field_names replaced in dataset
+***************** Success  *********** But  27 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: state
+old: resource_locator_function
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: resource_locator_protocol
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset wms-darstellungsdienst-der-zamg; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: wms-darstellungsdienst-der-zamg''''''''' Skipping '''''
+Dataset: wmts
+old: iso_southBLold: iso_lineageold: iso_scaleDistold: iso_conSpecold: privateold: maintainer_emailold: num_tagsold: organizationold: iso_northBLold: maintainerold: iso_westBLold: iso_equScaleold: idold: iso_thesRefDateTypeold: iso_tpCatold: metadata_modifiedold: authorold: author_emailold: stateold: versionold: metadata_createdold: relationships_as_objectold: creator_user_idold: typeold: resourcesold: num_resourcesold: tagsold: iso_accessConstsold: iso_eastBLold: iso_mdDateold: iso_thesaRefDateold: iso_keyTypold: iso_conPassold: groupsold: license_idold: iso_cntOnlineResold: relationships_as_subjectold: iso_classold: iso_useLimitold: nameold: isopenold: urlold: notesold: license_titleold: iso_mdLangold: license_urlold: iso_idStatusold: titleold: revision_idold: iso_thesaNameold: iso_othConsts0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: last_modified
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: mimetype_inner
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset wmts; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: xxxxx
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: contact_infoold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: num_tagsold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: keyTyp---y: keyTypChange to: iso_keyTypold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: citation_infoold: accessConsts---y: accessConstsChange to: iso_accessConstsold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: iso_accessConstsold: stateold: versionold: useConsts---y: useConstsChange to: iso_othConstsold: metadata_createdold: eastBL---y: eastBLChange to: iso_eastBLold: license_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_othConstsold: spatialold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: iso_tpCatold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: creator_user_idold: datasetURI---y: datasetURIChange to: iso_datasetURIold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: organizationold: iso_useLimitold: metadata_modifiedold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: license_urlold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: iso_classold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale23 field_names replaced in dataset
+***************** Success  *********** But  5 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: anonDownload
+---y: anonDownload
+--new: anonnymous_download
+old: webstore_url
+old: last_modified
+old: formatVer
+old: anonnymous_download
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset xxxxx; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: xxxxx''''''''' Skipping '''''
+Dataset: zamg-harvest
+old: relationships_as_objectold: privateold: frequencyold: idold: metadata_createdold: metadata_modifiedold: titleold: stateold: creator_user_idold: configold: resourcesold: statusold: tagsold: source_typeold: groupsold: relationships_as_subjectold: nameold: urlold: typeold: notesold: owner_orgold: organizationold: revision_id0 field_names replaced in dataset
+***************** Success  *********** But  28 Items not found i.e. NOT replaced
+***************** Success  *********** BUT 2 Items not found i.e. replaced
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset zamg-harvest; Writing package anyway ....
+################# Dataset successfully updated to CKAN
+Dataset: zamg-wms
+old: maintainerold: westBL---y: westBLChange to: iso_westBLold: relationships_as_objectold: scaleDist---y: scaleDistChange to: iso_scaleDistold: privateold: maintainer_emailold: author_citationold: iso_westBLold: thesaRefDate---y: thesaRefDateChange to: iso_thesaRefDateold: idold: metadata_createdold: thesaurusName---y: thesaurusNameChange to: iso_thesaNameold: polygonold: metadata_modifiedold: authorold: Specifications---y: SpecificationsChange to: iso_conSpecold: tpCat---y: tpCatChange to: iso_tpCatold: relationships_as_subjectold: iso_scaleDistold: stateold: versionold: roleold: keyTyp---y: keyTypChange to: iso_keyTypold: eastBL---y: eastBLChange to: iso_eastBLold: creator_user_idold: cntOnlineRes---y: cntOnlineResChange to: iso_cntOnlineResold: typeold: resourcesold: author_roleold: useLimit---y: useLimitChange to: iso_useLimitold: num_resourcesold: degree---y: degreeChange to: iso_conPassold: tagsold: northBL---y: northBLChange to: iso_northBLold: iso_eastBLold: iso_thesaRefDateold: southBL---y: southBLChange to: iso_southBLold: useConsts---y: useConstsChange to: iso_othConstsold: iso_keyTypold: idStatus---y: idStatusChange to: iso_idStatusold: groupsold: license_idold: iso_cntOnlineResold: class---y: classChange to: iso_classold: nameold: lineage---y: lineageChange to: iso_lineageold: num_tagsold: organizationold: iso_useLimitold: accessConsts---y: accessConstsChange to: iso_accessConstsold: isopenold: urlold: notesold: license_titleold: mdLang---y: mdLangChange to: iso_mdLangold: mdDate---y: mdDateChange to: iso_mdDateold: author_emailold: thesRrefDateType---y: thesRrefDateTypeChange to: iso_thesRefDateTypeold: titleold: revision_idold: iso_thesaNameold: equivScale---y: equivScaleChange to: iso_equScale22 field_names replaced in dataset
+***************** Success  *********** But  6 Items not found i.e. NOT replaced
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+old: ResourceURI
+---y: ResourceURI
+--new: iso_resourceURI
+old: cache_last_updated
+old: decription
+old: package_id
+old: webstore_last_updated
+old: datastore_active
+old: id
+old: size
+old: iso_resourceURI
+old: state
+old: hash
+old: description
+old: format
+old: mimetype_inner
+old: url_type
+old: mimetype
+old: cache_url
+old: name
+old: created
+old: url
+old: webstore_url
+old: last_modified
+old: formatVer
+old: position
+old: revision_id
+old: resource_type
+**************** SUCCCESS ***************
+########  Finished Changing Dataset Fields ################################
+Missing fields in Dataset zamg-wms; Writing package anyway ....
+''''''''''''''''''''Error updating dataset: zamg-wms''''''''' Skipping '''''
