@@ -13,6 +13,8 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 #rst_pkgdict = demo.call_action('package_update', pkg )
 ######### Check for changes ##############################
 
+update_host = demo
+
 
 print "######## Analyzing JSON Schema files ################################"
 
@@ -155,7 +157,7 @@ dataset = 'test-rename-fields'
 dataset = 'g2222'
 dataset = 'g1111'
 
-pkg_list = demo.call_action('package_list')
+pkg_list = update_host.call_action('package_list')
 
 for dataset in pkg_list:
 
@@ -164,7 +166,7 @@ for dataset in pkg_list:
     print "Dataset: " + dataset
 
     ################# Change Package Attributes ########################
-    pkg = demo.call_action('package_show', {'id':dataset})
+    pkg = update_host.call_action('package_show', {'id':dataset})
 
 
     count_changes = 0
@@ -234,12 +236,12 @@ for dataset in pkg_list:
         print "Missing fields in Dataset " + dataset + "; Writing package anyway ...."
 
     else:
-        rst_pkgdict = demo.call_action('package_update', pkg )
+        rst_pkgdict = update_host.call_action('package_update', pkg )
         print " Field names sussessfiully changed for dataset: " + dataset
 
 
     try:
-       rst_pkgdict = demo.call_action('package_update', pkg )
+       rst_pkgdict = update_host.call_action('package_update', pkg )
 
     except:
         print "''''''''''''''''''''Error updating dataset: " + dataset + "''''''''' Skipping '''''"
