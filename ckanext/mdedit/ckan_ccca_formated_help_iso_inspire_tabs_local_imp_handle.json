@@ -913,10 +913,13 @@
       "field_name": "ResourceURI",
       "label": "Resource URI",
       "preset": "handle_pid",
-      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
-      "inspire":"Part B 1.4"  
+      "inspire":"Part B 1.4",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
     },
     {
        "field_name": "anonDownload",

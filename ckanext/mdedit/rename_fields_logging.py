@@ -20,6 +20,13 @@ print "######## Analyzing JSON Schema files ################################"
 old_f = 'ckan_ccca_formated_help_iso_inspire_tabs.json'
 new_f = 'ckan_ccca_formated_help_iso_inspire_tabs_iso.json'
 
+log_file = 'ckan_ccca_formated_help_iso_inspire_tabs_iso.log'
+
+log_f = open (log_file, 'w')
+
+log_f.write("######## Analyzing JSON Schema files ################################")
+log_f.write("\n")
+
 with open(old_f) as json_data:
     old_names = json.load(json_data)
     print(old_names)
@@ -41,26 +48,46 @@ new_list = []
 
 for i, cont in enumerate(old_fields):
     print "************"
+    log_f.write("************")
+    log_f.write("\n")
     print old_fields[i]
+    log_f.write(str( old_fields[i]))
+    log_f.write("\n")
     print  "----------------------"
+    log_f.write(  "----------------------")
+    log_f.write("\n")
     print cont['field_name']
+    log_f.write(str( cont['field_name']))
+    log_f.write("\n")
     old_list.append(cont['field_name'])
 
 
 for i, cont in enumerate(new_fields):
     print "************"
+    log_f.write("************")
+    log_f.write("\n")
     print new_fields[i]
+    log_f.write( str(new_fields[i] ))
+    log_f.write("\n")
     print  "----------------------"
+    log_f.write(  "----------------------")
+    log_f.write("\n")
     print cont['field_name']
+    log_f.write(str( cont['field_name']))
+    log_f.write("\n")
     new_list.append(cont['field_name'])
 
 
 if len(old_list) != len (new_list):
     print "**************** ERROR: Number of fields changed: no automatic replacement possible!"
+    log_f.write("**************** ERROR: Number of fields changed: no automatic replacement possible!")
+    log_f.write("\n")
     exit()
 
 else:
     print "********** Number of fields identical (" + str(len(old_list)) +")"
+    log_f.write("********** Number of fields identical (" + str(len(old_list)) +")")
+    log_f.write("\n")
 
 go_on = raw_input ('press enter to continue')
 
@@ -78,26 +105,47 @@ new_rlist = []
 
 for i, cont in enumerate(old_rfields):
     print "************"
+    log_f.write("************")
+    log_f.write("\n")
     print old_rfields[i]
-    print  "----------------------"
+    log_f.write (str(old_rfields[i]))
+    log_f.write("\n")
+    print "----------------------"
+    log_f.write( "----------------------")
+    log_f.write("\n")
     print cont['field_name']
+    log_f.write(str( cont['field_name']))
+    log_f.write("\n")
     old_rlist.append(cont['field_name'])
 
 
 for i, cont in enumerate(new_rfields):
     print "************"
+    log_f.write("************")
+    log_f.write("\n")
     print new_rfields[i]
-    print  "----------------------"
+    log_f.write(str(new_rfields[i]))
+    log_f.write("\n")
+    print "----------------------"
+    log_f.write("----------------------")
+    log_f.write("\n")
     print cont['field_name']
+    log_f.write (str(cont['field_name']))
+    log_f.write("\n")
     new_rlist.append(cont['field_name'])
 
 
 if len(old_rlist) != len (new_rlist):
     print "**************** ERROR: Number of fields changed: no automatic replacement possible!"
+    log_f.write("**************** ERROR: Number of fields changed: no automatic replacement possible!")
+    log_f.write("\n")
     exit()
 
 else:
     print "********** Number of fields identical (" + str(len(old_rlist)) +")"
+    log_f.write("********** Number of fields identical (" + str(len(old_rlist)) +")")
+    log_f.write("\n")
+
 
 
 go_on = raw_input ('press enter to continue')
@@ -114,14 +162,21 @@ new_fn = []
 for i, cont in enumerate(old_list):
     if cont != new_list[i]:
         print "Changing: " + cont + " to: " + new_list[i]
+        log_f.write("Changing: " + cont + " to: " + new_list[i])
+        log_f.write("\n")
+
         count_d += 1
         old_fn.append(cont)
         new_fn.append(new_list[i])
     else:
         print "NOT Changing: " + cont + " to: " + new_list[i]
+        log_f.write("NOT Changing: " + cont + " to: " + new_list[i])
+        log_f.write("\n")
         no_change += 1
 
 print "************ Changing " + str(count_d) + " field_names in total; NOT changing " + str(no_change) + " field_names"
+log_f.write("************ Changing " + str(count_d) + " field_names in total; NOT changing " + str(no_change) + " field_names")
+log_f.write("\n")
 
 go_on = raw_input ('press enter to continue with resources')
 
@@ -136,17 +191,27 @@ new_rfn = []
 for i, cont in enumerate(old_rlist):
     if cont != new_rlist[i]:
         print "Changing: " + cont + " to: " + new_rlist[i]
+        log_f.write("Changing: " + cont + " to: " + new_rlist[i])
+        log_f.write("\n")
         count_r += 1
         old_rfn.append(cont)
         new_rfn.append(new_rlist[i])
     else:
         print "NOT Changing: " + cont + " to: " + new_rlist[i]
+        log_f.write( "NOT Changing: " + cont + " to: " + new_rlist[i])
+        log_f.write("\n")
         no_change += 1
 
 print "************ Changing " + str(count_r) + " field_names (resources) in total; NOT changing " + str(no_change) + " field_names"
+log_f.write("************ Changing " + str(count_r) + " field_names (resources) in total; NOT changing " + str(no_change) + " field_names")
+log_f.write("\n")
 print "######## Finished Analyzing JSON Format files ################################"
+log_f.write("######## Finished Analyzing JSON Format files ################################")
+log_f.write("\n")
 
 print "######## Changing Dataset Fields ################################"
+log_f.write("######## Changing Dataset Fields ################################")
+log_f.write("\n")
 
 go_on = raw_input ('press enter to continue')
 
@@ -157,11 +222,16 @@ dataset = 'g1111'
 
 pkg_list = demo.call_action('package_list')
 
+print pgk_list
+go_on = raw_input ('press enter to continue')
+
 for dataset in pkg_list:
 
     ############################################################
 
     print "Dataset: " + dataset
+    log_f.write("Dataset: " + dataset)
+    log_f.write("\n")
 
     ################# Change Package Attributes ########################
     pkg = demo.call_action('package_show', {'id':dataset})
@@ -170,27 +240,36 @@ for dataset in pkg_list:
     count_changes = 0
     for x in pkg:
         print "old: " + x
+        log_f.write("old: " + x)
         for i, y in enumerate(old_fn):
                 if x  == y:
                     count_changes += 1
                     print "---x: " + x
                     print "---y: " + y
+                    log_f.write("---y: " + y)
                     new_item = new_fn[i]
                     print "Change to: " + new_item
+                    log_f.write("Change to: " + new_item)
                     pkg[new_item] = pkg.pop(x)
                     break
 
     print str(count_changes) + " field_names replaced in dataset"
+    log_f.write(str(count_changes) + " field_names replaced in dataset")
+    log_f.write("\n")
 
     repl_err = count_d - count_changes
 
     if repl_err != 0:
         print "***************** Success  *********** But  " + str (repl_err) + " Items not found i.e. NOT replaced"
+        log_f.write("***************** Success  *********** But  " + str (repl_err) + " Items not found i.e. NOT replaced")
+        log_f.write("\n")
 
     else:
         print "**************** SUCCCESS ***************"
+        log_f.write("**************** SUCCCESS ***************")
+        log_f.write("\n")
 
-    go_on = raw_input ('press enter to continue')
+    #go_on = raw_input ('press enter to continue')
 
 
     ############# Change Resource Attributes ############################
@@ -201,12 +280,18 @@ for dataset in pkg_list:
     for res in pkg_res:
         for x in res:
             print "old: " + x
+            log_f.write("old: " + x)
+            log_f.write("\n")
             for i, y in enumerate(old_rfn):
                 if x  == y:
                     count_changes += 1
                     print "---x: " + x
                     print "---y: " + y
+                    log_f.write("---y: " + y)
+                    log_f.write("\n")
                     print "--new: " +   new_rfn[i]
+                    log_f.write("--new: " +   new_rfn[i])
+                    log_f.write("\n")
                     new_item = new_rfn[i]
                     res[new_item] = res.pop(x)
 
@@ -218,24 +303,33 @@ for dataset in pkg_list:
 
     if repl_err_r != 0:
         print "***************** Success  *********** BUT " + str (repl_err_r) + " Items not found i.e. replaced"
+        log_f.write("***************** Success  *********** BUT " + str (repl_err_r) + " Items not found i.e. replaced")
+        log_f.write("\n")
 
     else:
         print "**************** SUCCCESS ***************"
+        log_f.write("**************** SUCCCESS ***************")
+        log_f.write("\n")
 
     print "########  Finished Changing Dataset Fields ################################"
+    log_f.write("########  Finished Changing Dataset Fields ################################")
+    log_f.write("\n")
 
 
-    go_on = raw_input ('press enter to continue')
+    #go_on = raw_input ('press enter to continue')
 
 
     ############## Write to server #######################
 
     if repl_err or repl_err_r:
         print "Missing fields in Dataset " + dataset + "; Writing package anyway ...."
+        log_f.write("Missing fields in Dataset " + dataset + "; Writing package anyway ....")
+        log_f.write("\n")
 
     else:
-        rst_pkgdict = demo.call_action('package_update', pkg )
         print " Field names sussessfiully changed for dataset: " + dataset
+        log_f.write(" Field names sussessfiully changed for dataset: " + dataset)
+        log_f.write("\n")
 
 
     try:
@@ -243,7 +337,14 @@ for dataset in pkg_list:
 
     except:
         print "''''''''''''''''''''Error updating dataset: " + dataset + "''''''''' Skipping '''''"
+        log_f.write("''''''''''''''''''''Error updating dataset: " + dataset + "''''''''' Skipping '''''")
+        log_f.write("\n")
         pass
         continue
 
     print "################# Dataset successfully updated to CKAN"
+    log_f.write("################# Dataset successfully updated to CKAN")
+    log_f.write("\n")
+
+
+log_f.close()
