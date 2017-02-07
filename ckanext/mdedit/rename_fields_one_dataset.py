@@ -9,6 +9,9 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 
 update_host = sandbox
 dataset = 'oks15-bias-corrected-ichec-ec-earth-rcp85-r3i1p1-dmi-hirham5'
+#pkg = update_host.call_action('package_show', {'id':dataset})
+# pkg.pop('spatial')
+
 ########################################################################
 
 print "######## Analyzing JSON Schema files ################################"

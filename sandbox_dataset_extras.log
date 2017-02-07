@@ -1,0 +1,198 @@
+######## Filtering for extras  ################################ host: <ckanapi.remoteckan.RemoteCKAN object at 0x7f75bb086d90>
+[u'3pclim', u'3pclim-entwi', u'3pclim-gletscher', u'3pclim-konvektion', u'3pclim-temp-link', u'3pclim-zukunftiges-klima', u'automatische-wetterstation-aws-dachstein-simony-hutte', u'automatische-wetterstation-aws-hochebenkar', u'basemap', u'bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich', u'ccca-data-centre-poster', u'das-klima-von-tirol-sudtirol-belluno', u'eisdickenmessungen', u'endbericht-oks15-klimaszenarien-fur-osterreich-daten-methoden-klimaanalyse', u'essential-stations-osterreich-wmo', u'glaziologie-at-automatische-wetterstationen', u'gletscher-langenanderungen', u'histalp-homogenisierte-klimadatenbasis-fur-den-alpenraum', u'homogenisierte-klimadatenbasis-fur-den-alpenraum', u'klima-obergurgl', u'klima-vent', u'lisalandcoverclass', u'lisalandcovervocabulary', u'lithological-classification-for-inspire-extended-values', u'luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich', u'luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich', u'lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre', u'mandatory-conformance-class-registry-1', u'massenhaushalt-hallstatter-gletscher', u'massenhaushalt-hintereisferner-otztaler-alpen', u'massenhaushalt-jamtalferner-silvretta', u'massenhaushalt-kesselwandferner-otztaler-alpen', u'massenhaushalt-mullwitzkees-hohe-tauern', u'massenhaushalt-stubacher-sonnblickkes-hohe-tauern', u'massenhaushalt-ubergossene-alm-hochkonig', u'massenhaushalt-venedigerkees-hohe-tauern', u'messnetz-wmo-essential-stations-osterreich', u'metorologie-und-hydrologie-vernagtbach', u'neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990', u'niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte', u'oeks15-climate-change-signal-of-global-radiation-indices', u'oeks15-climate-change-signal-of-precipitation-indices', u'oeks15-climate-change-signal-of-temperature-indices', u'oeks15-timeseries-of-global-radiation-indices', u'oeks15-timeseries-of-precipiation-indices', u'oeks15-timeseries-of-temperature-indices', u'oks15-bias-corrected-euro-cordex-models-global-radiation', u'oks15-bias-corrected-euro-cordex-models-precipitation', u'oks15-bias-corrected-euro-cordex-models-temperature', u'oks15-factsheets', u'oks15-global-radiation-30y-mean-climate-index-3', u'oks15-global-radiation-climate-index-3', u'oks15-precipitation-30y-mittel-climate-indices-3', u'oks15-precipitation-climate-indices', u'oks15-sunshine-duration-30y-mean-climate-indices-6', u'oks15-sunshine-duration-climate-indices', u'oks15-temperature-30y-mean-climate-indices', u'oks15-temperature-climate-indices', u'osterreichische-gletscherinventare-gi', u'radiosonde', u'registry', u'schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich', u'sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich', u'wien-informationen', u'zamg-csw']#######################################################
+Dataset: 3pclim
+''''''''''''''''''''''''''''''''''' Clean Dataset 3pclim
+#######################################################
+Dataset: 3pclim-entwi
+''''''''''''''''''''''''''''''''''' Clean Dataset 3pclim-entwi
+#######################################################
+Dataset: 3pclim-gletscher
+''''''''''''''''''''''''''''''''''' Clean Dataset 3pclim-gletscher
+#######################################################
+Dataset: 3pclim-konvektion
+''''''''''''''''''''''''''''''''''' Clean Dataset 3pclim-konvektion
+#######################################################
+Dataset: 3pclim-temp-link
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: 3pclim-temp-link
+#######################################################
+Dataset: 3pclim-zukunftiges-klima
+''''''''''''''''''''''''''''''''''' Clean Dataset 3pclim-zukunftiges-klima
+#######################################################
+Dataset: automatische-wetterstation-aws-dachstein-simony-hutte
+''''''''''''''''''''''''''''''''''' Clean Dataset automatische-wetterstation-aws-dachstein-simony-hutte
+#######################################################
+Dataset: automatische-wetterstation-aws-hochebenkar
+''''''''''''''''''''''''''''''''''' Clean Dataset automatische-wetterstation-aws-hochebenkar
+#######################################################
+Dataset: basemap
+''''''''''''''''''''''''''''''''''' Clean Dataset basemap
+#######################################################
+Dataset: bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: bewolkungsmenge-mittel-janner-und-juli-klimareferenzkarte-1961-1990-osterreich
+#######################################################
+Dataset: ccca-data-centre-poster
+''''''''''''''''''''''''''''''''''' Clean Dataset ccca-data-centre-poster
+#######################################################
+Dataset: das-klima-von-tirol-sudtirol-belluno
+''''''''''''''''''''''''''''''''''' Clean Dataset das-klima-von-tirol-sudtirol-belluno
+#######################################################
+Dataset: eisdickenmessungen
+''''''''''''''''''''''''''''''''''' Clean Dataset eisdickenmessungen
+#######################################################
+Dataset: endbericht-oks15-klimaszenarien-fur-osterreich-daten-methoden-klimaanalyse
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: endbericht-oks15-klimaszenarien-fur-osterreich-daten-methoden-klimaanalyse
+#######################################################
+Dataset: essential-stations-osterreich-wmo
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: essential-stations-osterreich-wmo
+#######################################################
+Dataset: glaziologie-at-automatische-wetterstationen
+''''''''''''''''''''''''''''''''''' Clean Dataset glaziologie-at-automatische-wetterstationen
+#######################################################
+Dataset: gletscher-langenanderungen
+''''''''''''''''''''''''''''''''''' Clean Dataset gletscher-langenanderungen
+#######################################################
+Dataset: histalp-homogenisierte-klimadatenbasis-fur-den-alpenraum
+''''''''''''''''''''''''''''''''''' Clean Dataset histalp-homogenisierte-klimadatenbasis-fur-den-alpenraum
+#######################################################
+Dataset: homogenisierte-klimadatenbasis-fur-den-alpenraum
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: homogenisierte-klimadatenbasis-fur-den-alpenraum
+#######################################################
+Dataset: klima-obergurgl
+''''''''''''''''''''''''''''''''''' Clean Dataset klima-obergurgl
+#######################################################
+Dataset: klima-vent
+''''''''''''''''''''''''''''''''''' Clean Dataset klima-vent
+#######################################################
+Dataset: lisalandcoverclass
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: lisalandcoverclass
+#######################################################
+Dataset: lisalandcovervocabulary
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: lisalandcovervocabulary
+#######################################################
+Dataset: lithological-classification-for-inspire-extended-values
+''''''''''''''''''''''''''''''''''' Clean Dataset lithological-classification-for-inspire-extended-values
+#######################################################
+Dataset: luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: luftdruck-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+#######################################################
+Dataset: luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: luftfeuchte-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+#######################################################
+Dataset: lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: lufttemperatur-mittel-jahr-janner-dezember-janner-und-juli-klimareferenzkarte-1961-1990-osterre
+#######################################################
+Dataset: mandatory-conformance-class-registry-1
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: mandatory-conformance-class-registry-1
+#######################################################
+Dataset: massenhaushalt-hallstatter-gletscher
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-hallstatter-gletscher
+#######################################################
+Dataset: massenhaushalt-hintereisferner-otztaler-alpen
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-hintereisferner-otztaler-alpen
+#######################################################
+Dataset: massenhaushalt-jamtalferner-silvretta
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-jamtalferner-silvretta
+#######################################################
+Dataset: massenhaushalt-kesselwandferner-otztaler-alpen
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-kesselwandferner-otztaler-alpen
+#######################################################
+Dataset: massenhaushalt-mullwitzkees-hohe-tauern
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-mullwitzkees-hohe-tauern
+#######################################################
+Dataset: massenhaushalt-stubacher-sonnblickkes-hohe-tauern
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-stubacher-sonnblickkes-hohe-tauern
+#######################################################
+Dataset: massenhaushalt-ubergossene-alm-hochkonig
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-ubergossene-alm-hochkonig
+#######################################################
+Dataset: massenhaushalt-venedigerkees-hohe-tauern
+''''''''''''''''''''''''''''''''''' Clean Dataset massenhaushalt-venedigerkees-hohe-tauern
+#######################################################
+Dataset: messnetz-wmo-essential-stations-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: messnetz-wmo-essential-stations-osterreich
+#######################################################
+Dataset: metorologie-und-hydrologie-vernagtbach
+''''''''''''''''''''''''''''''''''' Clean Dataset metorologie-und-hydrologie-vernagtbach
+#######################################################
+Dataset: neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: neuschneesumme-mittlere-summe-hydrologisches-jahr-september-august-klimareferenzkarte-1961-1990
+#######################################################
+Dataset: niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: niederschlagssumme-mittlere-summe-sommer-april-september-winter-oktober-marz-klimareferenzkarte
+#######################################################
+Dataset: oeks15-climate-change-signal-of-global-radiation-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-climate-change-signal-of-global-radiation-indices
+#######################################################
+Dataset: oeks15-climate-change-signal-of-precipitation-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-climate-change-signal-of-precipitation-indices
+#######################################################
+Dataset: oeks15-climate-change-signal-of-temperature-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-climate-change-signal-of-temperature-indices
+#######################################################
+Dataset: oeks15-timeseries-of-global-radiation-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-timeseries-of-global-radiation-indices
+#######################################################
+Dataset: oeks15-timeseries-of-precipiation-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-timeseries-of-precipiation-indices
+#######################################################
+Dataset: oeks15-timeseries-of-temperature-indices
+''''''''''''''''''''''''''''''''''' Clean Dataset oeks15-timeseries-of-temperature-indices
+#######################################################
+Dataset: oks15-bias-corrected-euro-cordex-models-global-radiation
+''''''''''''''''''''''''''''''''''' Clean Dataset oks15-bias-corrected-euro-cordex-models-global-radiation
+#######################################################
+Dataset: oks15-bias-corrected-euro-cordex-models-precipitation
+''''''''''''''''''''''''''''''''''' Clean Dataset oks15-bias-corrected-euro-cordex-models-precipitation
+#######################################################
+Dataset: oks15-bias-corrected-euro-cordex-models-temperature
+''''''''''''''''''''''''''''''''''' Clean Dataset oks15-bias-corrected-euro-cordex-models-temperature
+#######################################################
+Dataset: oks15-factsheets
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-factsheets
+#######################################################
+Dataset: oks15-global-radiation-30y-mean-climate-index-3
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-global-radiation-30y-mean-climate-index-3
+#######################################################
+Dataset: oks15-global-radiation-climate-index-3
+''''''''''''''''''''''''''''''''''' Clean Dataset oks15-global-radiation-climate-index-3
+#######################################################
+Dataset: oks15-precipitation-30y-mittel-climate-indices-3
+''''''''''''''''''''''''''''''''''' Clean Dataset oks15-precipitation-30y-mittel-climate-indices-3
+#######################################################
+Dataset: oks15-precipitation-climate-indices
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-precipitation-climate-indices
+#######################################################
+Dataset: oks15-sunshine-duration-30y-mean-climate-indices-6
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-sunshine-duration-30y-mean-climate-indices-6
+#######################################################
+Dataset: oks15-sunshine-duration-climate-indices
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-sunshine-duration-climate-indices
+#######################################################
+Dataset: oks15-temperature-30y-mean-climate-indices
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-temperature-30y-mean-climate-indices
+#######################################################
+Dataset: oks15-temperature-climate-indices
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: oks15-temperature-climate-indices
+#######################################################
+Dataset: osterreichische-gletscherinventare-gi
+''''''''''''''''''''''''''''''''''' Clean Dataset osterreichische-gletscherinventare-gi
+#######################################################
+Dataset: radiosonde
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: radiosonde
+#######################################################
+Dataset: registry
+''''''''''''''''''''''''''''''''''' Clean Dataset registry
+#######################################################
+Dataset: schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: schneehohe-maximale-mittel-jahr-janner-dezember-klimareferenzkarte-1961-1990-osterreich
+#######################################################
+Dataset: sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+''''''''''''''' Extras found '''''''''''''''''''' Dataset: sonnenscheindauer-relative-mittel-janner-juli-klimareferenzkarte-1961-1990-osterreich
+#######################################################
+Dataset: wien-informationen
+''''''''''''''''''''''''''''''''''' Clean Dataset wien-informationen
+#######################################################
+Dataset: zamg-csw
+''''''''''''''''''''''''''''''''''' Clean Dataset zamg-csw
+#######################################################
+Finished: Total sets: 65 With extras: 24 clean: 41
