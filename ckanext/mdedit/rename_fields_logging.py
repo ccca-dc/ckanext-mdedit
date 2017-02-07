@@ -15,7 +15,7 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 
 ######### Enter Host  ##############################
 
-update_host = demo
+update_host = sandbox
 
 #####################################################
 
@@ -235,7 +235,10 @@ go_on = raw_input ('press enter to continue')
 for dataset in pkg_list:
 
     ############################################################
-
+    
+    print "#######################################################"
+    log_f.write( "#######################################################")
+    log_f.write("\n")
     print "Dataset: " + dataset
     log_f.write("Dataset: " + dataset)
     log_f.write("\n")
@@ -252,15 +255,20 @@ for dataset in pkg_list:
         extras = None
         pass
 
-    if extras:
+    else:
         print "''''''''''''''' Extras found '''''''''''''''''''' Skipping Dataset " + dataset
         log_f.write("''''''''''''''' Extras found '''''''''''''''''''': Skipping Dataset " + dataset)
+        log_f.write("\n")
+
+        continue
 
 
     count_changes = 0
     for x in pkg:
         print "old: " + x
         log_f.write("old: " + x)
+        log_f.write("\n")
+
         for i, y in enumerate(old_fn):
                 if x  == y:
                     count_changes += 1
