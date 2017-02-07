@@ -11,10 +11,13 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 #go_on = raw_input ('press enter to continue')
 #pkg = demo.call_action('package_show', {'id':dataset})
 #rst_pkgdict = demo.call_action('package_update', pkg )
-######### Check for changes ##############################
+################################################################################
+
+######### Enter Host  ##############################
 
 update_host = demo
 
+#####################################################
 
 print "######## Analyzing JSON Schema files ################################"
 
@@ -236,7 +239,6 @@ for dataset in pkg_list:
         print "Missing fields in Dataset " + dataset + "; Writing package anyway ...."
 
     else:
-        rst_pkgdict = update_host.call_action('package_update', pkg )
         print " Field names sussessfiully changed for dataset: " + dataset
 
 

@@ -11,10 +11,13 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 #go_on = raw_input ('press enter to continue')
 #pkg = demo.call_action('package_show', {'id':dataset})
 #rst_pkgdict = demo.call_action('package_update', pkg )
-######### Check for changes ##############################
+################################################################################
 
-#Change hostname for renameing fields here
+######### Enter Host  ##############################
+
 update_host = demo
+
+#####################################################
 
 print "######## Analyzing JSON Schema files ################################"
 
@@ -224,10 +227,6 @@ log_f.write("\n")
 go_on = raw_input ('press enter to continue')
 
 
-dataset = 'test-rename-fields'
-dataset = 'g2222'
-dataset = 'g1111'
-
 pkg_list = update_host.call_action('package_list')
 
 print pkg_list
@@ -243,6 +242,19 @@ for dataset in pkg_list:
 
     ################# Change Package Attributes ########################
     pkg = update_host.call_action('package_show', {'id':dataset})
+
+    ################# Check for extras ###############################
+    
+    try:
+        extras = pkg['extras']
+
+    except:
+        extras = None
+        pass
+
+    if extras:
+        print "''''''''''''''' Extras found '''''''''''''''''''' Skipping Dataset " + dataset
+        log_f.write("''''''''''''''' Extras found '''''''''''''''''''': Skipping Dataset " + dataset)
 
 
     count_changes = 0

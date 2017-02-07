@@ -8,7 +8,10 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 ######### Parameter  ##############################
 
 update_host = sandbox
-dataset = 'oks15-bias-corrected-ichec-ec-earth-rcp85-r3i1p1-dmi-hirham5'
+dataset = 'oks15-bias-corrected-ichec-ec-earth-rcp85-r3i1p1-dmi-hirham5' #has extras
+dataset = 'oks15-bias-corrected-euro-cordex-models-temperature'          #has no extras
+#kg = update_host.call_action('package_show', {'id':dataset})
+
 ########################################################################
 
 print "######## Analyzing JSON Schema files ################################"
@@ -153,6 +156,15 @@ go_on = raw_input ('press enter to continue')
 ################# Change Package Attributes ########################
 pkg = update_host.call_action('package_show', {'id':dataset})
 
+try:
+    extras = pkg['extras']
+
+except:
+    extras = None
+    pass
+
+if extras:
+    print "Extras found"
 
 count_changes = 0
 for x in pkg:
