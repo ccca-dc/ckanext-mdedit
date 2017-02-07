@@ -15,7 +15,7 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 
 ######### Enter Host  ##############################
 
-update_host = sandbox
+update_host = demo
 
 #####################################################
 
@@ -232,6 +232,9 @@ pkg_list = update_host.call_action('package_list')
 print pkg_list
 go_on = raw_input ('press enter to continue')
 
+count_ds = 0
+count_res = 0
+
 for dataset in pkg_list:
 
     ############################################################
@@ -262,7 +265,7 @@ for dataset in pkg_list:
 
         continue
 
-
+    count_ds += 1
     count_changes = 0
     for x in pkg:
         print "old: " + x
@@ -306,6 +309,7 @@ for dataset in pkg_list:
 
 
     for res in pkg_res:
+        count_res += 1
         for x in res:
             print "old: " + x
             log_f.write("old: " + x)
@@ -374,5 +378,7 @@ for dataset in pkg_list:
     log_f.write("################# Dataset successfully updated to CKAN")
     log_f.write("\n")
 
-
+print "################# Successfully updated " + str(count_ds) + " Datasets and " + str(count_res) + " Resources"
+log_f.write("################# Successfully updated " + str(count_ds) + " Datasets and " + str(count_res) + " Resources")
+log_f.write("\n")
 log_f.close()

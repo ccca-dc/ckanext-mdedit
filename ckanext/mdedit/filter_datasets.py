@@ -15,8 +15,8 @@ sandbox = RemoteCKAN('https://sandboxdc.ccca.ac.at',apikey='431109b7-c9f9-47f1-a
 
 ######### Enter Host and logfile  ##############################
 
-host = demo
-log_file = 'demo_dataset_extras.log'
+host = sandbox
+log_file = 'sandbox_dataset_extras.log'
 
 
 #####################################################
@@ -40,6 +40,7 @@ go_on = raw_input ('press enter to continue')
 count_e = 0
 count_t = 0
 count_c = 0
+count_l = 0
 
 for dataset in pkg_list:
         
@@ -76,13 +77,41 @@ for dataset in pkg_list:
         print "''''''''''''''' Extras found '''''''''''''''''''' Dataset: " + dataset
         log_f.write("''''''''''''''' Extras found '''''''''''''''''''' Dataset: " + dataset)
         log_f.write("\n")
-        continue
+        
+        for x in extras:
+            print str(x)
+            log_f.write(str(x))
+            log_f.write("\n")           
 
-
+            if x['key'] == 'datasetLocator':
+                print "''''''''''''''' Locator found ''''''''''''''''''''  " 
+                log_f.write("''''''''''''''' Locator found '''''''''''''''''''' ")
+                log_f.write("\n")
+                count_l += 1
+                break
+            elif x['key'] == 'datasetURI':
+                count_l += 1
+                break
+            elif x['key'] == 'datasetUri':
+                count_l += 1
+                break
+            
+        """ 
+        try: 
+          locator_prob = extras['datasetLocator']
+        except:
+            continue
+        else:
+            count_l += 1
+            print "'''''''''''''''''''''''''''''''  Locator found '''''''''''''''''''' Dataset: " + dataset
+            log_f.write("''''''''''''''''''''''''' Locator found '''''''''''''''''''' Dataset: " + dataset)
+            log_f.write("\n")
+            continue
+        """
 print "#######################################################"
 log_f.write( "#######################################################")
 log_f.write("\n")
-print "Finished: Total sets: " + str( count_t) + " With extras: " + str(count_e) + " clean: " + str(count_c)
-log_f.write("Finished: Total sets: " + str( count_t) + " With extras: " + str(count_e) + " clean: " + str(count_c))
+print "Finished: Total sets: " + str( count_t) + " With extras: " + str(count_e) + " With Locator: " + str(count_l) +" clean: " + str(count_c)
+log_f.write("Finished: Total sets: " + str( count_t) + " With extras: " + str(count_e) +  " With Locator: " + str(count_l) +" clean: " + str(count_c))
 log_f.write("\n")
 log_f.close()
