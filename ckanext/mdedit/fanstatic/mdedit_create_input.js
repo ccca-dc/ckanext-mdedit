@@ -65,6 +65,7 @@ ckan.module('mdedit_create_input', function ($, _) {
 
     _onClick: function(event) {
 
+        //console.log("cklick");
         for (var i = 1; i<=count; i++)
         {
           values[i] = "";
@@ -75,7 +76,7 @@ ckan.module('mdedit_create_input', function ($, _) {
 
     createInput: function () {
         next = next + 1;
-        console.log ("CreateInpput: next = " + next);
+      //  console.log ("CreateInpput: next = " + next);
         // when field or imagename was not filled out last time, it gets filled out with 'true' and therefore it is here set to '' again
 
         for (var i = 1; i<=count; i++)
@@ -91,14 +92,14 @@ ckan.module('mdedit_create_input', function ($, _) {
       /***************************** new Input and ggf select  ****************************************/
 
         var newInput = [$(),$(),$(),$(),$(),$()]; //max + 1
-        var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" >-</button>');
+        var removeButton = $('<br id="brb' + next + '"><button id="remove-' + next + '" class="btn btn-danger remove-me" type="button" >-</button>');
 
 
         /**************************************************************/
         //check whether we have a select and convert optionsstring
         var checkselect = selectoptions.toString();
 
-        console.log("*************checkselect:" + checkselect);
+      //  console.log("*************checkselect:" + checkselect);
 
         var selectinput = false;
 
@@ -108,7 +109,7 @@ ckan.module('mdedit_create_input', function ($, _) {
 
           // NOPE: otpions already transformed
           selectinput = true;
-           console.log ("NOPE");
+        //   console.log ("NOPE");
 
         }
         else if (checkselect.indexOf(str_sep) > -1) {
@@ -135,11 +136,11 @@ ckan.module('mdedit_create_input', function ($, _) {
                     sostring+='">';
                 sostring+= so[i+1];
                 sostring+='</option>';
-                console.log(so[i]);
-                console.log(values[count]);
+          //      console.log(so[i]);
+          //      console.log(values[count]);
             }
 
-            console.log(sostring);
+          //  console.log(sostring);
             selectoptions = sostring;
         }
         else { // No select field: One more input field
@@ -155,8 +156,8 @@ ckan.module('mdedit_create_input', function ($, _) {
         {
           // Set the values only the first time we are here
             newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
-            console.log("NewInput: " + i);
-            console.log(newInput[i]);
+          //  console.log("NewInput: " + i);
+          //  console.log(newInput[i]);
           $("#field_contains").append(newInput[i]);
         }
 
