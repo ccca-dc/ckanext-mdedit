@@ -22,6 +22,8 @@ log = logging.getLogger(__name__)
 """ Anja 23.11.2016 """
 import random
 """ Anja 23.11.2016 """
+""" Georg 2017-02-09 """
+import ckan.lib.formatters as formatters
 
 global_contains_field = []
 
@@ -152,3 +154,9 @@ def mdedit_get_contain_values(data, field):
             values[j].append(clist[i])
 
     return values
+
+def mdedit_render_size(value):
+    # Render Size String from Resource
+    if value is not None:
+        value = formatters.localised_filesize(int(value))
+    return value
