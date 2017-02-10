@@ -42,12 +42,12 @@
         {%- block resource_size -%}
           <tr>
             <th scope="row">{{ _('Size') }}</th>
-            <td>{{ h.mdedit_render_size(res.Size) or _('unknown') }}</td>
+            <td>{{ h.mdedit_render_size(res.size) or _('unknown') }}</td>
           </tr>
         {%- endblock -%}
         {%- block resource_hash -%}
           <tr>
-            <th scope="row">{{ _('Hash') }}</th>
+            <th scope="row">{{ _('Hash MD5') }}</th>
             <td>{{ res.hash or _('unknown') }}</td>
           </tr>
         {%- endblock -%}
