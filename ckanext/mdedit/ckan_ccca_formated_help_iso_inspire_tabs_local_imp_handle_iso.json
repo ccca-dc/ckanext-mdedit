@@ -324,143 +324,6 @@
       "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources.",
       "placeholder": "Smith et al"
     },
-   {
-      "field_name": "tab_delimiter",
-      "tab_delimiter": "Constraints",
-      "title": "Constraints on Usage and Access with respect to the Resources",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
-    },
-    {
-      "field_name": "iso_useLimit",
-      "label": "Use Limitation",
-      "form_snippet": "text.html",
-      "iso":"68",
-      "inspire":"Part B 8.1",
-      "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
-      "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m)."
-    },
-    {
-      "field_name": "iso_accessConsts",
-      "label": "Access Constraints",
-      "preset": "select",
-      "iso":"70",
-      "inspire":"Part B 8.2",
-      "select_size": 1,
-      "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
-      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
-      "choices": [
-        {
-          "value": "001",
-          "label": "copyright"
-        },
-        {
-          "value": "002",
-          "label": "patent"
-        },
-        {
-          "value": "003",
-          "label": "patent pending"
-        },
-        {
-          "value": "004",
-          "label": "trademark"
-        },
-        {
-          "value": "005",
-          "label": "license"
-        },
-        {
-          "value": "006",
-          "label": "intellectual property rights"
-        },
-        {
-          "value": "007",
-          "label": "restricted"
-        },
-        {
-          "value": "008",
-          "label": "other restrictions"
-        }
-      ]
-    },
-    {
-      "field_name": "iso_othConsts",
-      "label": "Use Constraints",
-      "preset": "select",
-      "select_size": "1",
-      "iso":"72",
-      "inspire":"Part B 8.2",
-      "help_text": "Constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata.",
-      "help_text_norm": "ISO_otherConstraints (c), <br> INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
-      "choices": [
-        {
-          "value": "001",
-          "label": "copyright"
-        },
-        {
-          "value": "002",
-          "label": "patent"
-        },
-        {
-          "value": "003",
-          "label": "patent pending"
-        },
-        {
-          "value": "004",
-          "label": "trademark"
-        },
-        {
-          "value": "005",
-          "label": "license"
-        },
-        {
-          "value": "006",
-          "label": "intellectual property rights"
-        },
-        {
-          "value": "007",
-          "label": "restricted"
-        },
-        {
-          "value": "008",
-          "label": "other restrictions"
-        }
-      ]
-    },
-    {
-      "field_name": "iso_class",
-      "label": "Handling Restrictions",
-      "preset": "select",
-      "select_size": "1",
-      "iso":"74",
-      "inspire":"PArt B 8.2",
-      "help_text": "Handling restrictions on the resource or metadata: unclassified, restricted, confidential, top secret, ...",
-      "help_text_norm": "ISO_class (c). <br> INSPIRE_LimitationsOnPublicAccessClassification (c). ",
-      "choices": [
-        {
-          "value": "001",
-          "label": "unclassified"
-        },
-        {
-          "value": "002",
-          "label": "restricted"
-        },
-        {
-          "value": "003",
-          "label": "confidential"
-        },
-        {
-          "value": "004",
-          "label": "secret"
-        },
-        {
-          "value": "005",
-          "label": "top secret"
-        }
-      ]
-    },
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Keywords",
@@ -873,6 +736,143 @@
         {
           "value": "004",
           "label": "not conformant"
+        }
+      ]
+    },
+   {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Constraints",
+      "title": "Constraints on Usage and Access with respect to the Resources",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_useLimit",
+      "label": "Use Limitation",
+      "form_snippet": "text.html",
+      "iso":"68",
+      "inspire":"Part B 8.1",
+      "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
+      "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m)."
+    },
+    {
+      "field_name": "iso_accessConsts",
+      "label": "Access Constraints",
+      "preset": "select",
+      "iso":"70",
+      "inspire":"Part B 8.2",
+      "select_size": 1,
+      "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
+      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
+      "choices": [
+        {
+          "value": "001",
+          "label": "copyright"
+        },
+        {
+          "value": "002",
+          "label": "patent"
+        },
+        {
+          "value": "003",
+          "label": "patent pending"
+        },
+        {
+          "value": "004",
+          "label": "trademark"
+        },
+        {
+          "value": "005",
+          "label": "license"
+        },
+        {
+          "value": "006",
+          "label": "intellectual property rights"
+        },
+        {
+          "value": "007",
+          "label": "restricted"
+        },
+        {
+          "value": "008",
+          "label": "other restrictions"
+        }
+      ]
+    },
+    {
+      "field_name": "iso_othConsts",
+      "label": "Use Constraints",
+      "preset": "select",
+      "select_size": "1",
+      "iso":"72",
+      "inspire":"Part B 8.2",
+      "help_text": "Constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata.",
+      "help_text_norm": "ISO_otherConstraints (c), <br> INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
+      "choices": [
+        {
+          "value": "001",
+          "label": "copyright"
+        },
+        {
+          "value": "002",
+          "label": "patent"
+        },
+        {
+          "value": "003",
+          "label": "patent pending"
+        },
+        {
+          "value": "004",
+          "label": "trademark"
+        },
+        {
+          "value": "005",
+          "label": "license"
+        },
+        {
+          "value": "006",
+          "label": "intellectual property rights"
+        },
+        {
+          "value": "007",
+          "label": "restricted"
+        },
+        {
+          "value": "008",
+          "label": "other restrictions"
+        }
+      ]
+    },
+    {
+      "field_name": "iso_class",
+      "label": "Handling Restrictions",
+      "preset": "select",
+      "select_size": "1",
+      "iso":"74",
+      "inspire":"PArt B 8.2",
+      "help_text": "Handling restrictions on the resource or metadata: unclassified, restricted, confidential, top secret, ...",
+      "help_text_norm": "ISO_class (c). <br> INSPIRE_LimitationsOnPublicAccessClassification (c). ",
+      "choices": [
+        {
+          "value": "001",
+          "label": "unclassified"
+        },
+        {
+          "value": "002",
+          "label": "restricted"
+        },
+        {
+          "value": "003",
+          "label": "confidential"
+        },
+        {
+          "value": "004",
+          "label": "secret"
+        },
+        {
+          "value": "005",
+          "label": "top secret"
         }
       ]
     }
