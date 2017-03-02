@@ -160,3 +160,9 @@ def mdedit_render_size(value):
     if value is not None:
         value = formatters.localised_filesize(int(value))
     return value
+
+
+def mdedit_get_taxonomies():
+    context = {'user': c.user}
+    taxonomy_list = get_action('taxonomy_list')(context, {})
+    return taxonomy_list

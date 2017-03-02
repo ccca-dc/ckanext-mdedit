@@ -601,7 +601,7 @@
       {
         "field_name": "thesaurusName",
         "label": "Thesaurus Name",
-        "form_snippet": "mdedit_small_text.html",
+        "form_snippet": "mdedit_thesauri.html",
         "help_text": "Official title of the used Thesaurus, or other vocabulary or dictionary used.",
         "help_text_norm": "ISO_thesaurusName (o), <br> INSPIRE_OriginatingControlledVocabulary (c).",
         "iso": "55",
@@ -609,13 +609,7 @@
         "iso_name": "thesaurusName",
         "inspire_name": "Originating Controlled Vocabulary",
         "iso_inspire_match_ref": "Inspire Implementing Rules V. 1.3",
-        "iso_inspire_match_ref_nr": "2.4.1",
-        "form_placeholder": "not yet implemented",
-        "disabled": "True",
-        "form_attrs": {
-          "readonly": "readonly"
-        }
-
+        "iso_inspire_match_ref_nr": "2.4.1"
       },
       {
         "field_name": "thesaRefDate",

@@ -31,7 +31,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_contain_values': helpers.mdedit_get_contain_values,
             'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
-            'mdedit_render_size': helpers.mdedit_render_size
+            'mdedit_render_size': helpers.mdedit_render_size,
+            'mdedit_get_taxonomies': helpers.mdedit_get_taxonomies
             }
 
     # IValidators
