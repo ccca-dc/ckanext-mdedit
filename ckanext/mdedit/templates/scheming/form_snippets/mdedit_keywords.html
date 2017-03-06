@@ -1,11 +1,38 @@
 {% import 'macros/form.html' as form %}
 
-{# Anja 8.11.2016: External because html5 date not with Firefox #}
-{# Call datepicker via Attribute data-module - see presets.json #}
 {% resource 'mdedit/mdedit_autocomplete.js' %}
 
 {%- do field.form_attrs.update({'data-module-taxonomy_name': data['thesaurusName']}) -%}
 
+<!-- taxonomy section-->
+{% set taxonomies = h.mdedit_get_taxonomies() %}
+
+{%- set options=[] -%}
+{%- if not h.scheming_field_required(field) -%}
+{%- do options.append({
+    'value': '',
+    'text': '--Search in all thesauri--'}) -%}
+{%- endif -%}
+{%- for t in taxonomies -%}
+    {%- do options.append({
+        'value': t['name'],
+        'text': t['title']}) -%}
+{%- endfor -%}
+
+{% call form.select(
+    'thesaurus',
+    id='field-selectThesaurus',
+    label='Thesaurus Name',
+    options=options,
+    selected=data['thesaurusName'],
+    error=errors[field.field_name],
+    classes=['control-medium'],
+    is_required=h.scheming_field_required(field)
+    )
+%}
+{% endcall %}
+
+<!--keyword section-->
 {% call form.input(
     field.field_name,
     id='field-' + field.field_name,
@@ -19,29 +46,3 @@
     )
 %}
 {% endcall %}
-
-<!--
-{% set taxonomies = h.mdedit_get_taxonomies() %}
-
-{%- set options=[] -%}
-{%- if not h.scheming_field_required(field) -%}
-    {%- do options.append({'value': ''}) -%}
-{%- endif -%}
-{%- for t in taxonomies -%}
-    {%- do options.append({
-        'value': t['name'],
-        'text': t['title']}) -%}
-{%- endfor -%}
-
-{% call form.select(
-    'thesaurus',
-    id='field-thesaurus',
-    label='Thesaurus Name',
-    options=options,
-    selected=data['thesaurusName'],
-    error=errors[field.field_name],
-    classes=['control-medium'],
-    is_required=h.scheming_field_required(field)
-    )
-%}
-{% endcall %}-->

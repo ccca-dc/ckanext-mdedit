@@ -1,4 +1,6 @@
 {% import 'macros/form.html' as form %}
+
+<!--
 {% set taxonomies = h.mdedit_get_taxonomies() %}
 
 {%- set options=[] -%}
@@ -23,4 +25,13 @@
     is_required=h.scheming_field_required(field)
     )
 %}
-{% endcall %}
+{% endcall %}-->
+
+<div class="control-group{{ " error" if error }}{{ " " ~ classes | join(' ') }}">
+    <label class="control-label" for="{{ for }}">{{ field.label }}</label>
+    <div class="controls{{ " " ~ control_classes | join(' ') }}">
+        <ul style="list-style-type:none" id="field-thesaurusName">
+         <li>{{ h.mdedit_parse_date(data.get(field.field_name, '')) }}</li>
+        </ul>
+    </div>
+  </div>

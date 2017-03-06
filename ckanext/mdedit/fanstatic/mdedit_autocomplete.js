@@ -114,13 +114,12 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      * Returns a jqXHR promise.
      */
     getCompletions: function (string, fn) {
-      var taxName = $( "#field-thesaurusName" ).val();
+      var taxName = $( "#field-selectThesaurus" ).val();
       var parts  = this.options.source.split('?');
       var end    = parts.pop();
       // var source = parts.join('?') + encodeURIComponent(string) + end + "&tax_name=" + this.options.taxonomy_name;
       var source = parts.join('?') + encodeURIComponent(string) + end + "&tax_name=" + taxName;
       var client = this.sandbox.client;
-      console.log(source)
       var options = {
         format: function(data) {
           var completion_options = jQuery.extend(options, {objects: true});
@@ -168,8 +167,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
           }
 
           module._last = module.getCompletions(term, fn);
-          console.log("module last:")
-          console.log(module._last)
         }, this.options.interval);
 
         // This forces the ajax throbber to appear, because we've called the
