@@ -2,6 +2,9 @@
 {% set taxonomies = h.mdedit_get_taxonomies() %}
 
 {%- set options=[] -%}
+{%- if not h.scheming_field_required(field) -%}
+    {%- do options.append({'value': ''}) -%}
+{%- endif -%}
 {%- for t in taxonomies -%}
     {%- do options.append({
         'value': t['name'],

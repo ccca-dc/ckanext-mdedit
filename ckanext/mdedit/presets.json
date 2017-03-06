@@ -62,8 +62,9 @@
     {
       "preset_name": "mdedit_tag_string_autocomplete",
       "values": {
+        "form_snippet": "mdedit_keywords.html",
         "form_attrs": {
-          "data-module": "autocomplete",
+          "data-module": "mdedit_autocomplete",
           "data-module-tags": "",
           "data-module-source": "/api/2/util/taxonomyterm/autocomplete?q=?"
         }
