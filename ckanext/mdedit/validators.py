@@ -43,3 +43,7 @@ def mdedit_contains(key, data, errors, context):
 #    print errors[key]
 #    print data[key]
 #    print type(data[key])
+
+
+def mdedit_comma_list(key, data, errors, context):
+    data[key] = data[key].split(", ")

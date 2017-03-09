@@ -94,6 +94,13 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
         return false;
       });
 
+      $(document).on('DOMSubtreeModified', function (e) {
+          if ($(e.target).hasClass("select2-choices")) {
+              console.log($(e.target).text())
+              //todo add thesauri of keyword with used thesauri field
+          }
+      });
+
       this._select2 = select2;
     },
 
@@ -187,7 +194,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      */
     formatResult: function (state, container, query) {
       var term = this._lastTerm || null; // same as query.term
-
       if (container) {
         // Append the select id to the element for styling.
         container.attr('data-value', state.id);

@@ -601,7 +601,7 @@
       {
         "field_name": "thesaurusName",
         "label": "Used Thesauri",
-        "form_snippet": "mdedit_thesauri.html",
+        "preset": "mdedit_thesauri",
         "help_text": "Official title of the used Thesaurus, or other vocabulary or dictionary used.",
         "help_text_norm": "ISO_thesaurusName (o), <br> INSPIRE_OriginatingControlledVocabulary (c).",
         "iso": "55",
@@ -610,7 +610,10 @@
         "inspire_name": "Originating Controlled Vocabulary",
         "iso_inspire_match_ref": "Inspire Implementing Rules V. 1.3",
         "iso_inspire_match_ref_nr": "2.4.1",
-        "disabled": "True"
+        "help_text": "Thesauri from which the keywords are.",
+        "form_attrs": {
+          "readonly": "readonly"
+        }
       },
       {
         "field_name": "thesaRefDate",
