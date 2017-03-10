@@ -96,8 +96,44 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
 
       $(document).on('DOMSubtreeModified', function (e) {
           if ($(e.target).hasClass("select2-choices")) {
-              console.log($(e.target).text())
-              //todo add thesauri of keyword with used thesauri field
+              var tagLength = ($(e.target).children()).length;
+              keyword = $(e.target).find("div")[tagLength-2].innerHTML;
+              usedThesauri = $('#field-thesaurusName').val();
+
+              thesaurus = $('#field-selectThesaurus').val()
+
+              if(thesaurus == ""){
+                  var data = new FormData();
+                  data.append('label', keyword);
+
+                  $.ajax({
+                      url: '/get_taxonomy_title_from_keyword',
+                      data: data,
+                      cache: false,
+                      contentType: false,
+                      processData: false,
+                      type: 'POST',
+                      success: function(response){
+                          thesaurus = response;
+                      },
+                      async: false
+                  });
+              }
+
+              var thesaurusAlreadyUsed = false;
+              for(t of usedThesauri.split(", ")){
+                  if(t == thesaurus){
+                      thesaurusAlreadyUsed = true;
+                  }
+              }
+              if(thesaurusAlreadyUsed == false){
+                  if(usedThesauri.split(", ").length == 1 && usedThesauri.split(", ")[0] == ''){
+                      $('#field-thesaurusName').val(thesaurus);
+                  }else{
+                    $('#field-thesaurusName').val(usedThesauri + ', ' + thesaurus);
+                  }
+              }
+              //todo deleting of taxonomy when keyword gets deleted
           }
       });
 

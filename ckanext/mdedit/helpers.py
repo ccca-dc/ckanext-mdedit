@@ -166,3 +166,13 @@ def mdedit_get_taxonomies():
     context = {'user': c.user}
     taxonomy_list = get_action('taxonomy_list')(context, {})
     return taxonomy_list
+
+
+def mdedit_parse_used_thesauri(mdedit_used_thesauri):
+    usedThesauri = mdedit_used_thesauri.strip('{}').split(',')
+    result = usedThesauri[0]
+    for thesaurus in usedThesauri[1:]:
+        if thesaurus.startswith('"') and thesaurus.endswith('"'):
+            thesaurus = thesaurus[1:-1]
+        result = result + ', ' + thesaurus
+    return result

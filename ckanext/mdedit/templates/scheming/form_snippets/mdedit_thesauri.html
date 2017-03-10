@@ -31,7 +31,7 @@
       field.field_name,
       id='field-' + field.field_name,
       label=h.scheming_language_text(field.label),
-      value='gemet, cofog',
+      value=h.mdedit_parse_used_thesauri(data.get(field.field_name, '')),
       type='text',
       error=errors[field.field_name],
       classes=['control-medium'],

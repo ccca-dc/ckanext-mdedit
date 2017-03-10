@@ -24,7 +24,6 @@
     id='field-selectThesaurus',
     label='Thesaurus Name',
     options=options,
-    selected=data['thesaurusName'],
     error=errors[field.field_name],
     classes=['control-medium'],
     is_required=h.scheming_field_required(field)
@@ -37,7 +36,7 @@
     field.field_name,
     id='field-' + field.field_name,
     label=h.scheming_language_text(field.label),
-    value=h.mdedit_parse_date(data.get(field.field_name, '')),
+    value=data.get(field.field_name, ''),
     type='text',
     error=errors[field.field_name],
     classes=['control-medium'],

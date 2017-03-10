@@ -10,7 +10,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
-    #plugins.implements(plugins.IRoutes, inherit=True)
+    plugins.implements(plugins.IRoutes, inherit=True)
     #plugins.implements(plugins.IDatasetForm, inherit=True)
 
 
@@ -32,7 +32,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
             'mdedit_render_size': helpers.mdedit_render_size,
-            'mdedit_get_taxonomies': helpers.mdedit_get_taxonomies
+            'mdedit_get_taxonomies': helpers.mdedit_get_taxonomies,
+            'mdedit_parse_used_thesauri': helpers.mdedit_parse_used_thesauri
             }
 
     # IValidators
@@ -41,3 +42,11 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_contains': validators.mdedit_contains,
             'mdedit_comma_list': validators.mdedit_comma_list
             }
+
+    # IRoutes
+    def before_map(self, map):
+        # get taxonomy from keyword
+        map.connect('get_taxonomy_title_from_keyword', '/get_taxonomy_title_from_keyword',
+                    controller='ckanext.mdedit.controllers.taxonomy:TaxonomyController',
+                    action='get_taxonomy_title_from_keyword')
+        return map

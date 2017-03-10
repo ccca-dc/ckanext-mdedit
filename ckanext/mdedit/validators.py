@@ -46,4 +46,5 @@ def mdedit_contains(key, data, errors, context):
 
 
 def mdedit_comma_list(key, data, errors, context):
-    data[key] = data[key].split(", ")
+    if data[key] != "":
+        data[key] = data[key].split(", ")
