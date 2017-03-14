@@ -94,50 +94,86 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
         return false;
       });
 
-      $(document).on('DOMSubtreeModified', function (e) {
-          if ($(e.target).hasClass("select2-choices")) {
-              var tagLength = ($(e.target).children()).length;
-              keyword = $(e.target).find("div")[tagLength-2].innerHTML;
-              usedThesauri = $('#field-thesaurusName').val();
+      this._select2 = select2;
 
-              thesaurus = $('#field-selectThesaurus').val()
+      // adding of thesaurus
 
-              if(thesaurus == ""){
-                  var data = new FormData();
-                  data.append('label', keyword);
+      var target = document.querySelector('ul.select2-choices');
 
-                  $.ajax({
-                      url: '/get_taxonomy_title_from_keyword',
-                      data: data,
-                      cache: false,
-                      contentType: false,
-                      processData: false,
-                      type: 'POST',
-                      success: function(response){
-                          thesaurus = response;
-                      },
-                      async: false
-                  });
-              }
+      // create an observer instance
+      var observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            // do stuff when
+            // `childList`, `subtree` of `#myTable` modified
+            usedThesauri = $('#field-thesaurusName').val();
 
-              var thesaurusAlreadyUsed = false;
-              for(t of usedThesauri.split(", ")){
-                  if(t == thesaurus){
-                      thesaurusAlreadyUsed = true;
-                  }
-              }
-              if(thesaurusAlreadyUsed == false){
-                  if(usedThesauri.split(", ").length == 1 && usedThesauri.split(", ")[0] == ''){
-                      $('#field-thesaurusName').val(thesaurus);
-                  }else{
-                    $('#field-thesaurusName').val(usedThesauri + ', ' + thesaurus);
-                  }
-              }
-              //todo deleting of taxonomy when keyword gets deleted
-          }
+            if(mutation.addedNodes.length > 0){
+                var keyword = mutation.addedNodes[0].children[0].innerHTML;
+
+                thesaurus = $('#field-selectThesaurus').val()
+
+                if(thesaurus == ""){
+                    var data = new FormData();
+                    data.append('label', keyword);
+
+                    $.ajax({
+                        url: '/get_taxonomy_title_from_keyword',
+                        data: data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        type: 'POST',
+                        success: function(response){
+                            thesaurus = response;
+                        },
+                        async: false
+                    });
+                }
+
+                var inputThesaurus = $('<input value="'+ thesaurus +'" type="hidden"/>');
+                mutation.addedNodes[0].append(inputThesaurus[0]);
+
+                var thesaurusAlreadyUsed = false;
+                for(t of usedThesauri.split(", ")){
+                    if(t == thesaurus){
+                        thesaurusAlreadyUsed = true;
+                    }
+                }
+                if(thesaurusAlreadyUsed == false){
+                    if(usedThesauri.split(", ").length == 1 && usedThesauri.split(", ")[0] == ''){
+                        $('#field-thesaurusName').val(thesaurus);
+                    }else{
+                      $('#field-thesaurusName').val(usedThesauri + ', ' + thesaurus);
+                    }
+                }
+            }else if(mutation.removedNodes.length > 0){
+                var removedElement = mutation.removedNodes[0];
+                var thesaurus = mutation.removedNodes[0].children[2].value;
+                var listElements = mutation.target.children;
+                var deleteThesaurus = true;
+                for (var i = 0; i < listElements.length -1; i++) {
+                    if(listElements[i]!=removedElement){
+                        if(thesaurus == listElements[i].children[2].value){
+                            deleteThesaurus = false;
+                        }
+                    }
+                }
+                if(deleteThesaurus){
+                    usedThesauri = usedThesauri.split(", ");
+                    var index = usedThesauri.indexOf(thesaurus);
+                    usedThesauri.splice(index, 1);
+                    $('#field-thesaurusName').val(usedThesauri.join(", "));
+                }
+            }
+          });
       });
 
-      this._select2 = select2;
+        // configuration of the observer:
+      var config = { attributes: true, childList: true, characterData: true };
+
+        // pass in the target node, as well as the observer options
+      observer.observe(target, config);
+
     },
 
     /* Looks up the completions for the current search term and passes them
@@ -279,6 +315,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      */
     formatInitialValue: function (element, callback) {
       var value = jQuery.trim(element.val() || '');
+      console.log(value);
       var formatted;
 
       if (this.options.tags) {

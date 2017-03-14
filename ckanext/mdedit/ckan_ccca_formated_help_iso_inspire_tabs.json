@@ -572,7 +572,7 @@
       "label": "Keyword Type",
       "form_snippet": "select.html",
       "display_snippet": "select.html",
-      "help_text": "Subject matter used to group smimlar keywords",
+      "help_text": "Subject matter used to group similar keywords",
       "help_text_norm": "ISO_keyTyp (o), <br> INSPIRE -",
       "iso":"54",
       "choices": [
@@ -610,10 +610,7 @@
         "inspire_name": "Originating Controlled Vocabulary",
         "iso_inspire_match_ref": "Inspire Implementing Rules V. 1.3",
         "iso_inspire_match_ref_nr": "2.4.1",
-        "help_text": "Thesauri from which the keywords are.",
-        "form_attrs": {
-          "readonly": "readonly"
-        }
+        "help_text": "Thesauri from which the keywords are."
       },
       {
         "field_name": "thesaRefDate",
