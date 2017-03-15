@@ -1,0 +1,27 @@
+
+/* Progressbar */
+#progressbar{
+	color: White;
+	padding: 0px;
+	position:relative;
+	left:-3%;
+	/*background: black;*/
+
+}
+/* Jquery class */
+.ui-progressbar-value {
+  background: #005a76;
+  color: White;
+  font-size: 18px;
+  text-align: left;
+  font-weight: normal;
+  line-height: 18px;
+	padding:5px;
+	padding-left: 20px;
+
+}
+/* Jquery class */
+.ui-progressbar {
+
+
+}

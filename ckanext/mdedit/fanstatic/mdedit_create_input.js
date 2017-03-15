@@ -61,7 +61,7 @@ ckan.module('mdedit_create_input', function ($, _) {
           // Wird schon durch click initiiert
             this.createInput();
         }
-    },
+    },//initialize
 
     _onClick: function(event) {
 
@@ -72,7 +72,7 @@ ckan.module('mdedit_create_input', function ($, _) {
         }
 
         this.createInput();
-    },
+    },//onclick
 
     createInput: function () {
         next = next + 1;

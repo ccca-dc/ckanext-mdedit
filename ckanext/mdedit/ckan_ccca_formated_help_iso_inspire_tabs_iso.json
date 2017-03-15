@@ -859,10 +859,6 @@
       "help_text": "Indication of the conformance result.",
       "choices": [
         {
-          "value": "001",
-          "label": " "
-        },
-        {
           "value": "002",
           "label": "not evaluated"
         },
