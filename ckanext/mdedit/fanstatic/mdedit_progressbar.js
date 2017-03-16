@@ -8,6 +8,7 @@ ckan.module('mdedit_progressbar', function ($, _) {
   var filled = 0;
   var this_module;
   var total_elements=0;
+  var progressbar;
 
   return {
     initialize: function () {
@@ -18,34 +19,33 @@ ckan.module('mdedit_progressbar', function ($, _) {
         var percent = filled +'%';
         if (filled == 100)
              percent = "100% Great! :-)";
-        $("#progressbar")
-            .progressbar({ value: parseInt(filled), max:100})
-            .children('.ui-progressbar-value')
-            .html(percent)
-            .css("display", "block");
+
+        progressbar = document.getElementById("PProgress");
+        progressbar.style.width = filled + '%';
+        progressbar.innerHTML = percent;
 
         $.proxyAll(this, /_on/);
 
         $('#progresselements').on('input textarea select', function (e) {
     //      e.preventDefault(); // Does not take input anymore
 
-           //console.log("********* CHANGE*******");
-           if (e.target.name == "contact_info")
-                //total_elements = this_module.init_total();
-                return; //better :-)
+         //console.log("********* CHANGE*******");
+         if (e.target.name == "contact_info")
+              //total_elements = this_module.init_total();
+              return; //better :-)
 
-           filled = this_module.check_filled();
-           var percent = filled + '%';
-           if (filled == 100)
-                percent = "100% Great! :-)";
+         filled = this_module.check_filled();
+         var percent = filled + '%';
+         if (filled == 100)
+              percent = "100% Great! :-)";
 
-            $( "#progressbar" )
-          	 .progressbar({value: parseInt(filled)})
-          	 .children('.ui-progressbar-value')
-          	 .html(percent)
-          	 .css("display", "block");
-
-          });
+          if (progressbar){
+            progressbar.style.width = filled + '%';
+            progressbar.innerHTML = percent;
+          }else {
+            console.log("No prgressbar :-(")
+          }
+        });
 
     }, // initialize
     init_total: function (){

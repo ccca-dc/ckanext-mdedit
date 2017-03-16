@@ -4,7 +4,6 @@
 
 {% resource 'mdedit/mdedit_progressbar.js' %}
 {% resource 'mdedit/mdedit_progressbar.css' %}
-{% resource 'mdedit/jquery-ui.js' %}
 
 {% ckan_extends %}
 
@@ -30,12 +29,15 @@
     </p>
   {%- endif -%}
 
+{%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
 
-  {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+<noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
+{%- if  data.metadata_modified -%} {# Edit: CCCA blue  #}
+<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: #005a76;"></div></div>
+{%- else -%} {# New: Green  #} {# New: Green - stages  #}
+<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: green;"></div></div>
+{%- endif -%}
 
-  <noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
-
-<div id="progressbar" data-module="mdedit_progressbar"></div>
 <div id="progresselements">
 
   {# find delimters and headers for Tabs #}
