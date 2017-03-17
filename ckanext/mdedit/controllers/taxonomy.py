@@ -38,14 +38,25 @@ class TaxonomyController(base.BaseController):
 
     def get_taxonomy_title_from_keyword(self):
         label = request.POST.get('label')
+        thesaurus = request.POST.get('thesaurus')
 
         context = {'model': model, 'session': model.Session,
                    'user': c.user}
 
         context = {'user': c.user}
-        taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label})
 
-        taxonomy_id = taxonomy_term['taxonomy_id']
-        taxonomy = get_action('taxonomy_show')(context, {'id': taxonomy_id})
+        result = []
 
-        return taxonomy['name']
+        if thesaurus == "":
+            taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label})
+
+            taxonomy_id = taxonomy_term['taxonomy_id']
+            taxonomy = get_action('taxonomy_show')(context, {'id': taxonomy_id})
+        else:
+            taxonomy = get_action('taxonomy_show')(context, {'name': thesaurus})
+            taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label, 'taxonomy_id': taxonomy['id']})
+
+        result = [taxonomy['name']]
+        result.append(taxonomy_term['uri'])
+
+        return json.dumps(result)

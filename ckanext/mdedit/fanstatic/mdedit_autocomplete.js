@@ -113,25 +113,29 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                 var thesaurus = $('#field-selectThesaurus').val();
 
                 //check if no thesaurus was selected in the search field
-                if(thesaurus == ""){
-                    var data = new FormData();
-                    data.append('label', keyword);
+                var data = new FormData();
+                data.append('label', keyword);
+                data.append('thesaurus', thesaurus);
 
-                    $.ajax({
-                        url: '/get_taxonomy_title_from_keyword',
-                        data: data,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        type: 'POST',
-                        success: function(response){
-                            thesaurus = response;
-                        },
-                        async: false
-                    });
-                }
+                var uri = "";
 
-                vars.push({taxonomy_term: keyword, taxonomy: thesaurus});
+                $.ajax({
+                    url: '/get_taxonomy_title_from_keyword',
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    type: 'POST',
+                    success: function(response){
+                        response = JSON.parse(response);
+                        thesaurus = response[0];
+                        uri = response[1];
+                        //alert("If no thesaurus is selected, we will take the first found thesaurus of the keyword.")
+                    },
+                    async: false
+                });
+
+                vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus});
 
                 $('#field-thesaurusName').val(JSON.stringify(vars));
 
