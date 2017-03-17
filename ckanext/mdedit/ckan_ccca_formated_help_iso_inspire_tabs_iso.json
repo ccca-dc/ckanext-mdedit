@@ -919,7 +919,7 @@
       }
     },
     {
-       "field_name": "anonnymous_download",
+       "field_name": "anonymous_download",
        "label": "Anonymous Download",
        "form_snippet": "mdedit_select.html",
        "display_snippet": "select.html",
