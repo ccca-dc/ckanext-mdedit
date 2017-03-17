@@ -39,8 +39,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
     # IValidators
     def get_validators(self):
         return {
-            'mdedit_contains': validators.mdedit_contains,
-            'mdedit_comma_list': validators.mdedit_comma_list
+            'mdedit_contains': validators.mdedit_contains
             }
 
     # IRoutes

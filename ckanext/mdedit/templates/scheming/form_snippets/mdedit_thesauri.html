@@ -1,45 +1,20 @@
 {% import 'macros/form.html' as form %}
 
-<!--
-{% set taxonomies = h.mdedit_get_taxonomies() %}
-
-{%- set options=[] -%}
-{%- if not h.scheming_field_required(field) -%}
-    {%- do options.append({'value': ''}) -%}
-{%- endif -%}
-{%- for t in taxonomies -%}
-    {%- do options.append({
-        'value': t['name'],
-        'text': t['title']}) -%}
-{%- endfor -%}
-
-{% call form.select(
-    field.field_name,
-    id='field-' + field.field_name,
-    label=h.scheming_language_text(field.label),
-    options=options,
-    selected=data[field.field_name],
-    error=errors[field.field_name],
-    classes=['control-medium'],
-    attrs=field.form_attrs if 'form_attrs' in field else {},
-    is_required=h.scheming_field_required(field)
-    )
+{% call form.input(
+  'thesaurus_help',
+  id='thesaurus_help',
+  label=h.scheming_language_text(field.label),
+  value=h.mdedit_parse_used_thesauri(data.get(field.field_name, '')),
+  type='text',
+  error=errors[field.field_name],
+  classes=['control-medium'],
+  attrs=field.form_attrs if 'form_attrs' in field else {},
+  is_required=h.scheming_field_required(field)
+  )
 %}
-{% endcall %}-->
 
-  {% call form.input(
-      field.field_name,
-      id='field-' + field.field_name,
-      label=h.scheming_language_text(field.label),
-      value=h.mdedit_parse_used_thesauri(data.get(field.field_name, '')),
-      type='text',
-      error=errors[field.field_name],
-      classes=['control-medium'],
-      attrs=field.form_attrs if 'form_attrs' in field else {},
-      is_required=h.scheming_field_required(field)
-      )
-  %}
+    <input name="{{ field.field_name }}" id="field-{{ field.field_name }}" value="{{ data.get(field.field_name, '') }}" type="hidden"/>
 
-      {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+    {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 
-    {% endcall %}
+{% endcall %}

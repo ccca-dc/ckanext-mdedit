@@ -73,8 +73,7 @@
     {
       "preset_name": "mdedit_thesauri",
       "values": {
-        "form_snippet": "mdedit_thesauri.html",
-        "validators": "mdedit_comma_list"
+        "form_snippet": "mdedit_thesauri.html"
     }
   }
   ]

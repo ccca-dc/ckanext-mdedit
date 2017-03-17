@@ -96,22 +96,23 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
 
       this._select2 = select2;
 
-      // adding of thesaurus
+      //thesaurus section
+      var vars = JSON.parse($('#field-thesaurusName').val());
 
       var target = document.querySelector('ul.select2-choices');
 
       // create an observer instance
       var observer = new MutationObserver(function(mutations) {
           mutations.forEach(function(mutation) {
-            // do stuff when
-            // `childList`, `subtree` of `#myTable` modified
-            usedThesauri = $('#field-thesaurusName').val();
+            usedThesauri = $('#thesaurus_help').val();
 
             if(mutation.addedNodes.length > 0){
+                //keyword got added
                 var keyword = mutation.addedNodes[0].children[0].innerHTML;
 
-                thesaurus = $('#field-selectThesaurus').val()
+                var thesaurus = $('#field-selectThesaurus').val();
 
+                //check if no thesaurus was selected in the search field
                 if(thesaurus == ""){
                     var data = new FormData();
                     data.append('label', keyword);
@@ -130,39 +131,47 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                     });
                 }
 
-                var inputThesaurus = $('<input value="'+ thesaurus +'" type="hidden"/>');
-                mutation.addedNodes[0].append(inputThesaurus[0]);
+                vars.push({taxonomy_term: keyword, taxonomy: thesaurus});
 
-                var thesaurusAlreadyUsed = false;
-                for(t of usedThesauri.split(", ")){
-                    if(t == thesaurus){
-                        thesaurusAlreadyUsed = true;
-                    }
-                }
-                if(thesaurusAlreadyUsed == false){
+                $('#field-thesaurusName').val(JSON.stringify(vars));
+
+                //check if thesaurus hasn't been used by another keyword yet
+                if(usedThesauri.split(", ").indexOf(thesaurus) < 0){
                     if(usedThesauri.split(", ").length == 1 && usedThesauri.split(", ")[0] == ''){
-                        $('#field-thesaurusName').val(thesaurus);
+                        $('#thesaurus_help').val(thesaurus);
                     }else{
-                      $('#field-thesaurusName').val(usedThesauri + ', ' + thesaurus);
+                      $('#thesaurus_help').val(usedThesauri + ', ' + thesaurus);
                     }
                 }
             }else if(mutation.removedNodes.length > 0){
-                var removedElement = mutation.removedNodes[0];
-                var thesaurus = mutation.removedNodes[0].children[2].value;
-                var listElements = mutation.target.children;
-                var deleteThesaurus = true;
-                for (var i = 0; i < listElements.length -1; i++) {
-                    if(listElements[i]!=removedElement){
-                        if(thesaurus == listElements[i].children[2].value){
-                            deleteThesaurus = false;
-                        }
+                //keyword got deleted
+                var keyword = mutation.removedNodes[0].children[0].innerHTML;
+
+                //deleting the keyword-taxonomy entry in the field-thesaurusName
+                for(var x=0; x<vars.length; x++) {
+                    if(vars[x]['taxonomy_term'] == keyword){
+                        var taxonomy = vars[x]['taxonomy'];
+                        vars.splice(x,1);
                     }
                 }
-                if(deleteThesaurus){
-                    usedThesauri = usedThesauri.split(", ");
-                    var index = usedThesauri.indexOf(thesaurus);
-                    usedThesauri.splice(index, 1);
-                    $('#field-thesaurusName').val(usedThesauri.join(", "));
+
+                $('#field-thesaurusName').val(JSON.stringify(vars));
+
+                //checking if the taxonomy is still used by another keyword
+                var taxonomyStillUsed = false;
+                for(var x=0; x<vars.length; x++) {
+                    if(vars[x]['taxonomy'] == taxonomy){
+                        taxonomyStillUsed = true;
+                    }
+                }
+
+                //deleting the taxonomy from the thesaurus_help field,
+                //if no keyword uses the taxonomy anymore
+                if(taxonomyStillUsed == false){
+                    var taxonomies = usedThesauri.split(", ");
+                    var index = taxonomies.indexOf(taxonomy);
+                    taxonomies.splice(index, 1);
+                    $('#thesaurus_help').val(taxonomies.join(", "));
                 }
             }
           });
@@ -315,7 +324,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      */
     formatInitialValue: function (element, callback) {
       var value = jQuery.trim(element.val() || '');
-      console.log(value);
       var formatted;
 
       if (this.options.tags) {

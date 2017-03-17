@@ -169,10 +169,12 @@ def mdedit_get_taxonomies():
 
 
 def mdedit_parse_used_thesauri(mdedit_used_thesauri):
-    usedThesauri = mdedit_used_thesauri.strip('{}').split(',')
-    result = usedThesauri[0]
-    for thesaurus in usedThesauri[1:]:
-        if thesaurus.startswith('"') and thesaurus.endswith('"'):
-            thesaurus = thesaurus[1:-1]
-        result = result + ', ' + thesaurus
-    return result
+    mdedit_used_thesauri = json.loads(mdedit_used_thesauri)
+
+    thesauri = []
+
+    for t in mdedit_used_thesauri:
+        if t['taxonomy'] not in thesauri:
+            thesauri.append(t['taxonomy'].strip())
+
+    return ', '.join(thesauri)
