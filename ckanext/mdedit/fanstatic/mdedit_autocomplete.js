@@ -79,7 +79,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
             if (ieversion<=7) {return}
          }
       }
-
       var select2 = this.el.select2(settings).data('select2');
 
       if (this.options.tags && select2 && select2.search) {
@@ -130,7 +129,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                         response = JSON.parse(response);
                         thesaurus = response[0];
                         uri = response[1];
-                        //alert("If no thesaurus is selected, we will take the first found thesaurus of the keyword.")
                     },
                     async: false
                 });
@@ -140,11 +138,11 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                 $('#field-thesaurusName').val(JSON.stringify(vars));
 
                 //check if thesaurus hasn't been used by another keyword yet
-                if(usedThesauri.split(", ").indexOf(thesaurus) < 0){
+                if(thesaurus != "" && usedThesauri.split(", ").indexOf(thesaurus) < 0){
                     if(usedThesauri.split(", ").length == 1 && usedThesauri.split(", ")[0] == ''){
                         $('#thesaurus_help').val(thesaurus);
                     }else{
-                      $('#thesaurus_help').val(usedThesauri + ', ' + thesaurus);
+                        $('#thesaurus_help').val(usedThesauri + ', ' + thesaurus);
                     }
                 }
             }else if(mutation.removedNodes.length > 0){
@@ -158,24 +156,26 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                         vars.splice(x,1);
                     }
                 }
+                if(taxonomy != ""){
+                    $('#field-thesaurusName').val(JSON.stringify(vars));
 
-                $('#field-thesaurusName').val(JSON.stringify(vars));
-
-                //checking if the taxonomy is still used by another keyword
-                var taxonomyStillUsed = false;
-                for(var x=0; x<vars.length; x++) {
-                    if(vars[x]['taxonomy'] == taxonomy){
-                        taxonomyStillUsed = true;
+                    //checking if the taxonomy is still used by another keyword
+                    var taxonomyStillUsed = false;
+                    for(var x=0; x<vars.length; x++) {
+                        if(vars[x]['taxonomy'] == taxonomy){
+                            taxonomyStillUsed = true;
+                        }
                     }
-                }
 
-                //deleting the taxonomy from the thesaurus_help field,
-                //if no keyword uses the taxonomy anymore
-                if(taxonomyStillUsed == false){
-                    var taxonomies = usedThesauri.split(", ");
-                    var index = taxonomies.indexOf(taxonomy);
-                    taxonomies.splice(index, 1);
-                    $('#thesaurus_help').val(taxonomies.join(", "));
+                    //deleting the taxonomy from the thesaurus_help field,
+                    //if no keyword uses the taxonomy anymore
+                    if(taxonomyStillUsed == false){
+                        var taxonomies = usedThesauri.split(", ");
+                        console.log(taxonomies);
+                        var index = taxonomies.indexOf(taxonomy);
+                        taxonomies.splice(index, 1);
+                        $('#thesaurus_help').val(taxonomies.join(", "));
+                    }
                 }
             }
           });
@@ -283,7 +283,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
         // Append the select id to the element for styling.
         container.attr('data-value', state.id);
       }
-
       return state.text.split(term).join(term && term.bold());
     },
 

@@ -174,7 +174,8 @@ def mdedit_parse_used_thesauri(mdedit_used_thesauri):
     thesauri = []
 
     for t in mdedit_used_thesauri:
-        if t['taxonomy'] not in thesauri:
-            thesauri.append(t['taxonomy'].strip())
+        thesaurus = t['taxonomy']
+        if thesaurus != "" and thesaurus not in thesauri:
+            thesauri.append(thesaurus.strip())
 
     return ', '.join(thesauri)

@@ -1,21 +1,13 @@
-import os
-import shutil
-
 import ckan.lib.helpers as h
 import ckan.lib.base as base
-import requests
 from pylons import config
 import ckan.plugins.toolkit as toolkit
 
-import cgi
 import logging
 import json
-import pathlib2
 import ckan.model as model
 import ckan.logic as logic
 import ckan.lib.uploader as uploader
-import pprint
-import ast
 import ckan.lib.navl.dictization_functions as dict_fns
 from ckan.common import OrderedDict, c, g, request, _
 
@@ -45,16 +37,26 @@ class TaxonomyController(base.BaseController):
 
         context = {'user': c.user}
 
-        result = []
-
         if thesaurus == "":
-            taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label})
+            term = get_action('taxonomy_term_show_all')(context, {'label': label})
+
+            taxonomy_term = term[0]
+
+            for t in term:
+                if "gemet" in t['uri']:
+                    taxonomy_term = t
 
             taxonomy_id = taxonomy_term['taxonomy_id']
             taxonomy = get_action('taxonomy_show')(context, {'id': taxonomy_id})
         else:
             taxonomy = get_action('taxonomy_show')(context, {'name': thesaurus})
-            taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label, 'taxonomy_id': taxonomy['id']})
+            try:
+                taxonomy_term = get_action('taxonomy_term_show')(context, {'label': label, 'taxonomy_id': taxonomy['id']})
+            except logic.NotFound:
+                result = [""]
+                result.append("")
+
+                return json.dumps(result)
 
         result = [taxonomy['name']]
         result.append(taxonomy_term['uri'])
