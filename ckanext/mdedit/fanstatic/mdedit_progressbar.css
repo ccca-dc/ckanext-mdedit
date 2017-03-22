@@ -1,0 +1,19 @@
+
+/* Progressbar */
+
+#PBar {
+    width: 100%;
+    background-color: lightgrey;
+		padding-right: 5px;
+		position:relative;
+		left: -2%;
+	}
+#PProgress {
+		width: 1%;
+		background: #005a76; /* CCCA blue */
+		background-color: green;
+		text-align: left; /* To center it horizontally (if you want) */
+	  line-height: 30px; /* To center it vertically */
+	  color: white;
+		padding-left: 5px;
+}

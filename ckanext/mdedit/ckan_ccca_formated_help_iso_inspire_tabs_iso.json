@@ -722,10 +722,6 @@
       "help_text": "Indication of the conformance result.",
       "choices": [
         {
-          "value": "001",
-          "label": " "
-        },
-        {
           "value": "002",
           "label": "not evaluated"
         },
@@ -923,7 +919,7 @@
       }
     },
     {
-       "field_name": "anonnymous_download",
+       "field_name": "anonymous_download",
        "label": "Anonymous Download",
        "form_snippet": "mdedit_select.html",
        "display_snippet": "select.html",

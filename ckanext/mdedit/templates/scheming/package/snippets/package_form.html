@@ -1,6 +1,12 @@
 {# Anja 27.10.2016: Changed and adapted from scheming #}
+{#  Anja, 9.3. Progressbar #}
+
+
+{% resource 'mdedit/mdedit_progressbar.js' %}
+{% resource 'mdedit/mdedit_progressbar.css' %}
 
 {% ckan_extends %}
+
 
 {% block errors %}
   {%- if errors -%}
@@ -23,13 +29,20 @@
     </p>
   {%- endif -%}
 
+{%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
 
-  {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
+<noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
+{%- if  data.metadata_modified -%} {# Edit: CCCA blue  #}
+<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: #005a76;"></div></div>
+{%- else -%} {# New: Green  #} {# New: Green - stages  #}
+<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: green;"></div></div>
+{%- endif -%}
 
-  <noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
+<div id="progresselements">
 
   {# find delimters and headers for Tabs #}
   <header class="module-content page-header mdedit_ph_small">
+
   {%- for field in schema.dataset_fields -%}
      {%- if loop.first and field.field_name == "tab_delimiter" -%}
         {%- if field.necessary -%}
@@ -90,7 +103,7 @@
          {% endif %}
 
         {%- snippet 'scheming/snippets/form_field.html',
-        field=field, data=data, errors=errors, licenses=c.licenses,
+        field=field, data=data, errors=errors, licenses=c.licenses, classes=['progressform'],
         entity_type='dataset', object_type=dataset_type -%}
 
         {#   Close groups #}
@@ -109,8 +122,9 @@
         </div>
       </div>
   {%- endif -%}
-
   {# Anja 16.11.16  #}
+
+</div> {# progressform #}
 
   {# Attention: Only non-scheming fields can be seen here in extras! #}
   {# Therfore here we have harvested data #}
