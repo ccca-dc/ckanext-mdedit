@@ -38,7 +38,13 @@ class TaxonomyController(base.BaseController):
         context = {'user': c.user}
 
         if thesaurus == "":
-            term = get_action('taxonomy_term_show_all')(context, {'label': label})
+            try:
+                term = get_action('taxonomy_term_show_all')(context, {'label': label})
+            except logic.NotFound:
+                result = [""]
+                result.append("")
+
+                return json.dumps(result)
 
             taxonomy_term = term[0]
 

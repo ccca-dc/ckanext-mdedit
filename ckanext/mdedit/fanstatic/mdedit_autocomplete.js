@@ -156,9 +156,10 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                         vars.splice(x,1);
                     }
                 }
-                if(taxonomy != ""){
-                    $('#field-thesaurusName').val(JSON.stringify(vars));
 
+                $('#field-thesaurusName').val(JSON.stringify(vars));
+
+                if(taxonomy != ""){
                     //checking if the taxonomy is still used by another keyword
                     var taxonomyStillUsed = false;
                     for(var x=0; x<vars.length; x++) {
@@ -171,7 +172,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                     //if no keyword uses the taxonomy anymore
                     if(taxonomyStillUsed == false){
                         var taxonomies = usedThesauri.split(", ");
-                        console.log(taxonomies);
                         var index = taxonomies.indexOf(taxonomy);
                         taxonomies.splice(index, 1);
                         $('#thesaurus_help').val(taxonomies.join(", "));
