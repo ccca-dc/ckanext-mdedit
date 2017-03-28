@@ -67,6 +67,8 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       if (!this.el.is('select')) {
         if (this.options.tags) {
           settings.tags = this._onQuery;
+          settings.separator = "|";
+         // settings.tokenSeparators = ['|'];
         } else {
           settings.query = this._onQuery;
           settings.createSearchChoice = this.formatTerm;
@@ -96,7 +98,11 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       this._select2 = select2;
 
       //thesaurus section
-      var vars = JSON.parse($('#field-thesaurusName').val());
+      try {
+          var vars = JSON.parse($('#field-thesaurusName').val());
+      } catch (e) {
+          var vars = [];
+      }
 
       var target = document.querySelector('ul.select2-choices');
 
@@ -330,7 +336,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       var formatted;
 
       if (this.options.tags) {
-        formatted = jQuery.map(value.split(","), this.formatTerm);
+        formatted = jQuery.map(value.split("|"), this.formatTerm);
       } else {
         formatted = this.formatTerm(value);
       }
@@ -359,13 +365,13 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      * Returns nothing.
      */
     _onKeydown: function (event) {
-      if (event.which === 188) {
+      /*if (event.which === 188) {
         event.preventDefault();
         setTimeout(function () {
           var e = jQuery.Event("keydown", { which: 13 });
           jQuery(event.target).trigger(e);
-        }, 10);
-      }
+      }, 10);
+  }*/
     }
   };
 });
