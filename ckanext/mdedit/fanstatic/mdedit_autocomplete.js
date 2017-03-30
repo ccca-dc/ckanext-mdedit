@@ -66,7 +66,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       if (!this.el.is('select')) {
         if (this.options.tags) {
           settings.tags = this._onQuery;
-          settings.separator = "|";
+         // settings.separator = "|";
          // settings.tokenSeparators = ['|'];
         } else {
           settings.query = this._onQuery;
@@ -344,7 +344,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       var formatted;
 
       if (this.options.tags) {
-        formatted = jQuery.map(value.split("|"), this.formatTerm);
+        formatted = jQuery.map(value.split(","), this.formatTerm);
       } else {
         formatted = this.formatTerm(value);
       }
@@ -373,7 +373,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      * Returns nothing.
      */
     _onKeydown: function (event) {
-      if (event.which === 60) {
+      if (event.which === 188) {
         event.preventDefault();
         setTimeout(function () {
           var e = jQuery.Event("keydown", { which: 13 });
