@@ -98,7 +98,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
 
       //thesaurus section
       try {
-          var vars = JSON.parse($('#field-thesaurusName').val());
+          var vars = JSON.parse($('#field-iso_thesaName').val());
       } catch (e) {
           var vars = [];
       }
@@ -149,7 +149,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
 
                 vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus, taxonomy_date: taxonomy_date});
 
-                $('#field-thesaurusName').val(JSON.stringify(vars));
+                $('#field-iso_thesaName').val(JSON.stringify(vars));
 
                 //check if thesaurus hasn't been used by another keyword yet
                 if(thesaurus != "" && usedThesauri.split(", ").indexOf(thesaurus) < 0){
@@ -163,7 +163,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                 //keyword got deleted
                 var keyword = mutation.removedNodes[0].children[0].innerHTML;
 
-                //deleting the keyword-taxonomy entry in the field-thesaurusName
+                //deleting the keyword-taxonomy entry in the field-iso_thesaName
                 for(var x=0; x<vars.length; x++) {
                     if(vars[x]['taxonomy_term'] == keyword){
                         var taxonomy = vars[x]['taxonomy'];
@@ -171,7 +171,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                     }
                 }
 
-                $('#field-thesaurusName').val(JSON.stringify(vars));
+                $('#field-iso_thesaName').val(JSON.stringify(vars));
 
                 if(taxonomy != ""){
                     //checking if the taxonomy is still used by another keyword
