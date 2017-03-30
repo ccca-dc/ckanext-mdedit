@@ -25,7 +25,6 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
       items: 10,
       source: null,
       interval: 1000,
-      taxonomy_name: '',
       dropdownClass: '',
       containerClass: '',
       i18n: {
@@ -123,10 +122,10 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                 data.append('thesaurus', thesaurus);
 
                 var uri = "";
-                var date = "";
+                var taxonomy_date = "";
 
                 $.ajax({
-                    url: '/get_taxonomy_title_from_keyword',
+                    url: '/get_infos_from_keyword_label',
                     data: data,
                     cache: false,
                     contentType: false,
@@ -136,12 +135,19 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                         response = JSON.parse(response);
                         thesaurus = response[0];
                         uri = response[1];
-                        date = response[2]
+                        taxonomy_date = response[2];
                     },
                     async: false
                 });
 
-                vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus, taxonomy_date: date});
+                if(uri == null){
+                    uri = "";
+                }
+                if(taxonomy_date == null){
+                    taxonomy_date = "";
+                }
+
+                vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus, taxonomy_date: taxonomy_date});
 
                 $('#field-thesaurusName').val(JSON.stringify(vars));
 
@@ -224,7 +230,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
         format: function(data) {
           var completion_options = jQuery.extend(options, {objects: true});
           return {
-            results: client.parseCompletions(data, completion_options)
+            results: client.parseCompletions(data.result, completion_options)
           }
         },
         key: this.options.key,
@@ -367,13 +373,13 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
      * Returns nothing.
      */
     _onKeydown: function (event) {
-      /*if (event.which === 188) {
+      if (event.which === 60) {
         event.preventDefault();
         setTimeout(function () {
           var e = jQuery.Event("keydown", { which: 13 });
           jQuery(event.target).trigger(e);
       }, 10);
-  }*/
+  }
     }
   };
 });

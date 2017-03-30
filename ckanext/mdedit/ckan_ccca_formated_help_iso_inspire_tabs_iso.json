@@ -489,7 +489,7 @@
         "label": "Reference Date",
         "f_snippet": "date.html",
         "help_text": "Reference date for the cited Thesaurus.",
-        "form_placeholder": "not yet implemented",
+        "form_placeholder": "visible in xml export",
         "disabled": "True",
         "form_attrs": {
           "readonly": "readonly"
@@ -507,7 +507,7 @@
         "select_size": "1",
         "display_snippet": "select.html",
         "help_text": "Datetype for the cited Thesaurus reference date.",
-        "form_placeholder": "not yet implemented",
+        "form_placeholder": "revision",
         "disabled": "True",
         "form_attrs": {
           "readonly": "readonly"

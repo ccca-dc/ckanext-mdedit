@@ -10,9 +10,6 @@ class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
-    plugins.implements(plugins.IRoutes, inherit=True)
-    #plugins.implements(plugins.IDatasetForm, inherit=True)
-
 
     # IConfigurer
     def update_config(self, config_):
@@ -41,11 +38,3 @@ class MdeditPlugin(plugins.SingletonPlugin):
         return {
             'mdedit_contains': validators.mdedit_contains
             }
-
-    # IRoutes
-    def before_map(self, map):
-        # get taxonomy from keyword
-        map.connect('get_taxonomy_title_from_keyword', '/get_taxonomy_title_from_keyword',
-                    controller='ckanext.mdedit.controllers.taxonomy:TaxonomyController',
-                    action='get_taxonomy_title_from_keyword')
-        return map

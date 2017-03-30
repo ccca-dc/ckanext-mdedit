@@ -66,7 +66,7 @@
         "form_attrs": {
           "data-module": "mdedit_autocomplete",
           "data-module-tags": "true",
-          "data-module-source": "/api/2/util/taxonomyterm/autocomplete?q=?"
+          "data-module-source": "/api/action/taxonomy_term_autocomplete?q=?"
         }
       }
     },
