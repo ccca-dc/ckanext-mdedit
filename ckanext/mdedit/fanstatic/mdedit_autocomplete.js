@@ -123,6 +123,7 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                 data.append('thesaurus', thesaurus);
 
                 var uri = "";
+                var date = "";
 
                 $.ajax({
                     url: '/get_taxonomy_title_from_keyword',
@@ -135,11 +136,12 @@ this.ckan.module('mdedit_autocomplete', function (jQuery, _) {
                         response = JSON.parse(response);
                         thesaurus = response[0];
                         uri = response[1];
+                        date = response[2]
                     },
                     async: false
                 });
 
-                vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus});
+                vars.push({taxonomy_term: keyword, uri: uri, taxonomy: thesaurus, taxonomy_date: date});
 
                 $('#field-thesaurusName').val(JSON.stringify(vars));
 

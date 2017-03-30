@@ -61,10 +61,12 @@ class TaxonomyController(base.BaseController):
             except logic.NotFound:
                 result = [""]
                 result.append("")
+                result.append("")
 
                 return json.dumps(result)
 
         result = [taxonomy['name']]
         result.append(taxonomy_term['uri'])
+        result.append(taxonomy['last_modified'])
 
         return json.dumps(result)
