@@ -10,9 +10,6 @@ class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
-    #plugins.implements(plugins.IRoutes, inherit=True)
-    #plugins.implements(plugins.IDatasetForm, inherit=True)
-
 
     # IConfigurer
     def update_config(self, config_):
