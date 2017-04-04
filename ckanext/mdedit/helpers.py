@@ -160,25 +160,3 @@ def mdedit_render_size(value):
     if value is not None:
         value = formatters.localised_filesize(int(value))
     return value
-
-
-def mdedit_get_taxonomies():
-    context = {'user': c.user}
-    taxonomy_list = get_action('taxonomy_list')(context, {})
-    return taxonomy_list
-
-
-def mdedit_parse_used_thesauri(mdedit_used_thesauri):
-    try:
-        mdedit_used_thesauri = json.loads(mdedit_used_thesauri)
-
-        thesauri = []
-
-        for t in mdedit_used_thesauri:
-            thesaurus = t['taxonomy']
-            if thesaurus != "" and thesaurus not in thesauri:
-                thesauri.append(thesaurus.strip())
-
-        return ', '.join(thesauri)
-    except ValueError:
-        return

@@ -560,7 +560,7 @@
     {
       "field_name": "tag_string",
       "label": "Keywords",
-      "preset": "mdedit_tag_string_autocomplete",
+      "preset": "taxonomy_tag_string_autocomplete",
       "form_placeholder": "eg. economy, mental health, government",
       "help_text": "Commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject.",
       "help_text_norm": "ISO_keyword (m), <br> INSPIRE_KeywordValue (m).",
@@ -601,7 +601,7 @@
       {
         "field_name": "thesaurusName",
         "label": "Used Thesauri",
-        "preset": "mdedit_thesauri",
+        "preset": "taxonomy_thesauri",
         "help_text": "Official title of the used Thesaurus, or other vocabulary or dictionary used.",
         "help_text_norm": "ISO_thesaurusName (o), <br> INSPIRE_OriginatingControlledVocabulary (c).",
         "iso": "55",
