@@ -133,7 +133,6 @@ ckan.module('mdedit_progressbar', function ($, _) {
           // our fields start with field- ... hopefully
           if (!elements[i].id.startsWith ('field-') )
             continue; // Some crazy fields from ckanext-spatial or others ...
-
           if (elements[i].hidden)
               continue; // spatial ..
           if (elements[i].readOnly)
