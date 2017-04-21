@@ -20,7 +20,7 @@ Example:
     {% if resources %}
       <ul class="{% block resource_list_class %}resource-list{% endblock %}">
         {% block resource_list_inner %}
-          {% for resource in resources %}
+          {% for resource in h.package_resources_list(pkg.id) %}
             {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %}
           {% endfor %}
         {% endblock %}
