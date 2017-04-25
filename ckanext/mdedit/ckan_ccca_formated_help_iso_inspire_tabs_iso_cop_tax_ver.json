@@ -910,7 +910,7 @@
        ]
    },
    {
-     "field_name": "newerVersion",
+     "field_name": "newer_version",
      "label": "Newer Version",
      "form_snippet": "text.html",
      "help_text": "Newer version of resource if existing",
