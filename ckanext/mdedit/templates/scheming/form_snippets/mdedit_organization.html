@@ -29,18 +29,22 @@
     <div class="control-group">
       <label for="field-private" class="control-label">{{ _('Visibility') }}</label>
       <div class="controls">
-        <select id="field-private" name="private">
-          {% for option in [('False', _('Public')), ('True', _('Private'))] %}
-          <option value="{{ option[0] }}" {% if option[0] == data.private|trim %}selected="selected"{% endif %}>{{ option[1] }}</option>
-          {% endfor %}
-        </select>
+        {% if data.private == false %}
+            <input value="public" readonly="readonly" type="text"/>
+        {% else %}
+            <select id="field-private" name="private">
+              {% for option in [('True', _('Private')), ('False', _('Public'))] %}
+              <option value="{{ option[0] }}" {% if option[0] == data.private|trim %}selected="selected"{% endif %}>{{ option[1] }}</option>
+              {% endfor %}
+            </select>
+        {% endif %}
       </div>
       {# Help Text for Visibility  # Anja, 9.11.2016 #}
       <div class="info-block info-inline">
           <i class="icon-info-sign"></i>
-          Server operation variable: Shall your dataset be visible to others? (default: yes! - public)
+          Server operation variable: Shall your dataset be visible to others? (default: no! - private)
+          <b>Attention:</b> Once set public it cannot be set private again nor can it be deleted!
      </div>
     </div>
-
   {% endblock %}
   </div>
