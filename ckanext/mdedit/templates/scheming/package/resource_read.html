@@ -60,6 +60,15 @@
         {%- block resource_fields -%}
           {%- for field in schema.resource_fields -%}
             {%- if field.field_name not in exclude_fields -%}
+             {#} Anja 10.5.2017 {#}
+
+              {%- if field.group_start -%}
+                 <th scope="row">
+                     <i>{{field.group_start}}</i>
+                 </th>
+                 <td></td>
+             {%- endif -%}
+
               <tr>
                 <th scope="row">
                   {{- h.scheming_language_text(field.label) -}}

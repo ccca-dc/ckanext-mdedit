@@ -61,6 +61,11 @@ Config Settings
 
   tab_delimiter fields have an option: "necessary". If this option is used a red marker is inserted before the tab/group name to identify groups which contain required fields.
 
+ Add additional resource fields for searching in development/production.ini
+
+ ckan.extra_resource_fields = par_experiment par_model par_frequency par_variables par_ensemble
+
+
 ---------------
 Fields
 ---------------

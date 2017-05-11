@@ -932,36 +932,6 @@
            "label": "no"
          }
        ]
-    },
-    {
-      "field_name": "model",
-      "label": "Models",
-      "form_snippet": "text.html",
-      "help_text": "Identifies the model used (e.g. HADCM3, HADCM3-233)"
-    },
-    {
-      "field_name": "experiment",
-      "label": "Experiment",
-      "form_snippet": "text.html",
-      "help_text": "Identifies either the experiment or both the experiment family and a specific type within that experiment family. For example, rcp45 refers to a particular experiment in which a representative concentration pathway (RCP) has been specified"
-    },
-    {
-      "field_name": "frequency",
-      "label": "Frequency",
-      "form_snippet": "text.html",
-      "help_text": "Indicates the interval between individual time-samples in the atomic dataset. Following are examples: yr, mon, day, 6hr, 3hr, subhr (sampling frequency less than an hour), monClim (climatological monthly mean) or fx (fixed, i.e., time-independent)"
-    },
-    {
-      "field_name": "variable_names",
-      "label": "Variable Names",
-      "form_snippet": "text.html",
-      "help_text": "Identify the physical quantity and often imply something about the sampling frequency and modeling realm."
-    },
-    {
-      "field_name": "ensemble_member",
-      "label": "Ensemble Member (r<N>i<M>p<L>)",
-      "form_snippet": "text.html",
-      "help_text": "This triad of integers (N, M, L), formatted as shown above (e.g., “r3i1p21”) distinguishes among closely related simulations by a single model. All three are required even if only a single simulation is performed."
     }
   ]
   }

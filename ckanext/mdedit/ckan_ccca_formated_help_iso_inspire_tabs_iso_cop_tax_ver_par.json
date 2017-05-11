@@ -851,7 +851,7 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload_localimp"
+      "preset": "resource_url_upload"
     },
     {
       "field_name": "name",
@@ -883,7 +883,7 @@
     {
       "field_name": "iso_resourceURI",
       "label": "Resource URI",
-      "preset": "handle_pid",
+      "form_snippet": "text.html",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
@@ -917,6 +917,50 @@
      "form_attrs": {
        "readonly": "readonly"
      }
+   },
+   {
+     "field_name": "par_model",
+     "group_start": "Optional Resource (Model) Parameter:",
+     "label": "Model",
+     "placeholder": "e.g. HADCM3, HADCM3-233, ...",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Identifies the model used",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+     },
+   {
+     "field_name": "par_experiment",
+     "label": "Experiment",
+     "placeholder": "e.g. rcp4.5",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Identifies experiment or experiment family, e.g.  representative concentration pathway (RCP) has been specified",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+
+   },
+   {
+     "field_name": "par_frequency",
+     "label": "Frequency",
+     "placeholder": "eg.: yr, mon, day, 6hr, 3hr, subhr, monClim, fx,...",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Indicates  interval between individual time-samples.  subhr: less than an hour, monClim:  climatological monthly mean,  fx: fixed, i.e., time-independent",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+   },
+   {
+     "field_name": "par_variables",
+     "label": "Variables",
+     "form_snippet": "mdedit_res_text.html",
+     "placeholder": "eg.: tas",
+     "help_text": "Identify the physical quantity, e.g:  Monthly mean surface air temperature: tas",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+   },
+   {
+     "field_name": "par_ensemble",
+     "group_end": "Resource (Model) Parameter",
+     "label": "Ensemble",
+     "placeholder": "eg.: r3i1p21",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "(r<N>i<M>p<L>): This triad of integers (N, M, L) distinguish among closely related simulations by a single model.",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+
    }
   ]
   }
