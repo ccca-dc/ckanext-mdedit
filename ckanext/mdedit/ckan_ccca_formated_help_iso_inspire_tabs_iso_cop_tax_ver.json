@@ -917,6 +917,15 @@
      "form_attrs": {
        "readonly": "readonly"
      }
-   }
+   },
+   {
+     "field_name": "subset_of",
+     "label": "Subset of",
+     "form_snippet": "text.html",
+     "help_text": "If this is a subset, then this is the resource_id of the original resource",
+     "form_attrs": {
+       "readonly": "readonly"
+     }
+    }
   ]
   }
