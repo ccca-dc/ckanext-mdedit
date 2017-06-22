@@ -96,23 +96,35 @@ ckan.module('mdedit_create_input', function ($, _) {
 
 
         /**************************************************************/
-        //check whether we have a select and convert optionsstring
+        //Create Options String
         var checkselect = selectoptions.toString();
 
-      //  console.log("*************checkselect:" + checkselect);
+
+        //console.log("*************checkselect:" + checkselect);
+        //console.log(count)
+        //console.log(values[count])
+
 
         var selectinput = false;
-
         var corrected_count = count;
 
-        if (checkselect.indexOf('<option') > -1) {
+        if ( (checkselect.indexOf('<option') > -1) && (values[count] != "Subset~Creator") )  {
 
           // NOPE: otpions already transformed
           selectinput = true;
-        //   console.log ("NOPE");
+          //console.log ("NOPE");
 
         }
+
         else if (checkselect.indexOf(str_sep) > -1) {
+
+            // Anja 19.5.2017 : Hack for Subset Creator
+            if (values[count] == "Subset Creator"){
+              checkselect +="#Subset~Creator#Subset~Creator";
+              selectoptions +="#Subset~Creator#Subset~Creator";
+            }
+            //console.log("*************checkselect:" + checkselect);
+            // Anja 19.5.2017 : Hack for Subset Creator
 
             selectinput = true;
 
@@ -136,11 +148,14 @@ ckan.module('mdedit_create_input', function ($, _) {
                     sostring+='">';
                 sostring+= so[i+1];
                 sostring+='</option>';
-          //      console.log(so[i]);
-          //      console.log(values[count]);
+                //console.log("********************");
+                //console.log(so[i]);
+                //console.log(values[count]);
+                //console.log("********************");
+
             }
 
-          //  console.log(sostring);
+            //console.log(sostring);
             selectoptions = sostring;
         }
         else { // No select field: One more input field
@@ -154,6 +169,8 @@ ckan.module('mdedit_create_input', function ($, _) {
 
         for (var i = 1; i< corrected_count; i++)
         {
+          //console.log(values[i])
+          //console.log(labels[i])
           // Set the values only the first time we are here
             newInput[i]= $('<br id="br' + i + next + '" ><label id="label-field' + i + next + '" class="control-label" for="field'+ i + next + '">' + labels[i]+ '</label><input  class="input form-control" id="field' + i + next + '" name="'+ field_name + '" type="text" placeholder="'+  pholder[i] + ' "  value="' + values[i] + '" style ="margin-left:2%;margin-bottom:5%"/></input>');
           //  console.log("NewInput: " + i);
@@ -165,7 +182,9 @@ ckan.module('mdedit_create_input', function ($, _) {
              var newSelect1= $('<br id="br' + count + next + '" ><label id="label-field'+ count + next + '" class="control-label" for="field'+ count + next + '">' + labels[count]+ '</label><select id="field' + count + next + '" name="'+ field_name + '" type="select"  selected="' + values[count] + '" style ="margin-left:2%;margin-bottom:5%"/>');
              var newSelect2= $('</select>');
              var select_options =$(selectoptions);
-
+          //  console.log(select_options)
+          //  console.log(labels[count])
+          //  console.log(values[count])
             if (corrected_count > 0) {
               $("#field_contains").append(newSelect1);
               $("#field" + count + next).append(select_options);
