@@ -25,10 +25,65 @@ import random
 """ Georg 2017-02-09 """
 import ckan.lib.formatters as formatters
 import ckan.lib.helpers as hck
-from ckanext.resourceversions import helpers as hrv
 
-import urlparse
+import ckan.model as model
+
+
 global_contains_field = []
+
+###################### End Copied from Kathi ##############
+
+def get_older_versions(resource_id, package_id):
+    ctx = {'model': model}
+
+    pkg = logic.get_action('package_show')(ctx, {'id': package_id})
+    resource = logic.get_action('resource_show')(ctx, {'id': resource_id})
+    resource_list = pkg['resources']
+
+    versions = []
+
+    # get older versions
+    res_helper = resource.copy()
+    while res_helper is not None:
+        res_id = res_helper['id']
+        res_helper = None
+        for res in resource_list:
+            if 'newer_version' in res and res['newer_version'] == res_id:
+                versions.append({'id': res['id'], 'created': res['created'], 'current': False})
+                res_helper = res.copy()
+                break
+
+    # get this version
+    versions.insert(0, {'id': resource['id'], 'created': resource['created'], 'current': True})
+
+    # get newer versions
+    if 'newer_version' in resource and resource['newer_version'] != "":
+        newest_resource = tk.get_action('resource_show')(data_dict={'id': resource['newer_version']})
+
+        versions.insert(0, {'id': newest_resource['id'], 'created': newest_resource['created'], 'current': False})
+
+        has_newer_version = True
+        while has_newer_version is True:
+            has_newer_version = False
+            for res in resource_list:
+                if 'newer_version' in newest_resource and newest_resource['newer_version'] == res['id']:
+                    versions.insert(0, {'id': res['id'], 'created': res['created'], 'current': False})
+                    newest_resource = res.copy()
+                    has_newer_version = True
+                    break
+
+    return versions
+
+###################### End Copied from Kathi ##############
+
+def mdedit_get_package_id(resource_id):
+
+    res = tk.get_action('resource_show')(data_dict={'id': resource_id})
+    if 'package_id' in res:
+        return res['package_id']
+    else:
+        return ""
+    
 
 def mdedit_get_resource_title(resource_id):
 
@@ -42,8 +97,7 @@ def mdedit_get_resource_title(resource_id):
 def mdedit_get_resource_version(resource_id):
     pkg = context.package
 
-    versions = hrv.get_older_versions(resource_id, pkg['id'])
-
+    versions = get_older_versions(resource_id, pkg['id'])
     number = -1
 
     for version in versions:
