@@ -28,7 +28,10 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_contain_values': helpers.mdedit_get_contain_values,
             'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
-            'mdedit_render_size': helpers.mdedit_render_size
+            'mdedit_render_size': helpers.mdedit_render_size,
+            'mdedit_get_resource_version': helpers.mdedit_get_resource_version,
+            'mdedit_get_resource_title':helpers.mdedit_get_resource_title,
+            'mdedit_get_package_id': helpers.mdedit_get_package_id
             }
 
     # IValidators
