@@ -1,0 +1,15 @@
+{% set resource_id = data[field.field_name] %}
+{% if resource_id != "" %}
+
+  {% if field.field_name == "newer_version" %}
+      {% set number = h.mdedit_get_resource_version (data[field.field_name])%}
+      {% set link_text = "Version " + number|string %}
+      {% link_for link_text, controller='package', action='resource_read', id=c.package['name'], resource_id=data[field.field_name] %}
+  {% elif field.field_name == "subset_of" %}
+      {% set title = h.mdedit_get_resource_title (data[field.field_name])%}
+      {% link_for title, controller='package', action='resource_read', id=c.package['name'], resource_id=data[field.field_name] %}
+  {% else %}
+      {{data[field.field_name]}}
+  {% endif %}
+
+{% endif %}

@@ -24,8 +24,33 @@ import random
 """ Anja 23.11.2016 """
 """ Georg 2017-02-09 """
 import ckan.lib.formatters as formatters
+import ckan.lib.helpers as hck
+from ckanext.resourceversions import helpers as hrv
 
+import urlparse
 global_contains_field = []
+
+def mdedit_get_resource_title(resource_id):
+
+    res = tk.get_action('resource_show')(data_dict={'id': resource_id})
+
+    result = res['name']
+    if result == "":
+        result = "unnamed resource"
+    return result
+
+def mdedit_get_resource_version(resource_id):
+    pkg = context.package
+
+    versions = hrv.get_older_versions(resource_id, pkg['id'])
+
+    number = -1
+
+    for version in versions:
+         if version['current'] == True:
+              number = len(versions) - versions.index(version)
+
+    return number
 
 def mdedit_get_name():
      # Get the user name of the logged-in user.

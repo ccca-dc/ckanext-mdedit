@@ -912,7 +912,9 @@
    {
      "field_name": "newer_version",
      "label": "Newer Version",
+     "mdedit_note": "DO NOT change the field name ...",
      "form_snippet": "text.html",
+     "display_snippet": "mdedit_url_from_id.html",
      "help_text": "Newer version of resource if existing",
      "form_attrs": {
        "readonly": "readonly"
@@ -921,7 +923,9 @@
    {
      "field_name": "subset_of",
      "label": "Subset of",
+     "mdedit_note": "DO NOT change the field name ...",
      "form_snippet": "text.html",
+     "display_snippet": "mdedit_url_from_id.html",
      "help_text": "If this is a subset, then this is the resource_id of the original resource",
      "form_attrs": {
        "readonly": "readonly"
