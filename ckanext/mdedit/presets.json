@@ -40,7 +40,7 @@
       "mdedit_note":" copied from scheming, just different order of public - private - public is default here) ",
       "values": {
         "validators": "owner_org_validator unicode",
-        "form_snippet": "mdedit_organization.html"
+        "form_snippet": "subset_organization.html"
       }
     },
     {
