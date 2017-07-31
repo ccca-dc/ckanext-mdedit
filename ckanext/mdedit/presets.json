@@ -56,7 +56,7 @@
       "values": {
         "form_snippet": "mdedit_contains.html",
         "display_snippet": "mdedit_contains.html",
-        "validators": "scheming_required mdedit_contains"
+        "validators": "mdedit_contains_k scheming_required"
       }
     }
   ]

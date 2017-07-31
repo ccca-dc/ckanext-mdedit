@@ -39,39 +39,40 @@
 
           {%- set labels = h.mdedit_get_contain_labels(field) -%}
           {%- set num_contains = field.contains|int -%}
-          {%- set values = h.mdedit_get_contain_values(data, field) -%}
+          {%- set values = h.mdedit_get_contain_values_k(data, field) -%}
 
           {# check for choice #}
            {%- if not field.choices -%}
                 {% set num_contains = num_contains + 1 %}
            {%- endif -%}
 
-            {%-for value in values[0] -%}
+            {%-for value in values -%}
 
               {%- if  field.choices -%}
                   <tr>
-                   <td><i>{{h.scheming_choices_label(field.choices,values[num_contains-1][loop.index0])}}:</i></td>
+                   <td><i>{{h.scheming_choices_label(field.choices,value['role'])}}:</i></td>
                     <td class="dataset-details">
               {%- endif -%}
 
-              {% set valueloop = loop %}
+              {% if value['name'] != "" %}
+                {{ value['name'] }} <br>
+              {% endif %}
+              {% if value['department'] != "" %}
+                {{ value['department'] }} <br>
+              {% endif %}
+              {% if value['email'] != "" %}
+                {{ value['email'] }} <br>
+              {% endif %}
 
-              {%-for j in range(1,num_contains) -%}
-                 {%- set outp = values[loop.index0][valueloop.index0] -%}
-                 {%- if outp -%}
-                      {{outp}} <br>
-                 {%- endif -%}
-
-              {%- endfor -%}
-                </td>
-                </tr>
+              </td>
+              </tr>
           {%- endfor -%}
 
       {%- elif field.contains -%}
 
             {%- set labels = h.mdedit_get_contain_labels(field) -%}
             {%- set num_contains = field.contains|int -%}
-            {%- set values = h.mdedit_get_contain_values(data, field) -%}
+            {%- set values = h.mdedit_get_contain_values_k(data, field) -%}
 
             {%- if not values -%}
                 <tr>
@@ -91,22 +92,27 @@
                 {% set num_contains = num_contains + 1 %}
            {%- endif -%}
 
-          {%-for value in values[0] -%}
+          {%-for value in values -%}
 
             {%- if  field.choices -%}
                 <tr>
                  <td><i>{{labels[num_contains-1]}}</i></td>
-                 <td class="dataset-details"><i> {{h.scheming_choices_label(field.choices,values[num_contains-1][loop.index0])}}</i> </td>
+                 <td class="dataset-details"><i> {{h.scheming_choices_label(field.choices,value['role'])}}</i> </td>
                </tr>
             {%- endif -%}
 
-            {% set valueloop = loop %}
-            {%-for j in range(1,num_contains) -%}
-               <tr>
-                <td>{{labels[loop.index0]}}</td>
-                <td class="dataset-details"> {{values[loop.index0][valueloop.index0]}} </td>
-              </tr>
-            {%- endfor -%}
+            <tr>
+             <td>{{labels[0]}}</td>
+             <td class="dataset-details"> {{value['name']}} </td>
+            </tr>
+            <tr>
+             <td>{{labels[1]}}</td>
+             <td class="dataset-details"> {{value['department']}} </td>
+            </tr>
+            <tr>
+             <td>{{labels[2]}}</td>
+             <td class="dataset-details"> {{value['email']}} </td>
+            </tr>
         {%- endfor -%}
 
       {% elif field.group_small_start -%}

@@ -1,5 +1,6 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
+import json
 
 from ckanext.mdedit import helpers
 from ckanext.mdedit import validators
@@ -10,6 +11,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
+    plugins.implements(plugins.IPackageController, inherit=True)
 
     # IConfigurer
     def update_config(self, config_):
@@ -25,7 +27,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_date': helpers.mdedit_get_date,
             'mdedit_parse_date': helpers.mdedit_parse_date,
             'mdedit_get_name_citation': helpers.mdedit_get_name_citation,
-            'mdedit_get_contain_values': helpers.mdedit_get_contain_values,
+            'mdedit_get_contain_values_k': helpers.mdedit_get_contain_values_k,
             'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
             'mdedit_render_size': helpers.mdedit_render_size,
@@ -37,5 +39,10 @@ class MdeditPlugin(plugins.SingletonPlugin):
     # IValidators
     def get_validators(self):
         return {
-            'mdedit_contains': validators.mdedit_contains
+            'mdedit_contains_k': validators.mdedit_contains_k
             }
+
+    # IPackageController
+    def after_show(self, context, data_dict):
+        if data_dict.get('contact_info', "") != "":
+            data_dict['contact_info'] = json.loads(data_dict['contact_info'])

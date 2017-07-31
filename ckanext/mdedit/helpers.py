@@ -25,6 +25,7 @@ import random
 """ Georg 2017-02-09 """
 import ckan.lib.formatters as formatters
 import ckan.lib.helpers as hck
+import ast
 
 import ckan.model as model
 
@@ -83,7 +84,7 @@ def mdedit_get_package_id(resource_id):
         return res['package_id']
     else:
         return ""
-    
+
 
 def mdedit_get_resource_title(resource_id):
 
@@ -233,6 +234,28 @@ def mdedit_get_contain_values(data, field):
             values[j].append(clist[i])
 
     return values
+
+
+def mdedit_get_contain_values_k(data, field):
+    # Turn String into dict
+    package = c.pkg_dict
+
+    if data:
+        values = data.get(field['field_name'])
+    else:
+        if package:
+            values = package.get(field['field_name'])
+
+    if not values:
+        return ""
+
+    print(values)
+
+    if type(values) == str or type(values) == unicode:
+        values = json.loads(values)
+
+    return values
+
 
 def mdedit_render_size(value):
     # Render Size String from Resource
