@@ -54,8 +54,8 @@
     {
       "preset_name": "mdedit_contains",
       "values": {
-        "form_snippet": "mdedit_contains.html",
-        "display_snippet": "mdedit_contains.html",
+        "form_snippet": "mdedit_contains_k.html",
+        "display_snippet": "mdedit_contains_k.html",
         "validators": "mdedit_contains_k scheming_required"
       }
     }

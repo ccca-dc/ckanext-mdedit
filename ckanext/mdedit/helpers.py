@@ -249,10 +249,16 @@ def mdedit_get_contain_values_k(data, field):
     if not values:
         return ""
 
-    print(values)
-
     if type(values) == str or type(values) == unicode:
         values = json.loads(values)
+
+        if not isinstance(values, list):
+            return ""
+
+        for contact in values:
+            labels = [x.lower() for x in mdedit_get_contain_labels(field)]
+            if not all(k in contact for k in labels):
+                return ""
 
     return values
 

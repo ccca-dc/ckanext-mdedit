@@ -43,26 +43,23 @@
 
           {# check for choice #}
            {%- if not field.choices -%}
-                {% set num_contains = num_contains + 1 %}
+                {% set num_contains = num_contains %}
            {%- endif -%}
 
             {%-for value in values -%}
 
               {%- if  field.choices -%}
                   <tr>
-                   <td><i>{{h.scheming_choices_label(field.choices,value['role'])}}:</i></td>
+                   <td><i>{{h.scheming_choices_label(field.choices,value[labels[num_contains-1]|lower])}}:</i></td>
                     <td class="dataset-details">
               {%- endif -%}
 
-              {% if value['name'] != "" %}
-                {{ value['name'] }} <br>
-              {% endif %}
-              {% if value['department'] != "" %}
-                {{ value['department'] }} <br>
-              {% endif %}
-              {% if value['email'] != "" %}
-                {{ value['email'] }} <br>
-              {% endif %}
+              {%-for label in labels[:-1] -%}
+                 {%- set outp = value[label|lower] -%}
+                 {%- if outp -%}
+                      {{outp}} <br>
+                 {%- endif -%}
+              {%- endfor -%}
 
               </td>
               </tr>
@@ -92,28 +89,23 @@
                 {% set num_contains = num_contains + 1 %}
            {%- endif -%}
 
-          {%-for value in values -%}
+           {%-for value in values[0] -%}
 
-            {%- if  field.choices -%}
+             {%- if  field.choices -%}
+                 <tr>
+                  <td><i>{{labels[num_contains-1]}}</i></td>
+                  <td class="dataset-details"><i> {{h.scheming_choices_label(field.choices,values[num_contains-1][loop.index0])}}</i> </td>
+                </tr>
+             {%- endif -%}
+
+             {% set valueloop = loop %}
+             {%-for j in range(1,num_contains) -%}
                 <tr>
-                 <td><i>{{labels[num_contains-1]}}</i></td>
-                 <td class="dataset-details"><i> {{h.scheming_choices_label(field.choices,value['role'])}}</i> </td>
+                 <td>{{labels[loop.index0]}}</td>
+                 <td class="dataset-details"> {{values[loop.index0][valueloop.index0]}} </td>
                </tr>
-            {%- endif -%}
-
-            <tr>
-             <td>{{labels[0]}}</td>
-             <td class="dataset-details"> {{value['name']}} </td>
-            </tr>
-            <tr>
-             <td>{{labels[1]}}</td>
-             <td class="dataset-details"> {{value['department']}} </td>
-            </tr>
-            <tr>
-             <td>{{labels[2]}}</td>
-             <td class="dataset-details"> {{value['email']}} </td>
-            </tr>
-        {%- endfor -%}
+             {%- endfor -%}
+          {%- endfor -%}
 
       {% elif field.group_small_start -%}
           <tr>

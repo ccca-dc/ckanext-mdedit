@@ -32,7 +32,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
             'mdedit_render_size': helpers.mdedit_render_size,
             'mdedit_get_resource_version': helpers.mdedit_get_resource_version,
-            'mdedit_get_resource_title':helpers.mdedit_get_resource_title,
+            'mdedit_get_resource_title': helpers.mdedit_get_resource_title,
             'mdedit_get_package_id': helpers.mdedit_get_package_id
             }
 
@@ -41,8 +41,3 @@ class MdeditPlugin(plugins.SingletonPlugin):
         return {
             'mdedit_contains_k': validators.mdedit_contains_k
             }
-
-    # IPackageController
-    def after_show(self, context, data_dict):
-        if data_dict.get('contact_info', "") != "":
-            data_dict['contact_info'] = json.loads(data_dict['contact_info'])

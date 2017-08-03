@@ -7,7 +7,7 @@
 {% set test = pkg_dict %}
 
 {%- if not values -%}
-  {% set values = h.mdedit_get_contain_values(data, field) %}
+  {% set values = h.mdedit_get_contain_values_k(data, field) %}
 {%- endif -%}
 
 {% set labels = h.mdedit_get_contain_labels(field) %}
@@ -65,7 +65,7 @@
 <br><br>
 {# -- Check for existing inputs --#}
 
-{% for name in values[0] %}
+{% for value in values %}
 		<div type="text" disabled="disabled" style="display: none;"
 		data-module-origin="input"
 		data-module="mdedit_create_input"
@@ -73,9 +73,8 @@
 		data-module-field_name={{field.field_name}}
 		data-module-strsep={{str_sep}}
 		data-module-whitespace = {{white_space}}
-		{% set nameloop = loop %}
-		{% for i in range(1,num_contains) %}
-    		data-module-field{{loop.index}}="{{ values[loop.index0][nameloop.index0] |empty_and_escape}}"
+        {% for i in range(1,num_contains) %}
+                data-module-field{{loop.index}}="{{ value[labels[loop.index0]|lower] }}"
 				data-module-label{{loop.index}}="{{ labels[loop.index0] }}"
 				data-module-pholder{{loop.index}}="{{ pholders[loop.index0]}}"
 				{% if i == num_contains - 1 %}
@@ -83,9 +82,11 @@
 				{% endif %}
 		{% endfor %}
 	>
+    <p>{{ value }}</p>
 </div>
 
 {% endfor %}
+
 
 {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 </div>
