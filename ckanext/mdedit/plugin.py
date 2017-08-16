@@ -1,6 +1,7 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import json
+import ckanext.mdedit.logic.action as action
 
 from ckanext.mdedit import helpers
 from ckanext.mdedit import validators
@@ -12,6 +13,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
+    plugins.implements(plugins.IActions)
 
     # IConfigurer
     def update_config(self, config_):
@@ -41,3 +43,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
         return {
             'mdedit_contains_k': validators.mdedit_contains_k
             }
+
+    # IActions
+    def get_actions(self):
+        actions = {'package_contact_show': action.package_contact_show}
+        return actions
