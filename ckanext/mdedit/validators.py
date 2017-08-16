@@ -1,6 +1,4 @@
 import json
-import datetime
-import re
 import ckan.lib.helpers as h
 import ckanext.mdedit.helpers as helpers
 from itertools import count
@@ -37,17 +35,32 @@ def mdedit_contains_k(field, schema):
 
         if value is not missing:
             if not isinstance(value, (list, str, unicode)):
-                errors[key].append(_('expecting list of strings or dict as string'))
+                errors[key].append(_('expecting list of strings or dicts in list as string'))
                 return
         else:
             return
 
+        labels = helpers.mdedit_get_contain_labels(field)
+
         # type is string if called from api
         if isinstance(value, (str, unicode)):
-            print("simply returning")
+            try:
+                value = json.loads(value.decode('utf-8'))
+
+                if type(value) != list:
+                    errors[key].append(_('expecting list of strings or dicts in list as string'))
+                else:
+                    for contact in value:
+                        if type(contact) == dict:
+                            labels = [x.lower() for x in labels]
+                            if not all(k in contact for k in labels):
+                                errors[key].append(_('missing key(s)'))
+                        else:
+                            errors[key].append(_('expecting list of strings or dicts in list as string'))
+            except:
+                errors[key].append(_('expecting list of strings or dicts in list as string'))
             return
         else:
-            labels = helpers.mdedit_get_contain_labels(field)
             num_contains = int(field['contains'])
 
             if all(isinstance(x, (str, unicode)) for x in value):
@@ -60,11 +73,10 @@ def mdedit_contains_k(field, schema):
                             contact[labels[i].lower()] = value[index-num_contains+1+i]
                         contact_dicts.append(contact)
             else:
-                errors[key].append(_('expecting list of strings or dict as string'))
+                errors[key].append(_('expecting list of strings or dicts in list as string'))
                 return
 
         data[key] = json.dumps(contact_dicts)
-        print(data[key])
 
     return validator
 
