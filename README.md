@@ -489,7 +489,7 @@ of a package (entered in the contact_info field).
 * **search_param** (string) - the parameter which will be compared (optional)
 * **search_value** (string) - the value of the parameter (optional)
 
-**Return type:** list of dictionaries as string
+**Return type:** list of dictionaries
 
 
 ------------------------
