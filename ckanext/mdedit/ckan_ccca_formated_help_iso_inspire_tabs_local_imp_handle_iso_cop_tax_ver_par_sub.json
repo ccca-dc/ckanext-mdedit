@@ -115,7 +115,7 @@
       "preset": "mdedit_contains",
       "group_end":"Contact Info",
       "mdedit_note1": "Special multiple Field. Best last item within a tab or group; last item in field might be select ",
-      "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into a string separated by str_sep",
+      "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into list of dicts as string",
       "mdedit_note3": "Max Contains: 5 (otherwise change in java module!)",
       "mdedit_note4": "attribute contact_info bound to  special display (and role choice at the end)",
       "contains": "4",

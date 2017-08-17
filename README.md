@@ -474,6 +474,25 @@ ckan_ccca_formated_help_iso_inspire_tabs_local_imp_handle_non_required.json
 
 
 ------------------------
+API function
+------------------------
+
+##### package_contact_show(context, data_dict)
+
+Search for contacts in a package.
+
+You can either enter a search parameter and value or just display all contacts
+of a package (entered in the contact_info field).
+
+**Parameters:**
+* **package_id** (string) - the id of the package
+* **search_param** (string) - the parameter which will be compared (optional)
+* **search_value** (string) - the value of the parameter (optional)
+
+**Return type:** list of dictionaries as string
+
+
+------------------------
 Development Installation
 ------------------------
 
