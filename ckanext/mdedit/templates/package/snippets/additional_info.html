@@ -5,6 +5,19 @@
 
 <section class="additional-info">
   <h3>{{ _('Dataset Metadata') }}</h3>
+    <div class="dropdown">
+      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        Export Metadata
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuMDExport">
+        <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='xml', qualified=True) }}">XML</a></li>
+        <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='n3', qualified=True) }}" target="_blank">N3</a></li>
+        <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='ttl', qualified=True) }}" target="_blank">TTL</a></li>
+      </ul>
+    </div>
+    <hr>
+
       {%- if schema.dataset_fields -%}
         {%- if schema.dataset_fields[0].field_name != "tab_delimiter" -%}
 
