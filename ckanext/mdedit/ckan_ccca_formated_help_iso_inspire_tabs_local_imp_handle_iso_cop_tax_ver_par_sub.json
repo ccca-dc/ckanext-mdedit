@@ -338,10 +338,11 @@
       "preset": "multiple_select",
       "iso":"41",
       "inspire":"Part B 2.1",
-      "help_text": "Main theme(s) of the dataset. See ",
-      "help_url": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory ",
+      "help_text": "Main categories(s) of the datapackage. See",
+      "help_url": "/categories",
       "help_text_norm": "ISO_tpCat (c), <br> INSPIRE_TopicCategory (m).",
       "mdedit_note": "Display Names added in order to match Copernicus and agreed categories - 29.3.2017 Anja",
+      "mdedit_important_note": "DO NOT CHANGE - USED FOR MAIN MENU CATEGORIES - 3.10.2017 Anja",
       "choices": [
         {
           "value": "001",
@@ -457,8 +458,7 @@
       {
         "field_name": "iso_thesaRefDate",
         "help_text_norm": "ISO_refDate (o), <br> INSPIRE_DateOfPublication (o).",
-        "mdedit_note":" TODO!!!! For further implementation....",
-        "form_snippet": "mdedit_small_text.html",
+        "form_snippet": "text.html",
         "iso": "394",
         "inspire": "Part B 5.2",
         "label": "Reference Date",
@@ -473,10 +473,9 @@
       {
         "field_name": "iso_thesRefDateType",
         "help_text_norm": "ISO_refdateType (o), <br> INSPIRE_DateOfPublication (o).",
-        "mdedit_note":" TODO!!!! For further implementation....",
         "iso": "395",
         "inspire": "Part B 5.2",
-        "form_snippet": "mdedit_small_text.html",
+        "form_snippet": "text.html",
         "label": "Date Type",
         "f_snippet": "select.html",
         "select_size": "1",
