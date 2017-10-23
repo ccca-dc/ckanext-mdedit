@@ -1,34 +1,18 @@
 import re
 import datetime
-import pytz
-
-from pylons import config
-from pylons.i18n import gettext
-
 import json
-import ckan.logic as logic
-get_action = logic.get_action
+import requests
 
+from pylons.i18n import gettext
+from pylons import c
 
-""" Anja 29.9.2016 """
+from ckan.common import _
+import ckan.model as model
 import  ckan.plugins.toolkit as tk
 context = tk.c
-import ckan.lib.base as base
-Base_c = base.c
-from pylons import c
+
 import logging
 log = logging.getLogger(__name__)
-""" Anja 29.9.2016 """
-""" Anja 23.11.2016 """
-import random
-""" Anja 23.11.2016 """
-""" Georg 2017-02-09 """
-import ckan.lib.formatters as formatters
-import ckan.lib.helpers as hck
-import ast
-
-import ckan.model as model
-
 
 global_contains_field = []
 
@@ -37,8 +21,8 @@ global_contains_field = []
 def get_older_versions(resource_id, package_id):
     ctx = {'model': model}
 
-    pkg = logic.get_action('package_show')(ctx, {'id': package_id})
-    resource = logic.get_action('resource_show')(ctx, {'id': resource_id})
+    pkg = tk.get_action('package_show')(ctx, {'id': package_id})
+    resource = tk.get_action('resource_show')(ctx, {'id': resource_id})
     resource_list = pkg['resources']
 
     versions = []
@@ -110,10 +94,7 @@ def mdedit_get_resource_version(resource_id):
 def mdedit_get_name():
      # Get the user name of the logged-in user.
     # log.debug("Helpers mdedit_get_name")
-
     user = c.userobj
-    # log.debug(c)
-    # log.debug(user)
 
     if user:
         u = gettext(user)
@@ -125,7 +106,6 @@ def mdedit_get_name():
 
 def mdedit_get_name_citation():
      # Get the user name of the logged-in user.
-
     user = c.userobj
     if user:
         cite_name = user.fullname
@@ -263,8 +243,107 @@ def mdedit_get_contain_values_k(data, field):
     return values
 
 
-def mdedit_render_size(value):
-    # Render Size String from Resource
-    if value is not None:
-        value = formatters.localised_filesize(int(value))
-    return value
+def localize_json_title(facet_item):
+    # json.loads tries to convert numbers in Strings to integers. At this point
+    # we only need to deal with Strings, so we let them be Strings.
+    try:
+        int(facet_item['display_name'])
+        return facet_item['display_name']
+    except (ValueError, TypeError):
+        pass
+    try:
+        lang_dict = json.loads(facet_item['display_name'])
+        return get_localized_value(
+            lang_dict,
+            default_value=facet_item['display_name']
+        )
+    except:
+        return facet_item['display_name']
+
+
+def get_frequency_name(identifier):
+    frequencies = {
+      'http://purl.org/cld/freq/completelyIrregular': _('Irregular'),  # noqa
+      'http://purl.org/cld/freq/continuous': _('Continuous'),  # noqa
+      'http://purl.org/cld/freq/daily': _('Daily'),  # noqa
+      'http://purl.org/cld/freq/threeTimesAWeek': _('Three times a week'),  # noqa
+      'http://purl.org/cld/freq/semiweekly': _('Semi weekly'),  # noqa
+      'http://purl.org/cld/freq/weekly': _('Weekly'),  # noqa
+      'http://purl.org/cld/freq/threeTimesAMonth': _('Three times a month'),  # noqa
+      'http://purl.org/cld/freq/biweekly': _('Biweekly'),  # noqa
+      'http://purl.org/cld/freq/semimonthly': _('Semimonthly'),  # noqa
+      'http://purl.org/cld/freq/monthly': _('Monthly'),  # noqa
+      'http://purl.org/cld/freq/bimonthly': _('Bimonthly'),  # noqa
+      'http://purl.org/cld/freq/quarterly': _('Quarterly'),  # noqa
+      'http://purl.org/cld/freq/threeTimesAYear': _('Three times a year'),  # noqa
+      'http://purl.org/cld/freq/semiannual': _('Semi Annual'),  # noqa
+      'http://purl.org/cld/freq/annual': _('Annual'),  # noqa
+      'http://purl.org/cld/freq/biennial': _('Biennial'),  # noqa
+      'http://purl.org/cld/freq/triennial': _('Triennial'),  # noqa
+    }
+    try:
+        return frequencies[identifier]
+    except KeyError:
+        return identifier
+
+
+def get_readable_file_size(num, suffix='B'):
+    try:
+        for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
+            num = float(num)
+            if abs(num) < 1024.0:
+                return "%3.1f%s%s" % (num, unit, suffix)
+            num /= 1024.0
+        return "%.1f%s%s" % (num, 'Y', suffix)
+    except ValueError:
+        return False
+
+
+def parse_json(value, default_value=None):
+    try:
+        return json.loads(value)
+    except (ValueError, TypeError, AttributeError):
+        if default_value is not None:
+            return default_value
+        return value
+
+
+def get_content_headers(url):
+    response = requests.head(url)
+    return response
+
+
+# all formats that need to be mapped have to be entered lower-case
+def map_to_valid_format(resource_format):
+    format_mapping = {
+        'CSV': ['csv', 'text (.csv)', 'comma ...'],
+        'GeoJSON': ['geojson'],
+        'GeoTIFF': ['geotiff'],
+        'GPKG': ['gpkg'],
+        'HTML': ['html'],
+        'INTERLIS': ['interlis'],
+        'JSON': ['json'],
+        'KMZ': ['kmz'],
+        'MULTIFORMAT': ['multiformat'],
+        'ODS': ['ods', 'vnd.oas...', 'vnd.oasis.opendocument.spreadsheet'],
+        'PC-AXIS': ['pc-axis file'],
+        'PDF': ['pdf'],
+        'PNG': ['png'],
+        'RDF': ['sparql-...'],
+        'SHAPEFILE': ['esri shapefile', 'esri geodatabase (....', 'esri file geodatabase', 'esri arcinfo ascii ...'],  # noqa
+        'TXT': ['text', 'txt', 'text (.txt)', 'plain'],
+        'TIFF': ['tiff'],
+        'WCS': ['wcs'],
+        'WFS': ['wfs'],
+        'WMS': ['wms'],
+        'WMTS': ['wmts'],
+        'XLS': ['xls', 'xlsx', 'vnd.openxmlformats-officedocument.spreadsheetml.sheet'],  # noqa
+        'XML': ['xml'],
+        'ZIP': ['zip'],
+    }
+    resource_format_lower = resource_format.lower()
+    for key, values in format_mapping.iteritems():
+        if resource_format_lower in values:
+            return key
+    else:
+        return None

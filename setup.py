@@ -80,6 +80,8 @@ setup(
     entry_points='''
         [ckan.plugins]
         mdedit=ckanext.mdedit.plugin:MdeditPlugin
+        mdedit_pkg=ckanext.mdedit.plugin:MdeditPackagePlugin
+        mdedit_res=ckanext.mdedit.plugin:MdeditResourcePlugin
 	[babel.extractors]
 	ckan = ckan.lib.extract:extract_ckan
     ''',

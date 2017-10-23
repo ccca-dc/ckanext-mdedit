@@ -2,24 +2,45 @@ import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 import json
 import ckanext.mdedit.logic.action as action
+import pylons
 
 from ckanext.mdedit import helpers
-from ckanext.mdedit import validators
+from ckanext.mdedit import validators as v
 ignore_empty = plugins.toolkit.get_validator('ignore_empty')
+
+from ckanext.mdedit.helpers import (
+    localize_json_title, get_frequency_name, get_readable_file_size,
+    parse_json, map_to_valid_format
+)
 
 
 class MdeditPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
-    plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IValidators)
     plugins.implements(plugins.IPackageController, inherit=True)
     plugins.implements(plugins.IActions)
+    plugins.implements(plugins.ITemplateHelpers)
 
     # IConfigurer
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'mdedit')
+
+    # IValidators
+    def get_validators(self):
+        return {
+            'mdedit_contains_k': v.mdedit_contains_k,
+            'multiple_text': v.multiple_text,
+            'multiple_text_output': v.multiple_text_output,
+            'list_of_dicts': v.list_of_dicts,
+            'parse_json': parse_json,
+            }
+
+    # IActions
+    def get_actions(self):
+        actions = {'package_contact_show': action.package_contact_show}
+        return actions
 
     # ITemplateHelpers
     def get_helpers(self):
@@ -32,19 +53,310 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_contain_values_k': helpers.mdedit_get_contain_values_k,
             'mdedit_get_contain_labels': helpers.mdedit_get_contain_labels,
             'mdedit_get_contain_pholders': helpers.mdedit_get_contain_pholders,
-            'mdedit_render_size': helpers.mdedit_render_size,
             'mdedit_get_resource_version': helpers.mdedit_get_resource_version,
             'mdedit_get_resource_title': helpers.mdedit_get_resource_title,
-            'mdedit_get_package_id': helpers.mdedit_get_package_id
+            'mdedit_get_package_id': helpers.mdedit_get_package_id,
+            'get_readable_file_size': helpers.get_readable_file_size
             }
 
-    # IValidators
-    def get_validators(self):
-        return {
-            'mdedit_contains_k': validators.mdedit_contains_k
-            }
 
-    # IActions
-    def get_actions(self):
-        actions = {'package_contact_show': action.package_contact_show}
-        return actions
+class MdeditLanguagePlugin(plugins.SingletonPlugin):
+    """
+    Handles language dictionaries in data_dict (pkg_dict).
+    """
+
+    def before_view(self, pkg_dict):
+        pkg_dict = self._prepare_package_json(pkg_dict)
+
+        return pkg_dict
+
+    def _ignore_field(self, key):
+        return False
+
+    def _prepare_package_json(self, pkg_dict):
+        # parse all json strings in dict
+        pkg_dict = self._package_parse_json_strings(pkg_dict)
+
+        # map ckan fields
+        pkg_dict = self._package_map_ckan_default_fields(pkg_dict)
+
+        # prepare format of resources
+        # pkg_dict = self._prepare_resources_format(pkg_dict)
+
+        try:
+            # Do not change the resulting dict for API requests
+            path = pylons.request.path
+            if path.startswith('/api'):
+                return pkg_dict
+        except TypeError:
+            # we get here if there is no request (i.e. on the command line)
+            return pkg_dict
+
+        # replace langauge dicts with requested language strings
+        # desired_lang_code = self._get_request_language()
+        # pkg_dict = self._package_reduce_to_requested_language(
+        #     pkg_dict, desired_lang_code
+        # )
+
+        return pkg_dict
+
+    def _get_request_language(self):
+        try:
+            return pylons.request.environ['CKAN_LANG']
+        except TypeError:
+            return pylons.config.get('ckan.locale_default', 'en')
+
+    def _package_parse_json_strings(self, pkg_dict):
+        # try to parse all values as JSON
+        for key, value in pkg_dict.iteritems():
+            pkg_dict[key] = parse_json(value)
+
+        # resources
+        # if 'resources' in pkg_dict and pkg_dict['resources'] is not None:
+        #     for i,res in enumerate(pkg_dict['resources']):
+        #         """
+        #         TODO: somehow the title is messed up here,
+        #         but the display_name is okay
+        #         """
+        #         for field in res:
+        #             for key, value in res.iteritems():
+        #                 pkg_dict['resources'][i][key] = parse_json(value)
+
+        # # groups
+        # if 'groups' in pkg_dict and pkg_dict['groups'] is not None:
+        #     for group in pkg_dict['groups']:
+        #         """
+        #         TODO: somehow the title is messed up here,
+        #         but the display_name is okay
+        #         """
+        #         group['title'] = group['display_name']
+        #         for field in group:
+        #             group[field] = parse_json(group[field])
+
+        # # organization
+        # if 'organization' in pkg_dict and pkg_dict['organization'] is not None:
+        #     for field in pkg_dict['organization']:
+        #         pkg_dict['organization'][field] = parse_json(
+        #             pkg_dict['organization'][field]
+        #         )
+
+        return pkg_dict
+
+    def _package_map_ckan_default_fields(self, pkg_dict):  # noqa
+        if pkg_dict.get('maintainer') is None:
+            try:
+                pkg_dict['maintainer'] = pkg_dict['contact_points'][0]['name']  # noqa
+            except (KeyError, IndexError):
+                pass
+
+        if pkg_dict.get('maintainer_email') is None:
+            try:
+                pkg_dict['maintainer_email'] = pkg_dict['contact_points'][0]['email']  # noqa
+            except (KeyError, IndexError):
+                pass
+
+        if pkg_dict.get('author') is None:
+            try:
+                pkg_dict['author'] = pkg_dict['contact_points'][0]['name']  # noqa
+            except (KeyError, IndexError):
+                pass
+
+        if pkg_dict.get('author_email') is None:
+            try:
+                pkg_dict['author_email'] = pkg_dict['contact_points'][0]['email']  # noqa
+            except (KeyError, IndexError):
+                pass
+
+        # if pkg_dict.get('resources') is not None:
+        #     for resource in pkg_dict['resources']:
+        #         resource['name'] = resource['title']
+
+        return pkg_dict
+
+    def _prepare_resources_format(self, pkg_dict):
+        if pkg_dict.get('resources') is not None:
+            for resource in pkg_dict['resources']:
+                resource = self._prepare_resource_format(resource)
+
+                # if format could not be mapped and media_type exists use this value  # noqa
+                if (not resource.get('format') and resource.get('media_type')):
+                    resource['format'] = resource['media_type'].split('/')[-1]
+
+        return pkg_dict
+
+    # Generates format of resource and saves it in format field
+    def _prepare_resource_format(self, resource):
+        resource_format = ''
+
+        # get format from media_type field if available
+        if not resource_format and resource.get('media_type'):  # noqa
+            resource_format = resource['media_type'].split('/')[-1].lower()
+
+        # get format from format field if available (lol)
+        if not resource_format and resource.get('format'):
+            resource_format = resource['format'].split('/')[-1].lower()
+
+        # check if 'media_type' or 'format' can be mapped
+        has_format = (map_to_valid_format(resource_format) is not None)
+
+        # if the fields can't be mapped,
+        # try to parse the download_url as a last resort
+        if not has_format and resource.get('download_url'):
+            path = urlparse.urlparse(resource['download_url']).path
+            ext = os.path.splitext(path)[1]
+            if ext:
+                resource_format = ext.replace('.', '').lower()
+
+        mapped_format = map_to_valid_format(resource_format)
+        if mapped_format:
+            # if format could be successfully mapped write it to format field
+            resource['format'] = mapped_format
+        elif not resource.get('download_url'):
+            resource['format'] = 'SERVICE'
+        else:
+            # else return empty string (this will be indexed as N/A)
+            resource['format'] = ''
+
+        return resource
+
+    def _extract_lang_value(self, value, lang_code):
+        new_value = parse_json(value)
+
+        if isinstance(new_value, dict):
+            return get_localized_value(new_value, lang_code, default_value='')
+        return value
+
+    def _package_reduce_to_requested_language(self, pkg_dict, desired_lang_code):  # noqa
+        # pkg fields
+        for key, value in pkg_dict.iteritems():
+            if not self._ignore_field(key):
+                pkg_dict[key] = self._extract_lang_value(
+                    value,
+                    desired_lang_code
+                )
+
+        # groups
+        pkg_dict = self._reduce_group_language(pkg_dict, desired_lang_code)
+
+        # organization
+        pkg_dict = self._reduce_org_language(pkg_dict, desired_lang_code)
+
+        # resources
+        pkg_dict = self._reduce_res_language(pkg_dict, desired_lang_code)
+
+        return pkg_dict
+
+    def _reduce_group_language(self, pkg_dict, desired_lang_code):
+        if 'groups' in pkg_dict and pkg_dict['groups'] is not None:
+            try:
+                for element in pkg_dict['groups']:
+                    for field in element:
+                        element[field] = self._extract_lang_value(
+                            element[field],
+                            desired_lang_code
+                        )
+            except TypeError:
+                pass
+
+        return pkg_dict
+
+    def _reduce_org_language(self, pkg_dict, desired_lang_code):
+        if 'organization' in pkg_dict and pkg_dict['organization'] is not None:
+            try:
+                for field in pkg_dict['organization']:
+                    pkg_dict['organization'][field] = self._extract_lang_value(
+                        pkg_dict['organization'][field],
+                        desired_lang_code
+                    )
+            except TypeError:
+                pass
+        return pkg_dict
+
+    def _reduce_res_language(self, pkg_dict, desired_lang_code):
+        if 'resources' in pkg_dict and pkg_dict['resources'] is not None:
+            try:
+                for element in pkg_dict['resources']:
+                    for field in element:
+                        element[field] = self._extract_lang_value(
+                            element[field],
+                            desired_lang_code
+                        )
+            except TypeError:
+                pass
+        return pkg_dict
+
+
+class MdeditResourcePlugin(MdeditLanguagePlugin):
+    plugins.implements(plugins.IResourceController, inherit=True)
+
+    # IResourceController
+    def before_show(self, res_dict):
+        res_dict = super(MdeditResourcePlugin, self).before_view(res_dict)
+        # res_dict = self._prepare_resource_format(res_dict)
+
+        # if format could not be mapped and media_type exists use this value
+        # if not res_dict.get('format') and res_dict.get('media_type'):
+        #     res_dict['format'] = res_dict['media_type'].split('/')[-1]
+
+        return res_dict
+
+    def _ignore_field(self, key):
+        return key == 'tracking_summary'
+
+
+class MdeditPackagePlugin(MdeditLanguagePlugin):
+    plugins.implements(plugins.IPackageController, inherit=True)
+
+    def is_supported_package_type(self, pkg_dict):
+        # only package type 'dataset' is supported (not harvesters!)
+        try:
+            return (pkg_dict['type'] == 'dataset')
+        except KeyError:
+            return False
+
+    # IPackageController
+    def before_view(self, pkg_dict):
+        if not self.is_supported_package_type(pkg_dict):
+            return pkg_dict
+
+        # # create resource views if necessary
+        # user = logic.get_action('get_site_user')({'ignore_auth': True}, {})
+        # context = {
+        #     'model': model,
+        #     'session': model.Session,
+        #     'user': user['name']
+        # }
+        # logic.check_access('package_create_default_resource_views', context)
+
+        # # get the dataset via API, as the pkg_dict does not contain all fields
+        # dataset = logic.get_action('package_show')(
+        #     context,
+        #     {'id': pkg_dict['id']}
+        # )
+
+        # # Make sure resource views are created before showing a dataset
+        # logic.get_action('package_create_default_resource_views')(
+        #     context,
+        #     {'package': dataset}
+        # )
+
+        return super(MdeditPackagePlugin, self).before_view(pkg_dict)
+
+#     TODO: before_view isn't called in API requests -> after_show is
+#           BUT (!) after_show is also called when packages get indexed
+#           and there we need all languages.
+#           -> find a solution to _prepare_package_json() in an API call.
+#     def after_show(self, context, pkg_dict):
+#         if not self.is_supported_package_type(pkg_dict):
+#             return pkg_dict
+#
+#         return super(MdeditPackagePlugin, self).before_view(pkg_dict)
+
+    def after_show(self, context, pkg_dict):
+        if not self.is_supported_package_type(pkg_dict):
+            return pkg_dict
+
+        pkg_dict = self._package_map_ckan_default_fields(pkg_dict)
+
+        return pkg_dict
+
