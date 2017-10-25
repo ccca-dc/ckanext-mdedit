@@ -133,7 +133,7 @@
       }
     },
     {
-      "field_name": "theme",
+      "field_name": "topic_categories",
       "label": "Topic Category/ies",
       "preset": "multiple_select",
       "help_text": "Main categories(s) of the datapackage. See",
@@ -314,7 +314,7 @@
     {
       "field_name": "temporals",
       "label": "Temporal coverage",
-      "preset": "dicts"
+      "preset": "temporals"
     },
     {
       "field_name": "frequency",

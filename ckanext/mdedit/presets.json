@@ -64,12 +64,13 @@
       "values": {
         "display_snippet": "temporals.html",
         "validators": "list_of_dicts",
-        "output_validators": "temporals_to_datetime_output"
+        "output_validators": "multiple_text_output"
       }
     },
     {
       "preset_name": "dicts",
       "values": {
+        "display_snippet": "dicts.html",
         "validators": "list_of_dicts",
         "output_validators": "multiple_text_output"
       }

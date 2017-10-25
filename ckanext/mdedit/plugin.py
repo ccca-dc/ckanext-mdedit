@@ -56,7 +56,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_resource_version': helpers.mdedit_get_resource_version,
             'mdedit_get_resource_title': helpers.mdedit_get_resource_title,
             'mdedit_get_package_id': helpers.mdedit_get_package_id,
-            'get_readable_file_size': helpers.get_readable_file_size
+            'get_readable_file_size': helpers.get_readable_file_size,
+            'get_frequency_name': helpers.get_frequency_name
             }
 
 
@@ -111,38 +112,11 @@ class MdeditLanguagePlugin(plugins.SingletonPlugin):
         for key, value in pkg_dict.iteritems():
             pkg_dict[key] = parse_json(value)
 
-        # resources
-        # if 'resources' in pkg_dict and pkg_dict['resources'] is not None:
-        #     for i,res in enumerate(pkg_dict['resources']):
-        #         """
-        #         TODO: somehow the title is messed up here,
-        #         but the display_name is okay
-        #         """
-        #         for field in res:
-        #             for key, value in res.iteritems():
-        #                 pkg_dict['resources'][i][key] = parse_json(value)
-
-        # # groups
-        # if 'groups' in pkg_dict and pkg_dict['groups'] is not None:
-        #     for group in pkg_dict['groups']:
-        #         """
-        #         TODO: somehow the title is messed up here,
-        #         but the display_name is okay
-        #         """
-        #         group['title'] = group['display_name']
-        #         for field in group:
-        #             group[field] = parse_json(group[field])
-
-        # # organization
-        # if 'organization' in pkg_dict and pkg_dict['organization'] is not None:
-        #     for field in pkg_dict['organization']:
-        #         pkg_dict['organization'][field] = parse_json(
-        #             pkg_dict['organization'][field]
-        #         )
-
         return pkg_dict
 
+
     def _package_map_ckan_default_fields(self, pkg_dict):  # noqa
+        # Map Maintainer and author from contact_points
         if pkg_dict.get('maintainer') is None:
             try:
                 pkg_dict['maintainer'] = pkg_dict['contact_points'][0]['name']  # noqa
@@ -167,9 +141,19 @@ class MdeditLanguagePlugin(plugins.SingletonPlugin):
             except (KeyError, IndexError):
                 pass
 
-        # if pkg_dict.get('resources') is not None:
-        #     for resource in pkg_dict['resources']:
-        #         resource['name'] = resource['title']
+        # Map Temporals for DCAT Export
+        # TODO Support multiple temporal extents
+        if pkg_dict.get('temporal_start') is None:
+            try:
+                pkg_dict['temporal_start'] = pkg_dict['temporals'][0]['start_date']  # noqa
+            except (KeyError, IndexError):
+                pass
+
+        if pkg_dict.get('temporal_end') is None:
+            try:
+                pkg_dict['temporal_end'] = pkg_dict['temporals'][0]['end_date']  # noqa
+            except (KeyError, IndexError):
+                pass
 
         return pkg_dict
 
@@ -219,71 +203,6 @@ class MdeditLanguagePlugin(plugins.SingletonPlugin):
 
         return resource
 
-    def _extract_lang_value(self, value, lang_code):
-        new_value = parse_json(value)
-
-        if isinstance(new_value, dict):
-            return get_localized_value(new_value, lang_code, default_value='')
-        return value
-
-    def _package_reduce_to_requested_language(self, pkg_dict, desired_lang_code):  # noqa
-        # pkg fields
-        for key, value in pkg_dict.iteritems():
-            if not self._ignore_field(key):
-                pkg_dict[key] = self._extract_lang_value(
-                    value,
-                    desired_lang_code
-                )
-
-        # groups
-        pkg_dict = self._reduce_group_language(pkg_dict, desired_lang_code)
-
-        # organization
-        pkg_dict = self._reduce_org_language(pkg_dict, desired_lang_code)
-
-        # resources
-        pkg_dict = self._reduce_res_language(pkg_dict, desired_lang_code)
-
-        return pkg_dict
-
-    def _reduce_group_language(self, pkg_dict, desired_lang_code):
-        if 'groups' in pkg_dict and pkg_dict['groups'] is not None:
-            try:
-                for element in pkg_dict['groups']:
-                    for field in element:
-                        element[field] = self._extract_lang_value(
-                            element[field],
-                            desired_lang_code
-                        )
-            except TypeError:
-                pass
-
-        return pkg_dict
-
-    def _reduce_org_language(self, pkg_dict, desired_lang_code):
-        if 'organization' in pkg_dict and pkg_dict['organization'] is not None:
-            try:
-                for field in pkg_dict['organization']:
-                    pkg_dict['organization'][field] = self._extract_lang_value(
-                        pkg_dict['organization'][field],
-                        desired_lang_code
-                    )
-            except TypeError:
-                pass
-        return pkg_dict
-
-    def _reduce_res_language(self, pkg_dict, desired_lang_code):
-        if 'resources' in pkg_dict and pkg_dict['resources'] is not None:
-            try:
-                for element in pkg_dict['resources']:
-                    for field in element:
-                        element[field] = self._extract_lang_value(
-                            element[field],
-                            desired_lang_code
-                        )
-            except TypeError:
-                pass
-        return pkg_dict
 
 
 class MdeditResourcePlugin(MdeditLanguagePlugin):
@@ -319,38 +238,7 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
         if not self.is_supported_package_type(pkg_dict):
             return pkg_dict
 
-        # # create resource views if necessary
-        # user = logic.get_action('get_site_user')({'ignore_auth': True}, {})
-        # context = {
-        #     'model': model,
-        #     'session': model.Session,
-        #     'user': user['name']
-        # }
-        # logic.check_access('package_create_default_resource_views', context)
-
-        # # get the dataset via API, as the pkg_dict does not contain all fields
-        # dataset = logic.get_action('package_show')(
-        #     context,
-        #     {'id': pkg_dict['id']}
-        # )
-
-        # # Make sure resource views are created before showing a dataset
-        # logic.get_action('package_create_default_resource_views')(
-        #     context,
-        #     {'package': dataset}
-        # )
-
         return super(MdeditPackagePlugin, self).before_view(pkg_dict)
-
-#     TODO: before_view isn't called in API requests -> after_show is
-#           BUT (!) after_show is also called when packages get indexed
-#           and there we need all languages.
-#           -> find a solution to _prepare_package_json() in an API call.
-#     def after_show(self, context, pkg_dict):
-#         if not self.is_supported_package_type(pkg_dict):
-#             return pkg_dict
-#
-#         return super(MdeditPackagePlugin, self).before_view(pkg_dict)
 
     def after_show(self, context, pkg_dict):
         if not self.is_supported_package_type(pkg_dict):
