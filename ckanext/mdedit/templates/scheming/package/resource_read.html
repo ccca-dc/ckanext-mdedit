@@ -42,7 +42,11 @@
         {%- block resource_size -%}
           <tr>
             <th scope="row">{{ _('Size') }}</th>
-            <td>{{ h.get_readable_file_size(res.Size) or _('unknown') }}</td>
+            {% if res.Size is not none  %}
+              <td>{{ res.Size|filesizeformat }}</td>
+            {% else %}
+              <td>{{ _('unknown') }}</td>
+            {% endif %}
           </tr>
         {%- endblock -%}
         {%- block resource_license -%}

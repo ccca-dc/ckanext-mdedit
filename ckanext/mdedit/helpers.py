@@ -307,6 +307,13 @@ def parse_json(value, default_value=None):
             return default_value
         return value
 
+def dump_json(value, default_value=None):
+    try:
+        return json.dumps(value)
+    except (ValueError, TypeError, AttributeError):
+        if default_value is not None:
+            return default_value
+        return value
 
 def get_content_headers(url):
     response = requests.head(url)

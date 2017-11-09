@@ -249,10 +249,14 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
         return pkg_dict
 
 #    def before_index(self, search_data):
+#        import pprint
 #        if not self.is_supported_package_type(search_data):
 #            return search_data
 #
 #        validated_dict = json.loads(search_data['validated_data_dict'])
+#        pprint.pprint(validated_dict)
+#        print('------------------------------------')
+#        pprint.pprint(search_data)
 #
 #        search_data['res_format'] = self._prepare_formats_for_index(validated_dict[u'resources'])  # noqa
 #        search_data['title_string'] = extract_title(validated_dict)
@@ -260,7 +264,7 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
 #        if 'political_level' in validated_dict[u'organization']:
 #            search_data['political_level'] = validated_dict[u'organization'][u'political_level']  # noqa
 #
-#        try:
+        #try:
 #            # index language-specific values (or it's fallback)
 #            text_field_items = {}
 #            for lang_code in get_langs():

@@ -100,7 +100,18 @@
     {
       "field_name": "relations",
       "label": "Relations",
-      "preset": "dicts"
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "relation",
+           "field_type": "text",
+           "field_label": "Relation"},
+          {"field_id": "id",
+           "field_type": "text",
+           "field_label": "ID"}
+        ]
+      }
     },
     {
       "field_name": "tab_delimiter",

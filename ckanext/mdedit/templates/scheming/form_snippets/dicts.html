@@ -1,0 +1,68 @@
+{% resource 'mdedit/mdedit_dicts.js' %}
+{% import 'macros/form.html' as form %}
+
+{% set list_dicts = data[field.field_name] %} 
+
+<div class="well well-small"> <p><h5>{{field.label}}</h5>
+  {% if list_dicts|length > 0 %}
+    <ul>
+      {% for dict in list_dicts %}
+        {% if dict is mapping %}
+          <div id="input_fields">
+            {% set list_index = loop.index0 %} 
+
+            {% for key, value in dict.iteritems() %}
+            {% call form.input(
+              key,
+              id=field.field_name + '-' + key + list_index|string,
+              label=h.scheming_language_text(key),
+              placeholder=h.scheming_language_text(field.form_placeholder),
+              value=value,
+              error=errors[field.field_name],
+              classes=field.classes if 'classes' in field else ['control-medium'],
+              attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
+              is_required=h.scheming_field_required(field)
+              )
+            %}
+            {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+            {% endcall %}
+            {% endfor %}
+            {% if list_index > 0 %}
+              <a href="#" class="remove_field">Remove</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  <button id="addbtn" class="btn btn-success" type="button" data-module="mdedit_dicts"
+    data-module-field_name="{{field.field_name}}" 
+    data-module-field_dict="{{ h.dump_json(field.form_attrs) }}">
+    Add field
+  </button>
+
+  {% else %}
+    <ul>
+      <div id="input_fields">
+            {% call form.input(
+              key,
+              id=field.field_name + '-' + key + list_index|string,
+              label=h.scheming_language_text(key),
+              placeholder=h.scheming_language_text(field.form_placeholder),
+              value=value,
+              error=errors[field.field_name],
+              classes=field.classes if 'classes' in field else ['control-medium'],
+              attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
+              is_required=h.scheming_field_required(field)
+              )
+            %}
+            {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+            {% endcall %}
+    </ul>
+  <button id="addbtn" class="btn btn-success" type="button" data-module="mdedit_dicts"
+    data-module-field_name="{{field.field_name}}" 
+    data-module-field_dict="{{ h.dump_json(field.form_attrs) }}">
+    Add field
+  </button>
+  {% endif %}
+
+</div>
