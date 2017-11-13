@@ -14,8 +14,10 @@ ckan.module('mdedit_dicts', function ($, _) {
         //var field_dict = JSON.parse(options.field_dict);
 
         console.log("Data initialized for element: ", this.el);
+        // auto collapse all panels
+        $(".panel-collapse").hide();
 
-        var wrapper         = $("#fs-"+options.field_name); //Fields wrapper
+        var wrapper = $("#fs-"+options.field_name); //Fields wrapper
 
         $('#add-'+options.field_name).click(function(e){ //on add input button click
             e.preventDefault();
@@ -27,12 +29,14 @@ ckan.module('mdedit_dicts', function ($, _) {
             var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);  
             // Increment the ID
             NewElement.attributes.id.value = NewElement.attributes.id.value.replace(0,parseInt(x)+1);
+
             // Create remove field and append to modified Node
             var remove_button = $('<a>',{
               class: 'rm-'+options.field_name,
               text: 'Remove',
               href: '#'
             }).appendTo(NewElement);
+
 
             // Append node on wrapper
             $(wrapper).append(NewElement);
@@ -42,7 +46,13 @@ ckan.module('mdedit_dicts', function ($, _) {
 
         $(wrapper).on("click",".rm-"+options.field_name, function(e){ //user click on remove text
             e.preventDefault(); $(this).parent('div').remove();
-        })
+        });
+
+        $(".panel-heading").click(function () {
+          // toggle current
+          $(this).parent().find(".panel-collapse").toggle();
+        });
+
 
         $( "form" ).submit(function( event ) {
             // Define empty array
@@ -54,7 +64,7 @@ ckan.module('mdedit_dicts', function ($, _) {
               var dict = {};
               // Add all inputFields from collection to dict
               for (var i = 0; i < inputFields.length; i++) {
-                dict[inputFields[i].name] = inputFields[i].value;
+                dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
               };
               // Add dict from input collection to array 
               outList.push(dict);
@@ -64,9 +74,9 @@ ckan.module('mdedit_dicts', function ($, _) {
             var outpField = $('#fs-'+options.field_name);
 
             // Remove input field with json data if user came with back button in browser
-            if (document.contains(document.getElementById(options.field_name))) {
-              document.getElementById(options.field_name).remove();
-            };  
+//            if (document.contains(document.getElementById(options.field_name))) {
+//              document.getElementById(options.field_name).remove();
+//            };  
 
             // Append one input field with json data
             var jsonInp = $('<input>',{

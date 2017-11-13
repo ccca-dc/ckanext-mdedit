@@ -133,7 +133,24 @@
       "field_name": "contact_points",
       "label": "Contact points",
       "preset": "dicts",
-      "display_snippet": "contact_points.html"
+      "display_snippet": "contact_points.html",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"},
+          {"field_id": "email",
+           "field_type": "text",
+           "field_label": "E-Mail"},
+          {"field_id": "department",
+           "field_type": "text",
+           "field_label": "Department"},
+          {"field_id": "role",
+           "field_type": "text",
+           "field_label": "Role"}
+        ]
+      }
     },
     {
       "field_name": "tab_delimiter",
@@ -292,7 +309,18 @@
       "field_name": "specifics",
       "label": "Specific keywords",
       "preset": "dicts",
-      "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)"
+      "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Keyword Name"},
+          {"field_id": "value",
+           "field_type": "text",
+           "field_label": "Keyword value"}
+        ]
+      }
     },
     {
       "field_name": "tab_delimiter",
@@ -325,7 +353,7 @@
     {
       "field_name": "temporals",
       "label": "Temporal coverage",
-      "preset": "dicts",
+      "preset": "temporals",
       "form_snippet": "dicts.html",
       "form_attrs": {
         "fields": [
@@ -354,12 +382,59 @@
     {
       "field_name": "dimensions",
       "label": "Dimensions",
-      "preset": "dicts"
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "description",
+           "field_type": "text",
+           "field_label": "Description"},
+          {"field_id": "start",
+           "field_type": "text",
+           "field_label": "Start"},
+          {"field_id": "shape",
+           "field_type": "text",
+           "field_label": "Shape"},
+          {"field_id": "increment",
+           "field_type": "text",
+           "field_label": "Increment"},
+          {"field_id": "units",
+           "field_type": "text",
+           "field_label": "Units"},
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"}
+        ],
+        "style": "collapse",
+        "heading": "description"
+      }
     },
     {
       "field_name": "variables",
       "label": "Variables",
-      "preset": "dicts"
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "description",
+           "field_type": "text",
+           "field_label": "Description"},
+          {"field_id": "shape",
+           "field_type": "text",
+           "field_label": "Shape"},
+          {"field_id": "units",
+           "field_type": "text",
+           "field_label": "Units"},
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"},
+          {"field_id": "standard_name",
+           "field_type": "text",
+           "field_label": "Standard Name"}
+        ],
+        "style": "collapse",
+        "heading": "description"
+      }
     },
     {
       "field_name": "tab_delimiter",
