@@ -15,23 +15,66 @@ ckan.module('mdedit_dicts', function ($, _) {
 
         console.log("Data initialized for element: ", this.el);
 
-        var wrapper         = $("#input_fields"); //Fields wrapper
-        var add_button      = $(".add_field_button"); //Add button ID
-       
-        var x = 1; //initial text box count
-        $('#addbtn').click(function(e){ //on add input button click
+        var wrapper         = $("#fs-"+options.field_name); //Fields wrapper
+
+        $('#add-'+options.field_name).click(function(e){ //on add input button click
             e.preventDefault();
-            x++; //text box increment
-            $(wrapper).append('<div><input type="text" name="mytext[' + x + ']"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+
+            // Grab the ID from last node
+            var x = $(".inp-"+options.field_name)[$(".inp-"+options.field_name).length - 1].attributes.id.value.match(/\d+$/);
+
+            // Get first node (no remove button there)
+            var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);  
+            // Increment the ID
+            NewElement.attributes.id.value = NewElement.attributes.id.value.replace(0,parseInt(x)+1);
+            // Create remove field and append to modified Node
+            var remove_button = $('<a>',{
+              class: 'rm-'+options.field_name,
+              text: 'Remove',
+              href: '#'
+            }).appendTo(NewElement);
+
+            // Append node on wrapper
+            $(wrapper).append(NewElement);
+
+            // Increment ID
         });
-        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-            e.preventDefault(); $(this).parent('div').remove(); x--;
+
+        $(wrapper).on("click",".rm-"+options.field_name, function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div').remove();
         })
 
         $( "form" ).submit(function( event ) {
-            console.log( $( this ).serializeArray() );
-            console.log( JSON.stringify($('#input_fields :input').serializeArray()) );
-            event.preventDefault();
+            // Define empty array
+            var outList = [];
+            // Loop over all input collections
+            $(".inp-"+options.field_name).each(function (i,el) {
+              var inputFields = el.getElementsByTagName('input');
+              // Define emtpy dict
+              var dict = {};
+              // Add all inputFields from collection to dict
+              for (var i = 0; i < inputFields.length; i++) {
+                dict[inputFields[i].name] = inputFields[i].value;
+              };
+              // Add dict from input collection to array 
+              outList.push(dict);
+            });
+            console.log(JSON.stringify(outList));
+            //event.preventDefault();
+            var outpField = $('#fs-'+options.field_name);
+
+            // Remove input field with json data if user came with back button in browser
+            if (document.contains(document.getElementById(options.field_name))) {
+              document.getElementById(options.field_name).remove();
+            };  
+
+            // Append one input field with json data
+            var jsonInp = $('<input>',{
+              name: options.field_name,
+              id: options.field_name,
+              type: 'hidden',
+              value: JSON.stringify(outList),
+            }).insertAfter(outpField);
         });
 
     }//initialize

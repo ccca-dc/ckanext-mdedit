@@ -325,7 +325,18 @@
     {
       "field_name": "temporals",
       "label": "Temporal coverage",
-      "preset": "temporals"
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "start_date",
+           "field_type": "text",
+           "field_label": "Start date"},
+          {"field_id": "end_date",
+           "field_type": "text",
+           "field_label": "End date"}
+        ]
+      }
     },
     {
       "field_name": "frequency",

@@ -5,16 +5,15 @@
 
 <div class="well well-small"> <p><h5>{{field.label}}</h5>
   {% if list_dicts|length > 0 %}
-    <ul>
+    <fieldset id="fs-{{ field.field_name }}">
       {% for dict in list_dicts %}
         {% if dict is mapping %}
-          <div id="input_fields">
-            {% set list_index = loop.index0 %} 
-
+          {% set list_index = loop.index0 %} 
+          <div id="{{ field.field_name + list_index|string }}" class="inp-{{ field.field_name }}">
             {% for key, value in dict.iteritems() %}
             {% call form.input(
               key,
-              id=field.field_name + '-' + key + list_index|string,
+              id=key,
               label=h.scheming_language_text(key),
               placeholder=h.scheming_language_text(field.form_placeholder),
               value=value,
@@ -24,17 +23,18 @@
               is_required=h.scheming_field_required(field)
               )
             %}
-            {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
             {% endcall %}
             {% endfor %}
             {% if list_index > 0 %}
-              <a href="#" class="remove_field">Remove</a>
+              <a href="#" class="rm-{{ field.field_name }}">Remove</a>
             {% endif %}
           </div>
         {% endif %}
       {% endfor %}
-    </ul>
-  <button id="addbtn" class="btn btn-success" type="button" data-module="mdedit_dicts"
+      {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+    </fieldset>
+  <button id="add-{{ field.field_name }}" class="btn btn-success" type="button" 
+    data-module="mdedit_dicts"
     data-module-field_name="{{field.field_name}}" 
     data-module-field_dict="{{ h.dump_json(field.form_attrs) }}">
     Add field
