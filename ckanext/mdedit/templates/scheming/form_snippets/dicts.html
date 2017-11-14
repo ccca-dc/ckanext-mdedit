@@ -86,24 +86,23 @@
   {# There were no entries in the list #}
   {% else %}
     <fieldset id="fs-{{ field.field_name }}">
-     <div id="{{ field.field_name + 0|string }}" class="inp-{{ field.field_name }}">
-      {% for dict in form_attrs.fields %}
-        {% if dict is mapping %}
+     {% set list_index = 0 %} 
+     <div id="{{ field.field_name + list_index|string }}" class="well well-small inp-{{ field.field_name }}">
+      {% for form_attrs_fields in form_attrs.fields %}
           {% set list_index = loop.index0 %} 
           {% call form.input(
-              dict['field_id'],
-              id=field.field_name +dict['field_id'],
-              label=h.scheming_language_text(dict['field_label']),
-              placeholder=h.scheming_language_text(field.form_placeholder),
-              value='',
-              error=errors[field.field_name],
-              classes=field.classes if 'classes' in field else ['control-medium'],
-              attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
-              is_required=h.scheming_field_required(field)
-              )
+            field.field_name + '-' + form_attrs_fields['field_id'],
+            id=field.field_name + '-' + form_attrs_fields['field_id'],
+            label=h.scheming_language_text(form_attrs_fields['field_label']),
+            placeholder=h.scheming_language_text(field.form_placeholder),
+            value='',
+            error=errors[field.field_name],
+            classes=field.classes if 'classes' in field else ['control-medium'],
+            attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
+            is_required=h.scheming_field_required(field)
+            )
           %}
           {% endcall %}
-        {% endif %}
       {% endfor %}
     </div>
     </fieldset>
