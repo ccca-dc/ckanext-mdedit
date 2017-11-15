@@ -1,0 +1,18 @@
+{%- set dicts = data[field.field_name] -%}
+{% if dicts %}
+  <ul>
+  {% for dict in dicts %}
+        <li>
+          {#}
+        {% for key, value in dict.iteritems() %}
+            {{ key }}:
+            &nbsp;
+            {{ value }} <br>
+        {% endfor %}
+        {#}
+        </li>
+  {% endfor %}
+  </ul>
+{% else %}
+  -
+{% endif %}
