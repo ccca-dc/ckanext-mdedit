@@ -307,7 +307,7 @@
     },
     {
       "field_name": "specifics",
-      "label": "Specific keywords",
+      "label": "Specific information",
       "preset": "dicts",
       "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "dicts.html",
