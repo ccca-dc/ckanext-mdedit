@@ -10,7 +10,7 @@ ignore_empty = plugins.toolkit.get_validator('ignore_empty')
 
 from ckanext.mdedit.helpers import (
     localize_json_title, get_frequency_name, get_readable_file_size,
-    parse_json, map_to_valid_format
+    parse_json, dump_json, map_to_valid_format
 )
 
 
@@ -248,15 +248,33 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
 
         return pkg_dict
 
-#    def before_index(self, search_data):
-#        import pprint
-#        if not self.is_supported_package_type(search_data):
-#            return search_data
-#
-#        validated_dict = json.loads(search_data['validated_data_dict'])
-#        pprint.pprint(validated_dict)
-#        print('------------------------------------')
-#        pprint.pprint(search_data)
+    def before_index(self, search_data):
+        import pprint
+        if not self.is_supported_package_type(search_data):
+            return search_data
+
+        validated_dict = json.loads(search_data['validated_data_dict'])
+        pprint.pprint(validated_dict)
+        print('------------------------------------')
+        pprint.pprint(search_data['variables'])
+        try:
+            search_data['extras_variables'] = self._prepare_lists_for_index(validated_dict[u'variables'])  # noqa
+            search_data['extras_dimensions'] = self._prepare_lists_for_index(validated_dict[u'dimensions'])  # noqa
+            pprint.pprint(search_data['variables'])
+        except:
+            pass
+
+        return search_data
+
+    # generates a set with formats of all resources
+    def _prepare_lists_for_index(self, list_dicts):
+        print("Prepare -------------------------------------")
+        print(list_dicts)
+        dicts = set()
+        for d in list_dicts:
+            dicts.add(str(d))
+
+        return dicts
 #
 #        search_data['res_format'] = self._prepare_formats_for_index(validated_dict[u'resources'])  # noqa
 #        search_data['title_string'] = extract_title(validated_dict)
