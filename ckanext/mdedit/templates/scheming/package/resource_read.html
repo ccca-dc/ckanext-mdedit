@@ -42,8 +42,8 @@
         {%- block resource_size -%}
           <tr>
             <th scope="row">{{ _('Size') }}</th>
-            {% if res.Size is not none  %}
-              <td>{{ res.Size|filesizeformat }}</td>
+            {% if res.size is not none  %}
+              <td>{{ res.size|filesizeformat }}</td>
             {% else %}
               <td>{{ _('unknown') }}</td>
             {% endif %}
