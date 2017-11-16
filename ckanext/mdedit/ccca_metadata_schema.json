@@ -229,7 +229,7 @@
       "inspire":"Part B 10.3",
       "choices": [
         {
-          "value": "eng",
+          "value": "http://publications.europa.eu/resource/authority/language/ENG",
           "label": "English"
         },
         {
@@ -270,11 +270,6 @@
       "help_text": "Date of revision of the metadata of this  dataset  (automatically filled if left empty)"
     },
     {
-      "field_name": "relations",
-      "label": "Relations",
-      "preset": "dicts"
-    },
-    {
       "field_name": "state",
       "label": "Server State of the Dataset",
       "notes": "Field required by CKAN",
@@ -284,6 +279,23 @@
         "hidden": "true"
       }
     },
+    {
+      "field_name": "relations",
+      "label": "Relations",
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "relation",
+           "field_type": "text",
+           "field_label": "Relation"},
+          {"field_id": "id",
+           "field_type": "text",
+           "field_label": "ID"}
+        ]
+      }
+    },
+
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Keywords",
@@ -310,7 +322,7 @@
           "label": "Agriculture and Forestry"
         },
         {
-          "value": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/biota/biota.en.rdf",
+          "value": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/biota",
           "iso_name": "biota",
           "label": "Phenology"
         },
@@ -368,7 +380,23 @@
       "iso":"53"
     },
 
-
+    {
+      "field_name": "specifics",
+      "label": "Specific information",
+      "preset": "dicts",
+      "help_text": "Specific information for this dataset (e.g. Model, Ensemble, Scenario, ...)",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"},
+          {"field_id": "value",
+           "field_type": "text",
+           "field_label": "Value"}
+        ]
+      }
+    },
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Spatial",
@@ -385,10 +413,10 @@
      "display_snippet": "spatial.html",
      "help_text": "Select area describing the dataset spatial extend"
    },
-
    {
-    "field_name": "spatial_text"
-  },
+    "field_name": "spatial_name",
+    "form_snippet": "mdedit_hidden.html"
+   },
 
   {
     "field_name": "spatial_resolution",
@@ -537,20 +565,61 @@
     {
       "field_name": "dimensions",
       "label": "Dimensions",
-      "preset": "dicts"
-
+      "preset": "dicts",
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "description",
+           "field_type": "text",
+           "field_label": "Description"},
+          {"field_id": "start",
+           "field_type": "text",
+           "field_label": "Start"},
+          {"field_id": "shape",
+           "field_type": "text",
+           "field_label": "Shape"},
+          {"field_id": "increment",
+           "field_type": "text",
+           "field_label": "Increment"},
+          {"field_id": "units",
+           "field_type": "text",
+           "field_label": "Units"},
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"}
+        ],
+        "style": "collapse",
+        "heading": "description"
+      }
     },
     {
       "field_name": "variables",
       "label": "Variables",
-      "preset": "dicts"
-    },
-    {
-      "field_name": "specifics",
-      "label": "Specific Information",
       "preset": "dicts",
-      "help_text": "Specific Information for this dataset (e.g. Model, Ensemble, Scenario, ...)"
+      "form_snippet": "dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_id": "description",
+           "field_type": "text",
+           "field_label": "Description"},
+          {"field_id": "shape",
+           "field_type": "text",
+           "field_label": "Shape"},
+          {"field_id": "units",
+           "field_type": "text",
+           "field_label": "Units"},
+          {"field_id": "name",
+           "field_type": "text",
+           "field_label": "Name"},
+          {"field_id": "standard_name",
+           "field_type": "text",
+           "field_label": "Standard Name"}
+        ],
+        "style": "collapse",
+        "heading": "description"
+      }
     },
+
     {
       "field_name":"tab_delimiter",
       "tab_delimiter": "Quality",
@@ -566,7 +635,7 @@
       "help_text_norm": "ISO_statement (o), <br> INSPIRE_Lineage (o). dcat - provenance",
       "inspire": "Part B 6.1",
       "iso":"83",
-      "label": "Lineage",
+      "label": "Provenance",
       "form_snippet": "markdown.html",
       "help_text": "General explanation of the data producer's knowledge about the lineage of a dataset."
     },
@@ -579,7 +648,7 @@
       }
     },
     {
-      "field_name": "iso_conSpec",
+      "field_name": "specification",
       "help_text_norm": "ISO_conSpec (m), <br> INSPIRE_Specification (m).",
       "inspire": "Part B 7.1",
       "iso":"130",
