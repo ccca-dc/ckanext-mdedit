@@ -259,18 +259,30 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
             search_data['extras_dimensions'] = self._prepare_lists_for_index(validated_dict[u'dimensions'])  # noqa
             search_data['extras_relations'] = self._prepare_lists_for_index(validated_dict[u'relations'])  # noqa
             search_data['extras_specifics'] = self._prepare_lists_for_index(validated_dict[u'specifics'])  # noqa
-            pprint.pprint(search_data['variables'])
+            
+            # Flatten specifics
+            search_data.update(self._flatten_lists_for_index(validated_dict[u'specifics'], 'extras_specifics', 'name', 'value'))
+
         except:
             pass
+
 
         return search_data
 
     # generates a set with all dicts from list
     def _prepare_lists_for_index(self, list_dicts):
-        print("Prepare -------------------------------------")
-        print(list_dicts)
-        dicts = set()
+        dicts = []
         for d in list_dicts:
-            dicts.add(dump_json(d))
+            dicts.append(dump_json(d))
 
         return dicts
+
+    def _flatten_lists_for_index(self, list_dicts, result_key_prefix, filter_key, filter_value):
+        unique_keywords = set([dic.get(filter_key) for dic in list_dicts])
+        print(unique_keywords)
+        flatten_dict = {}
+        for keyword in unique_keywords:
+            flatten_dict.update(
+                {'_'.join([result_key_prefix, keyword]): [d.get(filter_value) for d in list_dicts if d.get(filter_key) in keyword ]})
+
+        return flatten_dict
