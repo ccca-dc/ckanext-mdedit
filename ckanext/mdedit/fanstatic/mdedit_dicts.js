@@ -48,7 +48,7 @@ ckan.module('mdedit_dicts', function ($, _) {
             e.preventDefault(); $(this).parent('div').remove();
         });
 
-        $(".panel-heading").click(function () {
+        $(".panel-heading").unbind().click(function () {
           // toggle current
           $(this).parent().find(".panel-collapse").toggle();
         });
@@ -74,9 +74,9 @@ ckan.module('mdedit_dicts', function ($, _) {
             var outpField = $('#fs-'+options.field_name);
 
             // Remove input field with json data if user came with back button in browser
-//            if (document.contains(document.getElementById(options.field_name))) {
-//              document.getElementById(options.field_name).remove();
-//            };  
+            if (document.contains(document.getElementById(options.field_name))) {
+              document.getElementById(options.field_name).remove();
+            };  
 
             // Append one input field with json data
             var jsonInp = $('<input>',{

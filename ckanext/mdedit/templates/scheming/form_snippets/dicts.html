@@ -41,12 +41,12 @@
                       %}
                       {% endcall %}
                     {% endfor %}
-                    {% if list_index > 0 %}
-                      <a href="#" class="rm-{{ field.field_name }}">Remove</a>
-                    {% endif %}
                   </div>
                 </div>
               </div>
+              {% if list_index > 0 %}
+                <a href="#" class="rm-{{ field.field_name }}">Remove</a>
+              {% endif %}
             </div>
 
           {# Build text form with normal input fields #}
