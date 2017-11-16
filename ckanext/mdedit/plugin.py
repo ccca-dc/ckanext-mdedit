@@ -254,76 +254,23 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
             return search_data
 
         validated_dict = json.loads(search_data['validated_data_dict'])
-        pprint.pprint(validated_dict)
-        print('------------------------------------')
-        pprint.pprint(search_data['variables'])
         try:
             search_data['extras_variables'] = self._prepare_lists_for_index(validated_dict[u'variables'])  # noqa
             search_data['extras_dimensions'] = self._prepare_lists_for_index(validated_dict[u'dimensions'])  # noqa
+            search_data['extras_relations'] = self._prepare_lists_for_index(validated_dict[u'relations'])  # noqa
+            search_data['extras_specifics'] = self._prepare_lists_for_index(validated_dict[u'specifics'])  # noqa
             pprint.pprint(search_data['variables'])
         except:
             pass
 
         return search_data
 
-    # generates a set with formats of all resources
+    # generates a set with all dicts from list
     def _prepare_lists_for_index(self, list_dicts):
         print("Prepare -------------------------------------")
         print(list_dicts)
         dicts = set()
         for d in list_dicts:
-            dicts.add(str(d))
+            dicts.add(dump_json(d))
 
         return dicts
-#
-#        search_data['res_format'] = self._prepare_formats_for_index(validated_dict[u'resources'])  # noqa
-#        search_data['title_string'] = extract_title(validated_dict)
-#        search_data['description'] = LangToString('description')(validated_dict)  # noqa
-#        if 'political_level' in validated_dict[u'organization']:
-#            search_data['political_level'] = validated_dict[u'organization'][u'political_level']  # noqa
-#
-        #try:
-#            # index language-specific values (or it's fallback)
-#            text_field_items = {}
-#            for lang_code in get_langs():
-#                search_data['title_' + lang_code] = get_localized_value(
-#                    validated_dict['title'],
-#                    lang_code
-#                )
-#                search_data['title_string_' + lang_code] = munge_title_to_name(
-#                    get_localized_value(validated_dict['title'], lang_code)
-#                )
-#                search_data['description_' + lang_code] = get_localized_value(
-#                    validated_dict['description'],
-#                    lang_code
-#                )
-#                search_data['keywords_' + lang_code] = get_localized_value(
-#                    validated_dict['keywords'],
-#                    lang_code
-#                )
-#
-#                text_field_items['text_' + lang_code] = [get_localized_value(validated_dict['description'], lang_code)]  # noqa
-#                text_field_items['text_' + lang_code].extend(search_data['keywords_' + lang_code])  # noqa
-#                text_field_items['text_' + lang_code].extend([r['title'][lang_code] for r in validated_dict['resources'] if r['title'][lang_code]])  # noqa
-#                text_field_items['text_' + lang_code].extend([r['description'][lang_code] for r in validated_dict['resources'] if r['description'][lang_code]])  # noqa
-#
-#            # flatten values for text_* fields
-#            for key, value in text_field_items.iteritems():
-#                search_data[key] = ' '.join(value)
-#
-#        except KeyError:
-#            pass
-#
-#        return search_data
-#
-#    # generates a set with formats of all resources
-#    def _prepare_formats_for_index(self, resources):
-#        formats = set()
-#        for r in resources:
-#            resource = self._prepare_resource_format(r)
-#            if resource['format']:
-#                formats.add(resource['format'])
-#            else:
-#                formats.add('N/A')
-#
-#        return formats
