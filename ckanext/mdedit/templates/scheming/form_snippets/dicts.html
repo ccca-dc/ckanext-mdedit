@@ -4,13 +4,30 @@
 {% set list_dicts = data[field.field_name] %} 
 {% set form_attrs = field.form_attrs %} 
 
+{# Prepare form_attrs: Append field_name to avoid conflicts with existing fields #}
+{% for form_attrs_fields in form_attrs.fields %}
+  {% if field.field_name not in form_attrs_fields.field_name  %}
+    {% do form_attrs_fields.update({"field_name_orig":form_attrs_fields.field_name}) %}
+    {% do form_attrs_fields.update({"field_name":field.field_name + '-' + form_attrs_fields.field_name}) %}
+  {% endif %}
+{% endfor %}
 
 <div class="well well-small"> <p><h5>{{field.label}}</h5>
 
+{# Template div with input fields hidden. Used for creation of additional elements #}
+<div id="{{ field.field_name + '-template' }}" class="well well-small" style="display: none;">
+  {% for form_attrs_fields in form_attrs.fields %}
+    {%- snippet 'scheming/snippets/form_field.html', 
+                field=form_attrs_fields, 
+                data=None, errors=errors, 
+                licenses=licenses, 
+                schema=None -%}
+  {% endfor %}
+</div>
+
+  <fieldset id="fs-{{ field.field_name }}">
   {# Check if there are any entries in the list #}
   {% if list_dicts|length > 0 %}
-
-    <fieldset id="fs-{{ field.field_name }}">
       {% for dict in list_dicts %}
         {# There must be a dict in the list #}
         {% if dict is mapping %}
@@ -28,58 +45,27 @@
                   <div class="panel-body">
             {% endif %}
                     {% for form_attrs_fields in form_attrs.fields %}
-                      {% call form.input(
-                        field.field_name + '-' + form_attrs_fields['field_id'],
-                        id=field.field_name + '-' + form_attrs_fields['field_id'],
-                        label=h.scheming_language_text(form_attrs_fields['field_label']),
-                        placeholder=h.scheming_language_text(field.form_placeholder),
-                        value=dict[form_attrs_fields['field_id']],
-                        error=errors[field.field_name],
-                        classes=field.classes if 'classes' in field else ['control-medium'],
-                        attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
-                        is_required=h.scheming_field_required(form_attrs_fields)
-                        )
-                      %}
-                      {% endcall %}
+                      {# Prepare dict: Append field_name to key avoid conflicts with existing fields #}
+                      {% do dict.update({form_attrs_fields.field_name|string:dict[form_attrs_fields.field_name_orig]}) %}
+                      {%- snippet 'scheming/snippets/form_field.html', 
+                                  field=form_attrs_fields, 
+                                  data=dict, errors=errors, 
+                                  licenses=licenses, 
+                                  schema=None -%}
                     {% endfor %}
             {% if form_attrs.style|string == "collapse" %}
                   </div>
                 </div>
               </div>
             {% endif %}
-              {% if list_index > 0 %}
-                <a href="#" class="rm-{{ field.field_name }}">Remove</a>
-              {% endif %}
-            </div>
+              <a href="#" class="rm-{{ field.field_name }}">Remove</a>
+          </div>
         {% endif %}
       {% endfor %}
       {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
-    </fieldset>
-
-  {# There were no entries in the list #}
-  {% else %}
-    <fieldset id="fs-{{ field.field_name }}">
-     {% set list_index = 0 %} 
-     <div id="{{ field.field_name + list_index|string }}" class="well well-small inp-{{ field.field_name }}">
-      {% for form_attrs_fields in form_attrs.fields %}
-          {% set list_index = loop.index0 %} 
-          {% call form.input(
-            field.field_name + '-' + form_attrs_fields['field_id'],
-            id=field.field_name + '-' + form_attrs_fields['field_id'],
-            label=h.scheming_language_text(form_attrs_fields['field_label']),
-            placeholder=h.scheming_language_text(field.form_placeholder),
-            value='',
-            error=errors[field.field_name],
-            classes=field.classes if 'classes' in field else ['control-medium'],
-            attrs=field.form_attrs if 'form_attrs' in field else {"class": "form-control"},
-            is_required=h.scheming_field_required(field)
-            )
-          %}
-          {% endcall %}
-      {% endfor %}
-    </div>
-    </fieldset>
   {% endif %}
+  </fieldset>
+
   {# Button to add additional fields #}
   <button id="add-{{ field.field_name }}" class="btn btn-success" type="button" 
     data-module="mdedit_dicts"

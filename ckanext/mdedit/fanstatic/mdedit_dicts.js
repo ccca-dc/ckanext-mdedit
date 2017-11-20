@@ -23,12 +23,20 @@ ckan.module('mdedit_dicts', function ($, _) {
             e.preventDefault();
 
             // Grab the ID from last node
-            var x = $(".inp-"+options.field_name)[$(".inp-"+options.field_name).length - 1].attributes.id.value.match(/\d+$/);
-
+            if ($(".inp-"+options.field_name).length > 0) {
+              var x = $(".inp-"+options.field_name)[$(".inp-"+options.field_name).length - 1].attributes.id.value.match(/\d+$/);
+            }
+            else {
+              var x = -1;
+            }
             // Get first node (no remove button there)
-            var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);  
+            //var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);  
+            var NewElement=$("#"+options.field_name+"-template")[0].cloneNode(true);  
+            NewElement.removeAttribute("style");
+            NewElement.classList.add("inp-"+options.field_name);
             // Increment the ID
-            NewElement.attributes.id.value = NewElement.attributes.id.value.replace(0,parseInt(x)+1);
+            NewElement.attributes.id.value = NewElement.attributes.id.value.replace('-template',parseInt(x)+1);
+            //NewElement.attributes.id.value = NewElement.attributes.id.value.replace(0,parseInt(x)+1);
 
             // Create remove field and append to modified Node
             var remove_button = $('<a>',{
@@ -59,7 +67,7 @@ ckan.module('mdedit_dicts', function ($, _) {
             var outList = [];
             // Loop over all input collections
             $(".inp-"+options.field_name).each(function (i,el) {
-              var inputFields = el.getElementsByTagName('input');
+              var inputFields = el.querySelectorAll('input,textarea,select');
               // Define emtpy dict
               var dict = {};
               // Add all inputFields from collection to dict
@@ -69,7 +77,6 @@ ckan.module('mdedit_dicts', function ($, _) {
               // Add dict from input collection to array 
               outList.push(dict);
             });
-            console.log(JSON.stringify(outList));
             //event.preventDefault();
             var outpField = $('#fs-'+options.field_name);
 
