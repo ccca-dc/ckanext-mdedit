@@ -36,6 +36,7 @@
       inline=field.get('help_inline', true),
     ) }}
 {%- endif -%}
+{#}
 {% if field.help_text_norm %}
     {{ standard_info(
         text=h.scheming_language_text(field.help_text_norm),
@@ -43,3 +44,4 @@
         classes=['label_info'],
         ) }}
 {%- endif -%}
+{#}
