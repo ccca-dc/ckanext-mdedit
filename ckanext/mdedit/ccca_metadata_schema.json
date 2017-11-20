@@ -286,16 +286,15 @@
       "form_snippet": "dicts.html",
       "form_attrs": {
         "fields": [
-          {"field_id": "relation",
-           "field_type": "text",
-           "field_label": "Relation"},
-          {"field_id": "id",
-           "field_type": "text",
-           "field_label": "ID"}
+          {"field_name": "relation",
+           "form_snippet": "text.html",
+           "label": "Relation"},
+          {"field_name": "id",
+           "form_snippet": "text.html",
+           "label": "ID"}
         ]
       }
     },
-
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Keywords",
@@ -406,12 +405,12 @@
       "form_snippet": "dicts.html",
       "form_attrs": {
         "fields": [
-          {"field_id": "name",
-           "field_type": "text",
-           "field_label": "Keyword Name"},
-          {"field_id": "value",
-           "field_type": "text",
-           "field_label": "Keyword value"}
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Keyword Name"},
+          {"field_name": "value",
+           "form_snippet": "text.html",
+           "label": "Keyword value"}
         ]
       }
     },
@@ -587,24 +586,24 @@
       "form_snippet": "dicts.html",
       "form_attrs": {
         "fields": [
-          {"field_id": "description",
-           "field_type": "text",
-           "field_label": "Description"},
-          {"field_id": "start",
-           "field_type": "text",
-           "field_label": "Start"},
-          {"field_id": "shape",
-           "field_type": "text",
-           "field_label": "Shape"},
-          {"field_id": "increment",
-           "field_type": "text",
-           "field_label": "Increment"},
-          {"field_id": "units",
-           "field_type": "text",
-           "field_label": "Units"},
-          {"field_id": "name",
-           "field_type": "text",
-           "field_label": "Name"}
+          {"field_name": "description",
+           "form_snippet": "text.html",
+           "label": "Description"},
+          {"field_name": "start",
+           "form_snippet": "text.html",
+           "label": "Start"},
+          {"field_name": "shape",
+           "form_snippet": "text.html",
+           "label": "Shape"},
+          {"field_name": "increment",
+           "form_snippet": "text.html",
+           "label": "Increment"},
+          {"field_name": "units",
+           "form_snippet": "text.html",
+           "label": "Units"},
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Name"}
         ],
         "style": "collapse",
         "heading": "description"
@@ -617,27 +616,26 @@
       "form_snippet": "dicts.html",
       "form_attrs": {
         "fields": [
-          {"field_id": "description",
-           "field_type": "text",
-           "field_label": "Description"},
-          {"field_id": "shape",
-           "field_type": "text",
-           "field_label": "Shape"},
-          {"field_id": "units",
-           "field_type": "text",
-           "field_label": "Units"},
-          {"field_id": "name",
-           "field_type": "text",
-           "field_label": "Name"},
-          {"field_id": "standard_name",
-           "field_type": "text",
-           "field_label": "Standard Name"}
+          {"field_name": "description",
+           "form_snippet": "text.html",
+           "label": "Description"},
+          {"field_name": "shape",
+           "form_snippet": "text.html",
+           "label": "Shape"},
+          {"field_name": "units",
+           "form_snippet": "text.html",
+           "label": "Units"},
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Name"},
+          {"field_name": "standard_name",
+           "form_snippet": "text.html",
+           "label": "Standard Name"}
         ],
         "style": "collapse",
         "heading": "description"
       }
     },
-
     {
       "field_name":"tab_delimiter",
       "tab_delimiter": "Quality",
@@ -646,8 +644,6 @@
         "readonly": "readonly"
       }
     },
-
-
     {
       "field_name": "provenance",
       "help_text_norm": "ISO_statement (o), <br> INSPIRE_Lineage (o). dcat - provenance",
