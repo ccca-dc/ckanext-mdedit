@@ -409,10 +409,12 @@
         "fields": [
           {"field_name": "start_date",
            "form_snippet": "text.html",
-           "label": "Start date"},
+           "label": "Start date"
+          },
           {"field_name": "end_date",
            "form_snippet": "text.html",
-           "label": "End date"}
+           "label": "End date"
+          }
         ]
       }
     },
