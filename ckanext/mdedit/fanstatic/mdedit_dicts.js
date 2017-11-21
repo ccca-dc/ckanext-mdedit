@@ -72,7 +72,9 @@ ckan.module('mdedit_dicts', function ($, _) {
               var dict = {};
               // Add all inputFields from collection to dict
               for (var i = 0; i < inputFields.length; i++) {
-                dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
+                  if (inputFields[i].value != '' || inputFields[i].value != inputFields[i].defaultValue) {
+                    dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
+                  }
               };
               // Add dict from input collection to array 
               outList.push(dict);

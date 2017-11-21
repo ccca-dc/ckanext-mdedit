@@ -105,8 +105,27 @@
       "form_attrs": {
         "fields": [
           {"field_name": "relation",
-           "form_snippet": "text.html",
-           "label": "Relation"},
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "is_version_of",
+               "label": "Is version of"
+             },
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_subset_of",
+               "label": "Is subset of"
+             },
+             {
+               "value": "has_subset",
+               "label": "Has subset"
+             }
+           ]
+          },
           {"field_name": "id",
            "form_snippet": "text.html",
            "label": "ID"}
@@ -365,10 +384,10 @@
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Keyword Name"},
+           "label": "Name"},
           {"field_name": "value",
            "form_snippet": "text.html",
-           "label": "Keyword value"}
+           "label": "value"}
         ]
       }
     },
@@ -686,7 +705,7 @@
     {
       "field_name": "url",
       "label": "URL",
-      "preset": "resource_url_upload_localimp"
+      "preset": "resource_url_upload"
     },
     {
       "field_name": "name",
