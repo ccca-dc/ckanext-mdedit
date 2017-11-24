@@ -109,20 +109,12 @@
            "label": "Relation",
            "choices": [
              {
-               "value": "is_version_of",
-               "label": "Is version of"
-             },
-             {
                "value": "has_version",
                "label": "Has version"
              },
              {
-               "value": "is_subset_of",
-               "label": "Is subset of"
-             },
-             {
-               "value": "has_subset",
-               "label": "Has subset"
+               "value": "is_part_of",
+               "label": "Is part of"
              }
            ]
           },
@@ -151,7 +143,7 @@
     {
       "field_name": "contact_points",
       "label": "Contact points",
-      "preset": "dicts",
+      "preset": "contact_points",
       "required": true,
       "display_snippet": "contact_points.html",
       "form_snippet": "dicts.html",

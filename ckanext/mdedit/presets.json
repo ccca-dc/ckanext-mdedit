@@ -76,6 +76,14 @@
       }
     },
     {
+      "preset_name": "contact_points",
+      "values": {
+        "display_snippet": "dicts.html",
+        "validators": "list_of_dicts",
+        "output_validators": "scheming_required multiple_text_output"
+      }
+    },
+    {
       "preset_name": "multiple_text",
       "values": {
         "output_validators": "multiple_text_output"
