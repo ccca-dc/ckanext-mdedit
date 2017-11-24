@@ -25,14 +25,7 @@
       "inspire": "Part B 9.1",
       "iso":"376"
     },
-    {
-    "field_name": "publisher_url",
-    "label": "Webpage",
-    "display_snippet": "link.html",
-    "help_text": "Webpage of the responsible Organization.",
-    "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
-    "iso":"390"
-  },
+
     {
        "field_name": "maintainer",
        "label": "Name",
@@ -682,7 +675,7 @@
         },
         {
           "value": "003",
-          "label": "Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services;2010-12-08"
+          "label": "Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of  data sets and services;2010-12-08"
         },
         {
           "value": "004",
@@ -694,7 +687,7 @@
         },
         {
           "value": "006",
-          "label": "COMMISSION REGULATION (EU) No 268/2010 of 29 March 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the access to spatial data sets and services of the Member States by Community institutions and bodies under harmonised conditions;2010-03-30"
+          "label": "COMMISSION REGULATION (EU) No 268/2010 of 29 March 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the access to  data sets and services of the Member States by Community institutions and bodies under harmonised conditions;2010-03-30"
         },
         {
           "value": "007",
@@ -888,7 +881,7 @@
       "form_snippet": "text.html",
       "iso":"285",
       "help_text": "Name of the data transfer format(s) of the resource.",
-      "help_text_norm": "Matches ISO_SpatialRepresentationType (156) (o) and ISO_DistributionFormat (o)"
+      "help_text_norm": "Matches ISO_RepresentationType (156) (o) and ISO_DistributionFormat (o)"
     },
     {
       "field_name": "formatVer",
@@ -896,6 +889,16 @@
       "form_snippet": "text.html",
       "help_text": "Version of the format(date, number, etc.)."
     },
+    {
+      "field_name": "license",
+      "label": "License",
+      "iso":"70",
+      "inspire":"Part B 8.2",
+      "help_text": "License definitions and additional information can be found at ",
+      "help_url": "http://opendefinition.org/licenses/",
+      "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
+    },
+
     {
       "field_name": "iso_resourceURI",
       "label": "Resource URI",
