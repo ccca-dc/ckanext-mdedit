@@ -89,19 +89,19 @@
     {
       "field_name": "source",
       "label": "Source Metadata",
-      "preset": "multiple_text",
+      "form_snippet": "text.html",
       "help_text": "This property refers to the original metadata that was used in creating metadata for the Dataset"
     },
     {
       "field_name": "documentation",
       "label": "Documentation of the resource",
-      "preset": "multiple_text"
+      "form_snippet": "text.html"
     },
     {
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "relation",
@@ -146,7 +146,7 @@
       "preset": "contact_points",
       "required": true,
       "display_snippet": "contact_points.html",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -371,7 +371,7 @@
       "label": "Specific information",
       "preset": "dicts",
       "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -415,7 +415,7 @@
       "field_name": "temporals",
       "label": "Temporal coverage",
       "preset": "temporals",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "start_date",
@@ -446,7 +446,7 @@
       "field_name": "dimensions",
       "label": "Dimensions",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -476,7 +476,7 @@
       "field_name": "variables",
       "label": "Variables",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -838,7 +838,7 @@
     {
       "field_name": "documentation",
       "label": "Documentation of the resource",
-      "preset": "multiple_text"
+      "form_snippet": "text.html"
     }
   ]
 }

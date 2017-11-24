@@ -125,7 +125,7 @@ def multiple_text(field, schema):
         # if errors[key]:
         #     return
 
-        value = data[key]
+        value = data.get(key, missing)
         if value is not missing:
             if isinstance(value, basestring):
                 value = [value]
