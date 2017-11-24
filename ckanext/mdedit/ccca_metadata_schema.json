@@ -276,12 +276,23 @@
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "relation",
-           "form_snippet": "text.html",
-           "label": "Relation"},
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_part_of",
+               "label": "Is part of"
+             }
+           ]
+          },
           {"field_name": "id",
            "form_snippet": "text.html",
            "label": "ID"}
@@ -395,7 +406,7 @@
       "label": "Specific information",
       "preset": "dicts",
       "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -475,6 +486,10 @@
       "help_url":"http://publications.europa.eu/mdr/resource/authority/frequency/html/frequencies-eng.html",
       "choices": [
         {
+          "value": "UNKNOWN",
+          "label": "unknown"
+        },
+        {
           "value": "ANNUAL",
           "label": "annual"
         },
@@ -543,10 +558,6 @@
           "label": "triennial"
         },
         {
-          "value": "UNKNOWN",
-          "label": "unknown"
-        },
-        {
           "value": "UPDATE_CONT",
           "label": "continuously updated"
         },
@@ -566,7 +577,7 @@
     },
     {
       "field_name":"tab_delimiter",
-      "tab_delimiter": "Variables",
+      "tab_delimiter": "Dimensons and Variables",
       "title": "Dimensions and variables of the dataset",
       "form_attrs": {
         "readonly": "readonly"
@@ -576,7 +587,7 @@
       "field_name": "dimensions",
       "label": "Dimensions",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -606,7 +617,7 @@
       "field_name": "variables",
       "label": "Variables",
       "preset": "dicts",
-      "form_snippet": "dicts.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -695,7 +706,7 @@
       ]
     },
     {
-      "field_name": "iso_conPass",
+      "field_name": "conformance",
       "help_text_norm": "ISO_conPass (m), <br> INSPIRE_Degree (m).",
       "inspire": "Part B 7.2",
       "iso":"132",
@@ -717,143 +728,6 @@
           "label": "not conformant"
         }
       ]
-    },
-   {
-      "field_name": "tab_delimiter",
-      "tab_delimiter": "Constraints",
-      "title": "Constraints on Usage and Access with respect to the Resources",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
-    },
-    {
-      "field_name": "iso_useLimit",
-      "label": "Use Limitation",
-      "form_snippet": "text.html",
-      "iso":"68",
-      "inspire":"Part B 8.1",
-      "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
-      "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m)."
-    },
-    {
-      "field_name": "iso_accessConsts",
-      "label": "Access Constraints",
-      "preset": "select",
-      "iso":"70",
-      "inspire":"Part B 8.2",
-      "select_size": 1,
-      "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
-      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
-      "choices": [
-        {
-          "value": "001",
-          "label": "copyright"
-        },
-        {
-          "value": "002",
-          "label": "patent"
-        },
-        {
-          "value": "003",
-          "label": "patent pending"
-        },
-        {
-          "value": "004",
-          "label": "trademark"
-        },
-        {
-          "value": "005",
-          "label": "license"
-        },
-        {
-          "value": "006",
-          "label": "intellectual property rights"
-        },
-        {
-          "value": "007",
-          "label": "restricted"
-        },
-        {
-          "value": "008",
-          "label": "other restrictions"
-        }
-      ]
-    },
-    {
-      "field_name": "iso_othConsts",
-      "label": "Use Constraints",
-      "preset": "select",
-      "select_size": "1",
-      "iso":"72",
-      "inspire":"Part B 8.2",
-      "help_text": "Constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata.",
-      "help_text_norm": "ISO_otherConstraints (c), <br> INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
-      "choices": [
-        {
-          "value": "001",
-          "label": "copyright"
-        },
-        {
-          "value": "002",
-          "label": "patent"
-        },
-        {
-          "value": "003",
-          "label": "patent pending"
-        },
-        {
-          "value": "004",
-          "label": "trademark"
-        },
-        {
-          "value": "005",
-          "label": "license"
-        },
-        {
-          "value": "006",
-          "label": "intellectual property rights"
-        },
-        {
-          "value": "007",
-          "label": "restricted"
-        },
-        {
-          "value": "008",
-          "label": "other restrictions"
-        }
-      ]
-    },
-    {
-      "field_name": "iso_class",
-      "label": "Handling Restrictions",
-      "preset": "select",
-      "select_size": "1",
-      "iso":"74",
-      "inspire":"PArt B 8.2",
-      "help_text": "Handling restrictions on the resource or metadata: unclassified, restricted, confidential, top secret, ...",
-      "help_text_norm": "ISO_class (c). <br> INSPIRE_LimitationsOnPublicAccessClassification (c). ",
-      "choices": [
-        {
-          "value": "001",
-          "label": "unclassified"
-        },
-        {
-          "value": "002",
-          "label": "restricted"
-        },
-        {
-          "value": "003",
-          "label": "confidential"
-        },
-        {
-          "value": "004",
-          "label": "secret"
-        },
-        {
-          "value": "005",
-          "label": "top secret"
-        }
-      ]
     }
   ],
   "resource_fields": [
@@ -861,6 +735,18 @@
       "field_name": "url",
       "label": "URL",
       "preset": "resource_url_upload_localimp"
+    },
+    {
+      "field_name": "uri",
+      "label": "Resource URI",
+      "preset": "handle_pid",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
+      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "iso":"397",
+      "inspire":"Part B 1.4",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
     },
     {
       "field_name": "name",
@@ -884,32 +770,22 @@
       "help_text_norm": "Matches ISO_RepresentationType (156) (o) and ISO_DistributionFormat (o)"
     },
     {
-      "field_name": "formatVer",
+      "field_name": "format_version",
       "label": "Format Version",
       "form_snippet": "text.html",
       "help_text": "Version of the format(date, number, etc.)."
     },
+
     {
-      "field_name": "license",
+      "field_name": "license_id",
       "label": "License",
       "iso":"70",
       "inspire":"Part B 8.2",
+      "form_snippet": "license.html",
+      "form_include_blank_choice": "true",
       "help_text": "License definitions and additional information can be found at ",
       "help_url": "http://opendefinition.org/licenses/",
       "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
-    },
-
-    {
-      "field_name": "iso_resourceURI",
-      "label": "Resource URI",
-      "preset": "handle_pid",
-      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
-      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
-      "iso":"397",
-      "inspire":"Part B 1.4",
-      "form_attrs": {
-        "readonly": "readonly"
-      }
     },
     {
        "field_name": "anonymous_download",
@@ -928,72 +804,55 @@
          }
        ]
    },
-   {
-     "field_name": "newer_version",
-     "label": "Newer Version",
-     "form_snippet": "text.html",
-     "display_snippet": "mdedit_url_from_id.html",
-     "help_text": "Newer version of resource if existing",
-     "mdedit_note": "DO NOT change the field name ...",
-     "form_attrs": {
-       "readonly": "readonly"
-     }
-   },
-   {
-     "field_name": "subset_of",
-     "label": "Subset of",
-     "form_snippet": "text.html",
-     "display_snippet": "mdedit_url_from_id.html",
-     "help_text": "If this is a subset, then this is the resource_id of the original resource",
-     "mdedit_note": "DO NOT change the field name ...",
-     "form_attrs": {
-       "readonly": "readonly"
-     }
-   },
-   {
-     "field_name": "par_model",
-     "group_start": "Resource (Model) Parameter",
-     "label": "Models",
-     "placeholder": "e.g. HADCM3, HADCM3-233, ...",
-     "form_snippet": "mdedit_res_text.html",
-     "help_text": "Identifies the model used",
-     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
-     },
-   {
-     "field_name": "par_experiment",
-     "label": "Experiment",
-     "placeholder": "e.g. rcp4.5",
-     "form_snippet": "mdedit_res_text.html",
-     "help_text": "Identifies experiment or experiment family, e.g.  representative concentration pathway (RCP) has been specified",
-     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
 
+   {
+     "field_name": "access_rights",
+     "label": "Access Constraints",
+     "preset": "select",
+     "iso":"70",
+     "inspire":"Part B 8.2",
+     "select_size": 1,
+     "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
+     "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
+     "choices": [
+       {
+         "value": "001",
+         "label": "copyright"
+       },
+       {
+         "value": "002",
+         "label": "patent"
+       },
+       {
+         "value": "003",
+         "label": "patent pending"
+       },
+       {
+         "value": "004",
+         "label": "trademark"
+       },
+       {
+         "value": "005",
+         "label": "license"
+       },
+       {
+         "value": "006",
+         "label": "intellectual property rights"
+       },
+       {
+         "value": "007",
+         "label": "restricted"
+       },
+       {
+         "value": "008",
+         "label": "other restrictions"
+       }
+     ]
    },
    {
-     "field_name": "par_frequency",
-     "label": "Frequency",
-     "placeholder": "eg.: yr, mon, day, 6hr, 3hr, subhr, monClim, fx,...",
-     "form_snippet": "mdedit_res_text.html",
-     "help_text": "Indicates  interval between individual time-samples.  subhr: less than an hour, monClim:  climatological monthly mean,  fx: fixed, i.e., time-independent",
-     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
-   },
-   {
-     "field_name": "par_variables",
-     "label": "Variables",
-     "form_snippet": "mdedit_res_text.html",
-     "placeholder": "eg.: tas",
-     "help_text": "Identify the physical quantity, e.g:  Monthly mean surface air temperature: tas",
-     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
-   },
-   {
-     "field_name": "par_ensemble",
-     "group_end": "Resource (Model) Parameter",
-     "label": "Ensemble",
-     "placeholder": "eg.: r3i1p21",
-     "form_snippet": "mdedit_res_text.html",
-     "help_text": "(r<N>i<M>p<L>): This triad of integers (N, M, L) distinguish among closely related simulations by a single model.",
-     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
-
+     "field_name": "hash_algorithm",
+     "label": "Hash algorithm",
+     "form_snippet": "mdedit_hidden.html"
    }
-
   ]
   }
