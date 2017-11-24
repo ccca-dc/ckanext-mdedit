@@ -57,7 +57,9 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_resource_title': helpers.mdedit_get_resource_title,
             'mdedit_get_package_id': helpers.mdedit_get_package_id,
             'get_readable_file_size': helpers.get_readable_file_size,
-            'get_frequency_name': helpers.get_frequency_name
+            'get_frequency_name': helpers.get_frequency_name,
+            'parse_json': helpers.parse_json,
+            'dump_json': helpers.dump_json
             }
 
 
@@ -259,7 +261,9 @@ class MdeditPackagePlugin(MdeditLanguagePlugin):
             search_data['extras_dimensions'] = self._prepare_lists_for_index(validated_dict[u'dimensions'])  # noqa
             search_data['extras_relations'] = self._prepare_lists_for_index(validated_dict[u'relations'])  # noqa
             search_data['extras_specifics'] = self._prepare_lists_for_index(validated_dict[u'specifics'])  # noqa
-            
+
+            search_data['res_hash'] = [ d['hash'] for d in validated_dict[u'resources'] if d['hash'] not in '' ]
+
             # Flatten specifics
             search_data.update(self._flatten_lists_for_index(validated_dict[u'specifics'], 'extras_specifics', 'name', 'value'))
 

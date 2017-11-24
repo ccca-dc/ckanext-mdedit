@@ -70,14 +70,23 @@
     {
       "preset_name": "dicts",
       "values": {
-        "display_snippet": "dicts.html",
+        "display_snippet": "mdedit_dicts.html",
         "validators": "list_of_dicts",
         "output_validators": "multiple_text_output"
       }
     },
     {
+      "preset_name": "contact_points",
+      "values": {
+        "display_snippet": "mdedit_dicts.html",
+        "validators": "list_of_dicts",
+        "output_validators": "scheming_required multiple_text_output"
+      }
+    },
+    {
       "preset_name": "multiple_text",
       "values": {
+        "validators": "multiple_text",
         "output_validators": "multiple_text_output"
       }
     },

@@ -1,7 +1,7 @@
 {% resource 'mdedit/mdedit_dicts.js' %}
 {% import 'macros/form.html' as form %}
 
-{% set list_dicts = data[field.field_name] %} 
+{% set list_dicts = h.parse_json(data[field.field_name]) %} 
 {% set form_attrs = field.form_attrs %} 
 
 {# Prepare form_attrs: Append field_name to avoid conflicts with existing fields #}
@@ -51,7 +51,7 @@
                                   field=form_attrs_fields, 
                                   data=dict, errors=errors, 
                                   licenses=licenses, 
-                                  schema=None -%}
+                                  schema=schema -%}
                     {% endfor %}
             {% if form_attrs.style|string == "collapse" %}
                   </div>
