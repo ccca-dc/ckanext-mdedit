@@ -785,18 +785,7 @@
       "form_snippet": "text.html",
       "help_text": "Version of the format(date, number, etc.)."
     },
-
-    {
-      "field_name": "license_id",
-      "label": "License",
-      "iso":"70",
-      "inspire":"Part B 8.2",
-      "form_snippet": "license.html",
-      "form_include_blank_choice": "true",
-      "help_text": "License definitions and additional information can be found at ",
-      "help_url": "http://opendefinition.org/licenses/",
-      "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
-    },
+  
     {
        "field_name": "anonymous_download",
        "label": "Anonymous Download",

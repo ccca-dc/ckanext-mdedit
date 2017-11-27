@@ -6,6 +6,8 @@ import requests
 from pylons.i18n import gettext
 from pylons import c
 
+from ckan.lib import base
+
 from ckan.common import _
 import ckan.model as model
 import  ckan.plugins.toolkit as tk
@@ -60,6 +62,7 @@ def get_older_versions(resource_id, package_id):
     return versions
 
 ###################### End Copied from Kathi ##############
+
 
 def mdedit_get_package_id(resource_id):
 
