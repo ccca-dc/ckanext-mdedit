@@ -71,8 +71,7 @@
       "preset_name": "dicts",
       "values": {
         "display_snippet": "mdedit_dicts.html",
-        "validators": "list_of_dicts",
-        "output_validators": "multiple_text_output"
+        "validators": "list_of_dicts"
       }
     },
     {

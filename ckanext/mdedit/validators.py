@@ -153,7 +153,7 @@ def list_of_dicts(field, schema):
 
         try:
             data_dict = df.unflatten(data[('__junk',)])
-            value = data_dict.get(key[0], missing)
+            value = data_dict[key[0]]
             if value is not missing:
                 if isinstance(value, basestring):
                     value = [value]
