@@ -84,14 +84,14 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
         # map ckan fields
         pkg_dict = self._package_map_ckan_default_fields(pkg_dict)
 
-        try:
-            # Do not change the resulting dict for API requests
-            path = pylons.request.path
-            if path.startswith('/api'):
-                return pkg_dict
-        except TypeError:
-            # we get here if there is no request (i.e. on the command line)
-            return pkg_dict
+        #try:
+        #    # Do not change the resulting dict for API requests
+        #    path = pylons.request.path
+        #    if path.startswith('/api'):
+        #        return pkg_dict
+        #except TypeError:
+        #    # we get here if there is no request (i.e. on the command line)
+        #    return pkg_dict
 
         return pkg_dict
 
