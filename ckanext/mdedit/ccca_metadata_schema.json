@@ -412,23 +412,6 @@
 
     },
     {
-      "field_name": "specifics",
-      "label": "Specific information",
-      "preset": "dicts",
-      "help_text": "Specific keywords for this dataset (e.g. Model, Ensemble, Scenario, ...)",
-      "form_snippet": "mdedit_dicts.html",
-      "form_attrs": {
-        "fields": [
-          {"field_name": "name",
-           "form_snippet": "text.html",
-           "label": "Keyword Name"},
-          {"field_name": "value",
-           "form_snippet": "text.html",
-           "label": "Keyword value"}
-        ]
-      }
-    },
-    {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Spatial",
       "title": "Geographic Aspects of the Resources",
@@ -587,15 +570,32 @@
     },
     {
       "field_name":"tab_delimiter",
-      "tab_delimiter": "Dimensons and Variables",
-      "title": "Dimensions and variables of the dataset",
+      "tab_delimiter": "Specifics",
+      "title": "Specific information about the resource(s) in this dataset",
       "form_attrs": {
         "readonly": "readonly"
       }
     },
     {
+      "field_name": "specifics",
+      "label": "Special information",
+      "preset": "dicts",
+      "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Keyword Name"},
+          {"field_name": "value",
+           "form_snippet": "text.html",
+           "label": "Keyword value"}
+        ]
+      }
+    },
+    {
       "field_name": "dimensions",
-      "label": "Dimensions",
+      "label": "Dimensions of the resource",
       "preset": "dicts",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
@@ -625,7 +625,7 @@
     },
     {
       "field_name": "variables",
-      "label": "Variables",
+      "label": "Variables of the resource",
       "preset": "dicts",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
@@ -785,7 +785,7 @@
       "form_snippet": "text.html",
       "help_text": "Version of the format(date, number, etc.)."
     },
-  
+
     {
        "field_name": "anonymous_download",
        "label": "Anonymous Download",
@@ -806,7 +806,7 @@
 
    {
      "field_name": "access_rights",
-     "label": "Access Constraints",
+     "label": "Access Rights",
      "preset": "select",
      "iso":"70",
      "inspire":"Part B 8.2",
@@ -845,6 +845,10 @@
        {
          "value": "008",
          "label": "other restrictions"
+       },
+       {
+         "value": "xxx",
+         "label": "no Limitation"
        }
      ]
    },
