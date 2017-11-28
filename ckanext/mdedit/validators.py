@@ -148,6 +148,7 @@ def list_of_dicts(field, schema):
     def validator(key, data, errors, context):
         # if there was an error before calling our validator
         # don't bother with our validation
+
         if errors[key]:
             return
 
@@ -172,7 +173,13 @@ def list_of_dicts(field, schema):
             del data_dict[key[0]]
             data[('__junk',)] = df.flatten_dict(data_dict)
         except KeyError:
-            pass
+            # Empty lists have to be treated here
+            try:
+                if not errors[key] and len(data[key]) == 0:
+                    value = []
+                    data[key] = json.dumps(value)
+            except:
+                pass
 
 
     return validator
