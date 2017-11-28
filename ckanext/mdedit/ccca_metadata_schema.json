@@ -409,7 +409,12 @@
       "form_attrs": {
         "readonly": "readonly"
       }
-
+    },
+    {
+      "field_name": "collection",
+      "label": "Collection",
+      "form_placeholder": "eg. ÖKS, etc ...",
+      "help_text": "Collections can be used to group datasets; alle dataset with the same identifier are grouped together"
     },
     {
       "field_name": "tab_delimiter",
