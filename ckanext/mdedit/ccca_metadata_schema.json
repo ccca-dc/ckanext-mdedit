@@ -103,55 +103,78 @@
       "iso_old":"375"
     },
     {
-      "field_name": "contact_info",
+      "field_name": "contact_points",
       "label": "Further Contacts",
-      "preset": "mdedit_contains",
+      "preset": "contact_points",
       "group_end":"Contact Info",
-      "mdedit_note1": "Special multiple Field. Best last item within a tab or group; last item in field might be select ",
-      "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into list of dicts as string",
-      "mdedit_note3": "Max Contains: 5 (otherwise change in java module!)",
-      "mdedit_note4": "attribute contact_info bound to  special display (and role choice at the end)",
-      "contains": "4",
-      "contact_info": "true",
-      "l1": "Name",
-      "l2": "Department",
-      "l3": "Mail",
-      "l4": "Role",
-      "p1": "e.g. Joe Example" ,
-      "p2": "e.g. Department for Geophysics",
-      "p3": "e.g. joe@example.com",
-      "p4": "",
-      "help_text": "Name, Mail Department and Role of Contact Individual(s)",
-      "help_text_norm": "ISO_CI_Contact (o), ISO_CI_Role (o), <br> INSPIRE_ResponsibleParty (o), INSPIRE_ResponsiblePartyRole (c)",
-      "iso":"378,378,378,379",
-      "inspire": "Part B 9.1, Part B 9.1, Part B 9.1, Part B 9.2 ",
-      "choices": [
-        {
-          "value": "custodian",
-          "label": "Custodian"
-        },
-        {
-          "value": "distributor",
-          "label": "Distributor"
-        },
-        {
-          "value": "owner",
-          "label": "Owner"
-        },
-        {
-          "value": "principalInvestigator",
-          "label": "Principal Investigator"
-        },
-
-        {
-          "value": "resourceProvider",
-          "label": "Resource Provider"
-        },
-        {
-          "value": "author",
-          "label": "Author"
-        }
-      ]
+      "required": true,
+      "display_snippet": "contact_points.html",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Name",
+           "required": true},
+          {"field_name": "email",
+           "form_snippet": "text.html",
+           "label": "E-Mail",
+           "required": true},
+          {"field_name": "department",
+           "form_snippet": "text.html",
+           "label": "Department"},
+          {"field_name": "role",
+           "form_snippet": "select.html",
+           "label": "Role",
+           "choices": [
+             {
+               "value": "author",
+               "label": "Author"
+             },
+             {
+               "value": "custodian",
+               "label": "Custodian"
+             },
+             {
+               "value": "distributor",
+               "label": "Distributor"
+             },
+             {
+               "value": "originator",
+               "label": "Originator"
+             },
+             {
+               "value": "owner",
+               "label": "Owner"
+             },
+             {
+               "value": "pointOfContact",
+               "label": "Point of Contact"
+             },
+             {
+               "value": "principalInvestigator",
+               "label": "Principal Investigator"
+             },
+             {
+               "value": "processor",
+               "label": "Processor"
+             },
+             {
+               "value": "publisher",
+               "label": "Publisher"
+             },
+             {
+               "value": "resourceProvider",
+               "label": "Resource Provider"
+             },
+             {
+               "value": "user",
+               "label": "User"
+             }
+           ]
+          }
+        ]
+      }
     },
 
     {
