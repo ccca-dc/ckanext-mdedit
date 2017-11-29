@@ -107,19 +107,16 @@
       "label": "Further Contacts",
       "preset": "contact_points",
       "group_end":"Contact Info",
-      "required": true,
       "display_snippet": "contact_points.html",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Name",
-           "required": true},
+           "label": "Name"},
           {"field_name": "email",
            "form_snippet": "text.html",
-           "label": "E-Mail",
-           "required": true},
+           "label": "E-Mail"},
           {"field_name": "department",
            "form_snippet": "text.html",
            "label": "Department"},
@@ -568,7 +565,7 @@
     {
       "field_name":"tab_delimiter",
       "tab_delimiter": "Specifics",
-      "title": "Specific information about the resource(s) in this dataset",
+      "title": "Specific information about the resource(s) in this dataset (experimentally extracted from CF conformant files)",
       "form_attrs": {
         "readonly": "readonly"
       }
@@ -577,7 +574,7 @@
       "field_name": "specifics",
       "label": "Special information",
       "preset": "dicts",
-      "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
+      "help_text": "Special keywords for the dataset (e.g. driving-climate-model, driving-ensemble-member, regional-climate-model). Autoextracted from uploaded filename",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -587,13 +584,16 @@
           {"field_name": "value",
            "form_snippet": "text.html",
            "label": "Keyword value"}
-        ]
+        ],
+        "style": "collapse",
+        "heading": "name"
       }
     },
     {
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
+      "help_text": "Relations between datasets (e.g. versions, subsets, provenance). Automatically created for subsets and versions.",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -621,6 +621,7 @@
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts",
+      "help_text": "Dimensions of the dataset (e.g. time, x, y). Automatically extracted from CF conformant files.",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -651,6 +652,7 @@
       "field_name": "variables",
       "label": "Variables of the resource",
       "preset": "dicts",
+      "help_text": "Variables of the dataset (e.g. rsds, psl, ta). Automatically extracted from CF conformant files.",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [

@@ -12,10 +12,13 @@
   {% endif %}
 {% endfor %}
 
-<div class="well well-small"> <p><h5>{{field.label}}</h5>
+{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+<div class="well well-small">
+<p><h5>{{field.label}}</h5></p>
+
 
 {# Template div with input fields hidden. Used for creation of additional elements #}
-<div id="{{ field.field_name + '-template' }}" class="well well-small" style="display: none;">
+<div id="{{ field.field_name + '-template' }}" class="well well-small" style="display:none;">
   {% for form_attrs_fields in form_attrs.fields %}
     {%- snippet 'scheming/snippets/form_field.html', 
                 field=form_attrs_fields, 
@@ -62,7 +65,6 @@
           </div>
         {% endif %}
       {% endfor %}
-      {%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
   {% endif %}
   </fieldset>
 
