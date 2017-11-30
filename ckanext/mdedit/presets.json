@@ -5,9 +5,9 @@
   "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
   "presets": [
     {
-      "preset_name": "mdedit_today",
+      "preset_name": "mdedit_metadata_date",
       "values": {
-        "form_snippet": "mdedit_today.html",
+        "form_snippet": "mdedit_metadata_date.html",
         "display_snippet": "text.html",
         "validators": "scheming_required isodate convert_to_json_if_datetime",
         "form_attrs": {
@@ -15,6 +15,17 @@
         }
       }
     },
+    {
+        "preset_name": "mdedit_today",
+        "values": {
+          "form_snippet": "mdedit_today.html",
+          "display_snippet": "text.html",
+          "validators": "scheming_required isodate convert_to_json_if_datetime",
+          "form_attrs": {
+            "readonly": "readonly"
+          }
+        }
+      },
     {
       "preset_name": "mdedit_datepicker",
       "values": {

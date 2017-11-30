@@ -232,6 +232,8 @@
       "iso":"25",
       "inspire":"Part B 1.2"
     },
+
+
     {
       "field_name": "language",
       "label": "Metadata Language",
@@ -264,15 +266,27 @@
       "help_url": "http://opendefinition.org/licenses/",
       "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
     },
+
     {
       "field_name": "issued",
       "help_text_norm": "ISO CI_DATE  (o), <br> INSPIRE_DateOfPublication (o).",
       "inspire": "Part B 5.2",
       "iso":"393",
       "label": "Date of publication (issued)",
-      "preset": "mdedit_metadata_date",
-      "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
-    },    
+      "preset": "mdedit_datepicker",
+      "validators": "mdedit_copy_dates",
+      "help_text": "Date of publication of the metadata of this  dataset  (automatically filled if left empty)."
+    },
+    {
+      "field_name": "modified",
+      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfLastRevision (o).",
+      "inspire": "Part B 5.3",
+      "iso":"393",
+      "label": "Date of revision (modified)",
+      "preset": "mdedit_datepicker",
+      "validators": "mdedit_copy_dates",
+      "help_text": "Date of revision of the metadata of this  dataset  (automatically filled if left empty)"
+    },
     {
       "field_name": "state",
       "label": "Server State of the Dataset",
@@ -412,7 +426,6 @@
    },
    {
     "field_name": "spatial_name",
-    "label": "Coverage",
     "form_snippet": "mdedit_hidden.html"
    },
 
