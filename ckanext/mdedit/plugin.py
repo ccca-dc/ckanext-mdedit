@@ -110,25 +110,25 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
         if pkg_dict.get('maintainer') is None:
             try:
                 pkg_dict['maintainer'] = pkg_dict['contact_points'][0]['name']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         if pkg_dict.get('maintainer_email') is None:
             try:
                 pkg_dict['maintainer_email'] = pkg_dict['contact_points'][0]['email']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         if pkg_dict.get('author') is None:
             try:
                 pkg_dict['author'] = pkg_dict['contact_points'][0]['name']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         if pkg_dict.get('author_email') is None:
             try:
                 pkg_dict['author_email'] = pkg_dict['contact_points'][0]['email']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         # Map Temporals for DCAT Export
@@ -136,13 +136,13 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
         if pkg_dict.get('temporal_start') is None:
             try:
                 pkg_dict['temporal_start'] = pkg_dict['temporals'][0]['start_date']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         if pkg_dict.get('temporal_end') is None:
             try:
                 pkg_dict['temporal_end'] = pkg_dict['temporals'][0]['end_date']  # noqa
-            except (KeyError, IndexError):
+            except (KeyError, IndexError, TypeError):
                 pass
 
         return pkg_dict
