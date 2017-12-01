@@ -56,6 +56,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'mdedit_get_resource_version': helpers.mdedit_get_resource_version,
             'mdedit_get_resource_title': helpers.mdedit_get_resource_title,
             'mdedit_get_package_id': helpers.mdedit_get_package_id,
+            'mdedit_get_contact_choices': helpers.mdedit_get_contact_choices,
+            'mdedit_get_contact_values': helpers.mdedit_get_contact_values,
             'get_readable_file_size': helpers.get_readable_file_size,
             'get_frequency_name': helpers.get_frequency_name,
             'parse_json': helpers.parse_json,

@@ -89,7 +89,7 @@
     {
       "preset_name": "contact_points",
       "values": {
-        "display_snippet": "mdedit_dicts.html",
+        "display_snippet": "text.html",
         "validators": "list_of_dicts"
       }
     },

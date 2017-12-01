@@ -18,7 +18,7 @@ log = logging.getLogger(__name__)
 
 global_contains_field = []
 
-###################### End Copied from Kathi ##############
+###################### Start Copied from Kathi ##############
 
 def get_older_versions(resource_id, package_id):
     ctx = {'model': model}
@@ -62,6 +62,36 @@ def get_older_versions(resource_id, package_id):
     return versions
 
 ###################### End Copied from Kathi ##############
+def mdedit_get_contact_choices(field):
+
+    #print ("mdedit_get_contact_choices *********** Anja ******************")
+
+    #print json.dumps(field, indent=3)
+
+    #print "*************"
+
+    if field['form_attrs']:
+        if field['form_attrs']['fields']:
+            for f in field['form_attrs']['fields']:
+                if f['field_name'] == "role":
+                    #print f['choices']
+                    return f['choices']
+
+    return ""
+
+def mdedit_get_contact_values (data, field):
+
+    package = c.pkg_dict
+
+    if data:
+        values = data.get(field['field_name'])
+    else:
+        if package:
+            values = package.get(field['field_name'])
+
+    if not values:
+        return ""
+    return values
 
 
 def mdedit_get_package_id(resource_id):

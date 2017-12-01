@@ -35,6 +35,38 @@
             </thead>
             <tbody>
 
+    {%- elif field.field_name == "contact_points" -%}
+
+          {#} Anja, 1.12.17 : Get choices {#}
+
+          {%- set choices = h.mdedit_get_contact_choices (field) -%}
+
+          {#} Anja, 1.12.17 : Output Roles {#}
+
+          {%- set values = h.mdedit_get_contact_values (data, field) -%}
+
+          {%-for value in values -%}
+              <tr>
+               <td><i>{{h.scheming_choices_label(choices,value.role)}}:</i></td>
+                <td class="dataset-details">
+
+                {% if value.name %}
+                  {{value.name}}<br>
+                {%- endif -%}
+
+                {% if value.department %}
+                  {{value.department}}<br>
+                {%- endif -%}
+
+                {% if value.email %}
+                    {{value.email}}
+                {%- endif -%}
+
+              </td>
+              </tr>
+        {%- endfor -%}
+
+
     {%- elif field.contains and field.contact_info -%}
 
           {%- set labels = h.mdedit_get_contain_labels(field) -%}

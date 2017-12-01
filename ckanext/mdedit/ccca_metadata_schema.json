@@ -108,7 +108,7 @@
       "preset": "contact_points",
       "group_end":"Contact Info",
       "required": true,
-      "display_snippet": "contact_points.html",
+      "display_snippet": "text.html",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -272,7 +272,7 @@
       "label": "Date of publication (issued)",
       "preset": "mdedit_metadata_date",
       "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
-    },    
+    },
     {
       "field_name": "state",
       "label": "Server State of the Dataset",
