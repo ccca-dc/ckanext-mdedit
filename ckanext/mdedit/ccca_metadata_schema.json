@@ -826,39 +826,39 @@
      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
      "choices": [
        {
-         "value": "001",
+         "value": "copyright",
          "label": "copyright"
        },
        {
-         "value": "002",
+         "value": "patent",
          "label": "patent"
        },
        {
-         "value": "003",
+         "value": "patent pending",
          "label": "patent pending"
        },
        {
-         "value": "004",
+         "value": "trademark",
          "label": "trademark"
        },
        {
-         "value": "005",
+         "value": "license",
          "label": "license"
        },
        {
-         "value": "006",
+         "value": "intellectual property rights",
          "label": "intellectual property rights"
        },
        {
-         "value": "007",
+         "value": "restricted",
          "label": "restricted"
        },
        {
-         "value": "008",
+         "value": "other restrictions",
          "label": "other restrictions"
        },
        {
-         "value": "xxx",
+         "value": "no Limitation",
          "label": "no Limitation"
        }
      ]
