@@ -114,12 +114,10 @@
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Name",
-           "required": true},
+           "label": "Name"},
           {"field_name": "email",
            "form_snippet": "text.html",
-           "label": "E-Mail",
-           "required": true},
+           "label": "E-Mail"},
           {"field_name": "department",
            "form_snippet": "text.html",
            "label": "Department"},
@@ -760,7 +758,6 @@
     {
       "field_name": "uri",
       "label": "Resource URI",
-      "preset": "handle_pid",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",

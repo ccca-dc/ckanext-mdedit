@@ -64,23 +64,20 @@ def get_older_versions(resource_id, package_id):
 ###################### End Copied from Kathi ##############
 def mdedit_get_contact_choices(field):
 
-    #print ("mdedit_get_contact_choices *********** Anja ******************")
-
-    #print json.dumps(field, indent=3)
-
-    #print "*************"
+    # print ("mdedit_get_contact_choices *********** Anja ******************")
+    # print json.dumps(field, indent=3)
+    # print "*************"
 
     if field['form_attrs']:
         if field['form_attrs']['fields']:
             for f in field['form_attrs']['fields']:
-                if f['field_name'] == "role":
+                if f['field_name'].endswith("role"):
                     #print f['choices']
                     return f['choices']
 
     return ""
 
 def mdedit_get_contact_values (data, field):
-
     package = c.pkg_dict
 
     if data:
