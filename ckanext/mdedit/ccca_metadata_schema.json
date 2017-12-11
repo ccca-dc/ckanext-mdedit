@@ -564,6 +564,7 @@
       "preset": "dicts",
       "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "mdedit_dicts.html",
+      "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -571,37 +572,11 @@
            "label": "Keyword Name"},
           {"field_name": "value",
            "form_snippet": "text.html",
-           "label": "Keyword value"}
+           "label": "Keyword Value"}
         ]
       }
     },
-    {
-      "field_name": "relations",
-      "label": "Relations",
-      "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
-      "form_attrs": {
-        "fields": [
-          {"field_name": "relation",
-           "form_snippet": "select.html",
-           "label": "Relation",
-           "choices": [
-             {
-               "value": "has_version",
-               "label": "Has version"
-             },
-             {
-               "value": "is_part_of",
-               "label": "Is part of"
-             }
-           ]
-          },
-          {"field_name": "id",
-           "form_snippet": "text.html",
-           "label": "ID"}
-        ]
-      }
-    },
+
     {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
@@ -657,6 +632,33 @@
         ],
         "style": "collapse",
         "heading": "description"
+      }
+    },
+    {
+      "field_name": "relations",
+      "label": "Relations",
+      "preset": "dicts",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "relation",
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_part_of",
+               "label": "Is part of"
+             }
+           ]
+          },
+          {"field_name": "id",
+           "form_snippet": "text.html",
+           "label": "ID"}
+        ]
       }
     },
     {
