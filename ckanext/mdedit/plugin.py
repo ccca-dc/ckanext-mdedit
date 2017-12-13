@@ -36,7 +36,8 @@ class MdeditPlugin(plugins.SingletonPlugin):
             'list_of_dicts': v.list_of_dicts,
             'parse_json': parse_json,
             'version_to_name': v.version_to_name,
-            'readonly_subset_fields': v.readonly_subset_fields
+            'readonly_subset_fields': v.readonly_subset_fields,
+            'readonly_subset_fields_dicts': v.readonly_subset_fields_dicts
             }
 
     # IActions
