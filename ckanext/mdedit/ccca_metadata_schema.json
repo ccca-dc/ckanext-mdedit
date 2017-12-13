@@ -196,6 +196,7 @@
       "field_name": "uri",
       "label": "Dataset Locator - URI",
       "form_snippet": "text.html",
+      "display_snippet": "link.html",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
@@ -565,6 +566,7 @@
       "preset": "dicts",
       "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "mdedit_dicts.html",
+      "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -607,6 +609,7 @@
         ]
       }
     },
+
     {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
@@ -648,7 +651,7 @@
            "form_snippet": "text.html",
            "label": "Description"},
           {"field_name": "shape",
-           "form_snippet": "text.html",
+           "form_snippet": "json.html",
            "label": "Shape"},
           {"field_name": "units",
            "form_snippet": "text.html",
@@ -662,6 +665,33 @@
         ],
         "style": "collapse",
         "heading": "description"
+      }
+    },
+    {
+      "field_name": "relations",
+      "label": "Relations",
+      "preset": "dicts",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "relation",
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_part_of",
+               "label": "Is part of"
+             }
+           ]
+          },
+          {"field_name": "id",
+           "form_snippet": "text.html",
+           "label": "ID"}
+        ]
       }
     },
     {
@@ -765,6 +795,7 @@
       "label": "Resource URI",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "display_snippet": "link.html",
       "iso":"397",
       "inspire":"Part B 1.4",
       "form_attrs": {
@@ -828,39 +859,39 @@
      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
      "choices": [
        {
-         "value": "001",
+         "value": "copyright",
          "label": "copyright"
        },
        {
-         "value": "002",
+         "value": "patent",
          "label": "patent"
        },
        {
-         "value": "003",
+         "value": "patent pending",
          "label": "patent pending"
        },
        {
-         "value": "004",
+         "value": "trademark",
          "label": "trademark"
        },
        {
-         "value": "005",
+         "value": "license",
          "label": "license"
        },
        {
-         "value": "006",
+         "value": "intellectual property rights",
          "label": "intellectual property rights"
        },
        {
-         "value": "007",
+         "value": "restricted",
          "label": "restricted"
        },
        {
-         "value": "008",
+         "value": "other restrictions",
          "label": "other restrictions"
        },
        {
-         "value": "xxx",
+         "value": "no Limitation",
          "label": "no Limitation"
        }
      ]
