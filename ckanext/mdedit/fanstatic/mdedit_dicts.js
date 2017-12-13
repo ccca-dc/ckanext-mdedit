@@ -40,10 +40,15 @@ ckan.module('mdedit_dicts', function ($, _) {
 
             // Create remove field and append to modified Node
             var remove_button = $('<a>',{
-              class: 'rm-'+options.field_name,
-              text: 'Remove',
-              href: '#'
+                class: 'rm-'+options.field_name + ' btn btn-danger',
+                text: '-',
+                href: '#'
             }).appendTo(NewElement);
+            // var remove_button = $('<a>',{
+            //   class: 'rm-'+options.field_name,
+            //   text: 'Remove',
+            //   href: '#'
+            // }).appendTo(NewElement);
 
 
             // Append node on wrapper
@@ -66,7 +71,10 @@ ckan.module('mdedit_dicts', function ($, _) {
             // Function to check if string is jsonString
             function IsJsonString(str) {
                 try {
-                    JSON.parse(str);
+                    var json_str = JSON.parse(str);
+                    if (typeof(json_str) == "number") {
+                        return false;
+                    }
                 } catch (e) {
                     return false;
                 }
