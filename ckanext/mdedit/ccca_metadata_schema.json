@@ -565,6 +565,7 @@
       "preset": "dicts",
       "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "mdedit_dicts.html",
+      "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
@@ -572,37 +573,11 @@
            "label": "Keyword Name"},
           {"field_name": "value",
            "form_snippet": "text.html",
-           "label": "Keyword value"}
+           "label": "Keyword Value"}
         ]
       }
     },
-    {
-      "field_name": "relations",
-      "label": "Relations",
-      "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
-      "form_attrs": {
-        "fields": [
-          {"field_name": "relation",
-           "form_snippet": "select.html",
-           "label": "Relation",
-           "choices": [
-             {
-               "value": "has_version",
-               "label": "Has version"
-             },
-             {
-               "value": "is_part_of",
-               "label": "Is part of"
-             }
-           ]
-          },
-          {"field_name": "id",
-           "form_snippet": "text.html",
-           "label": "ID"}
-        ]
-      }
-    },
+
     {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
@@ -658,6 +633,33 @@
         ],
         "style": "collapse",
         "heading": "description"
+      }
+    },
+    {
+      "field_name": "relations",
+      "label": "Relations",
+      "preset": "dicts",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "relation",
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_part_of",
+               "label": "Is part of"
+             }
+           ]
+          },
+          {"field_name": "id",
+           "form_snippet": "text.html",
+           "label": "ID"}
+        ]
       }
     },
     {
@@ -825,39 +827,39 @@
      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
      "choices": [
        {
-         "value": "001",
+         "value": "copyright",
          "label": "copyright"
        },
        {
-         "value": "002",
+         "value": "patent",
          "label": "patent"
        },
        {
-         "value": "003",
+         "value": "patent pending",
          "label": "patent pending"
        },
        {
-         "value": "004",
+         "value": "trademark",
          "label": "trademark"
        },
        {
-         "value": "005",
+         "value": "license",
          "label": "license"
        },
        {
-         "value": "006",
+         "value": "intellectual property rights",
          "label": "intellectual property rights"
        },
        {
-         "value": "007",
+         "value": "restricted",
          "label": "restricted"
        },
        {
-         "value": "008",
+         "value": "other restrictions",
          "label": "other restrictions"
        },
        {
-         "value": "xxx",
+         "value": "no Limitation",
          "label": "no Limitation"
        }
      ]

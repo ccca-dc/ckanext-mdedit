@@ -1,0 +1,21 @@
+{%- set list_dicts = data[field.field_name] -%}
+{% if list_dicts|length > 0 %}
+  <ul>
+    {% for dict in list_dicts %}
+      {% if dict is mapping %}
+          <li>
+          {% for key, value in dict.iteritems() %}
+              {% if key == 'name'%}
+                {{ value }}:
+              &nbsp;
+              {% else %}
+               {{ value }} <br>
+              {% endif %}
+          {% endfor %}
+          </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  -
+{% endif %}
