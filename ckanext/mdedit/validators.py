@@ -9,6 +9,7 @@ from ckanext.scheming.validation import scheming_validator
 from ckanext.mdedit.helpers import parse_json
 
 import ckan.plugins.toolkit as tk
+import ckan.authz as authz
 
 
 @scheming_validator
@@ -242,8 +243,9 @@ def readonly_subset_fields(field, schema, is_dict=False):
         validator makes sure that some fields of subsets
         cannot be changed
         """
+        user = context.get('user')
 
-        if data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
+        if not authz.is_sysadmin(user) and data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
             data, errors = _readonly_subset_fields(data, key, data[key], errors, context, field['field_name'])
 
     return validator
@@ -256,8 +258,9 @@ def readonly_subset_fields_dicts(field, schema, is_dict=False):
         validator makes sure that some dict fields of subsets
         cannot be changed
         """
+        user = context.get('user')
 
-        if data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
+        if not authz.is_sysadmin(user) and data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
             try:
                 import ast
                 new_value = ast.literal_eval(data[key])
