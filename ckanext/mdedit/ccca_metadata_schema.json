@@ -561,9 +561,9 @@
     },
     {
       "field_name": "specifics",
-      "label": "Special information",
+      "label": "Specific information about the resource",
       "preset": "dicts",
-      "help_text": "Special information for the resource (e.g. Model, Ensemble, Scenario, ...)",
+      "help_text": "Information for the resource in Name /Value Pairs (e.g. Experiment: RCP4.5, Ensemble: r3i1p1, ...)",
       "form_snippet": "mdedit_dicts.html",
       "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
@@ -613,7 +613,9 @@
       "field_name": "variables",
       "label": "Variables of the resource",
       "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_dicts_variables.html",
+      "display_snippet": "mdedit_dicts_variables.html",
+      "help_text": "Variables eg: precipitation, gobal radiation, temperature... (might be automatically extracted from NetCDF resources; but feel free to enter any variables which you consider important)",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -640,7 +642,7 @@
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_hidden.html",
       "form_attrs": {
         "fields": [
           {"field_name": "relation",

@@ -42,7 +42,8 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                      <a class="btn">{{ dict[form_attrs.heading] }}</a>
+                      <a href="#" class="rm-{{ field.field_name }} btn btn-danger" data-toggle="tooltip" title="Remove variable">-</a>
+                      <a class="btn" data-toggle="tooltip" title="Expand variable definition">{{ dict[form_attrs.heading] }}</a>
                   </h4>
                 </div>
                 <div class="panel-collapse collapse in">
@@ -62,7 +63,6 @@
                 </div>
               </div>
             {% endif %}
-              <a href="#" class="rm-{{ field.field_name }} btn btn-danger  data-toggle="tooltip" title="Remove field"">-</a>
           </div>
         {% endif %}
       {% endfor %}
@@ -74,7 +74,7 @@
     data-module="mdedit_dicts"
     data-module-field_name="{{field.field_name}}"
     data-module-field_dict="{{ h.dump_json(field.form_attrs) }}"
-     data-toggle="tooltip" title="Add field">
+    data-toggle="tooltip" title="Add new variable">
     +
   </button>
 

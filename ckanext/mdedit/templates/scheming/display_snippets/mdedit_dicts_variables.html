@@ -1,0 +1,28 @@
+{%- set list_dicts = data[field.field_name] -%}
+{% if list_dicts|length > 0 %}
+  <ul>
+    {% for dict in list_dicts %}
+      {% if dict %}
+          <li>
+              {{_('Name:')}}
+              &nbsp;
+              {{ dict['name']}} <br>
+              {{_('Standard Name:')}}
+              &nbsp;
+              {{ dict['standard_name'] }} <br>
+              {{_('Description:')}}
+               &nbsp;
+              {{ dict['description'] }} <br>
+              {{_('Shape:')}}
+               &nbsp;
+              {{ dict['shape'] }} <br>
+               {{_('Units:')}}
+               &nbsp;
+              {{ dict['units'] }} <br>
+          </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  -
+{% endif %}
