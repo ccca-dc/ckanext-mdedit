@@ -579,10 +579,39 @@
       }
     },
     {
+      "field_name": "variables",
+      "label": "Variables of the resource",
+      "preset": "dicts_readonly_if_subset",
+      "form_snippet": "mdedit_dicts_variables.html",
+      "display_snippet": "mdedit_dicts_variables.html",
+      "help_text": "Variables eg: precipitation, gobal radiation, temperature... (might be automatically extracted from NetCDF resources; but feel free to enter any variables which you consider important)",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "description",
+           "form_snippet": "text.html",
+           "label": "Description"},
+          {"field_name": "shape",
+           "form_snippet": "json.html",
+           "label": "Shape"},
+          {"field_name": "units",
+           "form_snippet": "text.html",
+           "label": "Units"},
+          {"field_name": "name",
+           "form_snippet": "text.html",
+           "label": "Name"},
+          {"field_name": "standard_name",
+           "form_snippet": "text.html",
+           "label": "Standard Name"}
+        ],
+        "style": "collapse",
+        "heading": "description"
+      }
+    },
+    {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts_readonly_if_subset",
-      "form_snippet": "mdedit_hidden.html",
+      "form_snippet": "mdedit_dicts.html",
       "display_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -609,42 +638,12 @@
         "heading": "description"
       }
     },
-    {
-      "field_name": "variables",
-      "label": "Variables of the resource",
-      "preset": "dicts_readonly_if_subset",
-      "form_snippet": "mdedit_dicts_variables.html",
-      "display_snippet": "mdedit_dicts_variables.html",
-      "help_text": "Variables eg: precipitation, gobal radiation, temperature... (might be automatically extracted from NetCDF resources; but feel free to enter any variables which you consider important)",
 
-
-      "form_attrs": {
-        "fields": [
-          {"field_name": "description",
-           "form_snippet": "text.html",
-           "label": "Description"},
-          {"field_name": "shape",
-           "form_snippet": "json.html",
-           "label": "Shape"},
-          {"field_name": "units",
-           "form_snippet": "text.html",
-           "label": "Units"},
-          {"field_name": "name",
-           "form_snippet": "text.html",
-           "label": "Name"},
-          {"field_name": "standard_name",
-           "form_snippet": "text.html",
-           "label": "Standard Name"}
-        ],
-        "style": "collapse",
-        "heading": "description"
-      }
-    },
     {
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
-      "form_snippet": "mdedit_hidden.html",
+      "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "relation",

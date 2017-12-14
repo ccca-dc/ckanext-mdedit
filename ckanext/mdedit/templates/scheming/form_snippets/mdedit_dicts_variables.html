@@ -34,7 +34,7 @@
   {% if list_dicts|length > 0 %}
       {% for dict in list_dicts %}
         {# There must be a dict in the list #}
-        {% if dict is mapping %}
+        {% if dict and dict is mapping %}
           {% set list_index = loop.index0 %}
           <div id="{{ field.field_name + list_index|string }}" class="well well-small inp-{{ field.field_name }}">
             {# Build collapse form with panels #}
@@ -42,10 +42,9 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                      <a href="#" class="rm-{{ field.field_name }} btn btn-danger" data-toggle="tooltip" title="Remove variable">-</a>
-                      <a class="btn" data-toggle="tooltip" title="Expand variable definition">{{ dict[form_attrs.heading] }}</a>
-                  </h4>
-                </div>
+                <a  class="btn" data-toggle="tooltip" title="Expand variable definition">{{ dict[form_attrs.heading] }}</a>
+              </h4>
+            </div>
                 <div class="panel-collapse collapse in">
                   <div class="panel-body">
             {% endif %}
@@ -63,6 +62,7 @@
                 </div>
               </div>
             {% endif %}
+            <a class="rm-{{ field.field_name }} btn btn-danger" data-toggle="tooltip" title="Remove variable">-</a>
           </div>
         {% endif %}
       {% endfor %}
