@@ -242,11 +242,8 @@ def readonly_subset_fields(field, schema, is_dict=False):
         validator makes sure that some fields of subsets
         cannot be changed
         """
-        #
-        # if errors[key]:
-        #     return
 
-        if data.get(('id',), '') != '':
+        if data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
             data, errors = _readonly_subset_fields(data, key, data[key], errors, context, field['field_name'])
 
     return validator
@@ -260,13 +257,14 @@ def readonly_subset_fields_dicts(field, schema, is_dict=False):
         cannot be changed
         """
 
-        try:
-            import ast
-            new_value = ast.literal_eval(data[key])
-        except:
-            new_value = data[key]
+        if data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
+            try:
+                import ast
+                new_value = ast.literal_eval(data[key])
+            except:
+                new_value = data[key]
 
-        data, errors = _readonly_subset_fields(data, key, new_value, errors, context, field['field_name'])
+            data, errors = _readonly_subset_fields(data, key, new_value, errors, context, field['field_name'])
 
     return validator
 
