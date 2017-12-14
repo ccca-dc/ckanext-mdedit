@@ -5,7 +5,7 @@ ckan.module('mdedit_dicts', function ($, _) {
     /* options object can be extended using data-module-* attributes */
     options: {
         field_name: 'field_name',
-        field_dict: 'field_dict', 
+        field_dict: 'field_dict',
     },
 
     initialize: function () {
@@ -30,8 +30,8 @@ ckan.module('mdedit_dicts', function ($, _) {
               var x = -1;
             }
             // Get first node (no remove button there)
-            //var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);  
-            var NewElement=$("#"+options.field_name+"-template")[0].cloneNode(true);  
+            //var NewElement=$(".inp-"+options.field_name)[0].cloneNode(true);
+            var NewElement=$("#"+options.field_name+"-template")[0].cloneNode(true);
             NewElement.removeAttribute("style");
             NewElement.classList.add("inp-"+options.field_name);
             // Increment the ID
@@ -40,10 +40,15 @@ ckan.module('mdedit_dicts', function ($, _) {
 
             // Create remove field and append to modified Node
             var remove_button = $('<a>',{
-              class: 'rm-'+options.field_name,
-              text: 'Remove',
-              href: '#'
+                class: 'rm-'+options.field_name + ' btn btn-danger',
+                text: '-',
+                href: '#'
             }).appendTo(NewElement);
+            // var remove_button = $('<a>',{
+            //   class: 'rm-'+options.field_name,
+            //   text: 'Remove',
+            //   href: '#'
+            // }).appendTo(NewElement);
 
 
             // Append node on wrapper
@@ -63,6 +68,19 @@ ckan.module('mdedit_dicts', function ($, _) {
 
 
         $( "form" ).submit(function( event ) {
+            // Function to check if string is jsonString
+            function IsJsonString(str) {
+                try {
+                    var json_str = JSON.parse(str);
+                    if (typeof(json_str) == "number") {
+                        return false;
+                    }
+                } catch (e) {
+                    return false;
+                }
+                return true;
+            };
+
             // Define empty array
             var outList = [];
             // Loop over all input collections
@@ -73,10 +91,14 @@ ckan.module('mdedit_dicts', function ($, _) {
               // Add all inputFields from collection to dict
               for (var i = 0; i < inputFields.length; i++) {
                   if (inputFields[i].value != '' || inputFields[i].value != inputFields[i].defaultValue) {
-                    dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
+                      if (IsJsonString(inputFields[i].value)) {
+                          dict[inputFields[i].name.split("-").pop()] = JSON.parse(inputFields[i].value);
+                      } else {
+                          dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
+                      }
                   }
               };
-              // Add dict from input collection to array 
+              // Add dict from input collection to array
               outList.push(dict);
             });
             //event.preventDefault();
@@ -85,7 +107,7 @@ ckan.module('mdedit_dicts', function ($, _) {
             // Remove input field with json data if user came with back button in browser
             if (document.contains(document.getElementById(options.field_name))) {
               document.getElementById(options.field_name).remove();
-            };  
+            };
 
             // Append one input field with json data
             var jsonInp = $('<input>',{
