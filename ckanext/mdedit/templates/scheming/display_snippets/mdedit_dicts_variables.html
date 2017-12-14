@@ -2,23 +2,23 @@
 {% if list_dicts|length > 0 %}
   <ul>
     {% for dict in list_dicts %}
-      {% if dict %}
+      {% if dict and dict is mapping %}
           <li>
-              {{_('Name:')}}
-              &nbsp;
-              {{ dict['name']}} <br>
-              {{_('Standard Name:')}}
-              &nbsp;
-              {{ dict['standard_name'] }} <br>
-              {{_('Description:')}}
-               &nbsp;
-              {{ dict['description'] }} <br>
-              {{_('Shape:')}}
-               &nbsp;
-              {{ dict['shape'] }} <br>
-               {{_('Units:')}}
-               &nbsp;
-              {{ dict['units'] }} <br>
+            {{_('Description:')}}
+             &nbsp;
+            {{ dict['description'] }} <br>
+            {{_('Shape:')}}
+             &nbsp;
+            {{ dict['shape'] }} <br>
+            {{_('Units:')}}
+            &nbsp;
+           {{ dict['units'] }} <br>
+            {{_('Name:')}}
+            &nbsp;
+            {{ dict['name']}} <br>
+            {{_('Standard Name:')}}
+            &nbsp;
+            {{ dict['standard_name'] }} <br>
           </li>
       {% endif %}
     {% endfor %}
