@@ -108,18 +108,16 @@
       "preset": "contact_points",
       "group_end":"Contact Info",
       "required": true,
-      "display_snippet": "contact_points.html",
+      "display_snippet": "text.html",
       "form_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Name",
-           "required": true},
+           "label": "Name"},
           {"field_name": "email",
            "form_snippet": "text.html",
-           "label": "E-Mail",
-           "required": true},
+           "label": "E-Mail"},
           {"field_name": "department",
            "form_snippet": "text.html",
            "label": "Department"},
@@ -232,8 +230,6 @@
       "iso":"25",
       "inspire":"Part B 1.2"
     },
-
-
     {
       "field_name": "language",
       "label": "Metadata Language",
@@ -266,26 +262,14 @@
       "help_url": "http://opendefinition.org/licenses/",
       "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
     },
-
     {
       "field_name": "issued",
       "help_text_norm": "ISO CI_DATE  (o), <br> INSPIRE_DateOfPublication (o).",
       "inspire": "Part B 5.2",
       "iso":"393",
       "label": "Date of publication (issued)",
-      "preset": "mdedit_datepicker",
-      "validators": "mdedit_copy_dates",
-      "help_text": "Date of publication of the metadata of this  dataset  (automatically filled if left empty)."
-    },
-    {
-      "field_name": "modified",
-      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfLastRevision (o).",
-      "inspire": "Part B 5.3",
-      "iso":"393",
-      "label": "Date of revision (modified)",
-      "preset": "mdedit_datepicker",
-      "validators": "mdedit_copy_dates",
-      "help_text": "Date of revision of the metadata of this  dataset  (automatically filled if left empty)"
+      "preset": "mdedit_metadata_date",
+      "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
     },
     {
       "field_name": "state",
@@ -426,6 +410,7 @@
    },
    {
     "field_name": "spatial_name",
+    "label": "Coverage",
     "form_snippet": "mdedit_hidden.html"
    },
 
@@ -577,51 +562,26 @@
       "field_name": "specifics",
       "label": "Special information",
       "preset": "dicts",
-      "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
+      "help_text": "Special information for the resource (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "mdedit_dicts.html",
+      "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Keyword Name"},
+           "label": "Name"},
           {"field_name": "value",
            "form_snippet": "text.html",
-           "label": "Keyword value"}
+           "label": "Value"}
         ]
       }
     },
-    {
-      "field_name": "relations",
-      "label": "Relations",
-      "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
-      "form_attrs": {
-        "fields": [
-          {"field_name": "relation",
-           "form_snippet": "select.html",
-           "label": "Relation",
-           "choices": [
-             {
-               "value": "has_version",
-               "label": "Has version"
-             },
-             {
-               "value": "is_part_of",
-               "label": "Is part of"
-             }
-           ]
-          },
-          {"field_name": "id",
-           "form_snippet": "text.html",
-           "label": "ID"}
-        ]
-      }
-    },
+
     {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_hidden.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -672,6 +632,33 @@
         ],
         "style": "collapse",
         "heading": "description"
+      }
+    },
+    {
+      "field_name": "relations",
+      "label": "Relations",
+      "preset": "dicts",
+      "form_snippet": "mdedit_dicts.html",
+      "form_attrs": {
+        "fields": [
+          {"field_name": "relation",
+           "form_snippet": "select.html",
+           "label": "Relation",
+           "choices": [
+             {
+               "value": "has_version",
+               "label": "Has version"
+             },
+             {
+               "value": "is_part_of",
+               "label": "Is part of"
+             }
+           ]
+          },
+          {"field_name": "id",
+           "form_snippet": "text.html",
+           "label": "ID"}
+        ]
       }
     },
     {
@@ -773,7 +760,6 @@
     {
       "field_name": "uri",
       "label": "Resource URI",
-      "preset": "handle_pid",
       "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
       "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
       "iso":"397",
@@ -839,39 +825,39 @@
      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
      "choices": [
        {
-         "value": "001",
+         "value": "copyright",
          "label": "copyright"
        },
        {
-         "value": "002",
+         "value": "patent",
          "label": "patent"
        },
        {
-         "value": "003",
+         "value": "patent pending",
          "label": "patent pending"
        },
        {
-         "value": "004",
+         "value": "trademark",
          "label": "trademark"
        },
        {
-         "value": "005",
+         "value": "license",
          "label": "license"
        },
        {
-         "value": "006",
+         "value": "intellectual property rights",
          "label": "intellectual property rights"
        },
        {
-         "value": "007",
+         "value": "restricted",
          "label": "restricted"
        },
        {
-         "value": "008",
+         "value": "other restrictions",
          "label": "other restrictions"
        },
        {
-         "value": "xxx",
+         "value": "no Limitation",
          "label": "no Limitation"
        }
      ]
