@@ -42,7 +42,7 @@
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <h4 class="panel-title">
-                      <a>{{ dict[form_attrs.heading] }}</a>
+                      <a class="btn">{{ dict[form_attrs.heading] }}</a>
                   </h4>
                 </div>
                 <div class="panel-collapse collapse in">
@@ -62,7 +62,7 @@
                 </div>
               </div>
             {% endif %}
-              <a href="#" class="rm-{{ field.field_name }}">Remove</a>
+              <a href="#" class="rm-{{ field.field_name }} btn btn-danger">-</a>
           </div>
         {% endif %}
       {% endfor %}
@@ -74,7 +74,7 @@
     data-module="mdedit_dicts"
     data-module-field_name="{{field.field_name}}"
     data-module-field_dict="{{ h.dump_json(field.form_attrs) }}">
-    Add field
+    +
   </button>
 
 </div>
