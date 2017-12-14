@@ -407,7 +407,8 @@
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
-     "help_text": "Select area describing the dataset spatial extend"
+     "help_text": "Select area describing the dataset spatial extend",
+     "validators": "readonly_subset_fields"
    },
    {
     "field_name": "spatial_name",
@@ -577,11 +578,10 @@
         ]
       }
     },
-
     {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
-      "preset": "dicts",
+      "preset": "dicts_readonly_if_subset",
       "form_snippet": "mdedit_hidden.html",
       "display_snippet": "mdedit_dicts.html",
       "form_attrs": {
@@ -612,10 +612,12 @@
     {
       "field_name": "variables",
       "label": "Variables of the resource",
-      "preset": "dicts",
+      "preset": "dicts_readonly_if_subset",
       "form_snippet": "mdedit_dicts_variables.html",
       "display_snippet": "mdedit_dicts_variables.html",
       "help_text": "Variables eg: precipitation, gobal radiation, temperature... (might be automatically extracted from NetCDF resources; but feel free to enter any variables which you consider important)",
+
+
       "form_attrs": {
         "fields": [
           {"field_name": "description",
@@ -652,6 +654,10 @@
              {
                "value": "has_version",
                "label": "Has version"
+             },
+             {
+               "value": "is_version_of",
+               "label": "Is version of"
              },
              {
                "value": "is_part_of",
