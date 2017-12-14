@@ -562,17 +562,17 @@
       "field_name": "specifics",
       "label": "Special information",
       "preset": "dicts",
-      "help_text": "Special keywords for the resource (e.g. Model, Ensemble, Scenario, ...)",
+      "help_text": "Special information for the resource (e.g. Model, Ensemble, Scenario, ...)",
       "form_snippet": "mdedit_dicts.html",
       "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Keyword Name"},
+           "label": "Name"},
           {"field_name": "value",
            "form_snippet": "text.html",
-           "label": "Keyword Value"}
+           "label": "Value"}
         ]
       }
     },
@@ -581,7 +581,7 @@
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_hidden.html",
       "form_attrs": {
         "fields": [
           {"field_name": "description",
