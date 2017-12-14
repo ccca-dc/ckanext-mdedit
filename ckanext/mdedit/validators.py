@@ -247,7 +247,7 @@ def readonly_subset_fields(field, schema, is_dict=False):
         #     return
 
         if data.get(('id',), '') != '':
-            data, errors = _readonly_subset_fields(key, data, errors, context, field['field_name'])
+            data, errors = _readonly_subset_fields(data, key, data[key], errors, context, field['field_name'])
 
     return validator
 
@@ -256,45 +256,32 @@ def readonly_subset_fields(field, schema, is_dict=False):
 def readonly_subset_fields_dicts(field, schema, is_dict=False):
     def validator(key, data, errors, context):
         """
-        validator makes sure that some fields of subsets
+        validator makes sure that some dict fields of subsets
         cannot be changed
         """
-        #
-        # if errors[key]:
-        #     return
 
-        if data.get(('id',), '') != '':
-            print(data[key])
-
+        try:
             import ast
-            try:
-                data[key] = ast.literal_eval(data.get(key, ''))
-            except:
-                pass
+            new_value = ast.literal_eval(data[key])
+        except:
+            new_value = data[key]
 
-            print("************")
-            print(parse_json(data[key]))
-            print(data[key])
-            old_package = tk.get_action('package_show')(context, {'id': data[('id',)]})
-            print("*****************")
-            print(old_package.get(field['field_name'], ''))
-            print(json.dumps(old_package.get(field['field_name'], '')))
-
-            data, errors = _readonly_subset_fields(key, data, errors, context, field['field_name'])
+        data, errors = _readonly_subset_fields(data, key, new_value, errors, context, field['field_name'])
 
     return validator
 
 
-def _readonly_subset_fields(key, data, errors, context, field_name):
+def _readonly_subset_fields(data, key, new_value, errors, context, field_name):
+
     old_package = tk.get_action('package_show')(context, {'id': data[('id',)]})
-    if old_package.get(field_name, '') != data.get(key, ''):
-        if data.get(('relations',), '') != '':
-            relations = json.loads(data[('relations',)])
 
-            if len(relations) > 0:
-                parent_ids = [element['id'] for element in relations if element['relation'] == 'is_part_of']
+    if old_package.get(field_name, '') != new_value:
+        relations = old_package.get('relations', [])
 
-                if len(parent_ids) > 0:
-                    errors[key].append(_('Subsets cannot change this field'))
+        if len(relations) > 0:
+            parent_ids = [element['id'] for element in relations if element['relation'] == 'is_part_of']
+
+            if len(parent_ids) > 0:
+                errors[key].append(_('Subsets cannot change this field'))
 
     return data, errors

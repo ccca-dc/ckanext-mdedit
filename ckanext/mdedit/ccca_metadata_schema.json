@@ -579,38 +579,6 @@
       }
     },
     {
-      "field_name": "relations",
-      "label": "Relations",
-      "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
-      "form_attrs": {
-        "fields": [
-          {"field_name": "relation",
-           "form_snippet": "select.html",
-           "label": "Relation",
-           "choices": [
-             {
-               "value": "has_version",
-               "label": "Has version"
-             },
-             {
-               "value": "is_version_of",
-               "label": "Is version of"
-             },
-             {
-               "value": "is_part_of",
-               "label": "Is part of"
-             }
-           ]
-          },
-          {"field_name": "id",
-           "form_snippet": "text.html",
-           "label": "ID"}
-        ]
-      }
-    },
-
-    {
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts_readonly_if_subset",
@@ -681,6 +649,10 @@
              {
                "value": "has_version",
                "label": "Has version"
+             },
+             {
+               "value": "is_version_of",
+               "label": "Is version of"
              },
              {
                "value": "is_part_of",

@@ -90,7 +90,7 @@
       "preset_name": "dicts_readonly_if_subset",
       "values": {
         "display_snippet": "mdedit_dicts.html",
-        "validators": "readonly_subset_fields_dicts list_of_dicts ignore_missing",
+        "validators": "list_of_dicts readonly_subset_fields_dicts ignore_missing",
         "output_validators": "multiple_text_output"
       }
     },
