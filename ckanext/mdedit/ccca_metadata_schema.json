@@ -611,7 +611,7 @@
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts_readonly_if_subset",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_dicts_hidden.html",
       "display_snippet": "mdedit_dicts.html",
       "form_attrs": {
         "fields": [
@@ -643,7 +643,7 @@
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
-      "form_snippet": "mdedit_dicts.html",
+      "form_snippet": "mdedit_dicts_hidden.html",
       "form_attrs": {
         "fields": [
           {"field_name": "relation",

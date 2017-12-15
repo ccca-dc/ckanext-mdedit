@@ -1,3 +1,5 @@
+{% resource 'mdedit/mdedit_dicts.js' %}
 {% import 'macros/form.html' as form %}
+{%  set string_dict = h.dump_json(data[field.field_name]) %}
 
-{{ form.hidden(field.field_name,value=data[field.field_name]) }}
+{{ form.hidden(field.field_name,value=string_dict) }}
