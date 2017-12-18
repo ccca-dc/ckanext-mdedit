@@ -208,7 +208,7 @@ def version_to_name(field, schema):
         data_dict = dict()
         if ('__junk',) in data:
             data_dict = df.unflatten(data[('__junk',)])
-        elif len(data.get(('relations',), [])) > 0:
+        elif data.get(('relations',), '') is not missing and len(data.get(('relations',), [])) > 0:
             data_dict['relations'] = json.loads(data[('relations',)])
 
         pkg_for_versioning = data_dict
