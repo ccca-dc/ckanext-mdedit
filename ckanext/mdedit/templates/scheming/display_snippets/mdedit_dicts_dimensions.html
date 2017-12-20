@@ -3,27 +3,26 @@
     {% for dict in list_dicts %}
       {% if dict and dict is mapping %}
 
-        <h3 class="btn" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{dict['name']}} </h3>
+        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{dict['name']}} </h3>
         <div id="vars-{{ dict['name'] }}" class="collapse">
           <br>
-            &nbsp;
-            {{_(' Description:')}}
-             &nbsp;
-            {{ dict['description'] }} <br>
-            &nbsp;
+              &nbsp;
             {{_(' Shape:')}}
              &nbsp;
             {{ dict['shape'] }} <br>
+            &nbsp;
+            {{_(' Start:')}}
+            &nbsp;
+            {{ dict['start']}} <br>
             &nbsp;
             {{_(' Units:')}}
             &nbsp;
            {{ dict['units'] }} <br>
            &nbsp;
-            {{_(' Standard Name:')}}
+           {{_(' Description:')}}
             &nbsp;
-            {{ dict['standard_name'] }} <br>
+           {{ dict['description'] }} <br>
       </div>
-      <br>
       {% endif %}
     {% endfor %}
 {% else %}

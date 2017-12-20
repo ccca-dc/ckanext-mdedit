@@ -185,19 +185,20 @@
                  </td>
                </tr>
              {% endif %}
-      {%- elif field.field_name == "dimensions" or field.field_name == "relations" -%}
-          {#} Show only if we have data, as they are automatically filled {#}
+          {%- elif field.field_name == "dimensions" or field.field_name == "relations" or field.field_name == "variables"-%}
+          {#} Show only if we have data, as they are or might be automatically filled {#}
               {% if pkg_dict[field.field_name] %}
                 <tr>
                   <th class={{label_weight}} scope="row" >
                     {{ h.scheming_language_text(field.label) }}</th>
                   <td class="dataset-details"{%
                     if field.display_property %} property="{{ field.display_property
-                    }}"{% endif %}>{%- snippet 'scheming/snippets/display_field.html',
-                    field=field, data=pkg_dict, schema=schema -%}</td>
+                    }}"{% endif %}>
+                    {%- snippet 'scheming/snippets/display_field.html',
+                    field=field, data=pkg_dict, schema=schema -%}
+                  </td>
                 </tr>
               {%- endif -%}
-              
       {%- elif field.field_name not in exclude_fields
           and field.display_snippet is not none
           and field.field_name != "owner_org"
