@@ -35,23 +35,21 @@
       {% for dict in list_dicts %}
         {# There must be a dict in the list #}
         {% if dict and dict is mapping %}
-          {% if dict['description'] %}
-            {% set label = dict['description'] %}
-          {% elif dict['name'] %}
-            {% set label = dict['name'] %}
-          {% elif dict['standard_name'] %}
-            {% set label = dict['standard_name'] %}
-          {% else %}
-           {% set label = _('Variable') %}
-          {% endif %}
+              {% if dict['name'] %}
+                {% set label = dict['name'] %}
+              {% elif dict['description'] %}
+                {% set label = dict['description'] %}
+              {% else %}
+               {% set label = _('Dimension') %}
+              {% endif %}
           {% set list_index = loop.index0 %}
           <div id="{{ field.field_name + list_index|string }}" class="well well-small inp-{{ field.field_name }}">
-            <a class="rm-{{ field.field_name }} btn btn-danger" data-toggle="tooltip" title="Remove variable">-</a>
+            <a class="rm-{{ field.field_name }} btn btn-danger" data-toggle="tooltip" title="Remove dimension information">-</a>
             {# Build collapse form with panels #}
             {% if form_attrs.style|string == "collapse" %}
               <span class="panel panel-default">
                 <span class="panel-heading">
-                <a  class="btn" data-toggle="tooltip" title="Expand variable definition">{{ label }}</a>
+                <a  class="btn" data-toggle="tooltip" title="Expand dimension definition">{{ label }}</a>
                 <br><br>
               </span>
                 <div class="panel-collapse collapse in">
@@ -85,7 +83,7 @@
     data-module="mdedit_dicts"
     data-module-field_name="{{field.field_name}}"
     data-module-field_dict="{{ h.dump_json(field.form_attrs) }}"
-    data-toggle="tooltip" title="Add new variable">
+    data-toggle="tooltip" title="Add new dimension information">
     +
   </button>
 

@@ -48,6 +48,7 @@ class MdeditPlugin(plugins.SingletonPlugin):
     # ITemplateHelpers
     def get_helpers(self):
         return {
+            'mdedit_get_package_name': helpers.mdedit_get_package_name,
             'mdedit_get_name': helpers.mdedit_get_name,
             'mdedit_get_mail': helpers.mdedit_get_mail,
             'mdedit_get_date': helpers.mdedit_get_date,

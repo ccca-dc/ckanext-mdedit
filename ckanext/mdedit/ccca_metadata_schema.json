@@ -367,7 +367,7 @@
     },
     {
       "field_name": "tag_string",
-      "label": "Keywords",
+      "label": "Controlled Keywords",
       "preset": "taxonomy_tag_string_autocomplete",
       "form_placeholder": "eg. economy, mental health, government",
       "help_text": "Formalised word(s) or phrase(s) used to describe the subject. (Controlled Vocabulary). Start typing in the field and choose a value from list",
@@ -380,6 +380,7 @@
       "field_name": "controlled_tags",
       "label": "Used Thesauri",
       "preset": "taxonomy_thesauri",
+      "mdedit_note": "Attention! Stores the tags together with thesauri info",
       "help_text": "Official titles of the used thesauri, or other vocabularies or dictionaries used.",
       "help_text_norm": "ISO_thesaName (o), <br> INSPIRE_OriginatingControlledVocabulary (c).",
       "iso": "55",
@@ -562,16 +563,16 @@
     },
     {
       "field_name": "specifics",
-      "label": "Specific information about the resource",
+      "label": "Key-Value Information",
       "preset": "dicts",
-      "help_text": "Information for the resource in Name /Value Pairs (e.g. Experiment: RCP4.5, Ensemble: r3i1p1, ...)",
+      "help_text": "Information for the resource in Key / Value Pairs (e.g. Experiment: RCP4.5, Ensemble: r3i1p1, ...)",
       "form_snippet": "mdedit_dicts.html",
       "display_snippet": "mdedit_dict_specific.html",
       "form_attrs": {
         "fields": [
           {"field_name": "name",
            "form_snippet": "text.html",
-           "label": "Name"},
+           "label": "Key"},
           {"field_name": "value",
            "form_snippet": "text.html",
            "label": "Value"}
@@ -611,7 +612,7 @@
       "field_name": "dimensions",
       "label": "Dimensions of the resource",
       "preset": "dicts_readonly_if_subset",
-      "form_snippet": "mdedit_dicts_hidden.html",
+      "form_snippet": "mdedit_dicts_dimensions.html",
       "display_snippet": "mdedit_dicts_dimensions.html",
       "form_attrs": {
         "fields": [
@@ -638,11 +639,11 @@
         "heading": "description"
       }
     },
-
     {
       "field_name": "relations",
       "label": "Relations",
       "preset": "dicts",
+      "display_snippet": "mdedit_dicts_relations.html",
       "form_snippet": "mdedit_dicts_hidden.html",
       "form_attrs": {
         "fields": [

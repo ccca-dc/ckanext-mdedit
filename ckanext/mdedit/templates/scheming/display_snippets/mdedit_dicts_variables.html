@@ -3,9 +3,25 @@
     {% for dict in list_dicts %}
       {% if dict and dict is mapping %}
 
-        <h3 class="btn" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{dict['name']}} </h3>
+
+        {% if dict['description'] %}
+          {% set label = dict['description'] %}
+        {% elif dict['name'] %}
+            {% set label = dict['name'] %}
+        {% elif dict['standard_name'] %}
+          {% set label = dict['standard_name'] %}
+        {% else %}
+         {% set label = _('Variable') %}
+        {% endif %}
+
+
+        <h3 class="btn" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{label}} </h3>
         <div id="vars-{{ dict['name'] }}" class="collapse">
           <br>
+          &nbsp;
+          {{_(' Name:')}}
+           &nbsp;
+          {{ dict['name'] }} <br>
             &nbsp;
             {{_(' Description:')}}
              &nbsp;

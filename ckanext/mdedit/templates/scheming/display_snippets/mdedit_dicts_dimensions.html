@@ -3,25 +3,45 @@
     {% for dict in list_dicts %}
       {% if dict and dict is mapping %}
 
-        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{dict['name']}} </h3>
+        {% if dict['name'] %}
+          {% set label = dict['name'] %}
+        {% elif dict['description'] %}
+          {% set label = dict['description'] %}
+        {% else %}
+         {% set label = _('Dimension') %}
+        {% endif %}
+
+
+        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{label}} </h3>
         <div id="vars-{{ dict['name'] }}" class="collapse">
           <br>
+          &nbsp;
+          {{_(' Name:')}}
+          &nbsp;
+            {{ dict['Name'] }} <br>
               &nbsp;
-            {{_(' Shape:')}}
+              {{_(' Description:')}}
+               &nbsp;
+              {{ dict['description'] }} <br>
+              &nbsp;
+              {{_(' Shape:')}}
+               &nbsp;
+              {{ dict['shape'] }} <br>
+              &nbsp;
+
+              {{_(' Units:')}}
+              &nbsp;
+             {{ dict['units'] }} <br>
              &nbsp;
-            {{ dict['shape'] }} <br>
-            &nbsp;
             {{_(' Start:')}}
             &nbsp;
             {{ dict['start']}} <br>
             &nbsp;
-            {{_(' Units:')}}
+            {{_(' Increment:')}}
             &nbsp;
-           {{ dict['units'] }} <br>
-           &nbsp;
-           {{_(' Description:')}}
+            {{ dict['increment']}} <br>
             &nbsp;
-           {{ dict['description'] }} <br>
+
       </div>
       {% endif %}
     {% endfor %}

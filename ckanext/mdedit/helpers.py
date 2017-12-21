@@ -62,6 +62,10 @@ def get_older_versions(resource_id, package_id):
     return versions
 
 ###################### End Copied from Kathi ##############
+def mdedit_get_package_name (id):
+    res = tk.get_action('package_show')(data_dict={'id': id})
+    return res['name']
+
 def mdedit_get_contact_choices(field):
 
     # print ("mdedit_get_contact_choices *********** Anja ******************")

@@ -3,26 +3,23 @@
     {% for dict in list_dicts %}
       {% if dict and dict is mapping %}
 
-        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{dict['name']}} </h3>
-        <div id="vars-{{ dict['name'] }}" class="collapse">
-          <br>
-              &nbsp;
-            {{_(' Shape:')}}
-             &nbsp;
-            {{ dict['shape'] }} <br>
-            &nbsp;
-            {{_(' Start:')}}
-            &nbsp;
-            {{ dict['start']}} <br>
-            &nbsp;
-            {{_(' Units:')}}
-            &nbsp;
-           {{ dict['units'] }} <br>
-           &nbsp;
-           {{_(' Description:')}}
-            &nbsp;
-           {{ dict['description'] }} <br>
-      </div>
+          {% if dict['relation'] == 'is_part_of' %}
+            {% set label =_('Subset of ') %}
+          {% elif dict['relation'] == 'is_version_of' %}
+            {% set label =  _('Older Version of this dataset: ') %}
+          {% elif dict['relation'] == 'has_version' %}
+              {% set label =  _('Newer Version of this dataset: ')%}
+          {% else %}
+           {% set label = dict['relation']  %}
+          {% endif %}
+
+          {% if dict['id'] %}
+             {% set label = label + h.mdedit_get_package_name(dict['id']) %}
+            {% link_for label, controller='package', action='read', id=dict['id'] %}
+          {% else %}
+           -
+          {% endif %}
+
       {% endif %}
     {% endfor %}
 {% else %}
