@@ -213,8 +213,13 @@ def version_to_name(field, schema):
 
         pkg_for_versioning = data_dict
 
-        if len(data_dict.get('relations', [])) > 0:
-            parent_ids = [element['id'] for element in data_dict['relations'] if element['relation'] == 'is_part_of']
+        if 'relation' in data_dict:
+            rel_dict = data_dict['relations']
+        else:
+            rel_dict = None
+
+        if rel_dict and rel_dict is list and len(rel_dict) > 0:
+            parent_ids = [element['id'] for element in rel_dict if element['relation'] == 'is_part_of']
 
             if len(parent_ids) > 0:
                 pkg_for_versioning = tk.get_action('package_show')(context, {'id': parent_ids[0]})
