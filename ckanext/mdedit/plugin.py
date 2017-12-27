@@ -203,6 +203,8 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
 
         validated_dict = json.loads(search_data['validated_data_dict'])
         save_org_val_dict = json.loads(search_data['validated_data_dict'])
+        validated_dict_spec = json.loads(search_data[u'specifics'])
+
 
         # Add any specified variables to search_data
         if u'specifics' in validated_dict and u'variables' in validated_dict:
@@ -233,7 +235,8 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
             search_data.update(self._flatten_list_for_index(validated_dict[u'specifics'], 'extras_specifics', 'name', 'value'))
 
             # Anja: 27.12.17 - Now write the orginal values back which ommits the problem described above
-            search_data['validated_data_dict'] = json.dumps(save_org_val_dict)
+            #search_data['extras_specifics'] = self._prepare_list_for_index(validated_dict_spec)
+            #search_data['validated_data_dict'] = json.dumps(save_org_val_dict)
 
 
         except:
