@@ -76,7 +76,6 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
 
     def before_view(self, pkg_dict):
         pkg_dict = self._prepare_package_json(pkg_dict)
-
         return pkg_dict
 
     def _ignore_field(self, key):
@@ -203,6 +202,25 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
             return search_data
 
         validated_dict = json.loads(search_data['validated_data_dict'])
+        save_org_val_dict = json.loads(search_data['validated_data_dict'])
+
+        # Add any specified variables to search_data
+        if u'specifics' in validated_dict and u'variables' in validated_dict:
+            for x in validated_dict[u'variables']:
+                if 'description' in x  or 'name' in x or 'standard_name' in x:
+                    new_item ={}
+                    new_item[u'name'] = u'Variables'
+                    new_item[u'value'] = x['description'] if 'description' in x else x['name']
+                    if not new_item[u'value']:
+                        new_item[u'value'] = x['standard_name']
+                    # check if the item is already present in specifcs:
+                    for x in validated_dict[u'specifics']:
+                        if x[u'value'] != new_item[u'value'] and x[u'name'] != new_item[u'name']:
+                            validated_dict[u'specifics'].append(new_item)
+                            # Anja, 27.12.17: If we dont do this line below Variables will not move into specifics
+                            # If we do this: Variables are copied into specifcs of the dataset ...
+                            search_data['validated_data_dict'] = json.dumps(validated_dict)
+
         try:
             search_data['extras_variables'] = self._prepare_list_for_index(validated_dict[u'variables'])  # noqa
             search_data['extras_dimensions'] = self._prepare_list_for_index(validated_dict[u'dimensions'])  # noqa
@@ -214,9 +232,13 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
             # Flatten specifics
             search_data.update(self._flatten_list_for_index(validated_dict[u'specifics'], 'extras_specifics', 'name', 'value'))
 
-        except:
-            pass
+            # Anja: 27.12.17 - Now write the orginal values back which ommits the problem described above
+            search_data['validated_data_dict'] = json.dumps(save_org_val_dict)
 
+
+        except:
+            print "before-index: something did not work"
+            pass
 
         return search_data
 
@@ -235,4 +257,5 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
             flatten_dict.update(
                 {'_'.join([result_key_prefix, keyword]): [d.get(filter_value) for d in list_dicts if d.get(filter_key) in keyword ]})
 
+        #print type(flatten_dict)
         return flatten_dict
