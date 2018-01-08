@@ -80,7 +80,7 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
 
     def _ignore_field(self, key):
         #return False
-        return key in 'spatial' or key in 'controlled_tags'
+        return key in 'spatial' or key in 'controlled_tags' or key in 'title' or key in 'notes'
 
     def _prepare_package_json(self, pkg_dict):
         # parse all json strings in dict
@@ -106,7 +106,6 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
         for key, value in pkg_dict.iteritems():
             if not self._ignore_field(key):
                 pkg_dict[key] = parse_json(value)
-
         return pkg_dict
 
 
@@ -168,7 +167,7 @@ class MdeditResourcePlugin(MdeditMasterPlugin):
         return res_dict
 
     def _ignore_field(self, key):
-        return key == 'tracking_summary'
+        return key == 'tracking_summary' or key in 'name' or key in 'description'
 
 
 class MdeditPackagePlugin(MdeditMasterPlugin):
@@ -249,5 +248,5 @@ class MdeditPackagePlugin(MdeditMasterPlugin):
         for keyword in unique_keywords:
             flatten_dict.update(
                 {'_'.join([result_key_prefix, keyword]): [d.get(filter_value) for d in list_dicts if d.get(filter_key) in keyword ]})
-        
+
         return flatten_dict
