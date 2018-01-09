@@ -78,9 +78,10 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
         pkg_dict = self._prepare_package_json(pkg_dict)
         return pkg_dict
 
-    def _ignore_field(self, key):
+    def _parse_field(self, key):
         #return False
-        return key in 'spatial' or key in 'controlled_tags' or key in 'title' or key in 'notes'
+        return key in 'contact_points' or key in 'specifics' or key in 'variables' or key in 'dimensions' or key in 'relations'
+
 
     def _prepare_package_json(self, pkg_dict):
         # parse all json strings in dict
@@ -104,7 +105,7 @@ class MdeditMasterPlugin(plugins.SingletonPlugin):
     def _package_parse_json_strings(self, pkg_dict):
         # try to parse all values as JSON
         for key, value in pkg_dict.iteritems():
-            if not self._ignore_field(key):
+            if self._parse_field(key):
                 pkg_dict[key] = parse_json(value)
         return pkg_dict
 
