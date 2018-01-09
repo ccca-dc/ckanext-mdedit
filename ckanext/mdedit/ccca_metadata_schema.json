@@ -242,11 +242,11 @@
       "inspire":"Part B 10.3",
       "choices": [
         {
-          "value": "http://publications.europa.eu/resource/authority/language/ENG",
+          "value": "eng",
           "label": "English"
         },
         {
-          "value": "ger",
+          "value": "deu",
           "label": "Deutsch"
         }
       ]
