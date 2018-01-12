@@ -213,12 +213,12 @@ def version_to_name(field, schema):
 
         pkg_for_versioning = data_dict
 
-        if 'relation' in data_dict:
+        if 'relations' in data_dict:
             rel_dict = data_dict['relations']
         else:
             rel_dict = None
 
-        if rel_dict and rel_dict is list and len(rel_dict) > 0:
+        if type(rel_dict) == list and len(rel_dict) > 0:
             parent_ids = [element['id'] for element in rel_dict if element['relation'] == 'is_part_of']
 
             if len(parent_ids) > 0:
