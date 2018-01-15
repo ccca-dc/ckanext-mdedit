@@ -273,6 +273,13 @@
       "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
     },
     {
+      "field_name": "modified",
+      "label": "Date of last modification (issued)",
+      "preset": "mdedit_today",
+      "help_text": "Most recent date on which the dataset was changed, updated or modified.",
+      "form_snippet": "mdedit_hidden.html"
+    },
+    {
       "field_name": "state",
       "label": "Server State of the Dataset",
       "notes": "Field required by CKAN",

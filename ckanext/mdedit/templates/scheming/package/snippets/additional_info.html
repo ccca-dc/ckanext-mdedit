@@ -182,11 +182,15 @@
                 {% endif %}
               </td>
             </tr>
-             {% if pkg_dict.metadata_modified %}
+             {% if pkg_dict.metadata_modified or pkg_dict.modified  %}
                <tr>
-                 <th scope="row" class="dataset-label">{{ _("Date of last modification") }}</th>
+                 <th scope="row" class="dataset-label">{{ _("Date of last modification (modified)") }}</th>
                  <td class="dataset-details">
+                     {% if pkg_dict.modified %}
+                     {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.modified %}
+                     {% else %}
                      {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
+                     {% endif %}
                  </td>
                </tr>
              {% endif %}
@@ -208,6 +212,7 @@
           and field.display_snippet is not none
           and field.field_name != "owner_org"
           and field.field_name != "tag_string"
+          and field.field_name != "modified"
           and group_field == "false"
       -%}
 
