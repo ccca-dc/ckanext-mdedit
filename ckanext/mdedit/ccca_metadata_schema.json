@@ -396,7 +396,7 @@
       "inspire_name": "Originating Controlled Vocabulary",
       "iso_inspire_match_ref": "Inspire Implementing Rules V. 1.3",
       "iso_inspire_match_ref_nr": "2.4.1",
-      "validators": "list_of_dicts",
+      "validators": "list_of_dicts ignore_missing",
       "form_attrs": {
         "readonly": "readonly"
       }
