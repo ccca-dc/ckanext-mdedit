@@ -222,21 +222,15 @@ def version_to_name(field, schema):
             parent_ids = [element['id'] for element in rel_dict if element['relation'] == 'is_part_of']
 
             if len(parent_ids) > 0:
-                pkg_for_versioning = tk.get_action('package_show')(context, {'id': parent_ids[0]})
+                # copy context otherwise the context contains the parent package and the next validator has a problem
+                context_copy = context.copy()
+                pkg_for_versioning = tk.get_action('package_show')(context_copy, {'id': parent_ids[0]})
 
         name = data[key]
         version_number = str(get_version_number(pkg_for_versioning)).zfill(2)
 
         if not name.endswith('-v' + version_number):
             data[key] = name + '-v' + version_number
-
-        context['ignore_capacity_check'] = True
-        # newer versions use 'include_private': True in package_search
-        search_results = tk.get_action('package_search')(context, {'rows': 1000, 'fq': 'name:"%s"' % (data[key]), 'include_versions': True})
-
-        if search_results['count'] > 0:
-            if data.get(('id',), '') != search_results['results'][0]['id']:
-                errors[key].append(_('That URL is already in use.'))
 
     return validator
 
