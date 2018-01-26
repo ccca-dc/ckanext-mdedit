@@ -36,20 +36,40 @@
       "form_placeholder": "http://example.com"
     },
     {
-      "field_name": "is_collection",
-      "label": "Is Collection",
-      "form_placeholder": "e.g. 1042",
+      "field_name": "type_of_group",
+      "label": "Type of Group",
       "form_snippet": "mdedit_select.html",
       "display_snippet": "select.html",
-      "help_text": "Collections can be used to group datasets; alle dataset with the same identifier are grouped together",
+      "help_text": "Defines which type of group this is",
       "choices": [
         {
-          "value":  "false",
-          "label": "no"
+          "value":  "project",
+          "label": "Project"
         },
         {
-          "value": "true",
-          "label": "yes"
+          "value": "category",
+          "label": "Category"
+        },
+        {
+          "value": "variable",
+          "label": "Variable"
+        }
+      ]
+    },
+    {
+      "field_name": "addition_without_group_membership",
+      "label": "Addition without group membership",
+      "form_snippet": "mdedit_select.html",
+      "display_snippet": "select.html",
+      "help_text": "Specifies if all users should be able to add packages or only members",
+      "choices": [
+        {
+          "value":  "True",
+          "label": "Yes"
+        },
+        {
+          "value": "False",
+          "label": "No"
         }
       ]
     }
