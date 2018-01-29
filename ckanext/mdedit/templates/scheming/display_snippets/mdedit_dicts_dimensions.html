@@ -5,15 +5,24 @@
 
         {% if dict['name'] %}
           {% set label = dict['name'] %}
+          {% set name = dict['name'] | replace (' ','-')%}
         {% elif dict['description'] %}
           {% set label = dict['description'] %}
+          {% set name = dict['description'] | replace (' ','-')%}
+        {% elif  dict['shape']  %}
+           {% set label = dict['shape']%}
+           {% set name = dict['shape'] | replace (' ','-')%}
+        {% elif  dict['units']  %}
+            {% set label = dict['units']%}
+            {% set name = dict['untis'] | replace (' ','-')%}
         {% else %}
          {% set label = _('Dimension') %}
+         {% set name = _('dimension')%}
         {% endif %}
 
 
-        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ dict['name'] }}">{{label}} </h3>
-        <div id="vars-{{ dict['name'] }}" class="collapse">
+        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ name }}">{{label}} </h3>
+        <div id="vars-{{ name }}" class="collapse">
           <br>
           &nbsp;
           {{_(' Name:')}}
