@@ -6,19 +6,24 @@
 
         {% if dict['description'] %}
           {% set label = dict['description'] %}
-          {% set name = dict['description'] | replace (' ','-')%}
+          {% set name = dict['description'] | replace (' ','-') %}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
         {% elif dict['name'] %}
           {% set label = dict['name'] %}
           {% set name = dict['name'] | replace (' ','-')%}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
         {% elif dict['standard_name'] %}
           {% set label = dict['standard_name'] %}
           {% set name = dict['standard_name'] | replace (' ','-')%}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
         {% elif  dict['shape']  %}
          {% set label = dict['shape']%}
          {% set name = dict['shape'] | replace (' ','-')%}
+         {% set name = name | replace ('(', '') |replace (')', '') %}
        {% elif  dict['units']  %}
           {% set label = dict['units']%}
           {% set name = dict['untis'] | replace (' ','-')%}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
         {% endif %}
 
 
