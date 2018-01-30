@@ -43,16 +43,24 @@
       "help_text": "Defines which type of group this is",
       "choices": [
         {
-          "value":  "project",
-          "label": "Project"
+          "value":  "projects",
+          "label": "Projects"
         },
         {
-          "value": "category",
-          "label": "Category"
+          "value": "categories",
+          "label": "Categories"
         },
         {
-          "value": "variable",
-          "label": "Variable"
+          "value": "parameter",
+          "label": "Parameter"
+        },
+        {
+          "value": "methods",
+          "label": "Methods"
+        },
+        {
+          "value": "usergroups",
+          "label": "User Groups"
         }
       ]
     },
