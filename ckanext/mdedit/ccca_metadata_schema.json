@@ -259,9 +259,40 @@
       "form_include_blank_choice": "true",
       "iso":"70",
       "inspire":"Part B 8.2",
-      "help_text": "License definitions and additional information can be found at ",
+      "help_text": "If you need a license not listed here, please feel free to contact us; License definitions and additional information can be found at ",
       "help_url": "http://opendefinition.org/licenses/",
       "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
+    },
+    {
+      "field_name": "use_limitation",
+      "label": "Use Limitation",
+      "preset": "mdedit_select",
+      "iso":"68",
+      "inspire":"Part B 8.1",
+      "help_text": "Limitation affecting the fitness for use of the resources.",
+      "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m).",
+      "choices": [
+        {
+          "value": "001",
+          "label": "no limitation"
+        },
+        {
+          "value": "002",
+          "label": "for research only"
+        },
+        {
+          "value": "003",
+          "label": "no limitation"
+        },
+        {
+          "value": "004",
+          "label": "under CCCA data policy"
+        },
+        {
+          "value": "005",
+          "label": "under individual GTC"
+        }
+      ]
     },
     {
       "field_name": "issued",
@@ -269,12 +300,12 @@
       "inspire": "Part B 5.2",
       "iso":"393",
       "label": "Date of publication (issued)",
-      "preset": "mdedit_metadata_date",
+      "preset": "mdedit_datepicker",
       "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
     },
     {
       "field_name": "modified",
-      "label": "Date of last modification (issued)",
+      "label": "Date of last modification (modified)",
       "preset": "mdedit_today",
       "help_text": "Most recent date on which the dataset was changed, updated or modified.",
       "form_snippet": "mdedit_hidden.html"
@@ -421,20 +452,11 @@
    {
     "field_name": "spatial_name",
     "label": "Coverage",
-    "form_snippet": "mdedit_hidden.html"
+    "form_snippet": "text.html",
+    "help_text": "Geographical region, eg. Autria, Vienna, etc..."
    },
 
-  {
-    "field_name": "spatial_resolution",
-    "help_text_norm": "ISO equivalentScale (o), ISO distance (o), <br> INSPIRE_SpatialResolution (o).",
-    "label": "Spatial resolution",
-    "iso": "60",
-    "inspire": "Part B 6.2",
-    "form_snippet": "text.html",
-    "help_text": "Ground sample distance / Equivalent scale:level of detail expressed as the scale denominator of a comparable hardcopy map or chart; dictance:ground sample distance"
-  },
-
-    {
+      {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Time",
       "title": "Temporal Extend of the Resources",
@@ -681,10 +703,28 @@
     {
       "field_name":"tab_delimiter",
       "tab_delimiter": "Quality",
-      "title": "Quality and Validity of the resources",
+      "title": "Quality and applied methods",
       "form_attrs": {
         "readonly": "readonly"
       }
+    },
+    {
+      "field_name": "equiv_scale",
+      "help_text_norm": "ISO equivalentScale (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Equivalent Scale",
+      "iso": "60",
+      "inspire": "Part B 6.2",
+      "form_snippet": "text.html",
+      "help_text": "Equivalent scale:level of detail expressed as the scale denominator of a comparable hardcopy map or chart; dictance:ground sample distance"
+    },
+    {
+      "field_name": "scale_dist",
+      "help_text_norm": "ISO distance (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Scale Distance",
+      "iso": "61",
+      "inspire": "Part B 6.2",
+      "form_snippet": "text.html",
+      "help_text": "Ground sample distance. Positive integer(equivalent scale); number expressing the distance value and a unit of measure of the distance value(distance)"
     },
     {
       "field_name": "provenance",
@@ -694,6 +734,45 @@
       "label": "Provenance",
       "form_snippet": "markdown.html",
       "help_text": "General explanation of the data producer's knowledge about the lineage of a dataset."
+    },
+    {
+      "field_name": "resource_status",
+      "label": "Status of the resource(s)",
+      "preset": "select",
+      "select_size": "1",
+      "help_text": "Status of the resource(s) within this dataset.",
+      "help_text_norm": "ISO_idStatus (m) <br> INSPIRE - ",
+      "iso":"28",
+      "choices": [
+        {
+          "value": "007",
+          "label": "under development"
+        },
+        {
+          "value": "001",
+          "label": "completed"
+        },
+        {
+          "value": "002",
+          "label": "historical archive"
+        },
+        {
+          "value": "003",
+          "label": "obsolete"
+        },
+        {
+          "value": "004",
+          "label": "ongoing"
+        },
+        {
+          "value": "005",
+          "label": "planned"
+        },
+        {
+          "value": "006",
+          "label": "required"
+        }
+      ]
     },
     {
       "field_name": "tab_delimiter",
