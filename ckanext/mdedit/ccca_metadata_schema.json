@@ -273,23 +273,19 @@
       "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m).",
       "choices": [
         {
-          "value": "001",
+          "value": "no_limitation",
           "label": "no limitation"
         },
         {
-          "value": "002",
+          "value": "for_research_only",
           "label": "for research only"
         },
         {
-          "value": "003",
-          "label": "no limitation"
-        },
-        {
-          "value": "004",
+          "value": "under_ccca_data_policy",
           "label": "under CCCA data policy"
         },
         {
-          "value": "005",
+          "value": "under_individual_gtc",
           "label": "under individual GTC"
         }
       ]
