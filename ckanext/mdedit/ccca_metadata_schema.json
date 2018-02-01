@@ -297,7 +297,7 @@
       "iso":"393",
       "label": "Date of publication (issued)",
       "preset": "mdedit_datepicker",
-      "help_text": "Date of publication of the metadata of this  dataset  (automatically filled)."
+      "help_text": "Date of publication of the metadata of this dataset."
     },
     {
       "field_name": "modified",
