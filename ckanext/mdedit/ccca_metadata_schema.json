@@ -328,85 +328,10 @@
     {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Keywords",
-      "title": "Topic and Keywords",
+      "title": "Keywords",
       "form_attrs": {
         "readonly": "readonly"
       }
-    },
-    {
-      "field_name": "topic_category",
-      "label": "Topic Category/ies",
-      "preset": "multiple_select",
-      "iso":"41",
-      "inspire":"Part B 2.1",
-      "help_text": "Main categories(s) of the datapackage. See",
-      "help_url": "/categories",
-      "help_text_norm": "ISO_tpCat (c), <br> INSPIRE_TopicCategory (m).",
-      "mdedit_note": "Display Names added in order to match Copernicus and agreed categories - 29.3.2017 Anja",
-      "mdedit_important_note": "DO NOT CHANGE - USED FOR MAIN MENU CATEGORIES - 3.10.2017 Anja",
-      "choices": [
-        {
-          "value": "001",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/farming/farming.en.rdf",
-          "iso_name": "farming",
-          "label": "Agriculture and Forestry"
-        },
-        {
-          "value": "002",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/biota/biota.en.rdf",
-          "iso_name": "biota",
-          "label": "Phenology"
-        },
-        {
-          "value": "004",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/climatologyMeteorologyAtmosphere/climatologyMeteorologyAtmosphere.de.rdf",
-          "iso_name": "climatology, meteorology, atmosphere",
-          "label": "Meteorology/Climatology"
-
-        },
-        {
-          "value": "005",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/economy/economy.en.rdf",
-          "iso_name": "economy",
-          "label": "Tourism"
-        },
-        {
-          "value": "009",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/health/health.en.rdf",
-          "iso_name": "health",
-          "label": "Health"
-        },
-        {
-          "value": "012",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/inlandWaters/inlandWaters.en.rdf",
-          "iso_name": "inland waters",
-          "label": "Water Management/Hydrology"
-        },
-        {
-          "value": "017",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/structure/structure.en.rdf",
-          "iso_name": "structure",
-          "label": "Infrastructure"
-        },
-        {
-          "value": "018",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/transportation/tranportation.en.rdf",
-          "iso_name": "transportation",
-          "label": "Transport"
-        },
-        {
-          "value": "019",
-          "rdf": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory/utilitiesCommunication/utilitiesCommunication.en.rdf",
-          "iso_name": "utilities communication",
-          "label": "Energy"
-        },
-        {
-          "value": "020",
-          "rdf": "http://climate.copernicus.eu/resources/information-service/climate-change-impact-disaster-risk-reduction",
-          "iso_name": "-----",
-          "label": "Disaster/Risk Reduction"
-        }
-      ]
     },
     {
       "field_name": "tag_string",
