@@ -291,6 +291,15 @@
       ]
     },
     {
+      "field_name": "created",
+      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfCreation (o).",
+      "inspire": "Part B 5.4",
+      "iso":"393",
+      "label": "Date of creation (created)",
+      "preset": "mdedit_datepicker",
+      "help_text": "Date of creation of the resources within this dataset."
+    },
+    {
       "field_name": "issued",
       "help_text_norm": "ISO CI_DATE  (o), <br> INSPIRE_DateOfPublication (o).",
       "inspire": "Part B 5.2",
