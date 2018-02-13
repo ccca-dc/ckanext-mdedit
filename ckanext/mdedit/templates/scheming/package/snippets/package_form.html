@@ -1,12 +1,9 @@
 {# Anja 27.10.2016: Changed and adapted from scheming #}
 {#  Anja, 9.3. Progressbar #}
 
-
 {% resource 'mdedit/mdedit_progressbar.js' %}
-{% resource 'mdedit/mdedit_progressbar.css' %}
 
 {% ckan_extends %}
-
 
 {% block errors %}
   {%- if errors -%}
@@ -18,10 +15,6 @@
 {% endblock %}
 
 {% block basic_fields %}
-
-  {# Anja 20.10. Bug for Tabs/pills hash in url #}
-  {% resource 'mdedit/mdedit_navpills.js' %}
-
   {%- if not dataset_type -%}
     <p>
     dataset_type not passed to template. your version of CKAN
@@ -32,61 +25,62 @@
 {%- set schema = h.scheming_get_dataset_schema(dataset_type) -%}
 
 <noscript><br><p class="badge badge-important">!!! Please enable JavaScript in your Browser Settings !!!<br></p></noscript>
-{%- if  data.metadata_modified -%} {# Edit: CCCA blue  #}
-<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: #005a76;"></div></div>
-{%- else -%} {# New: Green  #} {# New: Green - stages  #}
-<div id="PBar" data-module="mdedit_progressbar"><div id="PProgress" style="background-color: green;"></div></div>
-{%- endif -%}
+
+  <div id="PBar" class="progress" data-module="mdedit_progressbar">
+      <div id="PProgress" class="progress-bar active" role="progressbar" aria-valuenow="00" aria-valuemin="0" aria-valuemax="100" style="width:100%"></div>
+  </div>
 
 <div id="progresselements">
 
   {# find delimters and headers for Tabs #}
-  <header class="module-content page-header mdedit_ph_small">
-
+  <div class="module-content mdedit_ph_small">
   {%- for field in schema.dataset_fields -%}
      {%- if loop.first and field.field_name == "tab_delimiter" -%}
         {%- if field.necessary -%}
-         <ul class="nav nav-pills">
-            <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"  data-html="true"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a data-toggle="tab" href="#{{field.tab_delimiter}}" data-html="true">
+                <i style="color:red;">* </i>{{field.tab_delimiter}}
+              </a>
+            </li>
         {%- else -%}
-      <ul class="nav nav-pills">
-         <li class="active"><a data-toggle="pill" href="#{{field.tab_delimiter}}"   data-html="true">{{field.tab_delimiter}}</a></li>
+          <ul class="nav nav-tabs">
+              <li class="active">
+                  <a data-toggle="tab" href="#{{field.tab_delimiter}}" data-html="true">{{field.tab_delimiter}}</a>
+              </li>
         {%- endif -%}
-
     {%- endif -%}
 
     {%- if not loop.first and field.field_name == "tab_delimiter"-%}
-
        {%- if field.necessary -%}
-        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}" id="mdedit_tab_fix"><i style="color:red;">* </i>{{field.tab_delimiter}}</a></li>
+              <li>
+                  <a data-toggle="tab" data-html="true" href="#{{field.tab_delimiter}}" id="mdedit_tab_fix">
+                      <i style="color:red;">* </i>{{field.tab_delimiter}}
+                  </a>
+              </li>
        {%- else  -%}
-        <li><a data-toggle="pill" data-html="true" href="#{{field.tab_delimiter}}" id="mdedit_tab_fix">{{field.tab_delimiter}}</a></li>
+              <li>
+                  <a data-toggle="tab" data-html="true" href="#{{field.tab_delimiter}}" id="mdedit_tab_fix">{{field.tab_delimiter}}</a>
+              </li>
        {%- endif -%}
     {%- endif -%}
-
   {%- endfor -%}
+          </ul>
+  </div>
 
   {# Now manage the fields #}
   {%- for field in schema.dataset_fields -%}
     {%- if field.field_name == "tab_delimiter" and loop.first -%}
-        </ul>
-        </header>
-       <div class="pill-content">
-        <div id="{{field.tab_delimiter}}" class="pill-pane fade in active">
+       <div class="tab-content">
+        <div id="{{field.tab_delimiter}}" class="tab-pane fade in active">
           <br>
          <h3>{{field.title}}</h3>
-          <br>  <br>
     {%- elif  field.field_name == "tab_delimiter" and not loop.first -%}
         </div>
-        <div id="{{field.tab_delimiter}}" class="pill-pane fade">
-            <br>
+        <div id="{{field.tab_delimiter}}" class="tab-pane fade">
               <h3>{{field.title}}</h3>
-          <br>  <br>
-
     {%- elif field.form_snippet is not none -%}
-
         {# check grouping of fields #}
-
          {%if field.group_start %}
             {%if field.required %}
             <div class="well well-small"> <p><h4><i style="color:red;">* </i> {{field.group_start}}</h4></p>
@@ -113,9 +107,7 @@
         {%if field.group_small_end %}
            </div>
         {% endif %}
-
     {%- endif -%}
-
   {%- endfor -%}
 
   {%- if schema.dataset_fields[0].field_name == "tab_delimiter" -%}
@@ -126,14 +118,14 @@
 
 </div> {# progressform #}
 
-  {# Attention: Only non-scheming fields can be seen here in extras! #}
-  {# Therfore here we have harvested data #}
-  {# Provide Possibility to save them  #}
-  {#{{ key }} :    {{ value }} <br> #}
-  {% set extras = c.pkg_dict.extras %}
-  {%  set mdedit_pkg_url = h.full_current_url() %}
-  {% if extras %}
-  <p class="badge badge-important">!!! This dataset contains extra fields! !!!
+{# Attention: Only non-scheming fields can be seen here in extras! #}
+{# Therfore here we have harvested data #}
+{# Provide Possibility to save them  #}
+{#{{ key }} :    {{ value }} <br> #}
+{% set extras = c.pkg_dict.extras %}
+{%  set mdedit_pkg_url = h.full_current_url() %}
+{% if extras %}
+<p class="badge badge-important">!!! This dataset contains extra fields! !!!
     <br> Probably the dataset was harvested. This is great :-)
     <br> However, some field-names apparently did not match standardised field-names
     <br> and thus an automatic import to our server was impossible.
@@ -143,26 +135,26 @@
     <br> feel free to contact us:
     {{h.mail_to(_('datenzentrum@ccca.ac.at'),_('datenzentrum@ccca.ac.at'), None,None, _('(harvested) Dataset contains non-standardised fields'), mdedit_pkg_url, class='mdedit_dz_mail_to')}}.
 
-  </p>
-    {% import 'macros/form.html' as form %}
+</p>
+{% import 'macros/form.html' as form %}
 
-    {% for extra in h.sorted_extras(extras) %}
-      {% set key, value = extra %}
-      {% call form.input(
-          key,
-          id='field-' + key,
-          label=h.scheming_language_text(key),
-          placeholder=value,
-          value=value,
-          error=errors[jkey],
-          classes=['control-medium ccca-alarm'],
-          attrs={}
-          )
-      %}
-      {% endcall %}
-    {% endfor %}
+{% for extra in h.sorted_extras(extras) %}
+{% set key, value = extra %}
+{% call form.input(
+key,
+id='field-' + key,
+label=h.scheming_language_text(key),
+placeholder=value,
+value=value,
+error=errors[jkey],
+classes=['control-medium ccca-alarm'],
+attrs={}
+)
+%}
+{% endcall %}
+{% endfor %}
 
-  {%- endif -%}
+{%- endif -%}
 
   {%- if 'resource_fields' not in schema -%}
       <!-- force controller to skip resource-editing step for this type -->

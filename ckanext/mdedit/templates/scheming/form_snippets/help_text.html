@@ -14,9 +14,11 @@
 
 {% macro my_help(text='', url='', inline=false, classes=[]) %}
   {%- if text -%}
-  <div style="z-index:120;" class="info-block{{ ' info-inline' if inline }}{{ " " ~ classes | join(' ') }}">
-      <i class="icon-info-sign"></i>
+  <div class="helptip pull-right">
+      <i class="icon-question-sign icon-2x"></i>
+      <span class="helptiptext">
       {{ text }}
+      </span>
     {%- if url -%}
       <a target = "_blank" href="{{url}}">  {{url}}</a>
   {%- endif -%}
@@ -31,7 +33,7 @@
         inline=true,
     ) }}
 {% elif field.help_text %}
-    {{ form.info(
+    {{ my_help(
         text=h.scheming_language_text(field.help_text),
       inline=field.get('help_inline', true),
     ) }}
