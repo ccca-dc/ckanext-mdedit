@@ -59,6 +59,14 @@
           "label": "Methods"
         },
         {
+          "value": "data_type",
+          "label": "Data Type"
+        },
+        {
+          "value": "emission pathways",
+          "label": "Emission Pathways"
+        },
+        {
           "value": "other",
           "label": "Other"
         }
