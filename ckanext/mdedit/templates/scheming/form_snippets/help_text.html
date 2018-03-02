@@ -14,15 +14,18 @@
 
 {% macro my_help(text='', url='', inline=false, classes=[]) %}
   {%- if text -%}
+  <div class="helptip-area pull-right">
   <div class="helptip pull-right">
       <i class="icon-question-sign icon-2x"></i>
       <span class="helptiptext">
       {{ text }}
-      </span>
+
     {%- if url -%}
-      <a target = "_blank" href="{{url}}">  {{url}}</a>
+      <p><a target = "_blank" href="{{url}}">  {{url}}</a></p>
   {%- endif -%}
+  </span>
     </div>
+</div>
   {%- endif -%}
 {% endmacro %}
 
