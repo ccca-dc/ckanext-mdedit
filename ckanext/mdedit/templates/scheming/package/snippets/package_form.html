@@ -73,7 +73,6 @@
     {%- if field.field_name == "tab_delimiter" and loop.first -%}
        <div class="tab-content">
         <div id="{{field.tab_delimiter}}" class="tab-pane fade in active">
-          <br>
          <h3>{{field.title}}</h3>
     {%- elif  field.field_name == "tab_delimiter" and not loop.first -%}
         </div>

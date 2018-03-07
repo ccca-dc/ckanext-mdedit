@@ -376,20 +376,20 @@
      "label": "Polygon",
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
-     "help_text": "Select area describing the dataset spatial extend",
+     "help_text": "Select area describing the dataset spatial extent",
      "validators": "readonly_subset_fields"
    },
    {
     "field_name": "spatial_name",
     "label": "Coverage",
     "form_snippet": "text.html",
-    "help_text": "Geographical region, eg. Autria, Vienna, etc..."
+    "help_text": "Geographical region, eg. Austria, Vienna, etc..."
    },
 
       {
       "field_name": "tab_delimiter",
       "tab_delimiter": "Time",
-      "title": "Temporal Extend of the Resources",
+      "title": "Temporal Extent of the Resources",
       "form_attrs": {
         "readonly": "readonly"
       }

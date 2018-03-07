@@ -1,0 +1,9 @@
+{% ckan_extends %}
+{# Anja 27.10.2016: Include css styling / Kathi 7.3.2017 moved from base to edit_base #}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" type="text/css" href="/jquery.datetimepicker.css"/>
+  <link rel="stylesheet" type="text/css" href="/jquery-ui.css"/>
+
+{% endblock %}
