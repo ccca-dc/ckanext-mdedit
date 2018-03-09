@@ -15,7 +15,11 @@
 
           {% if dict['id'] %}
              {% set label = label + h.mdedit_get_package_name(dict['id']) %}
-            {% link_for label, controller='package', action='read', id=dict['id'] %}
+             {% if h.check_access('package_show', {'id':dict['id']}) %}
+                {% link_for label, controller='package', action='read', id=dict['id'] %}
+             {% else %}
+                <a data-toggle="tooltip" title="This version is private">{{ label }}</a>
+            {% endif %}
           {% else %}
            -
           {% endif %}
