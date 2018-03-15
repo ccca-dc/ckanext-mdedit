@@ -25,6 +25,12 @@
       "form_placeholder": "A little information about my organization..."
     },
     {
+      "field_name": "contact_point",
+      "label": "Contact Point",
+      "form_snippet": "text.html",
+      "form_placeholder": "Name of Person to contact with respect to CCCA data issues"
+    },
+    {
       "field_name": "image_url",
       "label": "Image URL",
       "form_snippet": "mdedit_image_upload.html",
