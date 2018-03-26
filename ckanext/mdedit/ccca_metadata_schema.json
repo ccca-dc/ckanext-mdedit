@@ -890,6 +890,11 @@
      ]
    },
    {
+     "field_name": "hash",
+     "label": "Hash",
+     "form_snippet": "mdedit_hidden.html"
+   },
+   {
      "field_name": "hash_algorithm",
      "label": "Hash algorithm",
      "form_snippet": "mdedit_hidden.html"
