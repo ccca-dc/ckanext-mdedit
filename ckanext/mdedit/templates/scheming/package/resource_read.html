@@ -43,7 +43,7 @@
           <tr>
             <th scope="row">{{ _('Size') }}</th>
             {% if res.size is not none  %}
-              <td>{{ res.size|filesizeformat }}</td>
+              <td>{{ h.filesizeformat(res.size) }}</td>
             {% else %}
               <td>{{ _('unknown') }}</td>
             {% endif %}
