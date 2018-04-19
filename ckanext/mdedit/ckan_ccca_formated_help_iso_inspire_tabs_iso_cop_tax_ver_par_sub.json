@@ -1,0 +1,980 @@
+{
+  "scheming_version": "1",
+  "dataset_type": "dataset",
+  "about": "A reimplementation of the default CKAN dataset schema - CCCA Metadata Editor",
+  "about_url": "https://github.com/ccca-dc/ckanext-mdedit",
+  "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
+  "dataset_fields": [
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Contact",
+      "title": "Owner and Contact Information regarding this dataset ",
+      "necessary": "true",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "owner_org",
+      "label": "Organization",
+      "mdedit_note": "public zuerst; leere Org als default",
+      "preset": "mdedit_organization",
+      "help_text": "Metatdata Point of Contact: Name of responsible Organization (Dataset Owner)",
+      "help_text_norm": "ISO_rpOrgName (c), <br> INSPIRE_ResponsibleParty (m).",
+      "mdedit_note":"ISO_idPOC - Hierachie",
+      "inspire": "Part B 9.1",
+      "iso":"376"
+    },
+      {
+      "field_name": "iso_cntOnlineRes",
+      "label": "Webpage",
+      "display_snippet": "link.html",
+      "help_text": "Webpage of the responsible Organization.",
+      "help_text_norm": "ISO_cntOnlineRes (o), <br> INSPIRE -.",
+      "iso":"390"
+    },
+    {
+       "field_name": "maintainer",
+       "label": "Name",
+       "required": "true",
+       "group_start": "Contact Information",
+       "group_small_start": "Metadata Point of Contact (Maintainer)",
+       "preset": "mdedit_individual",
+       "help_text_old": "Metadata Point of Contact: Name of responsible Individual (Maintainer)",
+       "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m).",
+       "iso_old":"375",
+       "inspire_old": "Part B 10.1"
+     },
+     {
+       "field_name": "maintainer_department",
+       "label": "Department",
+       "form_placeholder": "e.g. Department for Geology",
+       "help_text_old": "Department/-address of responsible Individual",
+       "help_text_norm_old": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
+       "iso_old":"389",
+       "inspire_old": "Part B 10.1"
+     },
+     {
+       "field_name": "maintainer_email",
+       "label": " Mail",
+       "group_small_end": "Metadata Point of Contact",
+       "required": "true",
+       "form_snippet": "text.html",
+       "form_placeholder": "joe@example.com",
+       "form_snippet": "mdedit_mail.html",
+       "display_snippet": "mdedit_mail.html",
+       "help_text": "Name, Department and Mail Address of Responsible Individual",
+       "help_text_norm": "ISO_mdContact (m), <br> INSPIRE_MetadataPointOfContact (m) .",
+       "iso_group":"8",
+       "inspire_old": "Part B 10.1",
+       "help_text_old": "Mail Address of Responsible Individual",
+       "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m) .",
+       "iso_old":"386"
+     },
+
+    {
+       "field_name": "author",
+       "label": "Name",
+       "group_small_start": "Responsible Party (Author)",
+       "required": "true",
+       "preset": "mdedit_individual",
+       "help_text_old": "Creator of this Dataset including the resources (Author)",
+       "help_text_norm_old": "ISO_rpIndName (c), <br> INSPIRE_ResponsibleParty (m)",
+       "iso_old":"375",
+       "inspire_old": "Part B 9.1"
+     },
+    {
+      "field_name": "author_department",
+      "label": "Department",
+      "form_placeholder": "e.g. Department for Metereology",
+      "help_text_old": "Department/-address of Dataset Creator",
+      "help_text_norm_old": "ISO_cntAddress (o), <br> INSPIRE_ResponsibleParty (o).",
+      "iso_old":"389",
+      "inspire_old": "Part B 9.1"
+    },
+    {
+      "field_name": "author_email",
+      "label": "Mail",
+      "group_small_end": "Responsible Party (Author)",
+      "required": "true",
+      "form_snippet": "text.html",
+      "form_placeholder": "joe@example.com",
+          "form_snippet": "mdedit_mail.html",
+      "display_snippet": "mdedit_mail.html",
+      "help_text": "Name, Department and Mail Address of Responsible Individual",
+      "help_text_norm": "ISO_idPoC (o), <br> INSPIRE_ResponsibleParty (m).",
+      "iso":"29",
+      "inspire": "Part B 9.1",
+      "help_text_old": "Mailadress of Dataset Creator",
+      "help_text_norm_old": "ISO_eMailAdd (o), <br> INSPIRE_ResponsibleParty (m).",
+      "iso_old":"375"
+    },
+    {
+      "field_name": "contact_info",
+      "label": "Further Contacts",
+      "preset": "mdedit_contains",
+      "group_end":"Contact Info",
+      "mdedit_note1": "Special multiple Field. Best last item within a tab or group; last item in field might be select ",
+      "mdedit_note2": "Stores input of multiple text fields (last field might be a select field) into a string separated by str_sep",
+      "mdedit_note3": "Max Contains: 5 (otherwise change in java module!)",
+      "mdedit_note4": "attribute contact_info bound to  special display (and role choice at the end)",
+      "contains": "4",
+      "contact_info": "true",
+      "l1": "Name",
+      "l2": "Department",
+      "l3": "Mail",
+      "l4": "Role",
+      "p1": "e.g. Joe Example" ,
+      "p2": "e.g. Department for Geophysics",
+      "p3": "e.g. joe@example.com",
+      "p4": "",
+      "help_text": "Name, Mail Department and Role of Contact Individual(s)",
+      "help_text_norm": "ISO_CI_Contact (o), ISO_CI_Role (o), <br> INSPIRE_ResponsibleParty (o), INSPIRE_ResponsiblePartyRole (c)",
+      "iso":"378,378,378,379",
+      "inspire": "Part B 9.1, Part B 9.1, Part B 9.1, Part B 9.2 ",
+      "choices": [
+        {
+          "value": "custodian",
+          "label": "Custodian"
+        },
+        {
+          "value": "distributor",
+          "label": "Distributor"
+        },
+        {
+          "value": "originator",
+          "label": "Originator"
+        },
+        {
+          "value": "owner",
+          "label": "Owner"
+        },
+        {
+          "value": "pointOfContact",
+          "label": "Point of Contact"
+        },
+        {
+          "value": "principalInvestigator",
+          "label": "Principal Investigator"
+        },
+        {
+          "value": "processor",
+          "label": "Processor"
+        },
+        {
+          "value": "publisher",
+          "label": "Publisher"
+        },
+        {
+          "value": "resourceProvider",
+          "label": "Resource Provider"
+        },
+        {
+          "value": "user",
+          "label": "User"
+        },
+        {
+          "value": "author",
+          "label": "Author"
+        }
+      ]
+    },
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Basics",
+      "title": "Basic Information about this dataset ",
+      "necessary": "true",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_datasetURI",
+      "label": "Dataset Locator",
+      "form_snippet": "text.html",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center. (later)",
+      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "iso":"397",
+      "inspire":"Part B 1.4",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "title",
+      "label": "Title",
+      "required": "true",
+      "preset": "title",
+      "help_text": "A title for your dataset.",
+      "help_text_norm": "ISO_resTitle (m), <br> INSPIRE_ResourceTitle (m)",
+      "iso":"360",
+      "inspire":"Part B 1.1"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "preset": "dataset_slug",
+      "form_placeholder": "eg. my-dataset"
+    },
+    {
+      "field_name": "notes",
+      "label": "Abstract",
+      "required": "true",
+      "form_snippet": "markdown.html",
+      "help_text": "Brief narrative summary of the content of the dataset.",
+      "help_text_norm": "ISO_idAbs (m), <br> INSPIRE_ResourceAbstract (m).",
+      "iso":"25",
+      "inspire":"Part B 1.2"
+    },
+    {
+      "field_name": "iso_idStatus",
+      "label": "Status of the resource(s)",
+      "preset": "select",
+      "select_size": "1",
+      "help_text": "Status of the resource(s) within this dataset.",
+      "help_text_norm": "ISO_idStatus (m) <br> INSPIRE - ",
+      "iso":"28",
+      "choices": [
+        {
+          "value": "007",
+          "label": "under development"
+        },
+        {
+          "value": "001",
+          "label": "completed"
+        },
+        {
+          "value": "002",
+          "label": "historical archive"
+        },
+        {
+          "value": "003",
+          "label": "obsolete"
+        },
+        {
+          "value": "004",
+          "label": "ongoing"
+        },
+        {
+          "value": "005",
+          "label": "planned"
+        },
+        {
+          "value": "006",
+          "label": "required"
+        }
+      ]
+    },
+
+    {
+      "field_name": "iso_mdLang",
+      "label": "Metadata Language",
+      "preset": "mdedit_select",
+      "help_text": "Language used for the metadata (default english)",
+      "help_text_norm": "ISO mdLang (o), <br> INSPIRE_MetadataLanguage (m).",
+      "iso":"3",
+      "inspire":"Part B 10.3",
+      "choices": [
+        {
+          "value": "eng",
+          "label": "English"
+        },
+        {
+          "value": "ger",
+          "label": "Deutsch"
+        }
+      ]
+    },
+    {
+      "field_name": "iso_mdDate",
+      "label": "Metadata Date",
+      "preset": "mdedit_today",
+      "help_text": "Date of creation or last modification of this Dataset (automatically inserted)",
+      "help_text_norm": "ISO_mdDateSt (m), <br> INSPIRE_MetadataDate (m).",
+      "iso":"9",
+      "inspire":"B 10.2"
+    },
+    {
+      "field_name": "license_id",
+      "label": "License",
+      "required": "true",
+      "form_snippet": "license.html",
+      "form_include_blank_choice": "true",
+      "iso":"70",
+      "inspire":"Part B 8.2",
+      "help_text": "License definitions and additional information can be found at ",
+      "help_url": "http://opendefinition.org/licenses/",
+      "help_text_norm": "ISO_accesConsts (m), <br> INSPIRE_LimitationsOnPublicAccessConstraints (m)."
+    },
+    {
+      "field_name": "state",
+      "label": "Server State of the Dataset",
+      "notes": "Field required by CKAN",
+      "help_text": "Server internal state (automatically filled)",
+      "form_attrs": {
+        "readonly": "readonly",
+        "hidden": "true"
+      }
+    },
+    {
+      "field_name": "citation_info",
+      "label": "Citation Info",
+      "form_snippet": "mdedit_cite.html",
+      "display_snippet": "text.html",
+      "help_text": "Please enter the name(s) to be used in the citation reference for this dataset and resources.",
+      "placeholder": "Smith et al"
+    },
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Keywords",
+      "title": "Topic and Keywords",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_tpCat",
+      "label": "Topic Category/ies",
+      "preset": "multiple_select",
+      "iso":"41",
+      "inspire":"Part B 2.1",
+      "help_text": "Main theme(s) of the dataset. See ",
+      "help_url": "http://inspire.ec.europa.eu/metadata-codelist/TopicCategory ",
+      "help_text_norm": "ISO_tpCat (c), <br> INSPIRE_TopicCategory (m).",
+      "mdedit_note": "Display Names added in order to match Copernicus and agreed categories - 29.3.2017 Anja",
+      "choices": [
+        {
+          "value": "001",
+          "iso_name": "farming",
+          "label": "Agriculture and Forestry"
+        },
+        {
+          "value": "002",
+          "iso_name": "biota",
+          "label": "Phenology"
+        },
+        {
+          "value": "004",
+          "iso_name": "climatology, meteorology, atmosphere",
+          "label": "Meteorology/Climatology"
+
+        },
+        {
+          "value": "005",
+          "iso_name": "economy",
+          "label": "Tourism"
+        },
+        {
+          "value": "009",
+          "iso_name": "health",
+          "label": "Health"
+        },
+        {
+          "value": "012",
+          "iso_name": "inland waters",
+          "label": "Water Management/Hydrology"
+        },
+        {
+          "value": "017",
+          "iso_name": "structure",
+          "label": "Infrastructure"
+        },
+        {
+          "value": "018",
+          "iso_name": "transportation",
+          "label": "Transport"
+        },
+        {
+          "value": "019",
+          "iso_name": "utilities communication",
+          "label": "Energy"
+        },
+        {
+          "value": "020",
+          "iso_name": "-----",
+          "label": "Disaster/Risk Reduction"
+        }
+      ]
+    },
+    {
+      "field_name": "tag_string",
+      "label": "Keywords",
+      "preset": "taxonomy_tag_string_autocomplete",
+      "form_placeholder": "eg. economy, mental health, government",
+      "help_text": "Commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject.",
+      "help_text_norm": "ISO_keyword (m), <br> INSPIRE_KeywordValue (m).",
+      "inspire": "Part B.3.1",
+      "iso":"53"
+    },
+    {
+      "field_name": "iso_keyTyp",
+      "label": "Keyword Type",
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "help_text": "Subject matter used to group smimlar keywords",
+      "help_text_norm": "ISO_keyTyp (o), <br> INSPIRE -",
+      "iso":"54",
+      "choices": [
+        {
+          "value": "001",
+          "label": "discipline - keyword identifies a branch of instruction or specialized learning"
+        },
+        {
+          "value": "002",
+          "label": " place - keyword identifies a location "
+        },
+        {
+          "value": "003",
+          "label": "stratum - keyword identifies the layer(s) of any deposited substance"
+        },
+        {
+          "value": "004",
+          "label": "temporal - keyword identifies a time period related to the dataset"
+        },
+        {
+          "value": "005",
+          "label": "theme - keyword identifies a particular subject or topic"
+        }
+      ]
+    },
+      {
+        "field_name": "iso_thesaName",
+        "label": "Used Thesauri",
+        "preset": "taxonomy_thesauri",
+        "help_text": "Official titles of the used thesauri, or other vocabularies or dictionaries used.",
+        "help_text_norm": "ISO_thesaName (o), <br> INSPIRE_OriginatingControlledVocabulary (c).",
+        "iso": "55",
+        "inspire": "Part B 3.2",
+        "iso_name": "thesaurusName",
+        "inspire_name": "Originating Controlled Vocabulary",
+        "iso_inspire_match_ref": "Inspire Implementing Rules V. 1.3",
+        "iso_inspire_match_ref_nr": "2.4.1",
+        "form_attrs": {
+          "readonly": "readonly"
+        }
+
+      },
+      {
+        "field_name": "iso_thesaRefDate",
+        "help_text_norm": "ISO_refDate (o), <br> INSPIRE_DateOfPublication (o).",
+        "mdedit_note":" TODO!!!! For further implementation....",
+        "form_snippet": "mdedit_small_text.html",
+        "iso": "394",
+        "inspire": "Part B 5.2",
+        "label": "Reference Date",
+        "f_snippet": "date.html",
+        "help_text": "Reference date for the cited Thesaurus.",
+        "form_placeholder": "visible in xml export",
+        "disabled": "True",
+        "form_attrs": {
+          "readonly": "readonly"
+        }
+      },
+      {
+        "field_name": "iso_thesRefDateType",
+        "help_text_norm": "ISO_refdateType (o), <br> INSPIRE_DateOfPublication (o).",
+        "mdedit_note":" TODO!!!! For further implementation....",
+        "iso": "395",
+        "inspire": "Part B 5.2",
+        "form_snippet": "mdedit_small_text.html",
+        "label": "Date Type",
+        "f_snippet": "select.html",
+        "select_size": "1",
+        "display_snippet": "select.html",
+        "help_text": "Datetype for the cited Thesaurus reference date.",
+        "form_placeholder": "revision",
+        "disabled": "True",
+        "form_attrs": {
+          "readonly": "readonly"
+        },
+        "choices": [
+            {"value": "001",
+             "label": "creation"},
+            {"value": "002",
+             "label": "publication"},
+            {"value": "003",
+             "label": "revision"}
+          ]
+      },
+
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Spatial",
+      "title": "Geographic Aspects of the Resources",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+     "field_name": "spatial",
+     "mdedit_note": " 'spatial' field name leads to import errors with harvester! needs to be fixed - Anja 5.1.17",
+     "label": "Polygon",
+     "form_snippet": "spatial.html",
+     "display_snippet": "spatial.html",
+     "help_text": "Select area describing the dataset spatial extend"
+   },
+    {
+      "field_name": "iso_westBL",
+      "help_text_norm": "ISO_westBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "344",
+      "inspire": "Part B 4.1",
+      "label": "West Bound Longitude",
+      "form_snippet": "text.html",
+      "help_text": "Western-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
+    },
+    {
+      "field_name": "iso_eastBL",
+      "help_text_norm": "ISO ISO_eastBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "345",
+      "inspire": "Part B 4.1",
+      "label": "East Bound Longitude",
+      "form_snippet": "text.html",
+      "help_text": "Eastern-most coordinate of the limit of the resource extent, expressed in longitude in decimal degrees (positive east)."
+    },
+    {
+      "field_name": "iso_southBL",
+      "help_text_norm": "ISO_southBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "346",
+      "inspire": "Part B 4.1",
+      "label": "South Bound Latitude",
+      "form_snippet": "text.html",
+      "help_text": "Southern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north)."
+    },
+    {
+      "field_name": "iso_northBL",
+      "help_text_norm": "ISO_northBL (m), <br> INSPIRE_GeographicBoundingBox (m).",
+      "iso": "347",
+      "inspire": "Part B 4.1",
+      "label": "North Bound Latitude",
+      "form_snippet": "text.html",
+      "help_text": "Northern-most coordinate of the limit of the resource extent, expressed in latitude in decimal degrees (positive north)."
+    },
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Time",
+      "title": "Temporal Extend of the Resources",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_exTempStart",
+      "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
+      "label": "Starting Date",
+      "inspire": "B 5.1",
+      "iso":"351",
+      "preset": "mdedit_datepicker",
+      "help_text": "Starting date for the datasets temporal extent."
+    },
+    {
+      "field_name": "iso_exTempEnd",
+      "label": "Ending Date",
+      "help_text_norm": "ISO_exTemp (m), <br> INSPIRE_TemporalExtent (m).",
+      "inspire": "B 5.1",
+      "iso":"351",
+      "preset": "mdedit_datepicker",
+      "help_text": "Ending date for the datasets temporal extent."
+    },
+    {
+      "field_name": "iso_creaDate",
+      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfCreation (o).",
+      "inspire": "Part B 5.4",
+      "iso":"393",
+      "label": "Date of creation",
+      "preset": "mdedit_datepicker",
+      "help_text": "Date of creation of the resources within this dataset."
+    },
+    {
+      "field_name": "iso_pubDate",
+      "help_text_norm": "ISO CI_DATE  (o), <br> INSPIRE_DateOfPublication (o).",
+      "inspire": "Part B 5.2",
+      "iso":"393",
+      "label": "Date of publication",
+      "preset": "mdedit_datepicker",
+      "help_text": "Date of publication of the resources within this  dataset."
+    },
+    {
+      "field_name": "iso_revDate",
+      "help_text_norm": "ISO CI_DATE (o), <br> INSPIRE_DateOfLastRevision (o).",
+      "inspire": "Part B 5.3",
+      "iso":"393",
+      "label": "Date of revision",
+      "preset": "mdedit_datepicker",
+      "help_text": "Date of revision of the resources within this  dataset"
+    },
+    {
+      "field_name":"tab_delimiter",
+      "tab_delimiter": "Quality",
+      "title": "Quality and Validity of the resources",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_equScale",
+      "help_text_norm": "ISO equivalentScale (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Equivalent Scale",
+      "iso": "60",
+      "inspire": "Part B 6.2",
+      "form_snippet": "text.html",
+      "help_text": "Equivalent scale:level of detail expressed as the scale denominator of a comparable hardcopy map or chart; dictance:ground sample distance"
+    },
+    {
+      "field_name": "iso_scaleDist",
+      "help_text_norm": "ISO distance (o), <br> INSPIRE_SpatialResolution (o).",
+      "label": "Scale Distance",
+      "iso": "61",
+      "inspire": "Part B 6.2",
+      "form_snippet": "text.html",
+      "help_text": "Ground sample distance. Positive integer(equivalent scale); number expressing the distance value and a unit of measure of the distance value(distance)"
+    },
+    {
+      "field_name": "iso_lineage",
+      "help_text_norm": "ISO_statement (o), <br> INSPIRE_Lineage (o).",
+      "inspire": "Part B 6.1",
+      "iso":"83",
+      "label": "Lineage",
+      "form_snippet": "markdown.html",
+      "help_text": "General explanation of the data producer's knowledge about the lineage of a dataset."
+    },
+    {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Conformity",
+      "title": "Conformity",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_conSpec",
+      "help_text_norm": "ISO_conSpec (m), <br> INSPIRE_Specification (m).",
+      "inspire": "Part B 7.1",
+      "iso":"130",
+      "label": "Specification",
+      "select_size": "3",
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "help_text": "Citation of the product specification or user requirement against which data is beeing evaluated.",
+      "choices": [
+        {
+          "value": "001",
+          "label": "COMMISSION REGULATION (EC) No 1205/2008 of 3 December 2008 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards metadata;2008-12-04"
+        },
+        {
+          "value": "002",
+          "label": "Corrigendum to INSPIRE Metadata Regulation published in the Official Journal of the European Union, L 328, page 83;2009-12-15"
+        },
+        {
+          "value": "003",
+          "label": "Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services;2010-12-08"
+        },
+        {
+          "value": "004",
+          "label": "COMMISSION REGULATION (EU) No 1088/2010 of 23 November 2010 amending Regulation (EC) No 976/2009 as regards download services and transformation services;2010-12-08"
+        },
+        {
+          "value": "005",
+          "label": "COMMISSION REGULATION (EC) No 976/2009 of 19 October 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the Network Services;2009-10-20"
+        },
+        {
+          "value": "006",
+          "label": "COMMISSION REGULATION (EU) No 268/2010 of 29 March 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards the access to spatial data sets and services of the Member States by Community institutions and bodies under harmonised conditions;2010-03-30"
+        },
+        {
+          "value": "007",
+          "label": "Commission Decision of 5 June 2009 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards monitoring and reporting (notified under document number C(2009) 4199) (2009/442/EC);2009-06-11"        }
+      ]
+    },
+    {
+      "field_name": "iso_conPass",
+      "help_text_norm": "ISO_conPass (m), <br> INSPIRE_Degree (m).",
+      "inspire": "Part B 7.2",
+      "iso":"132",
+      "label": "Degree",
+      "form_snippet": "select.html",
+      "display_snippet": "select.html",
+      "help_text": "Indication of the conformance result.",
+      "choices": [
+        {
+          "value": "002",
+          "label": "not evaluated"
+        },
+        {
+          "value": "003",
+          "label": "conformant"
+        },
+        {
+          "value": "004",
+          "label": "not conformant"
+        }
+      ]
+    },
+   {
+      "field_name": "tab_delimiter",
+      "tab_delimiter": "Constraints",
+      "title": "Constraints on Usage and Access with respect to the Resources",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+      "field_name": "iso_useLimit",
+      "label": "Use Limitation",
+      "form_snippet": "text.html",
+      "iso":"68",
+      "inspire":"Part B 8.1",
+      "help_text": "Limitation affecting the fitness for use of the resource or metadata. Example: 'not to be used for navigation'",
+      "help_text_norm": "ISO_useLimit (o), <br> INSPIRE_ConditionsApplyingToAccessAndUse (m)."
+    },
+    {
+      "field_name": "iso_accessConsts",
+      "label": "Access Constraints",
+      "preset": "select",
+      "iso":"70",
+      "inspire":"Part B 8.2",
+      "select_size": 1,
+      "help_text": "Access constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations on obtaining the resource or metadata.",
+      "help_text_norm": "ISO_accessConsts (o), <br> INSPIRE_LimitationsOnPublicAccessConstraints (c).",
+      "choices": [
+        {
+          "value": "001",
+          "label": "copyright"
+        },
+        {
+          "value": "002",
+          "label": "patent"
+        },
+        {
+          "value": "003",
+          "label": "patent pending"
+        },
+        {
+          "value": "004",
+          "label": "trademark"
+        },
+        {
+          "value": "005",
+          "label": "license"
+        },
+        {
+          "value": "006",
+          "label": "intellectual property rights"
+        },
+        {
+          "value": "007",
+          "label": "restricted"
+        },
+        {
+          "value": "008",
+          "label": "other restrictions"
+        }
+      ]
+    },
+    {
+      "field_name": "iso_othConsts",
+      "label": "Use Constraints",
+      "preset": "select",
+      "select_size": "1",
+      "iso":"72",
+      "inspire":"Part B 8.2",
+      "help_text": "Constraints applied to assure the protection of privacy or intellectual property, and any special restrictions or limitations or warnings on using the resource or metadata.",
+      "help_text_norm": "ISO_otherConstraints (c), <br> INSPIRE_LimitationsOnPublicAccessOtherConstraints (c)",
+      "choices": [
+        {
+          "value": "001",
+          "label": "copyright"
+        },
+        {
+          "value": "002",
+          "label": "patent"
+        },
+        {
+          "value": "003",
+          "label": "patent pending"
+        },
+        {
+          "value": "004",
+          "label": "trademark"
+        },
+        {
+          "value": "005",
+          "label": "license"
+        },
+        {
+          "value": "006",
+          "label": "intellectual property rights"
+        },
+        {
+          "value": "007",
+          "label": "restricted"
+        },
+        {
+          "value": "008",
+          "label": "other restrictions"
+        }
+      ]
+    },
+    {
+      "field_name": "iso_class",
+      "label": "Handling Restrictions",
+      "preset": "select",
+      "select_size": "1",
+      "iso":"74",
+      "inspire":"PArt B 8.2",
+      "help_text": "Handling restrictions on the resource or metadata: unclassified, restricted, confidential, top secret, ...",
+      "help_text_norm": "ISO_class (c). <br> INSPIRE_LimitationsOnPublicAccessClassification (c). ",
+      "choices": [
+        {
+          "value": "001",
+          "label": "unclassified"
+        },
+        {
+          "value": "002",
+          "label": "restricted"
+        },
+        {
+          "value": "003",
+          "label": "confidential"
+        },
+        {
+          "value": "004",
+          "label": "secret"
+        },
+        {
+          "value": "005",
+          "label": "top secret"
+        }
+      ]
+    }
+  ],
+  "resource_fields": [
+    {
+      "field_name": "url",
+      "label": "URL",
+      "preset": "resource_url_upload"
+    },
+    {
+      "field_name": "name",
+      "label": "Title",
+      "form_snippet": "large_text.html",
+      "help_text": "Name by which the resource is known."
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "help_text": "Brief narrative summary of the content of the resource."
+    },
+    {
+      "field_name": "format",
+      "label": "Format Name",
+      "preset": "resource_format_autocomplete",
+      "form_snippet": "text.html",
+      "iso":"285",
+      "help_text": "Name of the data transfer format(s) of the resource.",
+      "help_text_norm": "Matches ISO_SpatialRepresentationType (156) (o) and ISO_DistributionFormat (o)"
+    },
+    {
+      "field_name": "formatVer",
+      "label": "Format Version",
+      "form_snippet": "text.html",
+      "help_text": "Version of the format(date, number, etc.)."
+    },
+    {
+      "field_name": "iso_resourceURI",
+      "label": "Resource URI",
+      "form_snippet": "text.html",
+      "help_text": "Uniformed Resource Identifier (URI) - world wide valid and citable. Provided automatically by the CCCA Data Center.",
+      "help_text_norm": "ISO_linkage (o), <br> INSPIRE_ResourceLocator (m)",
+      "iso":"397",
+      "inspire":"Part B 1.4",
+      "form_attrs": {
+        "readonly": "readonly"
+      }
+    },
+    {
+       "field_name": "anonymous_download",
+       "label": "Anonymous Download",
+       "form_snippet": "mdedit_select.html",
+       "display_snippet": "select.html",
+       "help_text": "Allow anonymous (not logged in) users to download resource",
+       "choices": [
+         {
+           "value": "true",
+           "label": "yes"
+         },
+         {
+           "value": "false",
+           "label": "no"
+         }
+       ]
+   },
+   {
+     "field_name": "newer_version",
+     "label": "Newer Version",
+     "mdedit_note": "DO NOT change the field name ...",
+     "form_snippet": "text.html",
+     "display_snippet": "mdedit_url_from_id.html",
+     "help_text": "Newer version of resource if existing",
+     "form_attrs": {
+       "readonly": "readonly"
+     }
+   },
+   {
+     "field_name": "subset_of",
+     "label": "Subset of",
+     "mdedit_note": "DO NOT change the field name ...",
+     "form_snippet": "text.html",
+     "display_snippet": "mdedit_url_from_id.html",
+     "help_text": "If this is a subset, then this is the resource_id of the original resource",
+     "form_attrs": {
+       "readonly": "readonly"
+     }
+   },
+   {
+     "field_name": "par_model",
+     "group_start": "Optional Resource (Model) Parameter:",
+     "label": "Model",
+     "placeholder": "e.g. HADCM3, HADCM3-233, ...",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Identifies the model used",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+     },
+   {
+     "field_name": "par_experiment",
+     "label": "Experiment",
+     "placeholder": "e.g. rcp4.5",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Identifies experiment or experiment family, e.g.  representative concentration pathway (RCP) has been specified",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+
+   },
+   {
+     "field_name": "par_frequency",
+     "label": "Frequency",
+     "placeholder": "eg.: yr, mon, day, 6hr, 3hr, subhr, monClim, fx,...",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "Indicates  interval between individual time-samples.  subhr: less than an hour, monClim:  climatological monthly mean,  fx: fixed, i.e., time-independent",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+   },
+   {
+     "field_name": "par_variables",
+     "label": "Variables",
+     "form_snippet": "mdedit_res_text.html",
+     "placeholder": "eg.: tas",
+     "help_text": "Identify the physical quantity, e.g:  Monthly mean surface air temperature: tas",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+   },
+   {
+     "field_name": "par_ensemble",
+     "group_end": "Resource (Model) Parameter",
+     "label": "Ensemble",
+     "placeholder": "eg.: r3i1p21",
+     "form_snippet": "mdedit_res_text.html",
+     "help_text": "(r<N>i<M>p<L>): This triad of integers (N, M, L) distinguish among closely related simulations by a single model.",
+     "help_text_norm": "CMIP5 Data Reference Syntax (DRS) and Controlled Vocabularies"
+
+   }
+
+  ]
+  }

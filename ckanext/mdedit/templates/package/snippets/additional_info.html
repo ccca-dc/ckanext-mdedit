@@ -10,7 +10,7 @@
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuMDExport">
-        <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='xml', qualified=True) }}"  target="_blank">XML</a></li>
+        <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='xml', qualified=True) }}" target="_blank">XML</a></li>
         <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='n3', qualified=True) }}" target="_blank">N3</a></li>
         <li><a href="{{ h.url_for('dcat_dataset', _id=pkg_dict.id, _format='ttl', qualified=True) }}" target="_blank">TTL</a></li>
       </ul>
