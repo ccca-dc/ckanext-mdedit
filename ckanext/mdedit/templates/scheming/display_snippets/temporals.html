@@ -1,0 +1,22 @@
+{%- set temporals = data[field.field_name] -%}
+{% if temporals %}
+  {% if temporals|length == 1 %}
+    {{ temporals[0].start_date }}
+    {% if temporals[0].end_date %}
+      - {{ temporals[0].end_date }}
+    {% endif %}
+  {% else %}
+    <ul>
+      {% for temporal in temporals %}
+      <li>
+        {{ temporal.start_date }}
+        {% if temporal.end_date %}
+          - {{ temporal.end_date }}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% else %}
+  -
+{% endif %}

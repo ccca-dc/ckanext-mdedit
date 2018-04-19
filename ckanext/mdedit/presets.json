@@ -5,9 +5,9 @@
   "mdedit_note": "These notes (mdedit_note field) are not processed and serve just for user information",
   "presets": [
     {
-      "preset_name": "mdedit_today",
+      "preset_name": "mdedit_metadata_date",
       "values": {
-        "form_snippet": "mdedit_today.html",
+        "form_snippet": "mdedit_metadata_date.html",
         "display_snippet": "text.html",
         "validators": "scheming_required isodate convert_to_json_if_datetime",
         "form_attrs": {
@@ -16,11 +16,22 @@
       }
     },
     {
+        "preset_name": "mdedit_today",
+        "values": {
+          "form_snippet": "mdedit_today.html",
+          "display_snippet": "text.html",
+          "validators": "scheming_required isodate convert_to_json_if_datetime",
+          "form_attrs": {
+            "readonly": "readonly"
+          }
+        }
+      },
+    {
       "preset_name": "mdedit_datepicker",
       "values": {
         "form_snippet": "mdedit_datepicker.html",
         "display_snippet": "text.html",
-        "validators": "scheming_required isodate convert_to_json_if_datetime",
+        "validators": "scheming_required readonly_subset_fields isodate convert_to_json_if_datetime",
         "mdedit_note": "Comment Anja 9.11: for some reasons or other set scheming_required: otherwise crash on empty ...",
         "form_attrs": {
           "data-module": "mdedit_datepicker"
@@ -45,7 +56,7 @@
     },
     {
       "preset_name": "mdedit_select",
-      "values": {
+    "values": {
         "form_snippet": "mdedit_select.html",
         "display_snippet": "select.html",
         "validators": "scheming_required scheming_choices"
@@ -57,6 +68,65 @@
         "form_snippet": "mdedit_contains_k.html",
         "display_snippet": "mdedit_contains_k.html",
         "validators": "mdedit_contains_k scheming_required"
+      }
+    },
+    {
+      "preset_name": "temporals",
+      "values": {
+        "display_snippet": "temporals.html",
+        "validators": "list_of_dicts",
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "dicts",
+      "values": {
+        "display_snippet": "mdedit_dicts.html",
+        "validators": "list_of_dicts ignore_missing",
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "dicts_readonly_if_subset",
+      "values": {
+        "display_snippet": "mdedit_dicts.html",
+        "validators": "list_of_dicts readonly_subset_fields_dicts ignore_missing",
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "contact_points",
+      "values": {
+        "validators": "list_of_dicts ignore_missing"
+      }
+    },
+    {
+      "preset_name": "multiple_text",
+      "values": {
+        "validators": "multiple_text",
+        "output_validators": "multiple_text_output"
+      }
+    },
+    {
+      "preset_name": "multiple_select",
+      "values": {
+        "form_snippet": "multiple_select.html",
+        "display_snippet": "multiple_choice.html",
+        "validators": "scheming_multiple_choice",
+        "output_validators": "scheming_multiple_choice_output"
+      }
+    },
+    {
+      "preset_name": "url",
+      "values": {
+        "display_snippet": "url.html"
+      }
+    },
+    {
+      "preset_name": "file_size",
+      "values": {
+        "validators": "ignore_empty natural_number_validator",
+        "display_snippet": "file_size.html"
       }
     }
   ]

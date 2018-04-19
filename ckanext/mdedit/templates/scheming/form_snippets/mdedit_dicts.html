@@ -1,0 +1,81 @@
+{% resource 'mdedit/mdedit_dicts.js' %}
+{% import 'macros/form.html' as form %}
+
+{% set list_dicts = h.parse_json(data[field.field_name]) %}
+{% set form_attrs = field.form_attrs %}
+{% set form_attrs_rename = field.form_attrs %}
+
+{# Prepare form_attrs: Append field_name to avoid conflicts with existing fields #}
+{% for form_attrs_fields in form_attrs_rename.fields %}
+  {% if field.field_name not in form_attrs_fields.field_name  %}
+    {% do form_attrs_fields.update({"field_name_orig":form_attrs_fields.field_name}) %}
+    {% do form_attrs_fields.update({"field_name":field.field_name + '-' + form_attrs_fields.field_name}) %}
+  {% endif %}
+{% endfor %}
+
+<div class="well well-small">
+{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
+<p><h5>{{field.label}}</h5></p>
+
+
+{# Template div with input fields hidden. Used for creation of additional elements #}
+<div id="{{ field.field_name + '-template' }}" class="well well-small" style="display:none;">
+  {% for form_attrs_fields in form_attrs_rename.fields %}
+    {%- snippet 'scheming/snippets/form_field.html',
+                field=form_attrs_fields,
+                data=None, errors=errors,
+                licenses=licenses,
+                schema=None -%}
+  {% endfor %}
+</div>
+
+  <fieldset id="fs-{{ field.field_name }}">
+  {# Check if there are any entries in the list #}
+  {% if list_dicts|length > 0 %}
+      {% for dict in list_dicts %}
+        {# There must be a dict in the list #}
+        {% if dict is mapping %}
+          {% set list_index = loop.index0 %}
+          <div id="{{ field.field_name + list_index|string }}" class="well well-small inp-{{ field.field_name }}">
+            {# Build collapse form with panels #}
+            {% if form_attrs.style|string == "collapse" %}
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                      <a class="btn">{{ dict[form_attrs.heading] }}</a>
+                  </h4>
+                </div>
+                <div class="panel-collapse collapse in">
+                  <div class="panel-body">
+            {% endif %}
+                    {% for form_attrs_fields in form_attrs_rename.fields %}
+                      {# Prepare dict: Append field_name to key avoid conflicts with existing fields #}
+                      {% do dict.update({form_attrs_fields.field_name|string:dict[form_attrs_fields.field_name_orig]}) %}
+                      {%- snippet 'scheming/snippets/form_field.html',
+                                  field=form_attrs_fields,
+                                  data=dict, errors=errors,
+                                  licenses=licenses,
+                                  schema=schema -%}
+                    {% endfor %}
+            {% if form_attrs.style|string == "collapse" %}
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+              <a href="#" class="rm-{{ field.field_name }} btn btn-danger  data-toggle="tooltip" title="Remove field"">-</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+  {% endif %}
+  </fieldset>
+
+  {# Button to add additional fields #}
+  <button id="add-{{ field.field_name }}" class="btn btn-success" type="button"
+    data-module="mdedit_dicts"
+    data-module-field_name="{{field.field_name}}"
+    data-module-field_dict="{{ h.dump_json(field.form_attrs) }}"
+     data-toggle="tooltip" title="Add field">
+    +
+  </button>
+
+</div>

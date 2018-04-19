@@ -5,6 +5,9 @@
 {% resource 'mdedit/jquery.datetimepicker.full.js' %}
 {% resource 'mdedit/mdedit_datepicker.js' %}
 
+{% if field.form_attrs %}
+    {% do field.form_attrs.update({"class": "form-control"}) %}
+{% endif %}
 
 {#   value=data.get(field.field_name, '').split()[0] #}
 {% call form.input(

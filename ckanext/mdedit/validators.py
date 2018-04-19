@@ -1,9 +1,15 @@
 import json
 import ckan.lib.helpers as h
+import ckan.lib.navl.dictization_functions as df
 import ckanext.mdedit.helpers as helpers
 from itertools import count
 from ckan.plugins.toolkit import get_validator, UnknownValidator, missing, Invalid, _
 from ckanext.scheming.validation import scheming_validator
+
+from ckanext.mdedit.helpers import parse_json
+
+import ckan.plugins.toolkit as tk
+import ckan.authz as authz
 
 
 @scheming_validator
@@ -93,12 +99,7 @@ def mdedit_contains(key, data, errors, context):
      (Addpated from scheming multiple choice)
     """
 
-    #print "***************** Anja********** mdedit_contains validator"
-
     value = data[key]
-
-    #print value
-    #print type(value)
 
     if value is not missing:
         if not isinstance(value, list):
@@ -110,6 +111,177 @@ def mdedit_contains(key, data, errors, context):
     if not errors[key]:
         data[key] = json.dumps(value)
 
-#    print errors[key]
-#    print data[key]
-#    print type(data[key])
+
+@scheming_validator
+def multiple_text(field, schema):
+    """
+    Accept zero or more values as a list and convert
+    to a json list for storage:
+    1. a list of strings, eg.:
+       ["somevalue a", "somevalue -b"]
+    2. a single string for single item selection in form submissions:
+       "somevalue-a"
+    """
+    def validator(key, data, errors, context):
+        # if there was an error before calling our validator
+        # don't bother with our validation
+        # if errors[key]:
+        #     return
+
+        value = data.get(key, missing)
+        if value is not missing:
+            if isinstance(value, basestring):
+                value = [value]
+            elif not isinstance(value, list):
+                errors[key].append(
+                    _('Expecting list of strings, got "%s"') % str(value)
+                )
+                return
+        else:
+            value = []
+
+        if not errors[key]:
+            data[key] = json.dumps(value)
+
+    return validator
+
+
+@scheming_validator
+def list_of_dicts(field, schema):
+    def validator(key, data, errors, context):
+        # if there was an error before calling our validator
+        # don't bother with our validation
+
+        if errors[key]:
+            return
+
+        try:
+            data_dict = df.unflatten(data[('__junk',)])
+            value = data_dict[key[0]]
+            if value is not missing:
+                if isinstance(value, basestring):
+                    value = [value]
+                elif not isinstance(value, list):
+                    errors[key].append(
+                        _('Expecting list of strings, got "%s"') % str(value)
+                    )
+                    return
+            else:
+                value = []
+
+
+            if not errors[key]:
+                data[key] = json.dumps(value)
+
+            del data_dict[key[0]]
+            data[('__junk',)] = df.flatten_dict(data_dict)
+        except KeyError:
+            # Empty lists have to be treated here
+            try:
+                if not errors[key] and len(data[key]) == 0:
+                    value = []
+                    data[key] = json.dumps(value)
+            except:
+                pass
+
+
+    return validator
+
+
+def multiple_text_output(value):
+    """
+    Return stored json representation as a list
+    """
+    return parse_json(value, default_value=[value])
+
+
+@scheming_validator
+def version_to_name(field, schema):
+    def validator(key, data, errors, context):
+        """
+        validator makes sure that packages have their version number
+        at the end of their name
+        """
+
+        from ckanext.resourceversions.helpers import get_version_number
+
+        data_dict = dict()
+        if ('__junk',) in data:
+            data_dict = df.unflatten(data[('__junk',)])
+        elif data.get(('relations',), '') is not missing and len(data.get(('relations',), [])) > 0:
+            data_dict['relations'] = json.loads(data[('relations',)])
+
+        pkg_for_versioning = data_dict
+
+        if 'relations' in data_dict:
+            rel_dict = data_dict['relations']
+        else:
+            rel_dict = None
+
+        if type(rel_dict) == list and len(rel_dict) > 0:
+            parent_ids = [element['id'] for element in rel_dict if element['relation'] == 'is_part_of']
+
+            if len(parent_ids) > 0:
+                # copy context otherwise the context contains the parent package and the next validator has a problem
+                context_copy = context.copy()
+                pkg_for_versioning = tk.get_action('package_show')(context_copy, {'id': parent_ids[0]})
+
+        name = data[key]
+        version_number = str(get_version_number(pkg_for_versioning)).zfill(2)
+
+        if not name.endswith('-v' + version_number):
+            data[key] = name + '-v' + version_number
+
+    return validator
+
+
+@scheming_validator
+def readonly_subset_fields(field, schema, is_dict=False):
+    def validator(key, data, errors, context):
+        """
+        validator makes sure that some fields of subsets
+        cannot be changed
+        """
+        user = context.get('user')
+
+        if not authz.is_sysadmin(user) and data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
+            data, errors = _readonly_subset_fields(data, key, data[key], errors, context, field['field_name'])
+
+    return validator
+
+
+@scheming_validator
+def readonly_subset_fields_dicts(field, schema, is_dict=False):
+    def validator(key, data, errors, context):
+        """
+        validator makes sure that some dict fields of subsets
+        cannot be changed
+        """
+        user = context.get('user')
+
+        if not authz.is_sysadmin(user) and data.get(('id',), '') is not missing and data.get(('id',), '') not in ('', None):
+            try:
+                import ast
+                new_value = ast.literal_eval(data[key])
+            except:
+                new_value = data[key]
+
+            data, errors = _readonly_subset_fields(data, key, new_value, errors, context, field['field_name'])
+
+    return validator
+
+
+def _readonly_subset_fields(data, key, new_value, errors, context, field_name):
+
+    old_package = tk.get_action('package_show')(context, {'id': data[('id',)]})
+
+    if old_package.get(field_name, '') != new_value:
+        relations = old_package.get('relations', [])
+
+        if len(relations) > 0:
+            parent_ids = [element['id'] for element in relations if element['relation'] == 'is_part_of']
+
+            if len(parent_ids) > 0:
+                errors[key].append(_('Subsets cannot change this field'))
+
+    return data, errors

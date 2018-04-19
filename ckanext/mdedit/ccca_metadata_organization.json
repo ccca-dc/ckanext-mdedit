@@ -1,0 +1,99 @@
+{
+  "scheming_version": 1,
+  "organization_type": "organization",
+  "about_url": "http://github.com/open-data/ckanext-scheming",
+  "fields": [
+    {
+      "field_name": "title",
+      "label": "Name",
+      "validators": "ignore_missing unicode",
+      "form_snippet": "large_text.html",
+      "form_attrs": {"data-module": "slug-preview-target"},
+      "form_placeholder": "My Organization"
+    },
+    {
+      "field_name": "name",
+      "label": "URL",
+      "validators": "not_empty unicode name_validator group_name_validator",
+      "form_snippet": "slug.html",
+      "form_placeholder": "my-organization"
+    },
+    {
+      "field_name": "description",
+      "label": "Description",
+      "form_snippet": "markdown.html",
+      "form_placeholder": "A little information about my organization..."
+    },
+    {
+      "field_name": "contact_point",
+      "label": "Contact Point",
+      "form_snippet": "text.html",
+      "form_placeholder": "Name of Person to contact with respect to CCCA data issues"
+    },
+    {
+      "field_name": "image_url",
+      "label": "Image URL",
+      "form_snippet": "mdedit_image_upload.html",
+      "form_placeholder": "http://example.com/my-image.jpg"
+    },
+    {
+      "field_name": "homepage",
+      "label": "Homepage",
+      "form_placeholder": "http://example.com"
+    },
+    {
+      "field_name": "organization_type",
+      "label": "Type of Organization",
+      "form_placeholder": "e.g. 1042",
+      "preset": "mdedit_select",
+      "choices": [
+        {
+          "value": "http://purl.org/adms/publishertype/Academia-ScientificOrganisation",
+          "label": "Academia/Scientific organisation"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/Company",
+          "label": "Company"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/IndustryConsortium",
+          "label": "Industry consortium"
+
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/LocalAuthority",
+          "label": "Local Authority"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/NationalAuthority",
+          "label": "National authority"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/NonGovernmentalOrganisation",
+          "label": "Non-Governmental Organisation"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/NonProfitOrganisation",
+          "label": "Non-Profit Organisation"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/PrivateIndividual(s)",
+          "label": "Private Individual(s)"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/RegionalAuthority",
+          "label": "Regional authority"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/StandardisationBody",
+          "label": "Standardisation body"
+        },
+        {
+          "value": "http://purl.org/adms/publishertype/SupraNationalAuthority",
+          "label": "Supra-national authority"
+        }
+
+      ]
+    }
+  ]
+}

@@ -11,7 +11,7 @@ not used as a form_snippet directly #}
     is_required=org_required,
     extra_html=caller() if caller,
     ) %}
-    <div {{
+    <div class="autocomplete-div" {{
       form.attributes(field.form_attrs) if 'form_attrs' in field else '' }}>
     <select id="field-organizations" name="owner_org" {{ form.attributes(
         field.get('form_select_attrs', {'data-module':'autocomplete'})) }}>
@@ -25,7 +25,7 @@ not used as a form_snippet directly #}
       {% endfor %}
     </select>
     </div>
-  {% endcall %}
+{% endcall %}
 {% endmacro %}
 
 {% call _organization() %}

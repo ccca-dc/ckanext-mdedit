@@ -40,6 +40,7 @@
 {% endif %}
 {# --  when clicking the add button, it calls the create_input.js and creates additional inputs--#}
 
+{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 
 <div id="field_contains" class="input-append">
 	{# Do not delete! Here we see the fields and buttons !#}
@@ -87,6 +88,4 @@
 
 {% endfor %}
 
-
-{%- snippet 'scheming/form_snippets/help_text.html', field=field -%}
 </div>

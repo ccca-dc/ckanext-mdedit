@@ -1,0 +1,31 @@
+{%- set list_dicts = data[field.field_name] -%}
+{% if list_dicts|length > 0 %}
+    {% for dict in list_dicts %}
+      {% if dict and dict is mapping %}
+
+          {% if dict['relation'] == 'is_part_of' %}
+            {% set label =_('Subset of ') %}
+          {% elif dict['relation'] == 'is_version_of' %}
+            {% set label =  _('Older Version of this dataset: ') %}
+          {% elif dict['relation'] == 'has_version' %}
+              {% set label =  _('Newer Version of this dataset: ')%}
+          {% else %}
+           {% set label = dict['relation']  %}
+          {% endif %}
+
+          {% if dict['id'] %}
+             {% set label = label + h.mdedit_get_package_name(dict['id']) %}
+             {% if h.check_access('package_show', {'id':dict['id']}) %}
+                {% link_for label, controller='package', action='read', id=dict['id'] %}
+             {% else %}
+                <a data-toggle="tooltip" title="This version is private">{{ label }}</a>
+            {% endif %}
+          {% else %}
+           -
+          {% endif %}
+
+      {% endif %}
+    {% endfor %}
+{% else %}
+  -
+{% endif %}

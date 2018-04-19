@@ -1,4 +1,4 @@
-{% extends "package/resource_read.html" %}
+{% ckan_extends %}
 
 {# Anja 27.10.2006 Copied from scheming with changed title #}
 
@@ -42,13 +42,11 @@
         {%- block resource_size -%}
           <tr>
             <th scope="row">{{ _('Size') }}</th>
-            <td>{{ h.mdedit_render_size(res.size) or _('unknown') }}</td>
-          </tr>
-        {%- endblock -%}
-        {%- block resource_hash -%}
-          <tr>
-            <th scope="row">{{ _('Hash MD5') }}</th>
-            <td>{{ res.hash or _('unknown') }}</td>
+            {% if res.size is not none  %}
+              <td>{{ h.filesizeformat(res.size) }}</td>
+            {% else %}
+              <td>{{ _('unknown') }}</td>
+            {% endif %}
           </tr>
         {%- endblock -%}
         {%- block resource_license -%}
@@ -59,7 +57,7 @@
         {%- endblock -%}
         {%- block resource_fields -%}
           {%- for field in schema.resource_fields -%}
-            {%- if field.field_name not in exclude_fields -%}
+            {%- if field.field_name not in exclude_fields and res[field.field_name]-%}
              {#} Anja 10.5.2017 {#}
 
               {%- if field.group_start -%}

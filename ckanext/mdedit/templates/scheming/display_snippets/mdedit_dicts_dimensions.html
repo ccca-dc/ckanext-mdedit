@@ -1,0 +1,63 @@
+{%- set list_dicts = data[field.field_name] -%}
+{% if list_dicts|length > 0 %}
+    {% for dict in list_dicts %}
+      {% if dict and dict is mapping %}
+
+        {% if dict['name'] %}
+          {% set label = dict['name'] %}
+          {% set name = dict['name'] | replace (' ','-')%}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
+        {% elif dict['description'] %}
+          {% set label = dict['description'] %}
+          {% set name = dict['description'] | replace (' ','-')%}
+          {% set name = name | replace ('(', '') |replace (')', '') %}
+        {% elif  dict['shape']  %}
+           {% set label = dict['shape']%}
+           {% set name = dict['shape'] | replace (' ','-')%}
+           {% set name = name | replace ('(', '') |replace (')', '') %}
+        {% elif  dict['units']  %}
+            {% set label = dict['units']%}
+            {% set name = dict['untis'] | replace (' ','-')%}
+            {% set name = name | replace ('(', '') |replace (')', '') %}
+        {% else %}
+         {% set label = _('Dimension') %}
+         {% set name = _('dimension')%}
+        {% endif %}
+
+
+        <h3 class="btn pull-left" data-toggle="collapse" data-trigger="focus"  data-target="#vars-{{ name }}">{{label}} </h3>
+        <div id="vars-{{ name }}" class="collapse">
+          <br>
+          &nbsp;
+          {{_(' Name:')}}
+          &nbsp;
+            {{ dict['Name'] }} <br>
+              &nbsp;
+              {{_(' Description:')}}
+               &nbsp;
+              {{ dict['description'] }} <br>
+              &nbsp;
+              {{_(' Shape:')}}
+               &nbsp;
+              {{ dict['shape'] }} <br>
+              &nbsp;
+
+              {{_(' Units:')}}
+              &nbsp;
+             {{ dict['units'] }} <br>
+             &nbsp;
+            {{_(' Start:')}}
+            &nbsp;
+            {{ dict['start']}} <br>
+            &nbsp;
+            {{_(' Increment:')}}
+            &nbsp;
+            {{ dict['increment']}} <br>
+            &nbsp;
+
+      </div>
+      {% endif %}
+    {% endfor %}
+{% else %}
+  -
+{% endif %}
