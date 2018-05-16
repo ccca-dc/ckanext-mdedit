@@ -90,13 +90,14 @@ ckan.module('mdedit_dicts', function ($, _) {
               var dict = {};
               // Add all inputFields from collection to dict
               for (var i = 0; i < inputFields.length; i++) {
-                  if (inputFields[i].value != '' || inputFields[i].value != inputFields[i].defaultValue) {
-                      if (IsJsonString(inputFields[i].value)) {
-                          dict[inputFields[i].name.split("-").pop()] = JSON.parse(inputFields[i].value);
-                      } else {
-                          dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
-                      }
+                  // removed if as empty fields are not being appended which leads to error in validator for subsets
+                  // if (inputFields[i].value != '' || inputFields[i].value != inputFields[i].defaultValue) {
+                  if (IsJsonString(inputFields[i].value)) {
+                      dict[inputFields[i].name.split("-").pop()] = JSON.parse(inputFields[i].value);
+                  } else {
+                      dict[inputFields[i].name.split("-").pop()] = inputFields[i].value;
                   }
+                  // }
               };
               // Add dict from input collection to array
               outList.push(dict);
