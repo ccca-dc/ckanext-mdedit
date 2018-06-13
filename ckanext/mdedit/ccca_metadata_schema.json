@@ -377,7 +377,7 @@
      "form_snippet": "spatial.html",
      "display_snippet": "spatial.html",
      "help_text": "Select area describing the dataset spatial extent",
-     "validators": "readonly_subset_fields"
+     "validators": "readonly_subset_fields ignore_missing"
    },
    {
     "field_name": "spatial_name",
