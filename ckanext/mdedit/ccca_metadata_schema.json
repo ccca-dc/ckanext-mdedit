@@ -559,6 +559,9 @@
           {"field_name": "name",
            "form_snippet": "text.html",
            "label": "Name"},
+           {"field_name": "type",
+            "form_snippet": "text.html",
+            "label": "Type"},
           {"field_name": "standard_name",
            "form_snippet": "text.html",
            "label": "Standard Name"}
@@ -590,6 +593,9 @@
           {"field_name": "units",
            "form_snippet": "text.html",
            "label": "Units"},
+           {"field_name": "type",
+            "form_snippet": "text.html",
+            "label": "Type"},
           {"field_name": "name",
            "form_snippet": "text.html",
            "label": "Name"}
