@@ -289,18 +289,18 @@ def _readonly_subset_fields(data, key, new_value, errors, context, field_name):
                 result =_check_new_field(old_package.get(field_name, ''), new_value)
                 if ( result != ''):
                     errors[key].append(_('Subsets cannot change this field {:s}').format(result))
-                    print "Field_Name (FAILED): "
-                    print field_name
-                    print "************** mdedit new_value"
-                    print json.dumps (new_value, indent=4)
-                    print "**************  old_value"
-                    print json.dumps (old_package.get(field_name, ''), indent=4)
-                print "Field_Name (OK): "
-                print field_name
-                print "************** mdedit new_value"
-                print json.dumps (new_value, indent=4)
-                print "**************  old_value"
-                print json.dumps (old_package.get(field_name, ''), indent=4)
+                #     print "Field_Name (FAILED): "
+                #     print field_name
+                #     print "************** mdedit new_value"
+                #     print json.dumps (new_value, indent=4)
+                #     print "**************  old_value"
+                #     print json.dumps (old_package.get(field_name, ''), indent=4)
+                # print "Field_Name (OK): "
+                # print field_name
+                # print "************** mdedit new_value"
+                # print json.dumps (new_value, indent=4)
+                # print "**************  old_value"
+                # print json.dumps (old_package.get(field_name, ''), indent=4)
     return data, errors
 
 def _check_new_field(old_list, new_list):
