@@ -276,12 +276,81 @@ def _readonly_subset_fields(data, key, new_value, errors, context, field_name):
     old_package = tk.get_action('package_show')(context, {'id': data[('id',)]})
 
     if old_package.get(field_name, '') != new_value:
+
         relations = old_package.get('relations', [])
 
         if len(relations) > 0:
             parent_ids = [element['id'] for element in relations if element['relation'] == 'is_part_of']
 
             if len(parent_ids) > 0:
-                errors[key].append(_('Subsets cannot change this field'))
-
+                #Anja, 24.7.18: Check if only a new field was added
+                # This might happen, if we introduce new fields or
+                # the netcdf originally did not have a corresponding value
+                result =_check_new_field(old_package.get(field_name, ''), new_value)
+                if ( result != ''):
+                    errors[key].append(_('Subsets cannot change this field {:s}').format(result))
+                    print "Field_Name (FAILED): "
+                    print field_name
+                    print "************** mdedit new_value"
+                    print json.dumps (new_value, indent=4)
+                    print "**************  old_value"
+                    print json.dumps (old_package.get(field_name, ''), indent=4)
+                print "Field_Name (OK): "
+                print field_name
+                print "************** mdedit new_value"
+                print json.dumps (new_value, indent=4)
+                print "**************  old_value"
+                print json.dumps (old_package.get(field_name, ''), indent=4)
     return data, errors
+
+def _check_new_field(old_list, new_list):
+    # Check if we just have a new field as difference
+    if not isinstance(old_list, list):
+        return False
+    if not isinstance(new_list, list):
+        return False
+
+    for d_new in new_list:
+
+        d_old = _find_dict_in_list(d_new, old_list)
+
+        if d_old != None:
+            if d_old == d_new:
+                return ''
+            #Check the difference
+            diff_dict = { k : d_new[k] for k in set(d_new) - set(d_old) }
+
+            # Allowed are only empty values!
+
+            for k,v in diff_dict.iteritems():
+                if v != '':
+                    return v
+
+            return ''
+
+        else:
+            return d_new
+
+def _find_dict_in_list(specific_dict, dict_list):
+    # specific_dict might have more fields than the
+    # corresponding element in the dict_list itself.
+    # But the rest of the fields should be identical
+
+
+
+    candidate ={}
+
+    for d in dict_list:
+        for kl,vl in d.iteritems():
+            if kl in specific_dict and specific_dict[kl] == vl:
+                candidate = d
+                continue
+            else:
+                candidate = {}
+                break
+
+        if candidate:
+            return candidate
+
+
+    return None
