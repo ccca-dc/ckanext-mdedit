@@ -283,24 +283,28 @@ def _readonly_subset_fields(data, key, new_value, errors, context, field_name):
             parent_ids = [element['id'] for element in relations if element['relation'] == 'is_part_of']
 
             if len(parent_ids) > 0:
-                #Anja, 24.7.18: Check if only a new field was added
-                # This might happen, if we introduce new fields or
-                # the netcdf originally did not have a corresponding value
-                result =_check_new_field(old_package.get(field_name, ''), new_value)
-                if ( result != ''):
-                    errors[key].append(_('Subsets cannot change this field {:s}').format(result))
-                #     print "Field_Name (FAILED): "
-                #     print field_name
-                #     print "************** mdedit new_value"
-                #     print json.dumps (new_value, indent=4)
-                #     print "**************  old_value"
-                #     print json.dumps (old_package.get(field_name, ''), indent=4)
-                # print "Field_Name (OK): "
-                # print field_name
-                # print "************** mdedit new_value"
-                # print json.dumps (new_value, indent=4)
-                # print "**************  old_value"
-                # print json.dumps (old_package.get(field_name, ''), indent=4)
+                #FIXME: Check dicts also
+                if not isinstance(new_value,list):
+                    errors[key].append(_('Subsets cannot change this field {:s}').format(new_value))
+                else:
+                    #Anja, 24.7.18: Check if only a new field was added in specifics
+                    # This might happen, if we introduce new fields or
+                    # the netcdf originally did not have a corresponding value
+                    result =_check_new_field(old_package.get(field_name, ''), new_value)
+                    if ( result != ''):
+                        errors[key].append(_('Subsets cannot change this field {:s}').format(result))
+                    #     print "Field_Name (FAILED): "
+                    #     print field_name
+                    #     print "************** mdedit new_value"
+                    #     print json.dumps (new_value, indent=4)
+                    #     print "**************  old_value"
+                    #     print json.dumps (old_package.get(field_name, ''), indent=4)
+                    # print "Field_Name (OK): "
+                    # print field_name
+                    # print "************** mdedit new_value"
+                    # print json.dumps (new_value, indent=4)
+                    # print "**************  old_value"
+                    # print json.dumps (old_package.get(field_name, ''), indent=4)
     return data, errors
 
 def _check_new_field(old_list, new_list):
@@ -321,7 +325,6 @@ def _check_new_field(old_list, new_list):
             diff_dict = { k : d_new[k] for k in set(d_new) - set(d_old) }
 
             # Allowed are only empty values!
-
             for k,v in diff_dict.iteritems():
                 if v != '':
                     return v
