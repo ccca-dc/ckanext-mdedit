@@ -314,6 +314,13 @@ def _check_new_field(old_list, new_list):
     if not isinstance(new_list, list):
         return False
 
+    #Check if whole item was added or removed
+    if  len(old_list) > len(new_list):
+        return " - Item removed"
+    elif len(new_list) > len(old_list):
+        return " - Item added"
+
+
     for d_new in new_list:
 
         d_old = _find_dict_in_list(d_new, old_list)
