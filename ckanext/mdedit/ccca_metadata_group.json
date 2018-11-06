@@ -42,35 +42,42 @@
       "display_snippet": "select.html",
       "help_text": "Defines which type of group this is",
       "choices": [
-        {
-          "value":  "projects",
-          "label": "Projects"
-        },
-        {
-          "value": "categories",
-          "label": "Categories"
-        },
-        {
-          "value": "parameter",
-          "label": "Parameter"
-        },
-        {
-          "value": "methods",
-          "label": "Methods"
-        },
-        {
-          "value": "data_type",
-          "label": "Data Type"
-        },
-        {
-          "value": "emission_pathways",
-          "label": "Emission Pathways"
-        },
-        {
-          "value": "other",
-          "label": "Other"
-        }
-      ]
+         {
+           "value":  "projects",
+           "label": "Projects",
+           "description": "Projects can be any piece of planned work or activity that is finished over a period of time and intended to achieve a particular purpose. (dictionary.cambridge.org)"
+         },
+         {
+           "value": "categories",
+           "label": "Categories",
+           "description": "These are official concepts in accordance with EN ISO 19115 Topic categories."
+         },
+         {
+           "value": "parameter",
+           "label": "Parameter",
+           "description": " Climate is generally defined as the average state of weather over a period of years at a given location. This includes the mean values and ranges of parameters/variables such as wind, temperature, precipitation, humidity, cloudiness, pressure, visibility and air quality. These parameters/variables are strongly connected to the rest of the natural world, meaning that climate also involves other aspects of the atmosphere, oceans, land surface and ice (the cryosphere). (blogs.ei.columbia.edu)"
+         },
+         {
+           "value": "methods",
+           "label": "Methods",
+           "description": "Climate models use quantitative methods to simulate the interactions of the important drivers of climate, including atmosphere, oceans, land surface and ice. They are used for a variety of purposes from study of the dynamics of the climate system to projections of future climate. (wikipedia.org)"
+         },
+         {
+           "value": "data_type",
+           "label": "Data Type",
+           "description": "Data Type is a concept to distinguish observed measurements and modeled data."
+         },
+         {
+           "value": "emission_pathways",
+           "label": "Emission Pathways",
+           "description": "Emission Pathway is a greenhouse gas concentration (not emissions) trajectory adopted by the IPCC for its fifth Assessment Report (AR5) in 2014. Four pathways have been selected for climate modeling and research, which describe different climate futures, all of which are considered possible depending on how much greenhouse gases are emitted in the years to come. (wikipedia.org)"
+         },
+         {
+           "value": "other",
+           "label": "Other",
+           "description": "Groups of type 'Other' can be anything that is not covered by any other type of group."
+         }
+       ]
     },
     {
       "field_name": "addition_without_group_membership",
