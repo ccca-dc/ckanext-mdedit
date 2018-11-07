@@ -55,12 +55,12 @@
          {
            "value": "parameter",
            "label": "Parameter",
-           "description": " Climate is generally defined as the average state of weather over a period of years at a given location. This includes the mean values and ranges of parameters/variables such as wind, temperature, precipitation, humidity, cloudiness, pressure, visibility and air quality. These parameters/variables are strongly connected to the rest of the natural world, meaning that climate also involves other aspects of the atmosphere, oceans, land surface and ice (the cryosphere). (blogs.ei.columbia.edu)"
+           "description": "This group type includes parameters/variables such as wind, temperature, precipitation, humidity, cloudiness, pressure, visibility and air quality. These parameters/variables are strongly connected to the rest of the natural world. (blogs.ei.columbia.edu)"
          },
          {
            "value": "methods",
            "label": "Methods",
-           "description": "Climate models use quantitative methods to simulate the interactions of the important drivers of climate, including atmosphere, oceans, land surface and ice. They are used for a variety of purposes from study of the dynamics of the climate system to projections of future climate. (wikipedia.org)"
+           "description": "A method describes how the data was generated."
          },
          {
            "value": "data_type",
